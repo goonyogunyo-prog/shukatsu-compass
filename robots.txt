@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://goonyogunyo-prog.github.io/shukatsu-compass/sitemap.xml
