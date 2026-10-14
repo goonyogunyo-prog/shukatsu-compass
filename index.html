@@ -22,7 +22,7 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 </head>
 <body>
 <header><h1>🧭 就活コンパス</h1><p>ES・締切・選考を、ひとつの画面で整理。</p></header>
-<nav aria-label="メインナビ"><a href="#dashboard">ダッシュボード</a><a href="#es-counter">ES</a><a href="#tracker">選考管理</a><a href="#checklist-section">チェック</a><a href="#articles">28卒記事</a><a href="#services">就活サービス</a></nav>
+<nav aria-label="メインナビ"><a href="#dashboard">ダッシュボード</a><a href="#es-counter">ES</a><a href="#tracker">選考管理</a><a href="#checklist-section">チェック</a><a href="#backup-section">バックアップ</a><a href="#articles">28卒記事</a><a href="#services">就活サービス</a></nav>
 <main>
 <div class="hero"><h2>就活を整理する無料ツール</h2><p>登録不要。ESの下書き、選考予定、締切をブラウザ内に保存できます。入力した内容を当サイト独自のサーバーへ送信する機能は設けていません。</p></div>
 
@@ -32,7 +32,7 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <div class="flex"><label>種類<select id="draftType"><option>ガクチカ</option><option>自己PR</option><option>志望動機</option><option>挫折経験</option><option>その他</option></select></label><label>下書き名<input id="draftName" placeholder="例：ガクチカ400字"></label><label>目標文字数<input id="limit" type="number" min="1" value="400"></label><div><div class="stat" id="count">0文字</div><div class="muted" id="remaining">あと400文字</div></div></div>
 <div class="toolbar" aria-label="文字数プリセット"><button class="secondary len" data-len="200">200字</button><button class="secondary len" data-len="300">300字</button><button class="secondary len" data-len="400">400字</button><button class="secondary len" data-len="500">500字</button><button class="secondary len" data-len="600">600字</button></div>
 <textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p id="countDetail" class="muted"></p>
-<div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。</p><div id="drafts" class="saved-list"></div></section>
+<div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div id="drafts" class="saved-list"></div></section>
 
 <section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。</p>
 <form id="jobform"><input type="hidden" id="editingId"><div class="flex"><label>企業名<input id="company" placeholder="企業名" required maxlength="80"></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"></label><label>次回予定<input id="nextDate" type="date"></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"></label><div class="toolbar"><button type="submit" id="jobSubmit">企業を追加</button><button type="button" class="ghost hidden" id="cancelEdit">編集を取消</button></div></form>
@@ -40,6 +40,14 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <div id="jobs" class="job-list"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button id="export" class="secondary">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input id="importCsv" type="file" accept=".csv,text/csv" style="display:none"></span></label></div></section>
 
 <section id="checklist-section"><h2>✅ 就活準備チェックリスト</h2><div id="checklist"></div></section>
+
+<section id="backup-section"><h2>💾 全データのバックアップ・復元</h2>
+<p>ESの下書き・入力中の文章・選考管理・チェックリストを、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
+<div class="toolbar"><button type="button" id="backupAll">全データをバックアップ（JSON）</button>
+<label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">バックアップから復元<input id="restoreAllFile" type="file" accept=".json,application/json" style="display:none"></span></label></div>
+<p class="muted small">復元すると、このブラウザに保存されているES・選考情報・チェック状態がすべて置き換わります。復元前に現在のデータをバックアップしてください。</p>
+<div class="notice"><strong>個人情報に注意：</strong>バックアップファイルには企業名、選考メモ、ES本文などが含まれます。第三者に共有せず、安全な場所に保管してください。ファイルの読み込みはブラウザ内で行われ、当サイト独自のサーバーには送信されません。</div>
+<p id="backupStatus" class="muted" role="status" aria-live="polite"></p></section>
 
 <section id="articles"><h2>🗓 28卒向け 就活記事</h2><p class="muted">現在公開している記事をテーマ別に整理しました。</p><div class="article-grid">
 <a class="article-card" href="28sotsu-shukatsu-itsukara.html"><span class="tag">スケジュール</span><strong>28卒の就活はいつから？</strong><span class="muted">公式日程と2026年秋からの動き方。</span></a>
@@ -65,13 +73,15 @@ const daysUntil=d=>{if(!d)return null;const a=new Date();a.setHours(0,0,0,0);con
 // ES workspace
 const es=$('es'),lim=$('limit');
 function updateCount(){const s=es.value,n=[...s].length,trim=[...s.replace(/\s/g,'')].length,l=Number(lim.value)||0;$('count').textContent=n+'文字';$('remaining').textContent=l?(l>=n?'あと'+(l-n)+'文字':'超過'+(n-l)+'文字'):'目標未設定';$('countDetail').textContent='空白・改行を除く：'+trim+'文字'}
-es.addEventListener('input',()=>{updateCount();localStorage.setItem('sc_es_working',es.value)});lim.addEventListener('input',updateCount);document.querySelectorAll('.len').forEach(b=>b.onclick=()=>{lim.value=b.dataset.len;updateCount()});
-try{es.value=localStorage.getItem('sc_es_working')||''}catch{}updateCount();
+es.addEventListener('input',()=>{updateCount();localStorage.setItem('sc_es_working',es.value)});lim.addEventListener('input',updateCount);document.querySelectorAll('.len').forEach(b=>b.onclick=()=>{lim.value=b.dataset.len;updateCount();saveEsMeta()});
+try{es.value=localStorage.getItem('sc_es_working')||'';const meta=JSON.parse(localStorage.getItem('sc_es_meta')||'{}');if(meta&&typeof meta==='object'){$('draftType').value=meta.type||'ガクチカ';$('draftName').value=meta.name||'';lim.value=Number(meta.limit)>0?meta.limit:400}}catch{}updateCount();
+function saveEsMeta(){try{localStorage.setItem('sc_es_meta',JSON.stringify({type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400}))}catch{}}
+['draftType','draftName','limit'].forEach(id=>$(id).addEventListener('input',saveEsMeta));
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText(es.value);alert('コピーしました')}catch{es.select();alert('文章を選択しました。手動でコピーしてください')}};
 $('clear').onclick=()=>{if(es.value&&!confirm('入力欄をクリアしますか？'))return;es.value='';localStorage.removeItem('sc_es_working');updateCount()};
 let drafts=[];try{drafts=JSON.parse(localStorage.getItem('sc_drafts')||'[]')}catch{}
 function saveDrafts(){localStorage.setItem('sc_drafts',JSON.stringify(drafts))}
-function renderDrafts(){const root=$('drafts');root.replaceChildren();if(!drafts.length){root.innerHTML='<p class="muted">保存した下書きはまだありません。</p>';return}drafts.slice().sort((a,b)=>b.updated-a.updated).forEach(d=>{const card=document.createElement('div');card.className='saved-card';card.innerHTML='<div class="saved-card-head"><div><span class="pill">'+esc(d.type)+'</span><strong>'+esc(d.name||'無題')+'</strong><div class="muted small">'+[...d.text].length+'文字</div></div></div><div class="actions"></div>';const a=card.querySelector('.actions');const load=document.createElement('button');load.className='secondary';load.textContent='読み込む';load.onclick=()=>{es.value=d.text;$('draftType').value=d.type;$('draftName').value=d.name;lim.value=d.limit||400;localStorage.setItem('sc_es_working',d.text);updateCount();location.hash='es-counter'};const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm('この下書きを削除しますか？')){drafts=drafts.filter(x=>x.id!==d.id);saveDrafts();renderDrafts()}};a.append(load,del);root.append(card)})}
+function renderDrafts(){const root=$('drafts');root.replaceChildren();if(!drafts.length){root.innerHTML='<p class="muted">保存した下書きはまだありません。</p>';return}drafts.slice().sort((a,b)=>b.updated-a.updated).forEach(d=>{const card=document.createElement('div');card.className='saved-card';card.innerHTML='<div class="saved-card-head"><div><span class="pill">'+esc(d.type)+'</span><strong>'+esc(d.name||'無題')+'</strong><div class="muted small">'+[...d.text].length+'文字</div></div></div><div class="actions"></div>';const a=card.querySelector('.actions');const load=document.createElement('button');load.className='secondary';load.textContent='読み込む';load.onclick=()=>{es.value=d.text;$('draftType').value=d.type;$('draftName').value=d.name;lim.value=d.limit||400;localStorage.setItem('sc_es_working',d.text);saveEsMeta();updateCount();location.hash='es-counter'};const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm('この下書きを削除しますか？')){drafts=drafts.filter(x=>x.id!==d.id);saveDrafts();renderDrafts()}};a.append(load,del);root.append(card)})}
 $('saveDraft').onclick=()=>{const text=es.value.trim();if(!text){alert('文章を入力してください');return}const name=$('draftName').value.trim()||$('draftType').value+' '+[...text].length+'字';drafts.push({id:Date.now()+Math.random(),type:$('draftType').value,name,text:es.value,limit:Number(lim.value)||400,updated:Date.now()});saveDrafts();renderDrafts();alert('下書きを保存しました')};renderDrafts();
 
 // Job tracker
@@ -83,14 +93,53 @@ function renderJobs(){const root=$('jobs');root.replaceChildren();const arr=filt
 function resetJobForm(){$('jobform').reset();$('editingId').value='';$('jobSubmit').textContent='企業を追加';$('cancelEdit').classList.add('hidden')}
 $('jobform').onsubmit=e=>{e.preventDefault();const name=$('company').value.trim();if(!name)return;const editId=$('editingId').value;const data={name,stage:$('stage').value,deadline:$('deadline').value,nextDate:$('nextDate').value,memo:$('jobMemo').value.trim()};if(editId){jobs=jobs.map(j=>String(j.id)===editId?{...normalize(j),...data}:j)}else{jobs.push({id:Date.now()+Math.random(),created:Date.now(),...data})}saveJobs();resetJobForm()};
 $('cancelEdit').onclick=resetJobForm;['jobSearch','stageFilter','jobSort'].forEach(id=>$(id).addEventListener(id==='jobSearch'?'input':'change',renderJobs));
-function renderDashboard(){const norm=jobs.map(normalize),active=norm.filter(j=>j.stage!=='終了');$('mTotal').textContent=active.length;$('mInterview').textContent=norm.filter(j=>j.stage==='面接').length;$('mOffer').textContent=norm.filter(j=>j.stage==='内定').length;const soon=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0&&d<=7});$('mSoon').textContent=soon.length;const future=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0}).sort((a,b)=>a.deadline.localeCompare(b.deadline));$('nextDeadline').textContent=future.length?'次の締切：'+future[0].name+'　'+fmt(future[0].deadline)+'（あと'+daysUntil(future[0].deadline)+'日）':'次の締切はまだ登録されていません。'}
+function renderDashboard(){const norm=jobs.map(normalize),active=norm.filter(j=>j.stage!=='終了'&&j.stage!=='内定');$('mTotal').textContent=norm.length;$('mInterview').textContent=norm.filter(j=>j.stage==='面接').length;$('mOffer').textContent=norm.filter(j=>j.stage==='内定').length;const soon=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0&&d<=7});$('mSoon').textContent=soon.length;const future=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0}).sort((a,b)=>a.deadline.localeCompare(b.deadline));$('nextDeadline').textContent=future.length?'次の締切：'+future[0].name+'　'+fmt(future[0].deadline)+'（あと'+daysUntil(future[0].deadline)+'日）':'次の締切はまだ登録されていません。'}
 $('export').onclick=()=>{const rows=[['企業名','選考段階','締切','次回予定','メモ'],...jobs.map(j=>{j=normalize(j);return[j.name,j.stage,j.deadline,j.nextDate,j.memo]})],csv='﻿'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='就活選考管理.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
 function parseCsv(text){const rows=[];let row=[],field='',q=false;for(let i=0;i<text.length;i++){const c=text[i];if(q){if(c==='"'&&text[i+1]==='"'){field+='"';i++}else if(c==='"')q=false;else field+=c}else{if(c==='"')q=true;else if(c===','){row.push(field);field=''}else if(c==='\n'){row.push(field.replace(/\r$/,''));rows.push(row);row=[];field=''}else field+=c}}if(field||row.length){row.push(field);rows.push(row)}return rows}
 $('importCsv').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const text=(await f.text()).replace(/^﻿/,'');const rows=parseCsv(text);if(rows.length<2)throw new Error();const imported=rows.slice(1).filter(r=>r[0]).map(r=>({id:Date.now()+Math.random(),created:Date.now(),name:r[0]||'',stage:r[1]||'検討中',deadline:r[2]||'',nextDate:r[3]||'',memo:r[4]||''}));if(!imported.length)throw new Error();if(confirm(imported.length+'件を追加で読み込みますか？')){jobs=jobs.concat(imported);saveJobs()}}catch{alert('CSVを読み込めませんでした。就活コンパスから出力したCSVを使用してください')}e.target.value=''};
 renderJobs();renderDashboard();
 
 // Checklist
-const checks=['自己分析のエピソードを3つ整理する','ESの基本文章を用意する','応募先の締切を確認する','Webテストの形式を調べる','面接で話す志望理由を整理する','企業公式サイトで募集条件を確認する'];let state={};try{state=JSON.parse(localStorage.getItem('sc_checks')||'{}')}catch{}checks.forEach((v,i)=>{const label=document.createElement('label');label.className='saved-card';label.style.display='flex';label.style.gap='10px';label.style.alignItems='center';const input=document.createElement('input');input.type='checkbox';input.style.width='auto';input.checked=!!state[i];const span=document.createElement('span');span.textContent=v;if(input.checked)span.style.textDecoration='line-through';input.onchange=()=>{state[i]=input.checked;localStorage.setItem('sc_checks',JSON.stringify(state));span.style.textDecoration=input.checked?'line-through':''};label.append(input,span);$('checklist').append(label)});
+const checks=['自己分析のエピソードを3つ整理する','ESの基本文章を用意する','応募先の締切を確認する','Webテストの形式を調べる','面接で話す志望理由を整理する','企業公式サイトで募集条件を確認する'];let state={};try{state=JSON.parse(localStorage.getItem('sc_checks')||'{}')}catch{}
+function renderChecklist(){const root=$('checklist');root.replaceChildren();checks.forEach((v,i)=>{const label=document.createElement('label');label.className='saved-card';label.style.display='flex';label.style.gap='10px';label.style.alignItems='center';const input=document.createElement('input');input.type='checkbox';input.style.width='auto';input.checked=!!state[i];const span=document.createElement('span');span.textContent=v;if(input.checked)span.style.textDecoration='line-through';input.onchange=()=>{state[i]=input.checked;localStorage.setItem('sc_checks',JSON.stringify(state));span.style.textDecoration=input.checked?'line-through':''};label.append(input,span);root.append(label)})}
+renderChecklist();
+
+// Full local backup and restore. No network requests are made.
+const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta'];
+function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400}}}}
+function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
+$('backupAll').onclick=()=>{try{const stamp=new Date().toLocaleDateString('sv-SE');downloadJson(backupPayload(),'shukatsu-compass-backup-'+stamp+'.json');$('backupStatus').textContent='バックアップファイルを保存しました。ES本文や企業情報を含むため安全に保管してください。'}catch(e){$('backupStatus').textContent='バックアップに失敗しました。ブラウザのダウンロード設定を確認してください。'}};
+function validateBackup(v){
+  if(!v||v.format!=='shukatsu-compass-backup'||v.version!==1||!v.data||typeof v.data!=='object')throw new Error('就活コンパスのバックアップ形式ではありません。');
+  const d=v.data,stages=['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'];
+  if(!Array.isArray(d.jobs)||!Array.isArray(d.drafts)||!d.checks||typeof d.checks!=='object'||Array.isArray(d.checks)||typeof d.esWorking!=='string'||!d.esMeta||typeof d.esMeta!=='object')throw new Error('データ形式が正しくありません。');
+  if(d.jobs.length>10000||d.drafts.length>10000||d.esWorking.length>1000000)throw new Error('データの件数またはサイズが大きすぎます。');
+  const isDate=x=>x===''||typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x);
+  const validId=x=>typeof x==='string'||typeof x==='number';
+  const validJob=j=>j&&typeof j==='object'&&validId(j.id)&&typeof j.name==='string'&&j.name.length<=500&&stages.includes(j.stage)&&isDate(j.deadline||'')&&isDate(j.nextDate||'')&&typeof(j.memo||'')==='string'&&String(j.memo||'').length<=100000;
+  const validDraft=x=>x&&typeof x==='object'&&validId(x.id)&&typeof x.text==='string'&&x.text.length<=1000000&&typeof(x.name||'')==='string'&&typeof(x.type||'')==='string'&&Number.isFinite(Number(x.limit||400));
+  if(!d.jobs.every(validJob)||!d.drafts.every(validDraft))throw new Error('企業情報またはES下書きの形式が正しくありません。');
+  if(typeof(d.esMeta.name||'')!=='string'||typeof(d.esMeta.type||'')!=='string'||!Number.isFinite(Number(d.esMeta.limit||400)))throw new Error('ES入力欄の設定が正しくありません。');
+  if(Object.values(d.checks).some(x=>typeof x!=='boolean'))throw new Error('チェックリストの形式が正しくありません。');
+  return d;
+}
+$('restoreAllFile').onchange=async e=>{
+  const f=e.target.files&&e.target.files[0];if(!f)return;
+  try{
+    if(f.size>10*1024*1024)throw new Error('10MBを超えるファイルは読み込めません。');
+    const d=validateBackup(JSON.parse((await f.text()).replace(/^\uFEFF/,'')));
+    if(!confirm('バックアップ内の企業'+d.jobs.length+'件・ES下書き'+d.drafts.length+'件を復元します。\n現在の保存データはすべて上書きされます。続けますか？')){$('backupStatus').textContent='復元をキャンセルしました。';return}
+    const previous=Object.fromEntries(BACKUP_KEYS.map(k=>[k,localStorage.getItem(k)]));
+    const next={sc_jobs:JSON.stringify(d.jobs),sc_drafts:JSON.stringify(d.drafts),sc_checks:JSON.stringify(d.checks),sc_es_working:d.esWorking,sc_es_meta:JSON.stringify(d.esMeta)};
+    try{BACKUP_KEYS.forEach(k=>localStorage.setItem(k,next[k]))}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
+    jobs=d.jobs;drafts=d.drafts;state=d.checks;es.value=d.esWorking;
+    $('draftType').value=d.esMeta.type||'ガクチカ';$('draftName').value=d.esMeta.name||'';lim.value=Number(d.esMeta.limit)>0?d.esMeta.limit:400;
+    updateCount();renderDrafts();renderJobs();renderDashboard();renderChecklist();resetJobForm();
+    $('backupStatus').textContent='復元が完了しました。企業'+jobs.length+'件・ES下書き'+drafts.length+'件を読み込みました。';
+  }catch(err){$('backupStatus').textContent='復元できませんでした：'+(err&&err.message?err.message:'ファイルを確認してください。')}
+  finally{e.target.value=''}
+};
+
 $('year').textContent=new Date().getFullYear();
 </script>
 </body></html>
