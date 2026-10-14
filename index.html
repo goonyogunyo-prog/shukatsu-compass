@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="就活コンパス：ES文字数カウント、ES下書き保存、選考進捗管理、就活準備チェックリストを無料で使える就活サポートサイト。">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="就活コンパス：ES文字数カウント、ES下書き保存、選考進捗管理、就活準備チェックリストを無料で使える就活サポートサイト。" name="description"/>
 <title>就活コンパス | 無料の就活管理ツール</title>
 <style>
 :root{font-family:system-ui,-apple-system,'Noto Sans JP',sans-serif;color:#17243a;background:#f6f8fc;--navy:#142b51;--blue:#2159b6;--line:#e3e8f0;--muted:#5b6b82;--soft:#f8fbff}
@@ -19,36 +20,30 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 .notice{background:#f8fbff;border:1px solid #dbe4ec;border-radius:12px;padding:15px}.hidden{display:none!important}footer{padding:30px;text-align:center;color:#68778d;font-size:13px}
 @media(max-width:760px){.grid4{grid-template-columns:1fr 1fr}.article-grid{grid-template-columns:1fr}.flex{display:block}.flex>*{margin-bottom:9px}.saved-card-head,.job-card-head{display:block}.actions{margin-top:10px}section{padding:18px}nav{padding-left:10px}.hero{padding:20px}}
 </style>
-</head>
+<style>.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.cal-head{text-align:center;font-size:.8rem;font-weight:700;padding:7px 0;color:#46566d}.cal-day{min-height:90px;border:1px solid #dbe3ee;border-radius:9px;padding:6px;background:#fff;min-width:0}.cal-day.outside{background:#f4f6fa;opacity:.5}.cal-day.today{outline:2px solid #3478d4}.cal-num{font-weight:700;font-size:.82rem}.cal-event{font-size:.72rem;line-height:1.35;padding:4px 5px;margin-top:4px;background:#e8f1ff;border-radius:5px;overflow-wrap:anywhere;color:#14345d}.cal-event.deadline{background:#fff0d9;color:#694006}.cal-event small{display:block;opacity:.8}@media(max-width:600px){.cal-grid{gap:2px}.cal-day{min-height:77px;padding:3px;border-radius:5px}.cal-event{font-size:.63rem;padding:3px}.cal-num{font-size:.72rem}}</style></head>
 <body>
 <header><h1>🧭 就活コンパス</h1><p>ES・締切・選考を、ひとつの画面で整理。</p></header>
-<nav aria-label="メインナビ"><a href="#dashboard">ダッシュボード</a><a href="#es-counter">ES</a><a href="#tracker">選考管理</a><a href="#checklist-section">チェック</a><a href="#backup-section">バックアップ</a><a href="#articles">28卒記事</a><a href="#services">就活サービス</a></nav>
+<nav aria-label="メインナビ"><a href="#dashboard">ダッシュボード</a><a href="#es-counter">ES</a><a href="#tracker">選考管理</a><a href="#calendar">就活カレンダー</a><a href="#checklist-section">チェック</a><a href="#backup-section">バックアップ</a><a href="#articles">28卒記事</a><a href="#services">就活サービス</a></nav>
 <main>
 <div class="hero"><h2>就活を整理する無料ツール</h2><p>登録不要。ESの下書き、選考予定、締切をブラウザ内に保存できます。入力した内容を当サイト独自のサーバーへ送信する機能は設けていません。</p></div>
-
-<section id="dashboard"><h2>📊 就活ダッシュボード</h2><p class="muted">選考トラッカーの登録内容から自動集計します。</p><div class="grid4"><div class="metric"><b id="mTotal">0</b><span>登録企業</span></div><div class="metric"><b id="mSoon">0</b><span>7日以内の締切</span></div><div class="metric"><b id="mInterview">0</b><span>面接中</span></div><div class="metric"><b id="mOffer">0</b><span>内定</span></div></div><div id="nextDeadline" class="notice muted">次の締切はまだ登録されていません。</div></section>
-
+<section id="dashboard"><h2>📊 就活ダッシュボード</h2><p class="muted">選考トラッカーの登録内容から自動集計します。</p><div class="grid4"><div class="metric"><b id="mTotal">0</b><span>登録企業</span></div><div class="metric"><b id="mSoon">0</b><span>7日以内の締切</span></div><div class="metric"><b id="mInterview">0</b><span>面接中</span></div><div class="metric"><b id="mOffer">0</b><span>内定</span></div></div><div class="notice muted" id="nextDeadline">次の締切はまだ登録されていません。</div></section>
 <section id="es-counter"><h2>✍️ ESワークスペース</h2><p class="muted">文字数を確認しながら下書きを保存できます。ガクチカ・自己PR・志望動機などを分けて管理できます。</p>
-<div class="flex"><label>種類<select id="draftType"><option>ガクチカ</option><option>自己PR</option><option>志望動機</option><option>挫折経験</option><option>その他</option></select></label><label>下書き名<input id="draftName" placeholder="例：ガクチカ400字"></label><label>目標文字数<input id="limit" type="number" min="1" value="400"></label><div><div class="stat" id="count">0文字</div><div class="muted" id="remaining">あと400文字</div></div></div>
-<div class="toolbar" aria-label="文字数プリセット"><button class="secondary len" data-len="200">200字</button><button class="secondary len" data-len="300">300字</button><button class="secondary len" data-len="400">400字</button><button class="secondary len" data-len="500">500字</button><button class="secondary len" data-len="600">600字</button></div>
-<textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p id="countDetail" class="muted"></p>
-<div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div id="drafts" class="saved-list"></div></section>
-
-<section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。</p>
-<form id="jobform"><input type="hidden" id="editingId"><div class="flex"><label>企業名<input id="company" placeholder="企業名" required maxlength="80"></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"></label><label>次回予定<input id="nextDate" type="date"></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"></label><div class="toolbar"><button type="submit" id="jobSubmit">企業を追加</button><button type="button" class="ghost hidden" id="cancelEdit">編集を取消</button></div></form>
-<div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label></div>
-<div id="jobs" class="job-list"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button id="export" class="secondary">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input id="importCsv" type="file" accept=".csv,text/csv" style="display:none"></span></label></div></section>
-
+<div class="flex"><label>種類<select id="draftType"><option>ガクチカ</option><option>自己PR</option><option>志望動機</option><option>挫折経験</option><option>その他</option></select></label><label>下書き名<input id="draftName" placeholder="例：ガクチカ400字"/></label><label>目標文字数<input id="limit" min="1" type="number" value="400"/></label><div><div class="stat" id="count">0文字</div><div class="muted" id="remaining">あと400文字</div></div></div>
+<div aria-label="文字数プリセット" class="toolbar"><button class="secondary len" data-len="200">200字</button><button class="secondary len" data-len="300">300字</button><button class="secondary len" data-len="400">400字</button><button class="secondary len" data-len="500">500字</button><button class="secondary len" data-len="600">600字</button></div>
+<textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p class="muted" id="countDetail"></p>
+<div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div class="saved-list" id="drafts"></div></section>
+<section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。</p>
+<form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form>
+<div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"/></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label></div>
+<div class="job-list" id="jobs"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
 <section id="checklist-section"><h2>✅ 就活準備チェックリスト</h2><div id="checklist"></div></section>
-
 <section id="backup-section"><h2>💾 全データのバックアップ・復元</h2>
 <p>ESの下書き・入力中の文章・選考管理・チェックリストを、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
-<div class="toolbar"><button type="button" id="backupAll">全データをバックアップ（JSON）</button>
-<label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">バックアップから復元<input id="restoreAllFile" type="file" accept=".json,application/json" style="display:none"></span></label></div>
+<div class="toolbar"><button id="backupAll" type="button">全データをバックアップ（JSON）</button>
+<label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">バックアップから復元<input accept=".json,application/json" id="restoreAllFile" style="display:none" type="file"/></span></label></div>
 <p class="muted small">復元すると、このブラウザに保存されているES・選考情報・チェック状態がすべて置き換わります。復元前に現在のデータをバックアップしてください。</p>
 <div class="notice"><strong>個人情報に注意：</strong>バックアップファイルには企業名、選考メモ、ES本文などが含まれます。第三者に共有せず、安全な場所に保管してください。ファイルの読み込みはブラウザ内で行われ、当サイト独自のサーバーには送信されません。</div>
-<p id="backupStatus" class="muted" role="status" aria-live="polite"></p></section>
-
+<p aria-live="polite" class="muted" id="backupStatus" role="status"></p></section>
 <section id="articles"><h2>🗓 28卒向け 就活記事</h2><p class="muted">現在公開している記事をテーマ別に整理しました。</p><div class="article-grid">
 <a class="article-card" href="28sotsu-shukatsu-itsukara.html"><span class="tag">スケジュール</span><strong>28卒の就活はいつから？</strong><span class="muted">公式日程と2026年秋からの動き方。</span></a>
 <a class="article-card" href="28sotsu-nanimo-shitenai.html"><span class="tag">立て直し</span><strong>28卒で就活を何もしてない？</strong><span class="muted">最初の7日間でやることを具体化。</span></a>
@@ -56,11 +51,9 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <a class="article-card" href="28sotsu-webtest-taisaku.html"><span class="tag">Webテスト</span><strong>28卒のWebテスト対策</strong><span class="muted">SPI・玉手箱・TG-WEBの進め方。</span></a>
 <a class="article-card" href="28sotsu-shukatsu-agent-itsukara.html"><span class="tag">サービス</span><strong>就活エージェントはいつから使う？</strong><span class="muted">向いている人・使い方・注意点。</span></a>
 </div></section>
-
 <section id="services"><h2>🔎 おすすめ就活サービス</h2><p class="muted">以下にはアフィリエイト広告が含まれます。リンク経由で登録すると、当サイトに報酬が発生する場合があります。</p>
 <section aria-label="就活サービスの紹介" style="max-width:680px;margin:24px auto;padding:20px;border:1px solid #dbe4ec;border-radius:16px;background:#f8fbff;color:#1e293b;box-sizing:border-box;box-shadow:none">
-<span style="display:inline-block;font-size:12px;font-weight:700;color:#475569;border:1px solid #cbd5e1;padding:3px 8px;border-radius:6px">PR・広告</span><h2 style="font-size:20px;margin:14px 0 8px">ES・面接対策に、先輩の選考体験を参考に</h2><p style="font-size:15px;line-height:1.8;margin:0 0 16px">就活会議では、企業の口コミや内定者のES・面接情報を調べられます。応募企業の研究や選考準備に活用してみましょう。</p><div style="margin:0 0 10px"><a href="https://px.a8.net/svt/ejp?a8mat=459SB7+E8M9EI+3Y9Y+ZSD6A" rel="nofollow sponsored" style="display:block;text-align:center;background:#1769aa;color:#fff;text-decoration:none;font-size:15px;font-weight:700;padding:14px 12px;border-radius:10px">内定者のES・面接情報で選考対策ができる「就活会議」</a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=459SB7+E8M9EI+3Y9Y+ZSD6A" alt=""></div><p style="font-size:12px;color:#64748b;margin:0">※外部サイトに移動します。掲載内容は利用前に公式サイトでご確認ください。</p></section></section>
-
+<span style="display:inline-block;font-size:12px;font-weight:700;color:#475569;border:1px solid #cbd5e1;padding:3px 8px;border-radius:6px">PR・広告</span><h2 style="font-size:20px;margin:14px 0 8px">ES・面接対策に、先輩の選考体験を参考に</h2><p style="font-size:15px;line-height:1.8;margin:0 0 16px">就活会議では、企業の口コミや内定者のES・面接情報を調べられます。応募企業の研究や選考準備に活用してみましょう。</p><div style="margin:0 0 10px"><a href="https://px.a8.net/svt/ejp?a8mat=459SB7+E8M9EI+3Y9Y+ZSD6A" rel="nofollow sponsored" style="display:block;text-align:center;background:#1769aa;color:#fff;text-decoration:none;font-size:15px;font-weight:700;padding:14px 12px;border-radius:10px">内定者のES・面接情報で選考対策ができる「就活会議」</a><img alt="" border="0" height="1" src="https://www10.a8.net/0.gif?a8mat=459SB7+E8M9EI+3Y9Y+ZSD6A" width="1"/></div><p style="font-size:12px;color:#64748b;margin:0">※外部サイトに移動します。掲載内容は利用前に公式サイトでご確認ください。</p></section></section>
 <section><h2>運営情報・プライバシー</h2><p>このサイトは個人運営の就活支援ツールです。ツールに入力したES・企業情報・チェック状況はブラウザのローカルストレージに保存され、当サイト独自のサーバーへ送信する機能は設けていません。詳しくは<a href="about.html">運営情報</a>・<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p><p class="muted small">掲載情報は一般的な参考情報であり、選考結果や内定を保証しません。</p></section>
 </main>
 <footer>© <span id="year"></span> 就活コンパス ｜ <a href="about.html">運営情報</a> ｜ <a href="privacy.html">プライバシー</a></footer>
@@ -142,4 +135,18 @@ $('restoreAllFile').onchange=async e=>{
 
 $('year').textContent=new Date().getFullYear();
 </script>
-</body></html>
+<script>(()=>{
+'use strict';
+const $c=id=>document.getElementById(id), grid=$c('calGrid'); if(!grid)return;
+let view=new Date();view=new Date(view.getFullYear(),view.getMonth(),1);
+const pad=n=>String(n).padStart(2,'0');
+const dateKey=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+function entries(){let data=[];try{data=JSON.parse(localStorage.getItem('sc_jobs')||'[]')}catch{}if(!Array.isArray(data))return [];
+return data.flatMap(j=>{if(!j||typeof j!=='object')return [];const name=String(j.name||'企業名未設定').slice(0,100);let a=[];for(const [key,label] of [['deadline','ES・応募締切'],['nextDate','次回予定']]){const d=String(j[key]||'');if(/^\d{4}-\d{2}-\d{2}$/.test(d)&&!Number.isNaN(new Date(d+'T00:00:00').getTime()))a.push({date:d,title:name,label,stage:String(j.stage||'')})}return a})}
+function render(){const all=entries();$c('calMonth').textContent=view.getFullYear()+'年'+(view.getMonth()+1)+'月';grid.replaceChildren();for(const w of ['日','月','火','水','木','金','土']){let e=document.createElement('div');e.className='cal-head';e.textContent=w;grid.append(e)}const first=new Date(view.getFullYear(),view.getMonth(),1),offset=first.getDay(),today=dateKey(new Date());let count=0;
+for(let i=0;i<42;i++){const d=new Date(view.getFullYear(),view.getMonth(),i-offset+1),key=dateKey(d),cell=document.createElement('div');cell.className='cal-day'+(d.getMonth()!==view.getMonth()?' outside':'')+(key===today?' today':'');cell.setAttribute('role','gridcell');let n=document.createElement('div');n.className='cal-num';n.textContent=d.getDate();cell.append(n);for(const item of all.filter(x=>x.date===key)){if(d.getMonth()===view.getMonth())count++;let e=document.createElement('div');e.className='cal-event'+(item.label==='ES・応募締切'?' deadline':'');e.textContent=item.title;let small=document.createElement('small');small.textContent=item.label;e.append(small);e.title=item.title+'／'+item.label;cell.append(e)}grid.append(cell)}$c('calEmpty').textContent=count?'今月の予定：'+count+'件':'今月の登録予定はありません。選考管理から締切・次回予定を登録してください。'}
+function esc(s){return String(s).replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;')}
+$c('calPrev').onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);render()};$c('calNext').onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);render()};$c('calToday').onclick=()=>{view=new Date(new Date().getFullYear(),new Date().getMonth(),1);render()};
+$c('calExport').onclick=()=>{const a=entries();if(!a.length){alert('選考管理に締切または次回予定を登録してください。');return}const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');let lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Calendar Export//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH'];a.forEach((x,i)=>{const d=x.date.replace(/-/g,''),end=new Date(x.date+'T12:00:00');end.setDate(end.getDate()+1);lines.push('BEGIN:VEVENT','UID:sc-'+d+'-'+i+'@shukatsu-compass','DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+d,'DTEND;VALUE=DATE:'+dateKey(end).replace(/-/g,''),'SUMMARY:'+esc(x.label+'：'+x.title),'DESCRIPTION:'+esc('選考段階：'+x.stage),'END:VEVENT')});lines.push('END:VCALENDAR');const blob=new Blob([lines.join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='shukatsu-calendar.ics';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+const jobs=$c('jobs');if(jobs)new MutationObserver(()=>render()).observe(jobs,{childList:true,subtree:true});window.addEventListener('storage',e=>{if(e.key==='sc_jobs')render()});render();
+})();</script></body></html>
