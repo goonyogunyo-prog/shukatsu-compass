@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>28卒 Webテスト間違いノート｜弱点を記録・復習管理｜就活コンパス</title>
+<meta name="description" content="28卒向け無料Webテスト間違いノート。SPI・TG-WEBなどの対策で間違えた分野、原因、次の復習日を記録。復習タイミングを自動提案し、JSONバックアップ・CSV出力にも対応。">
+<link rel="canonical" href="https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-webtest-machigai-note.html">
+<style>
+:root{font-family:system-ui,-apple-system,'Noto Sans JP',sans-serif;color:#17243a;background:#f6f8fc;--navy:#142b51;--blue:#2159b6;--line:#dce5f0;--muted:#56657a}
+*{box-sizing:border-box}body{margin:0}header{background:var(--navy);color:#fff;padding:18px max(18px,calc((100vw - 1000px)/2))}header a{color:#e8f0ff;text-decoration:none}header strong{font-size:22px}main{max-width:1000px;margin:auto;padding:24px 18px 60px}h1{font-size:clamp(25px,4vw,36px);line-height:1.35}h2{font-size:22px;margin:0 0 12px}h3{margin:0 0 8px}p,li{line-height:1.75}a{color:#2159b6}.lead{color:#44546b}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 2px 10px #1b3c6b0a}.badge{display:inline-block;background:#e9f1ff;color:#174077;font-weight:700;padding:5px 10px;border-radius:999px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.stat{background:#eef4ff;padding:15px;border-radius:12px}.stat b{display:block;font-size:28px;color:#194a9e}.stat span{font-size:13px;color:#42546d}label{display:block;font-weight:700;font-size:14px}input,textarea,select{width:100%;padding:11px;margin-top:5px;border:1px solid #bdcbe0;border-radius:9px;font:inherit;background:#fff;color:#17243a}textarea{min-height:90px;resize:vertical}button{font:inherit;cursor:pointer;background:#2159b6;color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:700}button.secondary{background:#e8f0fb;color:#1b477e}button.danger{background:#fff1f1;color:#942c2c}.buttons{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:15px}.muted{color:var(--muted);font-size:14px}.note{background:#fff9e8;border-left:4px solid #dfae45;padding:12px 15px;border-radius:8px}.entry{border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:12px}.entry h3{font-size:17px}.entry p{margin:5px 0;overflow-wrap:anywhere}.entry .tag{font-size:12px;background:#eef4ff;padding:3px 8px;border-radius:999px;margin-right:6px;display:inline-block}.due{color:#ad391d;font-weight:700}.done{color:#216c45;font-weight:700}.filterrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sr{position:absolute;left:-9999px}footer{text-align:center;color:#526277;padding:25px}footer a{margin:0 8px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #f5ae35;outline-offset:2px}@media(max-width:620px){.grid,.filterrow{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.stat{padding:10px}.stat b{font-size:23px}.card{padding:17px}.buttons button{flex:1 1 110px}}
+@media print{header,.buttons,#entryForm,#importArea,#filters{display:none!important}body{background:#fff}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<header><a href="./"><strong>🧭 就活コンパス</strong>｜無料の就活管理ツールへ戻る</a></header>
+<main>
+<p><span class="badge">28卒向け・無料・登録不要</span></p>
+<h1>Webテスト間違いノート<br>復習する日まで管理できる</h1>
+<p class="lead">問題集や模試で間違えた「分野・原因・次の対策」を残すためのノートです。間違えた問題の丸暗記ではなく、<strong>どこで考え方を間違えたか</strong>を見える化しましょう。</p>
+<div class="card" aria-label="学習状況"><div class="stats"><div class="stat"><b id="total">0</b><span>登録した弱点</span></div><div class="stat"><b id="due">0</b><span>今日までに復習</span></div><div class="stat"><b id="mastered">0</b><span>復習完了</span></div></div><p class="muted">保存先はこの端末のブラウザ内です。別端末への移行やデータ消失対策には下のJSONバックアップを使ってください。</p></div>
+<section class="card" id="entryForm"><h2>① 間違えたポイントを記録</h2>
+<form id="form">
+<input id="editId" type="hidden">
+<div class="grid"><label>出題形式・対策名<select id="exam" required><option>SPI対策</option><option>TG-WEB対策</option><option>玉手箱対策</option><option>その他のWebテスト</option><option>形式未確認</option></select></label>
+<label>分野<select id="topic" required><option>非言語：推論</option><option>非言語：割合・損益</option><option>非言語：速度・仕事</option><option>非言語：表・グラフ</option><option>言語：語彙・言葉</option><option>言語：長文読解</option><option>英語</option><option>性格検査（受検環境など）</option><option>その他</option></select></label></div>
+<div class="grid"><label>つまずいた内容（必須・200文字まで）<textarea id="problem" maxlength="200" placeholder="例：割合の基準となる数を取り違えた" required></textarea></label>
+<label>間違えた原因<select id="cause"><option>解法を知らなかった</option><option>条件を読み落とした</option><option>計算ミス</option><option>時間配分に失敗</option><option>知識・語彙が不足</option><option>その他</option></select></label></div>
+<label>次回の対策（200文字まで）<textarea id="action" maxlength="200" placeholder="例：割合の基本例題を3問解き、基準量を毎回書く"></textarea></label>
+<div class="grid"><label>次回の復習日<input id="nextDate" type="date" required></label><label>メモ（任意・120文字まで）<input id="memo" maxlength="120" placeholder="参考書のページなど"></label></div>
+<div class="buttons"><button type="submit" id="save">弱点を保存</button><button type="button" class="secondary" id="resetBtn">入力をリセット</button></div><p class="muted" role="status" aria-live="polite" id="formStatus"></p></form>
+</section>
+<section class="card"><h2>② 復習する</h2><p>「復習できた」を押すと、次の復習日を<strong>3日後 → 7日後</strong>の目安で提案します。3回目の復習で「完了」に移します。もう一度つまずいた場合は「再学習」で翌日に戻せます。間隔は学習管理用の目安で、合格を保証するものではありません。</p>
+<div id="filters" class="filterrow"><label>キーワードで検索<input id="search" type="search" placeholder="分野・原因・メモなど"></label><label>表示<select id="filter"><option value="all">すべて</option><option value="due">復習期限が来たもの</option><option value="upcoming">これから復習</option><option value="done">復習完了</option></select></label></div>
+<div id="entries" aria-live="polite"></div>
+</section>
+<section class="card" id="importArea"><h2>③ データを保存・持ち運ぶ</h2><p class="muted">CSVは一覧確認用、JSONはこのツールに復元できるバックアップ用です。個人情報や実際の試験問題をそのまま入力・公開しないでください。</p>
+<div class="buttons"><button type="button" class="secondary" id="csv">CSVを書き出す</button><button type="button" class="secondary" id="json">JSONバックアップ</button><label style="font-weight:400">JSONを復元<input type="file" id="import" accept="application/json,.json"></label></div><p class="muted" role="status" aria-live="polite" id="importStatus"></p>
+</section>
+<section class="card"><h2>Webテストの復習を続ける3つのコツ</h2>
+<ol><li><strong>問題そのものより「間違えた原因」を書く。</strong>解法を知らないのか、計算ミスなのかで次の対策は変わります。</li><li><strong>短い時間でも同じ分野を反復する。</strong>1日にすべての形式を広く触るより、弱点分野を小分けにして復習する方法も有効です。</li><li><strong>応募先の受検形式は案内で確認する。</strong>企業・年度・職種によって受検方式が異なるため、形式が不明なまま一つに決め打ちしないようにしましょう。</li></ol>
+<p>最初に全体像を整理したい人は<a href="28sotsu-webtest-taisaku.html">28卒Webテスト対策ガイド</a>も参考に。ES準備と両立したい場合は<a href="28sotsu-es-shimekiri-gyakusan.html">ES締切逆算プランナー</a>が使えます（公開後に利用可能）。</p>
+<h2>よくある質問</h2><h3>Q. 登録内容は他の人に見えますか？</h3><p>A. このページはブラウザのローカルストレージに記録し、独自サーバーへ入力内容を送信する機能はありません。共有端末では他の利用者が同じブラウザのデータを見られる可能性があります。</p><h3>Q. スマホでも使えますか？</h3><p>A. スマホの画面幅に対応しています。ただし、ブラウザのデータ消去やプライベートモードでは保存内容が失われることがあります。</p>
+<p class="muted">※ 本ツールは学習管理の補助です。SPI・TG-WEB等の各試験運営会社とは無関係で、公式問題や正答を提供するものではありません。</p></section>
+<p><a href="./">← 就活コンパスのトップページへ</a></p>
+</main><footer>© 2026 就活コンパス　<a href="about.html">運営情報</a><a href="privacy.html">プライバシーポリシー</a></footer>
+<script>
+(()=>{'use strict';
+const KEY='sc_webtest_errors_v1', $=id=>document.getElementById(id), MAX=500;
+const today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+const addDays=(date,n)=>{const [y,m,d]=date.split('-').map(Number);const x=new Date(y,m-1,d+n);return [x.getFullYear(),String(x.getMonth()+1).padStart(2,'0'),String(x.getDate()).padStart(2,'0')].join('-')};
+const text=(v,max=200)=>String(v??'').slice(0,max);
+let items=[];try{const raw=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(raw))items=raw.filter(valid).slice(0,MAX)}catch(e){}
+function valid(x){return x&&typeof x==='object'&&typeof x.id==='string'&&typeof x.exam==='string'&&typeof x.topic==='string'&&typeof x.problem==='string'&&typeof x.nextDate==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.nextDate)&&Number.isInteger(x.step)&&x.step>=0&&x.step<=3}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(items));return true}catch(e){alert('保存に失敗しました。ブラウザの保存容量・設定を確認してください。');return false}}
+function resetForm(){ $('form').reset();$('editId').value='';$('nextDate').value=addDays(today(),1);$('save').textContent='弱点を保存';$('formStatus').textContent=''}
+$('resetBtn').onclick=resetForm;
+$('form').onsubmit=e=>{e.preventDefault();const id=$('editId').value;const o={id:id||('w'+Date.now().toString(36)+Math.random().toString(36).slice(2,8)),exam:$('exam').value,topic:$('topic').value,problem:text($('problem').value.trim()),cause:$('cause').value,action:text($('action').value.trim()),memo:text($('memo').value.trim(),120),nextDate:$('nextDate').value,step:0,created:today()};if(!o.problem||!/^\d{4}-\d{2}-\d{2}$/.test(o.nextDate)){ $('formStatus').textContent='内容と日付を確認してください。';return}if(id){const old=items.find(x=>x.id===id);if(!old)return;o.step=old.step;o.created=old.created;items=items.map(x=>x.id===id?o:x)}else{if(items.length>=MAX){$('formStatus').textContent='登録上限500件です。不要な記録を削除してください。';return}items.unshift(o)}if(persist()){resetForm();render();$('formStatus').textContent='保存しました。'}};
+function el(tag,cls,content){const x=document.createElement(tag);if(cls)x.className=cls;if(content!==undefined)x.textContent=content;return x}
+function actionButton(label,cls,fn){const b=el('button',cls,label);b.type='button';b.onclick=fn;return b}
+function render(){const t=today();$('total').textContent=items.length;$('due').textContent=items.filter(x=>x.step<3&&x.nextDate<=t).length;$('mastered').textContent=items.filter(x=>x.step===3).length;const q=$('search').value.trim().toLowerCase(),f=$('filter').value,root=$('entries');root.replaceChildren();const data=items.filter(x=>{const hit=[x.exam,x.topic,x.problem,x.cause,x.action,x.memo].join(' ').toLowerCase().includes(q);return hit&&(f==='all'||(f==='due'&&x.step<3&&x.nextDate<=t)||(f==='upcoming'&&x.step<3&&x.nextDate>t)||(f==='done'&&x.step===3))}).sort((a,b)=>(a.step===3?1:0)-(b.step===3?1:0)||a.nextDate.localeCompare(b.nextDate));if(!data.length){root.append(el('p','muted','該当する記録はありません。上のフォームから弱点を追加してください。'));return}
+for(const x of data){const card=el('article','entry'),head=el('h3','',x.topic);card.append(head);const meta=el('p');meta.append(el('span','tag',x.exam),el('span','tag',x.cause));card.append(meta);card.append(el('p','', 'つまずき：'+x.problem));if(x.action)card.append(el('p','', '次の対策：'+x.action));if(x.memo)card.append(el('p','muted','メモ：'+x.memo));card.append(el('p',x.step===3?'done':x.nextDate<=t?'due':'muted',x.step===3?'復習完了':('次回復習：'+x.nextDate+'（復習 '+x.step+'/3 回）')));
+const bar=el('div','buttons');if(x.step<3){bar.append(actionButton('復習できた','',()=>{x.step++;if(x.step<3)x.nextDate=addDays(today(),x.step===1?3:7);else x.nextDate=t;if(persist())render()}))}bar.append(actionButton('再学習','secondary',()=>{x.step=0;x.nextDate=addDays(today(),1);if(persist())render()}));bar.append(actionButton('編集','secondary',()=>{$('editId').value=x.id;['exam','topic','problem','cause','action','memo','nextDate'].forEach(k=>$(k).value=x[k]||'');$('save').textContent='変更を保存';$('entryForm').scrollIntoView({behavior:'smooth',block:'start'})}));bar.append(actionButton('削除','danger',()=>{if(confirm('この記録を削除しますか？')){items=items.filter(v=>v.id!==x.id);if(persist())render()}}));card.append(bar);root.append(card)}}
+$('search').addEventListener('input',render);$('filter').addEventListener('change',render);
+function download(name,type,data){const blob=new Blob([data],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
+$('json').onclick=()=>download('webtest-note-'+today()+'.json','application/json;charset=utf-8',JSON.stringify({format:'sc-webtest-errors',version:1,exported:today(),items},null,2));
+const csvCell=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+$('csv').onclick=()=>{const keys=['exam','topic','problem','cause','action','memo','nextDate','step'];const rows=[['試験形式','分野','つまずき','原因','次の対策','メモ','次回復習日','復習回数'],...items.map(x=>keys.map(k=>x[k]))];download('webtest-note-'+today()+'.csv','text/csv;charset=utf-8','\ufeff'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n'))};
+$('import').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>2*1024*1024)throw Error('2MBを超えるファイルは読み込めません。');const obj=JSON.parse(await file.text());if(obj.format!=='sc-webtest-errors'||obj.version!==1||!Array.isArray(obj.items)||obj.items.length>MAX||!obj.items.every(valid))throw Error('対応するバックアップ形式ではありません。');if(!confirm('現在のWebテストノートをバックアップ内容で上書きしますか？'))return;const before=items;items=obj.items.map(x=>({...x,problem:text(x.problem),action:text(x.action),memo:text(x.memo,120)}));if(!persist())items=before;render();$('importStatus').textContent='復元しました。'}catch(err){$('importStatus').textContent='復元できません：'+err.message}finally{e.target.value=''}};
+resetForm();render();
+})();
+</script>
+</body></html>
