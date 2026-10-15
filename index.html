@@ -23,7 +23,7 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <style>.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.cal-head{text-align:center;font-size:.8rem;font-weight:700;padding:7px 0;color:#46566d}.cal-day{min-height:90px;border:1px solid #dbe3ee;border-radius:9px;padding:6px;background:#fff;min-width:0}.cal-day.outside{background:#f4f6fa;opacity:.5}.cal-day.today{outline:2px solid #3478d4}.cal-num{font-weight:700;font-size:.82rem}.cal-event{font-size:.72rem;line-height:1.35;padding:4px 5px;margin-top:4px;background:#e8f1ff;border-radius:5px;overflow-wrap:anywhere;color:#14345d}.cal-event.deadline{background:#fff0d9;color:#694006}.cal-event small{display:block;opacity:.8}@media(max-width:600px){.cal-grid{gap:2px}.cal-day{min-height:77px;padding:3px;border-radius:5px}.cal-event{font-size:.63rem;padding:3px}.cal-num{font-size:.72rem}}</style></head>
 <body>
 <header><h1>🧭 就活コンパス</h1><p>ES・締切・選考を、ひとつの画面で整理。</p></header>
-<nav aria-label="メインナビ"><a href="#dashboard">ダッシュボード</a><a href="#es-counter">ES</a><a href="#tracker">選考管理</a><a href="#calendar">就活カレンダー</a><a href="#checklist-section">チェック</a><a href="#backup-section">バックアップ</a><a href="#articles">28卒記事</a><a href="#services">就活サービス</a></nav>
+<nav aria-label="メインナビ"><a href="#dashboard">ダッシュボード</a><a href="#es-counter">ES</a><a href="es-shitsumon-kanri.html">ES設問管理</a><a href="#tracker">選考管理</a><a href="#calendar">就活カレンダー</a><a href="#checklist-section">チェック</a><a href="#backup-section">バックアップ</a><a href="#articles">28卒記事</a><a href="#services">就活サービス</a></nav>
 <main>
 <div class="hero"><h2>就活を整理する無料ツール</h2><p>登録不要。ESの下書き、選考予定、締切をブラウザ内に保存できます。入力した内容を当サイト独自のサーバーへ送信する機能は設けていません。</p></div>
 <section id="dashboard"><h2>📊 就活ダッシュボード</h2><p class="muted">選考トラッカーの登録内容から自動集計します。</p><div class="grid4"><div class="metric"><b id="mTotal">0</b><span>登録企業</span></div><div class="metric"><b id="mSoon">0</b><span>7日以内の締切</span></div><div class="metric"><b id="mInterview">0</b><span>面接中</span></div><div class="metric"><b id="mOffer">0</b><span>内定</span></div></div><div class="notice muted" id="nextDeadline">次の締切はまだ登録されていません。</div></section>
@@ -31,14 +31,14 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <div class="flex"><label>種類<select id="draftType"><option>ガクチカ</option><option>自己PR</option><option>志望動機</option><option>挫折経験</option><option>その他</option></select></label><label>下書き名<input id="draftName" placeholder="例：ガクチカ400字"/></label><label>目標文字数<input id="limit" min="1" type="number" value="400"/></label><div><div class="stat" id="count">0文字</div><div class="muted" id="remaining">あと400文字</div></div></div>
 <div aria-label="文字数プリセット" class="toolbar"><button class="secondary len" data-len="200">200字</button><button class="secondary len" data-len="300">300字</button><button class="secondary len" data-len="400">400字</button><button class="secondary len" data-len="500">500字</button><button class="secondary len" data-len="600">600字</button></div>
 <textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p class="muted" id="countDetail"></p>
-<div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div class="saved-list" id="drafts"></div></section>
+<div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div class="saved-list" id="drafts"></div><div class="notice" style="margin-top:14px"><strong>企業別にESを管理したい人へ：</strong> <a href="es-shitsumon-kanri.html">ES設問・回答・文字数・提出締切をまとめて管理する（無料） →</a></div></section>
 <section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。</p>
 <form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form>
 <div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"/></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label></div>
 <div class="job-list" id="jobs"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
 <section id="checklist-section"><h2>✅ 就活準備チェックリスト</h2><div id="checklist"></div></section>
 <section id="backup-section"><h2>💾 全データのバックアップ・復元</h2>
-<p>ESの下書き・入力中の文章・選考管理・チェックリストを、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
+<p>ESの下書き・企業別ES設問・入力中の文章・選考管理・チェックリストを、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
 <div class="toolbar"><button id="backupAll" type="button">全データをバックアップ（JSON）</button>
 <label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">バックアップから復元<input accept=".json,application/json" id="restoreAllFile" style="display:none" type="file"/></span></label></div>
 <p class="muted small">復元すると、このブラウザに保存されているES・選考情報・チェック状態がすべて置き換わります。復元前に現在のデータをバックアップしてください。</p>
@@ -47,6 +47,7 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <section id="articles"><h2>🗓 28卒向け 就活記事</h2><p class="muted">現在公開している記事をテーマ別に整理しました。</p><div class="article-grid">
 <a class="article-card" href="28sotsu-shukatsu-itsukara.html"><span class="tag">スケジュール</span><strong>28卒の就活はいつから？</strong><span class="muted">公式日程と2026年秋からの動き方。</span></a>
 <a class="article-card" href="28sotsu-nanimo-shitenai.html"><span class="tag">立て直し</span><strong>28卒で就活を何もしてない？</strong><span class="muted">最初の7日間でやることを具体化。</span></a>
+<a class="article-card" href="es-shitsumon-kanri.html"><span class="tag">無料ツール</span><strong>ES設問・企業別管理</strong><span class="muted">設問・回答・締切・提出状況をまとめて保存。</span></a>
 <a class="article-card" href="28sotsu-es-kakikata.html"><span class="tag">ES</span><strong>28卒のESの書き方</strong><span class="muted">ガクチカ・自己PRを400字で作る基本型。</span></a>
 <a class="article-card" href="28sotsu-webtest-taisaku.html"><span class="tag">Webテスト</span><strong>28卒のWebテスト対策</strong><span class="muted">SPI・玉手箱・TG-WEBの進め方。</span></a>
 <a class="article-card" href="28sotsu-shukatsu-agent-itsukara.html"><span class="tag">サービス</span><strong>就活エージェントはいつから使う？</strong><span class="muted">向いている人・使い方・注意点。</span></a>
@@ -98,8 +99,9 @@ function renderChecklist(){const root=$('checklist');root.replaceChildren();chec
 renderChecklist();
 
 // Full local backup and restore. No network requests are made.
-const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta'];
-function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400}}}}
+const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1'];
+function readEsQuestions(){try{const d=JSON.parse(localStorage.getItem('sc_es_questions_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
+function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions()}}}
 function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
 $('backupAll').onclick=()=>{try{const stamp=new Date().toLocaleDateString('sv-SE');downloadJson(backupPayload(),'shukatsu-compass-backup-'+stamp+'.json');$('backupStatus').textContent='バックアップファイルを保存しました。ES本文や企業情報を含むため安全に保管してください。'}catch(e){$('backupStatus').textContent='バックアップに失敗しました。ブラウザのダウンロード設定を確認してください。'}};
 function validateBackup(v){
@@ -112,6 +114,11 @@ function validateBackup(v){
   const validJob=j=>j&&typeof j==='object'&&validId(j.id)&&typeof j.name==='string'&&j.name.length<=500&&stages.includes(j.stage)&&isDate(j.deadline||'')&&isDate(j.nextDate||'')&&typeof(j.memo||'')==='string'&&String(j.memo||'').length<=100000;
   const validDraft=x=>x&&typeof x==='object'&&validId(x.id)&&typeof x.text==='string'&&x.text.length<=1000000&&typeof(x.name||'')==='string'&&typeof(x.type||'')==='string'&&Number.isFinite(Number(x.limit||400));
   if(!d.jobs.every(validJob)||!d.drafts.every(validDraft))throw new Error('企業情報またはES下書きの形式が正しくありません。');
+  if(d.esQuestions!==undefined){
+    const cats=['ガクチカ','志望動機','自己PR','挫折経験','長所・短所','その他'],statuses=['未着手','作成中','提出済み'];
+    const validQuestion=x=>x&&typeof x==='object'&&typeof x.id==='string'&&x.id.length<=100&&typeof x.company==='string'&&x.company.length<=100&&typeof x.question==='string'&&x.question.length<=500&&typeof x.answer==='string'&&x.answer.length<=100000&&typeof x.memo==='string'&&x.memo.length<=500&&cats.includes(x.category)&&statuses.includes(x.status)&&(!x.deadline||isDate(x.deadline))&&Number.isInteger(x.limit)&&x.limit>=0&&x.limit<=10000&&typeof x.updatedAt==='string';
+    if(!Array.isArray(d.esQuestions)||d.esQuestions.length>10000||!d.esQuestions.every(validQuestion))throw new Error('ES設問データの形式が正しくありません。');
+  }
   if(typeof(d.esMeta.name||'')!=='string'||typeof(d.esMeta.type||'')!=='string'||!Number.isFinite(Number(d.esMeta.limit||400)))throw new Error('ES入力欄の設定が正しくありません。');
   if(Object.values(d.checks).some(x=>typeof x!=='boolean'))throw new Error('チェックリストの形式が正しくありません。');
   return d;
@@ -124,11 +131,12 @@ $('restoreAllFile').onchange=async e=>{
     if(!confirm('バックアップ内の企業'+d.jobs.length+'件・ES下書き'+d.drafts.length+'件を復元します。\n現在の保存データはすべて上書きされます。続けますか？')){$('backupStatus').textContent='復元をキャンセルしました。';return}
     const previous=Object.fromEntries(BACKUP_KEYS.map(k=>[k,localStorage.getItem(k)]));
     const next={sc_jobs:JSON.stringify(d.jobs),sc_drafts:JSON.stringify(d.drafts),sc_checks:JSON.stringify(d.checks),sc_es_working:d.esWorking,sc_es_meta:JSON.stringify(d.esMeta)};
-    try{BACKUP_KEYS.forEach(k=>localStorage.setItem(k,next[k]))}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
+    if(Array.isArray(d.esQuestions))next.sc_es_questions_v1=JSON.stringify(d.esQuestions); // 古いバックアップでは現在のES設問を保持
+    try{Object.entries(next).forEach(([k,v])=>localStorage.setItem(k,v))}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
     jobs=d.jobs;drafts=d.drafts;state=d.checks;es.value=d.esWorking;
     $('draftType').value=d.esMeta.type||'ガクチカ';$('draftName').value=d.esMeta.name||'';lim.value=Number(d.esMeta.limit)>0?d.esMeta.limit:400;
     updateCount();renderDrafts();renderJobs();renderDashboard();renderChecklist();resetJobForm();
-    $('backupStatus').textContent='復元が完了しました。企業'+jobs.length+'件・ES下書き'+drafts.length+'件を読み込みました。';
+    $('backupStatus').textContent='復元が完了しました。企業'+jobs.length+'件・ES下書き'+d.drafts.length+'件'+(Array.isArray(d.esQuestions)?'・ES設問'+d.esQuestions.length+'件':'（旧形式：ES設問は維持）')+'を読み込みました。';
   }catch(err){$('backupStatus').textContent='復元できませんでした：'+(err&&err.message?err.message:'ファイルを確認してください。')}
   finally{e.target.value=''}
 };
