@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>28卒 就活進捗分析｜締切・ES・面接の状況を見える化 | 就活コンパス</title>
+<meta name="description" content="28卒の就活進捗を無料で分析。登録した選考企業・ES設問・面接記録から、今週の締切、選考段階、ES提出状況、面接の結果を見える化。登録不要・ブラウザ内で集計。">
+<link rel="canonical" href="https://goonyogunyo-prog.github.io/shukatsu-compass/senkou-bunseki.html">
+<meta property="og:type" content="website"><meta property="og:title" content="28卒 就活進捗分析｜就活コンパス"><meta property="og:description" content="ES・選考・面接の記録をまとめて分析。締切を見逃さない無料ダッシュボード。">
+<style>
+:root{font-family:system-ui,-apple-system,'Noto Sans JP',sans-serif;color:#17243a;background:#f5f8fd;--navy:#142b51;--blue:#2159b6;--line:#dce5f1;--muted:#586b83}*{box-sizing:border-box}body{margin:0}a{color:var(--blue)}header{background:var(--navy);color:#fff;padding:24px max(18px,calc((100vw - 1000px)/2))}header a{color:#fff;text-decoration:none}header h1{margin:0;font-size:27px}header p{color:#dbe8ff}nav{background:white;border-bottom:1px solid var(--line);padding:12px max(18px,calc((100vw - 1000px)/2));display:flex;gap:18px;flex-wrap:wrap}main{max-width:1000px;margin:24px auto;padding:0 18px}section{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 3px 12px #17243a0a}h2{margin:0 0 14px;font-size:22px}h3{margin:12px 0 8px;font-size:17px}p,li{line-height:1.8}.muted{color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.metric{background:#f0f5ff;border:1px solid #d7e4fb;border-radius:12px;padding:16px}.metric b{display:block;color:#1b4f9f;font-size:32px}.metric span{font-size:13px;color:#425774}.barrow{display:grid;grid-template-columns:112px 1fr 40px;align-items:center;gap:12px;margin:13px 0}.bar{height:16px;background:#eaf0f8;border-radius:100px;overflow:hidden}.fill{height:100%;background:#397bd6;border-radius:100px;min-width:0}.list{list-style:none;padding:0;margin:0}.list li{padding:12px 0;border-bottom:1px solid var(--line)}.list li:last-child{border:0}.date{display:inline-block;background:#eaf3ff;color:#184b8f;border-radius:6px;padding:3px 8px;font-size:12px;font-weight:700;margin-right:6px}.danger{background:#fff0ee;color:#a02b1e}.notice{background:#eef5ff;border:1px solid #cbdffc;padding:15px;border-radius:12px}.warn{background:#fff8eb;border:1px solid #efd9a9;padding:15px;border-radius:12px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}button,.button{background:#2159b6;color:white;border:0;border-radius:9px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}button.secondary,.button.secondary{background:#eaf0f9;color:#174077}button:focus-visible,a:focus-visible{outline:3px solid #ffab55;outline-offset:3px}.ad{border:1px solid #bfd5f0;background:#f8fbff}.ad small{display:inline-block;border:1px solid #9fb3cd;border-radius:5px;padding:3px 8px;color:#43546b}.empty{color:#596b83;padding:12px 0}footer{text-align:center;color:#6a7991;font-size:13px;padding:28px}strong{overflow-wrap:anywhere}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.barrow{grid-template-columns:85px 1fr 26px;gap:7px;font-size:13px}section{padding:18px}header h1{font-size:23px}}@media(max-width:360px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><a href="./"><h1>🧭 就活コンパス</h1></a><p>28卒の「今やるべきこと」をデータから整理。</p></header>
+<nav aria-label="ページナビゲーション"><a href="./">トップ</a><a href="./#tracker">選考管理</a><a href="es-shitsumon-kanri.html">ES設問管理</a><a href="mensetsu-furikaeri.html">面接振り返り</a><a href="kigyo-hikaku.html">企業比較</a></nav>
+<main>
+<section><span class="date">NEW｜無料ツール</span><h2>📊 就活進捗分析ダッシュボード</h2><p>就活コンパスで記録した企業・ES設問・面接結果を、まとめて確認できます。<strong>締切が迫るものから着手</strong>し、秋冬の早期選考・本選考準備を進めましょう。</p><div class="notice">登録不要・追加の入力不要。データはこのブラウザ内で読み取り・集計するだけで、分析結果を外部へ送信しません。別端末やシークレットモードのデータは表示されません。</div><div class="actions"><button id="refresh" type="button">最新データで再集計</button><button id="copyPlan" class="secondary" type="button">今週の行動をコピー</button><a class="button secondary" href="./#backup-section">全データをバックアップ</a></div><p id="feedback" class="muted" role="status" aria-live="polite"></p></section>
+<section><h2>今の就活状況</h2><div class="grid" id="metrics" aria-live="polite"></div><p class="muted">登録企業数は選考管理の件数。面接の通過率は、面接ノートで「通過」「不通過」を入力した記録のみで算出します。企業単位の最終内定率とは異なります。</p></section>
+<section><h2>📅 優先して確認したい締切・予定</h2><p class="muted">今日から14日以内の締切と面接予定、および未対応の期限超過を表示します。ES設問は「提出済み」を除きます。公式の募集締切は必ず各社マイページで再確認してください。</p><div id="upcoming" aria-live="polite"></div><p><a href="./#calendar">月表示の就活カレンダーを開く →</a></p></section>
+<section><h2>📈 選考段階の内訳</h2><div id="stageChart" aria-label="選考段階の件数を示す棒グラフ"></div><p class="muted">現在登録されている選考段階の分布です。過去の段階の履歴は保持していないため、選考の通過率を表すものではありません。</p></section>
+<section><h2>✍️ ES・面接の状況</h2><div class="grid" id="detailMetrics"></div><div id="insights" class="notice" style="margin-top:18px" aria-live="polite"></div></section>
+<section><h2>🚀 28卒の今週のアクション</h2><ol id="plan"></ol><p class="muted">提案は登録情報に基づく一般的な優先順位です。企業ごとの募集状況や選考日程は公式情報を優先してください。</p></section>
+<section><h2>この分析を活用する3ステップ</h2><p><strong>① 登録する：</strong><a href="./#tracker">選考管理</a>に応募企業と締切を登録。ES設問や面接後の記録も追加します。</p><p><strong>② 優先順位を決める：</strong>直近14日間の締切を確認し、ES・Webテスト・面接準備に必要な時間を逆算します。</p><p><strong>③ 週1回見直す：</strong>選考結果が分かったら記録を更新し、次の企業の対策に反映します。進捗がゼロでも、まずは応募候補と締切を1社ずつ登録しましょう。</p></section>
+<section class="ad" aria-label="広告"><small>PR・広告</small><h2 style="margin-top:12px">選考準備に、先輩のES・面接情報を活用</h2><p>企業ごとの選考情報や内定者のESを調べると、次の選考に向けた準備のヒントになります。最新の募集要項は企業の公式情報で確認してください。</p><a class="button" href="https://px.a8.net/svt/ejp?a8mat=459SB7+E8M9EI+3Y9Y+ZSD6A" rel="nofollow sponsored noopener noreferrer" target="_blank">就活会議で企業・選考情報を見る ↗</a><img src="https://www10.a8.net/0.gif?a8mat=459SB7+E8M9EI+3Y9Y+ZSD6A" alt="" width="1" height="1" loading="lazy"><p class="muted">広告リンクからの登録等で当サイトに報酬が発生する場合があります。利用条件はリンク先でご確認ください。</p></section>
+</main><footer><a href="about.html">運営情報</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="./">トップ</a><p>© 2026 就活コンパス</p></footer>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const read=key=>{try{const v=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(v)?v:[]}catch{return []}};
+const stages=['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'];
+const today=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())};
+const parseDate=s=>{if(typeof s!=='string'||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(s))return null;const d=new Date(s+'T00:00:00');return Number.isNaN(d.getTime())||d.getFullYear()!==Number(s.slice(0,4))||d.getMonth()+1!==Number(s.slice(5,7))||d.getDate()!==Number(s.slice(8,10))?null:d};
+const days=s=>{const d=parseDate(s);return d?Math.round((d-today())/86400000):null};
+const element=(tag,content,cls)=>{const n=document.createElement(tag);if(content!==undefined)n.textContent=String(content);if(cls)n.className=cls;return n};
+const validJob=j=>j&&typeof j==='object'&&typeof j.name==='string'&&stages.includes(j.stage);
+const validEs=e=>e&&typeof e==='object'&&typeof e.company==='string'&&['未着手','作成中','提出済み'].includes(e.status);
+const validInterview=i=>i&&typeof i==='object'&&typeof i.company==='string'&&['結果待ち','通過','不通過','未設定'].includes(i.result);
+let lastPlan=[];
+function render(){
+const jobs=read('sc_jobs').filter(validJob).slice(0,10000),es=read('sc_es_questions_v1').filter(validEs).slice(0,10000),interviews=read('sc_interviews_v1').filter(validInterview).slice(0,2000);
+const completed=interviews.filter(x=>x.result==='通過'||x.result==='不通過'),passed=completed.filter(x=>x.result==='通過').length;
+const active=jobs.filter(j=>!['終了','内定'].includes(j.stage)),due7=active.filter(j=>{const d=days(j.deadline);return d!==null&&d>=0&&d<=7}).length;
+const metrics=[['登録企業',jobs.length],['7日以内の締切',due7],['面接中',jobs.filter(x=>x.stage==='面接').length],['内定（登録）',jobs.filter(x=>x.stage==='内定').length]];
+$('metrics').replaceChildren();for(const [label,value] of metrics){const card=element('div',undefined,'metric'),b=element('b',value),span=element('span',label);card.append(b,span);$('metrics').append(card)}
+const detail=[['ES設問',es.length],['ES提出済み',es.filter(x=>x.status==='提出済み').length],['面接記録',interviews.length],['面接通過率',completed.length?Math.round(passed/completed.length*100)+'%':'未集計']];
+$('detailMetrics').replaceChildren();for(const [label,value] of detail){const card=element('div',undefined,'metric');card.append(element('b',value),element('span',label));$('detailMetrics').append(card)}
+$('stageChart').replaceChildren();for(const stage of stages){const count=jobs.filter(x=>x.stage===stage).length,row=element('div',undefined,'barrow'),track=element('div',undefined,'bar'),fill=element('div',undefined,'fill');fill.style.width=(jobs.length?Math.round(count/jobs.length*100):0)+'%';track.append(fill);row.append(element('span',stage),track,element('strong',count));$('stageChart').append(row)}
+const events=[];for(const j of active){for(const [date,label] of [[j.deadline,'応募・ES締切'],[j.nextDate,'次回選考']]){const d=days(date);if(d!==null&&d<=14&&d>=-30)events.push({d,date,company:j.name,label,link:'./#tracker'})}}
+for(const e of es){if(e.status==='提出済み')continue;const d=days(e.deadline);if(d!==null&&d<=14&&d>=-30)events.push({d,date:e.deadline,company:e.company,label:'ES設問：'+(typeof e.category==='string'?e.category:'未分類'),link:'es-shitsumon-kanri.html'})}
+events.sort((a,b)=>a.d-b.d||a.company.localeCompare(b.company,'ja'));const upcoming=$('upcoming');upcoming.replaceChildren();if(!events.length){upcoming.append(element('p','対象の締切・予定はありません。選考管理に企業と日付を登録すると表示されます。','empty'))}else{const ul=element('ul',undefined,'list');for(const x of events.slice(0,24)){const li=element('li'),badge=element('span',x.d<0?'期限超過':x.d===0?'今日':x.d+'日後','date'+(x.d<0?' danger':'')),a=element('a',x.company||'企業名未登録');a.href=x.link;li.append(badge,document.createTextNode(x.date+'｜'+x.label+'｜'),a);ul.append(li)}upcoming.append(ul);if(events.length>24)upcoming.append(element('p','ほか'+(events.length-24)+'件。各管理ツールで確認してください。','muted'))}
+const esInProgress=es.filter(e=>e.status!=='提出済み'),unregistered=active.filter(j=>!parseDate(j.deadline)).length,needsFollowup=interviews.filter(x=>x.result==='結果待ち').length;
+const suggestions=[];
+if(events.some(e=>e.d<0))suggestions.push('期限を過ぎた登録があるため、各社マイページで受付状況を確認する。');
+if(events.some(e=>e.d>=0&&e.d<=3))suggestions.push('3日以内の締切・選考を最優先にして、提出物と準備を確認する。');
+if(esInProgress.length)suggestions.push('未提出のES設問'+esInProgress.length+'件を、締切の近い順に進める。');
+if(unregistered)suggestions.push('締切未登録の企業'+unregistered+'社について、公式採用ページで日程を調べる。');
+if(needsFollowup)suggestions.push('結果待ちの面接記録'+needsFollowup+'件を確認し、次回の準備に活かす。');
+if(!jobs.length)suggestions.push('まず応募候補を3社選び、選考管理に企業名・締切・選考段階を登録する。');
+if(!es.length)suggestions.push('ガクチカ・自己PR・志望動機のES基本文を準備し、設問管理に登録する。');
+if(!interviews.length)suggestions.push('面接対策として想定質問と回答の要点を整理する。');
+suggestions.push('最新の募集要項・応募資格・締切は必ず企業公式サイトで確認する。');
+lastPlan=[...new Set(suggestions)].slice(0,5);
+const plan=$('plan');plan.replaceChildren();for(const s of lastPlan)plan.append(element('li',s));
+$('insights').textContent=completed.length?'面接結果を入力した'+completed.length+'件のうち、通過は'+passed+'件です。結果だけでなく質問・回答・改善点を振り返りましょう。':'面接通過率はまだ算出できません。面接ノートで「通過」「不通過」を記録すると表示されます。';
+$('feedback').textContent='集計日時：'+new Date().toLocaleString('ja-JP')+'｜選考'+jobs.length+'件・ES'+es.length+'件・面接'+interviews.length+'件';
+}
+$('refresh').onclick=render;
+$('copyPlan').onclick=async()=>{const s='【就活コンパス｜今週の行動】\n'+lastPlan.map((x,i)=>(i+1)+'. '+x).join('\n');try{await navigator.clipboard.writeText(s);$('feedback').textContent='行動リストをコピーしました。'}catch{$('feedback').textContent='自動コピーできませんでした。ブラウザの権限をご確認ください。'}};
+window.addEventListener('storage',e=>{if(['sc_jobs','sc_es_questions_v1','sc_interviews_v1'].includes(e.key))render()});
+render();
+})();
+</script></body></html>
