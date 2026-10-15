@@ -56,6 +56,8 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 <a class="article-card" href="28sotsu-es-kakikata.html"><span class="tag">ES</span><strong>28卒のESの書き方</strong><span class="muted">ガクチカ・自己PRを400字で作る基本型。</span></a>
 <a class="article-card" href="28sotsu-webtest-taisaku.html"><span class="tag">Webテスト</span><strong>28卒のWebテスト対策</strong><span class="muted">SPI・玉手箱・TG-WEBの進め方。</span></a>
 <a class="article-card" href="28sotsu-shukatsu-agent-itsukara.html"><span class="tag">サービス</span><strong>就活エージェントはいつから使う？</strong><span class="muted">向いている人・使い方・注意点。</span></a>
+<a class="article-card" href="28sotsu-mensetsu-gyakushitsumon.html"><span class="tag">NEW・面接対策</span><strong>28卒 面接の逆質問24選＋メモ作成</strong><span class="muted">職種・テーマ別の逆質問を選んで、企業別の面接メモを無料作成。</span></a>
+<a class="article-card" href="28sotsu-akifuyu-intern-7days.html"><span class="tag">NEW・秋冬選考</span><strong>28卒 秋冬インターン・早期選考の7日間プラン</strong><span class="muted">応募優先度チェックと、ES・Webテスト・面接の具体的な行動計画。</span></a>
 </div></section>
 <section id="services"><h2>🔎 おすすめ就活サービス</h2><p class="muted">以下にはアフィリエイト広告が含まれます。リンク経由で登録すると、当サイトに報酬が発生する場合があります。</p>
 <section aria-label="就活サービスの紹介" style="max-width:680px;margin:24px auto;padding:20px;border:1px solid #dbe4ec;border-radius:16px;background:#f8fbff;color:#1e293b;box-sizing:border-box;box-shadow:none">
@@ -104,12 +106,13 @@ function renderChecklist(){const root=$('checklist');root.replaceChildren();chec
 renderChecklist();
 
 // Full local backup and restore. No network requests are made.
-const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1','sc_interviews_v1','sc_company_compare_v1','sc_company_weights_v1'];
+const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1','sc_interviews_v1','sc_company_compare_v1','sc_company_weights_v1','sc_reverse_questions_v1'];
 function readEsQuestions(){try{const d=JSON.parse(localStorage.getItem('sc_es_questions_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readInterviews(){try{const d=JSON.parse(localStorage.getItem('sc_interviews_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readCompanyCompare(){try{const d=JSON.parse(localStorage.getItem('sc_company_compare_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readCompanyWeights(){try{const d=JSON.parse(localStorage.getItem('sc_company_weights_v1')||'null');return d&&typeof d==='object'?d:{work:5,place:4,pay:4,growth:3,culture:3}}catch{return {work:5,place:4,pay:4,growth:3,culture:3}}}
-function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions(),interviews:readInterviews(),companyCompare:readCompanyCompare(),companyWeights:readCompanyWeights()}}}
+function readReverseQuestions(){try{const d=JSON.parse(localStorage.getItem('sc_reverse_questions_v1')||'null');return d&&typeof d==='object'&&!Array.isArray(d)?d:null}catch{return null}}
+function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions(),interviews:readInterviews(),companyCompare:readCompanyCompare(),companyWeights:readCompanyWeights(),reverseQuestions:readReverseQuestions()}}}
 function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
 $('backupAll').onclick=()=>{try{const stamp=new Date().toLocaleDateString('sv-SE');downloadJson(backupPayload(),'shukatsu-compass-backup-'+stamp+'.json');$('backupStatus').textContent='バックアップファイルを保存しました。ES本文や企業情報を含むため安全に保管してください。'}catch(e){$('backupStatus').textContent='バックアップに失敗しました。ブラウザのダウンロード設定を確認してください。'}};
 function validateBackup(v){
@@ -139,6 +142,7 @@ function validateBackup(v){
     if(!Array.isArray(d.companyCompare)||d.companyCompare.length>60||!d.companyCompare.every(validCompany))throw new Error('企業比較データの形式が正しくありません。');
   }
   if(d.companyWeights!==undefined){const keys=['work','place','pay','growth','culture'],w=d.companyWeights;if(!w||typeof w!=='object'||!keys.every(k=>Number.isInteger(w[k])&&w[k]>=0&&w[k]<=5)||!keys.some(k=>w[k]>0))throw new Error('企業比較の重要度データが正しくありません。');}
+  if(d.reverseQuestions!==undefined&&d.reverseQuestions!==null){const r=d.reverseQuestions,keys=['company','role','focus','custom','notes','output'];if(!r||typeof r!=='object'||Array.isArray(r)||!keys.every(k=>typeof r[k]==='string'&&r[k].length<=20000)||!Array.isArray(r.selected)||r.selected.length>24||!r.selected.every(v=>typeof v==='string'&&/^(job|team|grow|client|business|culture)[1-4]$/.test(v)))throw new Error('逆質問メモの形式が正しくありません。');}
   if(typeof(d.esMeta.name||'')!=='string'||typeof(d.esMeta.type||'')!=='string'||!Number.isFinite(Number(d.esMeta.limit||400)))throw new Error('ES入力欄の設定が正しくありません。');
   if(Object.values(d.checks).some(x=>typeof x!=='boolean'))throw new Error('チェックリストの形式が正しくありません。');
   return d;
@@ -155,6 +159,7 @@ $('restoreAllFile').onchange=async e=>{
     if(Array.isArray(d.interviews))next.sc_interviews_v1=JSON.stringify(d.interviews); // 古いバックアップでは現在の面接記録を保持
     if(Array.isArray(d.companyCompare))next.sc_company_compare_v1=JSON.stringify(d.companyCompare); // 旧バックアップなら現在の企業比較を保持
     if(d.companyWeights)next.sc_company_weights_v1=JSON.stringify(d.companyWeights);
+    if(d.reverseQuestions)next.sc_reverse_questions_v1=JSON.stringify(d.reverseQuestions); // 旧バックアップなら既存の逆質問メモを保持
     try{Object.entries(next).forEach(([k,v])=>localStorage.setItem(k,v))}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
     jobs=d.jobs;drafts=d.drafts;state=d.checks;es.value=d.esWorking;
     $('draftType').value=d.esMeta.type||'ガクチカ';$('draftName').value=d.esMeta.name||'';lim.value=Number(d.esMeta.limit)>0?d.esMeta.limit:400;
