@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/</loc>
@@ -119,4 +119,28 @@
     <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-shukatsu-1week-schedule.html</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
-</urlset>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-es-teishutsu-mae-checklist.html</loc>
+  </url>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-akifuyu-intern-oubo-hikaku.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-souki-senkou-annai-check.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-es-mojisu-counter.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-10gatsu-nanimonashiteinai-14days.html</loc>
+  </url>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-gakuchika-fukabori-shitsumon.html</loc>
+  </url>
+  <url>
+    <loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-webtest-chokuzen-taisaku-plan.html</loc>
+  </url>
+<url><loc>https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-akifuyu-intern-2026-10-shimekiri.html</loc><lastmod>2026-10-16</lastmod></url></urlset>

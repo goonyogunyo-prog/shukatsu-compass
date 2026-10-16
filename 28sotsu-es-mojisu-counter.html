@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ES文字数カウンター｜200・300・400・500字の残り文字数を確認【28卒】｜就活コンパス</title>
+<meta name="description" content="28卒のES文字数をリアルタイムで確認。200・300・400・500字の上限切り替え、残り文字数・空白除外の参考値・改行数を表示。入力文はサーバーに送信せず、ESの文字数制限と提出前の注意点も解説。">
+<link rel="canonical" href="https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-es-mojisu-counter.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#10243c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ES文字数カウンター｜200・300・400・500字をすぐ確認">
+<meta property="og:description" content="文字数・残り字数をその場で確認。28卒向け無料ツール。">
+<meta property="og:url" content="https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-es-mojisu-counter.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"就活コンパス","item":"https://goonyogunyo-prog.github.io/shukatsu-compass/"},{"@type":"ListItem","position":2,"name":"ES・自己PR","item":"https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-guide-directory.html#es"},{"@type":"ListItem","position":3,"name":"ES文字数カウンター","item":"https://goonyogunyo-prog.github.io/shukatsu-compass/28sotsu-es-mojisu-counter.html"}]}</script>
+<style>
+:root{color-scheme:light;--navy:#10243c;--ink:#183049;--muted:#54687b;--line:#dce6ee;--teal:#0b8279;--pale:#f3f8fa;--gold:#f3dcb0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--pale);color:var(--ink);line-height:1.85}a{color:#126d78;text-underline-offset:3px}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #ffb84d;outline-offset:3px}.skip{position:absolute;top:-100px;left:12px;padding:10px;background:#fff;z-index:9}.skip:focus{top:12px}
+header{background:var(--navy);color:#fff}.bar{max-width:1090px;margin:auto;padding:17px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.brand{color:#fff;font-size:19px;font-weight:850;text-decoration:none}.brand small{display:block;font-size:10px;letter-spacing:.14em;color:#bdd0e0}.nav{display:flex;gap:15px;flex-wrap:wrap}.nav a{color:#dce9f2;font-size:13px;text-decoration:none}.nav a:hover{text-decoration:underline}
+main{max-width:1060px;margin:0 auto;padding:22px 16px 54px}.crumb{font-size:12px;margin-bottom:15px;color:var(--muted)}.hero{padding:34px 34px 32px;background:linear-gradient(115deg,#10243c 0%,#173e52 68%,#125f63 100%);color:#fff;border-radius:22px;position:relative;overflow:hidden}.eyebrow{font-size:11px;letter-spacing:.16em;font-weight:900;color:#bce5d7}.hero h1{font-size:clamp(29px,4.2vw,46px);line-height:1.33;margin:9px 0 12px;letter-spacing:-.025em}.hero p{max-width:700px;margin:0;color:#e0ebef}.hero .pill{display:inline-block;margin-top:19px;background:#ffffff18;border:1px solid #ffffff38;border-radius:99px;padding:5px 13px;font-size:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:27px;margin:19px 0;box-shadow:0 5px 20px #10243c08}.card h2{font-size:clamp(20px,2.6vw,27px);margin:0 0 10px;line-height:1.45}.card h3{font-size:18px;margin:24px 0 6px}.small{font-size:13px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 295px;gap:18px;align-items:start}.layout .card{margin-top:18px}.side{position:sticky;top:18px}.toolhead{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.badges{display:flex;flex-wrap:wrap;gap:7px}.badge{font-size:11px;border:1px solid #badad4;border-radius:99px;padding:2px 10px;background:#e9f7f2;color:#11695e;font-weight:800}
+label{display:block;font-weight:800;margin:15px 0 6px}.presets{display:flex;flex-wrap:wrap;gap:7px}.presets button{background:#edf5f6;color:#21556b;border:1px solid #c5dce0;padding:8px 15px;border-radius:9px;font-size:14px;font-weight:800}.presets button[aria-pressed="true"]{background:#0c726e;color:#fff;border-color:#0c726e}.field{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.field input{width:120px;border:1px solid #a9becb;border-radius:10px;padding:10px 12px}.field span{font-size:13px;color:var(--muted)}textarea{display:block;width:100%;min-height:250px;resize:vertical;border:1px solid #a9becb;border-radius:12px;padding:16px;line-height:1.9;color:var(--ink);background:#fbfdff}textarea::placeholder{color:#728596}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:17px 0 10px}.metric{background:#f0f6f8;border-radius:12px;padding:12px 11px;text-align:center}.metric strong{display:block;font-size:clamp(21px,3.1vw,31px);line-height:1.4;color:#0b5964;font-variant-numeric:tabular-nums}.metric span{display:block;font-size:11px;color:#52687b}.meter{height:11px;border-radius:20px;background:#e5edf1;overflow:hidden}.meter>span{display:block;height:100%;width:0%;background:#0b8279;transition:width .15s}.status{margin:9px 0 0;font-weight:800;color:#116b66}.status.warn{color:#9c3e2b}.meter>span.warn{background:#d35b48}.aux{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 0;font-size:12px;color:#596d7e}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:10px;padding:11px 18px;font-weight:800;background:#0b8279;color:#fff}.btn.secondary{background:#e9f0f4;color:#24455c}.btn:hover{filter:brightness(.94)}.note{border-left:4px solid #2f9a90;background:#edf8f4;padding:13px 16px;border-radius:8px;font-size:14px;margin:18px 0}.warning{border-left-color:#d49a3a;background:#fff8e8}.steps{padding-left:21px}.steps li{margin:10px 0}.linklist{display:grid;gap:10px}.linklist a{display:block;border:1px solid #dbe8e8;padding:11px 13px;border-radius:10px;text-decoration:none;font-weight:800;background:#fbfefe}.linklist a:hover{background:#eaf8f5}.mini{background:#f5f8fa;border-radius:12px;padding:15px;margin:12px 0}.mini strong{color:#0a6866}.muted{color:var(--muted)}footer{background:#10243c;color:#d2e0e8;text-align:center;padding:25px 14px;font-size:12px}footer a{color:#d7f1f1}
+@media(max-width:790px){.layout{grid-template-columns:1fr}.side{position:static}.hero{padding:26px 22px}.card{padding:22px}}
+@media(max-width:420px){main{padding:13px 11px 36px}.bar{padding:14px 12px}.nav{gap:9px}.nav a{font-size:12px}.hero{border-radius:15px;padding:24px 17px}.card{border-radius:14px;padding:17px;margin:13px 0}.metrics{gap:6px}.metric{padding:10px 5px}.metric span{font-size:10px}.metric strong{font-size:23px}textarea{min-height:220px;padding:12px}.presets button{padding:8px 12px}}
+@media(prefers-reduced-motion:reduce){.meter>span{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+<header><div class="bar"><a class="brand" href="./">◈ 就活コンパス<small>YOUR CAREER COMPASS</small></a><nav class="nav" aria-label="ページナビゲーション"><a href="28sotsu-guide-directory.html#es">ES・自己PR</a><a href="28sotsu-es-teishutsu-mae-checklist.html">提出前チェック</a><a href="./">TOP</a></nav></div></header>
+<main id="main"><div class="crumb"><a href="./">TOP</a> ＞ <a href="28sotsu-guide-directory.html#es">ES・自己PR</a> ＞ 文字数カウンター</div>
+<section class="hero"><span class="eyebrow">FREE ES TOOL / 28卒向け</span><h1>ES文字数カウンター<br>あと何文字か、すぐ分かる。</h1><p>「400字以内」「300字程度」など、設問ごとに文字数を確認。下書きを貼り付けるだけで現在の文字数と残り文字数が分かります。</p><span class="pill">登録不要 ・ スマホ対応 ・ 入力文は保存しません</span></section>
+<div class="layout"><div>
+<section class="card" aria-labelledby="tool-title"><div class="toolhead"><h2 id="tool-title">文字数をチェックする</h2><div class="badges"><span class="badge">入力中に自動計算</span><span class="badge">無料</span></div></div>
+<label for="limit">設問の文字数条件</label><div class="presets" aria-label="上限文字数のプリセット"><button type="button" data-limit="200">200字</button><button type="button" data-limit="300">300字</button><button type="button" data-limit="400" aria-pressed="true">400字</button><button type="button" data-limit="500">500字</button></div>
+<div class="field"><input id="limit" type="number" min="1" max="10000" step="1" value="400" inputmode="numeric" aria-label="文字数上限"><span>字以内など、設問の数字に合わせて変更できます。</span></div>
+<label for="es-text">ES本文を入力・貼り付け</label><textarea id="es-text" spellcheck="true" placeholder="ここにES本文を入力してください。文章はこのページ内だけで計算し、サーバーへ送信しません。" aria-describedby="count-rule"></textarea>
+<div class="metrics" aria-live="polite" aria-atomic="true"><div class="metric"><strong id="count">0</strong><span>現在の文字数</span></div><div class="metric"><strong id="remaining">400</strong><span>残り文字数</span></div><div class="metric"><strong id="without-space">0</strong><span>空白除外（参考）</span></div></div>
+<div class="meter" role="progressbar" aria-label="上限に対する文字数" aria-valuemin="0" aria-valuemax="400" aria-valuenow="0" id="progress"><span id="progress-fill"></span></div><p class="status" id="status" role="status">文字数上限まで400字です。</p><div class="aux"><span id="line-count">行数：0</span><span id="utf16-count">別方式の文字数：0</span></div>
+<div class="actions"><button type="button" class="btn" id="copy">文章をコピー</button><button type="button" class="btn secondary" id="clear">入力欄をクリア</button></div><p class="small" id="feedback" aria-live="polite"></p>
+<div class="note" id="count-rule"><strong>計算方法：</strong>改行を1文字として扱い、空白・記号も含めてUnicodeのコードポイント単位で数えています。絵文字や一部の合成文字は、応募フォーム側と文字数が異なる場合があります。<strong>提出先のカウンターを最優先</strong>してください。</div>
+</section>
+<section class="card" aria-labelledby="guide-title"><h2 id="guide-title">ESの文字数制限、どう考える？</h2>
+<h3>「400字以内」と指定された場合</h3><p>原則として上限を超えない文章にします。400字ぴったりにする必要はありません。結論・具体的な行動・結果が伝わるかを先に確認し、足りない説明だけ補うのがおすすめです。</p>
+<h3>「400字程度」と指定された場合</h3><p>「程度」の許容範囲は企業や応募フォームで異なります。一律の「±何％なら大丈夫」というルールはありません。フォームの入力可能文字数と、設問に付いた注意書きを確認してください。</p>
+<h3>「200字以上400字以内」と指定された場合</h3><p>下限と上限の両方を守ります。このツールは上限の確認に使えますが、下限は設問を見ながら自分でも照合してください。</p>
+<h3>改行・空白・英数字・絵文字はどう数える？</h3><p>全角・半角の違いや改行の扱いは、応募フォームごとに異なることがあります。こちらの表示は<strong>下書きの目安</strong>です。企業の提出画面に貼り付けた後、表示された文字数とエラーを必ず確認してください。</p>
+<div class="mini"><strong>例：400字以内で410字になったら</strong><p>「とても」「非常に」など、なくても意味が変わらない語を見直す → 重複する説明を統合する → 主語と行動・成果のつながりを再確認する、という順で削ると内容を保ちやすくなります。</p></div>
+</section>
+<section class="card"><h2>提出前に確認したい5つのこと</h2><ol class="steps"><li>設問に正面から答えているか。ガクチカなら「何をして、どう工夫したか」が伝わるか。</li><li>企業名・プログラム名を取り違えていないか。</li><li>指定された文字数・書式・ファイル形式を満たしているか。</li><li>貼り付け後に改行や記号が崩れていないか。</li><li>保存ではなく「提出完了」になっているか。受付画面やメールを確認したか。</li></ol><p>手続きまでまとめて確認するなら、<a href="28sotsu-es-teishutsu-mae-checklist.html">ES提出前20項目チェックリスト</a>も利用できます。</p></section>
+<section class="card"><h2>よくある質問</h2><h3>Q. 400字以内は何文字まで？</h3><p>通常は400字を上限として考えます。ただし実際の計測方法は提出フォームで確認してください。</p><h3>Q. 400字のESを300字で提出してもいい？</h3><p>「400字以内」なら文字数上限だけを見る限り300字は範囲内ですが、内容が十分かは別の問題です。経験の背景・行動・成果・学びが読み手に伝わるかを優先してください。</p><h3>Q. このページに入力したESは保存される？</h3><p>いいえ。このツールは入力文をlocalStorageにも保存せず、当サイトのサーバーへ送信する処理もありません。ページを閉じると入力内容は失われるため、原稿はご自身の安全な場所に保存してください。</p></section>
+</div><aside class="side"><section class="card"><h2>ESの次にやること</h2><div class="linklist"><a href="28sotsu-es-kakikata.html">ESの書き方を確認する →</a><a href="28sotsu-gakuchika-400ji-kakenai.html">ガクチカ400字の組み立て →</a><a href="28sotsu-es-teishutsu-mae-checklist.html">提出前20項目チェック →</a><a href="28sotsu-webtest-juken-annai-check.html">Webテスト受検案内チェック →</a><a href="28sotsu-guide-directory.html#es">ES関連記事を一覧で見る →</a></div><p class="small">企業・募集年度・締切の最新情報は必ず各社公式案内を確認してください。</p></section><section class="card"><h2>このツールの特徴</h2><p class="small">計算はブラウザ内で完結します。広告リンクや外部計測コードはこのページには設置していません。</p><p class="small">最終更新：2026年10月16日</p></section></aside></div>
+</main><footer>© 就活コンパス ｜ <a href="./">トップ</a> ・ <a href="about.html">運営情報</a> ・ <a href="privacy.html">プライバシーポリシー</a></footer>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const field=$('es-text'),limit=$('limit'),count=$('count'),remaining=$('remaining'),without=$('without-space'),status=$('status'),bar=$('progress'),fill=$('progress-fill'),feedback=$('feedback');
+const buttons=[...document.querySelectorAll('[data-limit]')];
+function update(){
+ const text=field.value.replace(/\r\n?/g,'\n');
+ const n=Array.from(text).length;
+ const nNoSpace=Array.from(text.replace(/[\s\u3000]/gu,'')).length;
+ const cap=Math.min(10000,Math.max(1,parseInt(limit.value,10)||400));
+ const left=cap-n;
+ count.textContent=n.toLocaleString('ja-JP');remaining.textContent=left.toLocaleString('ja-JP');without.textContent=nNoSpace.toLocaleString('ja-JP');
+ $('line-count').textContent='行数：'+(text.length?text.split('\n').length:0);
+ $('utf16-count').textContent='別方式の文字数（UTF-16）：'+text.length;
+ status.textContent=left<0?`上限を${-left}字超えています。内容を確認してください。`:left===0?'上限と同じ文字数です。提出先でも確認してください。':`文字数上限まで${left}字です。`;
+ status.classList.toggle('warn',left<0);fill.classList.toggle('warn',left<0);
+ fill.style.width=Math.min(100,(n/cap)*100)+'%';bar.setAttribute('aria-valuemax',String(cap));bar.setAttribute('aria-valuenow',String(Math.min(cap,n)));
+ buttons.forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.limit===cap)));
+}
+field.addEventListener('input',update);limit.addEventListener('input',update);
+buttons.forEach(b=>b.addEventListener('click',()=>{limit.value=b.dataset.limit;update();}));
+$('clear').addEventListener('click',()=>{if(!field.value)return;if(!confirm('入力した文章を消去しますか？'))return;field.value='';feedback.textContent='入力欄をクリアしました。';update();field.focus();});
+$('copy').addEventListener('click',async()=>{if(!field.value){feedback.textContent='コピーする文章を入力してください。';return;}try{await navigator.clipboard.writeText(field.value);feedback.textContent='文章をコピーしました。';}catch(e){field.focus();field.select();feedback.textContent='コピーが許可されませんでした。文章を選択したので、手動でコピーしてください。';}});
+update();
+})();
+</script>
+</body></html>
