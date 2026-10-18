@@ -85,6 +85,59 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 @media(max-width:850px){.sc-h-hero{grid-template-columns:1fr;padding:35px}.sc-h-hero-aside{display:none}.sc-h-workspace{align-items:flex-start;flex-direction:column}.sc-h-work-links{justify-content:flex-start}.sc-h-controls{flex-wrap:wrap}.sc-h-search{max-width:none}.sc-h-year-tabs{flex:1}.sc-h-year-tabs button{flex:1}}
 @media(max-width:600px){main#main-content{padding:15px 12px 44px!important}.site-header-inner{min-height:64px!important}.site-header .header-kicker{display:none!important}.site-nav-inner{gap:19px!important}.site-nav-inner>a{font-size:12px!important;white-space:nowrap!important}.sc-h-hero{padding:28px 21px;border-radius:17px;gap:0}.sc-h-mobile-break{display:block}.sc-h-hero h1{font-size:29px!important}.sc-h-hero h1 em{font-size:27px;white-space:nowrap}.sc-h-hero .sc-h-eyebrow{letter-spacing:.12em;font-size:9px;flex-wrap:wrap;margin-bottom:17px}.sc-h-eyebrow-ja{font-size:10px}.sc-h-lead{font-size:13px!important}.sc-h-hero-cta{gap:10px}.sc-h-hero-cta a{width:100%;justify-content:space-between}.sc-h-facts{gap:8px 15px!important;margin-top:18px!important;font-size:10px!important}.sc-h-quick{grid-template-columns:1fr;gap:9px;margin:12px 0 26px}.sc-h-quick-link{padding:13px 15px}.sc-h-directory{border-radius:15px!important;padding:19px 14px!important}.sc-h-section-head{display:block}.sc-h-section-head h2{font-size:22px!important}.sc-h-head-link{display:inline-block;margin-top:8px}.sc-h-controls{margin:18px 0 14px;gap:10px}.sc-h-year-tabs{width:100%}.sc-h-year-tabs button{padding:9px 12px;font-size:12px}.sc-h-search{width:100%;flex-basis:100%}.sc-h-topic-tabs{gap:6px;margin-bottom:12px}.sc-h-topic-tabs button{font-size:11px;padding:8px 10px!important}.sc-h-tool-list{grid-template-columns:1fr;gap:8px}.sc-h-tool{padding:12px;min-height:77px}.sc-h-list-note{display:none}.sc-h-workspace{padding:20px 17px}.sc-h-work-links{gap:7px}.sc-h-work-links a{font-size:11px;padding:9px 10px}.sc-h-archive-inner{padding:0 8px 15px}}
 @media(prefers-reduced-motion:reduce){.sc-h-quick-link,.sc-h-tool{transition:none!important}}
+</style><style id="sc-returning-tools-20261018">
+/* 2026-10-18 / 09:27: compact returning-user shortcuts; invisible for first-time visitors */
+.sc-h-recent[hidden]{display:none!important}
+.sc-h-recent{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:20px 0 0;padding:12px 14px;background:#f6faf8;border:1px solid #e1ece7;border-radius:12px}
+.sc-h-recent-label{font-size:12px;color:#426d65;font-weight:800;margin-right:4px;white-space:nowrap}
+.sc-h-recent-items{display:flex;align-items:center;flex-wrap:wrap;gap:7px;flex:1;min-width:0}
+.sc-h-recent-item{font-size:12px!important;color:#1b5c53!important;background:#fff;border:1px solid #dceae5;border-radius:8px;padding:8px 10px;line-height:1.35;display:inline-flex;align-items:center;gap:5px}
+.sc-h-recent-item:hover,.sc-h-recent-item:focus-visible{border-color:#0e756e;background:#edf7f3}
+.sc-h-recent-item small{font-size:10px;color:#67857e}
+.sc-h-recent-clear{font-size:11px!important;color:#5c7973!important;border:0!important;background:transparent!important;padding:8px 4px!important;cursor:pointer;white-space:nowrap}
+.sc-h-recent-clear:hover{text-decoration:underline}
+.sc-h-reset{font-size:12px!important;color:#0e756e!important;background:transparent!important;border:0!important;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:6px 0!important}
+.sc-h-reset[hidden]{display:none!important}
+@media(max-width:600px){.sc-h-recent{align-items:flex-start}.sc-h-recent-label{width:100%}.sc-h-recent-items{width:100%;flex-basis:100%}.sc-h-recent-item{padding:7px 9px}.sc-h-recent-clear{margin-left:auto}}
+</style><style id="sc-favorites-20261018">
+/* 10:31: compact, accessible bookmark controls; previous layout preserved */
+.sc-h-favorites-only{display:inline-flex!important;align-items:center;gap:6px;white-space:nowrap;border:1px solid #d7e8e2!important;background:#fff!important;color:#3b7067!important;border-radius:8px!important;padding:7px 11px!important;font-size:12px!important;font-weight:750!important;cursor:pointer}
+.sc-h-favorites-only[aria-pressed="true"]{background:#eaf6f1!important;color:#096b5e!important;border-color:#94c9b8!important}
+.sc-h-favorites-only span{font-size:11px;color:#60887e}
+.sc-h-tool-row{position:relative;min-width:0}
+.sc-h-tool-row>.sc-h-tool{height:100%;padding-right:86px!important}
+.sc-h-fav-star{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:32px;height:34px;display:grid;place-items:center;border:1px solid transparent!important;background:transparent!important;border-radius:8px!important;color:#8b9e9a!important;font-size:21px!important;line-height:1!important;cursor:pointer;z-index:1}
+.sc-h-fav-star:hover,.sc-h-fav-star:focus-visible{background:#eaf6f1!important;border-color:#c6e3d7!important;color:#0d7c69!important}
+.sc-h-fav-star[aria-pressed="true"]{color:#0d7c69!important}
+.sc-h-tool-row .sc-h-tool-arrow{display:none}
+@media(max-width:600px){.sc-h-favorites-only{font-size:11px!important;padding:7px 9px!important}.sc-h-tool-row>.sc-h-tool{min-height:77px}}
+</style>
+<style id="sc-tool-share-20261018">
+/* Small share controls do not affect navigation, bookmarks or stored data. */
+.sc-h-tool-row .sc-h-fav-star{right:44px!important}
+.sc-h-share{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:32px;height:34px;display:grid;place-items:center;border:1px solid transparent;background:transparent;border-radius:8px;color:#64877e;font-size:17px;line-height:1;cursor:pointer;z-index:1}
+.sc-h-share:hover,.sc-h-share:focus-visible{background:#eaf6f1;border-color:#c6e3d7;color:#0d7c69;outline-offset:2px}
+.sc-h-share[disabled]{opacity:.5;cursor:wait}
+.sc-h-share-feedback{min-height:0;font-size:12px;font-weight:700;color:#126a57}
+.sc-h-share-feedback:empty{display:none}
+@media(max-width:600px){.sc-h-tool-row>.sc-h-tool{padding-right:83px!important}.sc-h-tool-row .sc-h-fav-star{right:42px!important}.sc-h-share{right:7px}}
+</style>
+<style id="sc-tool-sort-20261018">
+/* Compact sorting stays subordinate to search; no new panels or advertising. */
+.sc-h-list-bar{justify-content:flex-start;flex-wrap:wrap;column-gap:12px;row-gap:8px}
+.sc-h-list-bar #sc-h-count{margin-right:auto}
+.sc-h-sort-label{display:inline-flex;align-items:center;gap:7px;color:#61767a;font-size:12px;font-weight:700;white-space:nowrap}
+.sc-h-sort-label select{font:inherit;color:#244d50;background:#fff;border:1px solid #dce8e3;border-radius:8px;padding:7px 26px 7px 9px;min-height:34px;max-width:180px;cursor:pointer}
+.sc-h-sort-label select:focus-visible{outline:2px solid #147d70;outline-offset:2px}
+@media(max-width:600px){.sc-h-list-bar{gap:8px}.sc-h-list-bar #sc-h-count{flex:1 1 100%;margin-right:0}.sc-h-sort-label{font-size:11px}.sc-h-sort-label select{padding:6px 23px 6px 7px;max-width:140px}.sc-h-list-note{display:none!important}}
+</style>
+<style id="sc-filter-share-20261018">
+/* Shareable search filters: hidden unless there is a shareable filter; no user data exported. */
+.sc-h-filter-share[hidden]{display:none!important}
+.sc-h-filter-share{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid #cbded8;background:#f2faf7;color:#17695d;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:750;cursor:pointer}
+.sc-h-filter-share:hover{background:#e6f5ef;border-color:#9bcbbd}
+.sc-h-filter-share:focus-visible{outline:3px solid #52a6b5;outline-offset:2px}
+@media(max-width:420px){.sc-h-filter-share{padding:7px 8px;font-size:11px}}
 </style></head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -108,12 +161,14 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 </div>
 </div><section aria-labelledby="sc-h-discover-title" class="sc-h-directory" id="discover">
 <div class="sc-h-section-head"><div><span class="sc-h-section-tag">EXPLORE TOOLS</span><h2 id="sc-h-discover-title">やりたいことから探す</h2><p>長い説明を読まなくても大丈夫。卒業年度と目的で絞り込めます。</p></div><a class="sc-h-head-link" href="29sotsu-tools-directory.html">29卒の全ツール <span aria-hidden="true">↗</span></a></div>
+<div class="sc-h-recent" id="sc-h-recent" hidden aria-label="最近使ったツール"><span class="sc-h-recent-label">最近使ったツール</span><div class="sc-h-recent-items" id="sc-h-recent-items"></div><button class="sc-h-recent-clear" id="sc-h-recent-clear" type="button" aria-label="最近使ったツールの履歴を削除">履歴を消す</button></div>
 <div class="sc-h-controls">
 <div aria-label="卒業年度で絞り込み" class="sc-h-year-tabs" role="group"><button aria-pressed="true" class="is-current" data-sc-year="all" type="button">すべて</button><button aria-pressed="false" data-sc-year="28" type="button">28卒</button><button aria-pressed="false" data-sc-year="29" type="button">29卒</button><button aria-pressed="false" data-sc-year="common" type="button">共通</button></div>
-<label class="sc-h-search"><span aria-hidden="true" class="sc-h-search-icon">⌕</span><span class="sc-h-sr-only">ツールを検索</span><input autocomplete="off" id="sc-h-search" placeholder="自己分析、SPI、面接…" type="search"/></label>
+<label class="sc-h-search"><span aria-hidden="true" class="sc-h-search-icon">⌕</span><span class="sc-h-sr-only">ツールを検索</span><input autocomplete="off" id="sc-h-search" placeholder="例：29卒 自己分析 / 28卒 SPI" type="search"/></label>
 </div>
 <div aria-label="目的で絞り込み" class="sc-h-topic-tabs" role="group"><button aria-pressed="true" class="is-current" data-sc-topic="すべて" type="button">すべて</button><button aria-pressed="false" data-sc-topic="自己分析" type="button">自己分析</button><button aria-pressed="false" data-sc-topic="ES" type="button">ES・自己PR</button><button aria-pressed="false" data-sc-topic="企業研究" type="button">企業研究</button><button aria-pressed="false" data-sc-topic="Webテスト" type="button">Webテスト</button><button aria-pressed="false" data-sc-topic="面接・OB訪問" type="button">面接・OB訪問</button><button aria-pressed="false" data-sc-topic="選考管理" type="button">選考管理</button></div>
-<div class="sc-h-list-bar"><span aria-live="polite" id="sc-h-count"></span><span class="sc-h-list-note">気になるツールを選んですぐ開始</span></div>
+<div class="sc-h-list-bar"><span aria-live="polite" id="sc-h-count"></span><label class="sc-h-sort-label" for="sc-h-sort">並び順 <select id="sc-h-sort" aria-label="ツールの並び順"><option value="recommended">おすすめ順</option><option value="favorites">お気に入り優先</option><option value="recent">最近使った順</option><option value="name">名前順</option></select></label><button class="sc-h-favorites-only" id="sc-h-favorites-only" type="button" aria-pressed="false" aria-label="お気に入りのツールだけを表示">☆ お気に入り <span id="sc-h-favorites-count">0</span></button><button class="sc-h-filter-share" hidden="" id="sc-h-filter-share" type="button" title="卒年・目的・検索語を含むURLをコピー。お気に入りや入力データは含みません。" aria-label="現在の卒年・目的・検索語の絞り込みURLをコピー">条件URLをコピー <span aria-hidden="true">⧉</span></button> <button class="sc-h-reset" id="sc-h-reset" type="button" hidden>絞り込みを解除</button><span class="sc-h-list-note">☆ お気に入り / ⧉ リンクをコピー</span></div>
+<div id="sc-h-share-feedback" class="sc-h-share-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
 <div aria-label="検索結果" class="sc-h-tool-list" id="sc-h-tool-list"><a class="sc-h-tool" href="29sotsu-jikobunseki-10questions.html"><span aria-hidden="true" class="sc-h-tool-code">01</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己分析10問</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">経験を整理し、強みの材料を見つける</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-mojisu-counter.html"><span aria-hidden="true" class="sc-h-tool-code">21</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES文字数カウンター</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">200〜500字の文字数をすぐ確認</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-jikopr-400ji-revision-work.html"><span aria-hidden="true" class="sc-h-tool-code">05</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己PR 400字ワーク</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">6項目から下書きを作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-mensetsu-1min-timer.html"><span aria-hidden="true" class="sc-h-tool-code">25</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">面接1分回答タイマー</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">回答を30〜120秒で練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-kigyou-erabi-jiku-match-board.html"><span aria-hidden="true" class="sc-h-tool-code">10</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業選び比較ボード</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">仕事・成長・働き方などを比較</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-spi-gengo-12mon-practice.html"><span aria-hidden="true" class="sc-h-tool-code">30</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">SPI言語12問演習</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">語彙・読解を練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-schedule-conflict-checker.html"><span aria-hidden="true" class="sc-h-tool-code">13</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン日程かぶり確認</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">授業・面接・説明会の重複を探す</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-shimekiri-gyakusan.html"><span aria-hidden="true" class="sc-h-tool-code">22</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES締切逆算</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">締切から作業計画を組み立てる</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-obog-30min-question-planner.html"><span aria-hidden="true" class="sc-h-tool-code">14</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">OB・OG訪問質問プラン</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">30分の質問と時間配分を考える</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-kigyo-kenkyu-30min.html"><span aria-hidden="true" class="sc-h-tool-code">20</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業研究30分ワーク</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">仕事内容・応募条件を整理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="#tracker"><span aria-hidden="true" class="sc-h-tool-code">38</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">選考進捗トラッカー</span><span class="sc-h-tool-year">共通</span></span><span class="sc-h-tool-desc">企業・締切・選考段階を管理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-shiboudouki-work.html"><span aria-hidden="true" class="sc-h-tool-code">07</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン志望動機</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">200字・400字の志望理由を作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a></div>
 <p class="sc-h-empty" hidden="" id="sc-h-no-match">一致するツールがありません。キーワードや条件を変えてみてください。</p>
 <div class="sc-h-showmore-wrap"><button class="sc-h-showmore" id="sc-h-showmore" type="button">すべてのツールを表示 <span aria-hidden="true">↓</span></button></div>
@@ -342,19 +397,146 @@ const jobs=$c('jobs');if(jobs)new MutationObserver(()=>render()).observe(jobs,{c
 'use strict';
 const list=document.getElementById('sc-h-tool-list'),search=document.getElementById('sc-h-search'),count=document.getElementById('sc-h-count'),more=document.getElementById('sc-h-showmore'),empty=document.getElementById('sc-h-no-match');
 if(!list||!search||!count||!more||!empty)return;
+const sortSelect=document.getElementById('sc-h-sort');
+const filterShare=document.getElementById('sc-h-filter-share');
 const tools=[{"title":"自己分析10問","desc":"経験を整理し、強みの材料を見つける","year":"29","topic":"自己分析","url":"29sotsu-jikobunseki-10questions.html","code":"01"},{"title":"ES文字数カウンター","desc":"200〜500字の文字数をすぐ確認","year":"28","topic":"ES","url":"28sotsu-es-mojisu-counter.html","code":"21"},{"title":"自己PR 400字ワーク","desc":"6項目から下書きを作成","year":"29","topic":"ES","url":"29sotsu-jikopr-400ji-revision-work.html","code":"05"},{"title":"面接1分回答タイマー","desc":"回答を30〜120秒で練習","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-1min-timer.html","code":"25"},{"title":"企業選び比較ボード","desc":"仕事・成長・働き方などを比較","year":"29","topic":"企業研究","url":"29sotsu-kigyou-erabi-jiku-match-board.html","code":"10"},{"title":"SPI言語12問演習","desc":"語彙・読解を練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-12mon-practice.html","code":"30"},{"title":"インターン日程かぶり確認","desc":"授業・面接・説明会の重複を探す","year":"29","topic":"選考管理","url":"29sotsu-intern-schedule-conflict-checker.html","code":"13"},{"title":"ES締切逆算","desc":"締切から作業計画を組み立てる","year":"28","topic":"選考管理","url":"28sotsu-es-shimekiri-gyakusan.html","code":"22"},{"title":"OB・OG訪問質問プラン","desc":"30分の質問と時間配分を考える","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-30min-question-planner.html","code":"14"},{"title":"企業研究30分ワーク","desc":"仕事内容・応募条件を整理","year":"28","topic":"企業研究","url":"28sotsu-kigyo-kenkyu-30min.html","code":"20"},{"title":"選考進捗トラッカー","desc":"企業・締切・選考段階を管理","year":"all","topic":"選考管理","url":"#tracker","code":"38"},{"title":"インターン志望動機","desc":"200字・400字の志望理由を作成","year":"29","topic":"ES","url":"29sotsu-intern-shiboudouki-work.html","code":"07"},{"title":"モチベーショングラフ","desc":"過去の経験を曲線で可視化","year":"29","topic":"自己分析","url":"29sotsu-motivation-curve-work.html","code":"02"},{"title":"強み・弱み整理","desc":"経験から自己PRの根拠を整理","year":"29","topic":"自己分析","url":"29sotsu-tsuyomi-yowami-episode-work.html","code":"03"},{"title":"就活の軸5つ整理","desc":"大切にしたい価値観を言語化","year":"29","topic":"自己分析","url":"29sotsu-shukatsu-jiku-5values.html","code":"04"},{"title":"ガクチカ作成ワーク","desc":"経験を200字・400字にまとめる","year":"29","topic":"ES","url":"29sotsu-gakuchika-star-400.html","code":"06"},{"title":"ES提出前チェック","desc":"応募前に22項目を確認","year":"29","topic":"ES","url":"29sotsu-intern-es-submit-check.html","code":"08"},{"title":"企業研究15分シート","desc":"事業・強み・志望理由の材料を整理","year":"29","topic":"企業研究","url":"29sotsu-kigyou-kenkyu-15min.html","code":"09"},{"title":"業界比較シート","desc":"興味のある3業界を比べる","year":"29","topic":"企業研究","url":"29sotsu-gyoukai-hikaku-sheet.html","code":"11"},{"title":"インターン優先順位","desc":"参加候補を比較して優先順位を決める","year":"29","topic":"選考管理","url":"29sotsu-intern-priority-board.html","code":"12"},{"title":"OB・OG訪問の依頼文","desc":"メール・DMの下書きを作る","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-request-mail.html","code":"15"},{"title":"OB・OG訪問のお礼文","desc":"訪問後のお礼メールを作成","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-orei-mail.html","code":"16"},{"title":"OB・OG質問メーカー","desc":"聞きたい内容から質問を組み立てる","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-question-maker.html","code":"17"},{"title":"12週間ロードマップ","desc":"週ごとに就活準備を管理","year":"29","topic":"選考管理","url":"29sotsu-12weeks-roadmap.html","code":"18"},{"title":"4週間チェックリスト","desc":"最初の就活準備20項目をチェック","year":"29","topic":"選考管理","url":"29sotsu-4weeks-checklist.html","code":"19"},{"title":"提出前20項目チェック","desc":"誤字・添付・送信完了まで確認","year":"28","topic":"ES","url":"28sotsu-es-teishutsu-mae-checklist.html","code":"23"},{"title":"ガクチカ深掘り15問","desc":"経験ごとの面接質問を整理","year":"28","topic":"面接・OB訪問","url":"28sotsu-gakuchika-fukabori-shitsumon.html","code":"24"},{"title":"面接PREP・STAR整理","desc":"伝わる回答の構成をつくる","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-prep-star-work.html","code":"26"},{"title":"面接前日チェック","desc":"19項目で準備漏れを防ぐ","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-zenjitsu-check.html","code":"27"},{"title":"面接メール作成","desc":"日程変更・確定・辞退を作成","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-schedule-mail.html","code":"28"},{"title":"ES・面接の一貫性チェック","desc":"経験・数字・役割のずれを確認","year":"28","topic":"面接・OB訪問","url":"28sotsu-es-mensetsu-consistency.html","code":"29"},{"title":"SPI非言語12問演習","desc":"割合・確率・速さを練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-higengo-12mon-practice.html","code":"31"},{"title":"SPI成績ダッシュボード","desc":"得意・苦手分野を可視化","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-higengo-score-dashboard.html","code":"32"},{"title":"Webテスト復習ノート","desc":"間違いの原因と復習日を記録","year":"28","topic":"Webテスト","url":"28sotsu-webtest-machigai-note.html","code":"33"},{"title":"就活1週間プラン","desc":"7日間のタスクをつくる","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-1week-schedule.html","code":"34"},{"title":"今日の優先順位","desc":"ES・締切・Webテストから整理","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-yusenjuni-shindan.html","code":"35"},{"title":"秋冬インターン比較","desc":"応募先の条件・締切を比較","year":"28","topic":"企業研究","url":"28sotsu-akifuyu-intern-oubo-hikaku.html","code":"36"},{"title":"ES下書き・文字数管理","desc":"文章を作りながら保存する","year":"all","topic":"ES","url":"#es-counter","code":"37"},{"title":"就活カレンダー","desc":"応募締切と面接予定を確認","year":"all","topic":"選考管理","url":"#calendar","code":"39"},{"title":"全データバックアップ","desc":"端末内に保存した記録を書き出す","year":"all","topic":"選考管理","url":"#backup-section","code":"40"},{"title":"就活サービス比較","desc":"スカウト・選考情報・エージェントを比較","year":"all","topic":"企業研究","url":"shukatsu-service-compare-2026.html","code":"41"}];
 let year='all',topic='すべて',expanded=false;
+const SORT_KEY='sc_h_tool_sort_v1';
+const SORT_VALUES=new Set(['recommended','favorites','recent','name']);
+let sortMode='recommended';
+try{const saved=localStorage.getItem(SORT_KEY);if(SORT_VALUES.has(saved))sortMode=saved;}catch(e){}
+if(sortSelect)sortSelect.value=sortMode;
+if(sortSelect)sortSelect.addEventListener('change',()=>{sortMode=SORT_VALUES.has(sortSelect.value)?sortSelect.value:'recommended';try{localStorage.setItem(SORT_KEY,sortMode);}catch(e){};update();});
+// User-chosen favorites are stored only on this device, separately from recent history.
+const FAVORITES_KEY='sc_h_favorite_tools_v1';
+const favoritesToggle=document.getElementById('sc-h-favorites-only');
+const favoritesCount=document.getElementById('sc-h-favorites-count');
+function readFavorites(){try{const raw=JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]');return Array.isArray(raw)?raw.filter(u=>typeof u==='string'&&tools.some(t=>t.url===u)):[]}catch(e){return []}}
+let favorites=new Set(readFavorites()),favoritesOnly=false;
+function saveFavorites(){try{localStorage.setItem(FAVORITES_KEY,JSON.stringify([...favorites]))}catch(e){}}
+function syncFavoritesButton(){if(favoritesToggle){favoritesToggle.setAttribute('aria-pressed',String(favoritesOnly));favoritesToggle.setAttribute('aria-label',favoritesOnly?'お気に入り表示を解除':'お気に入りのツールだけを表示');}if(favoritesCount)favoritesCount.textContent=String(favorites.size);}
+
+
+const recentBox=document.getElementById('sc-h-recent'),recentItems=document.getElementById('sc-h-recent-items'),recentClear=document.getElementById('sc-h-recent-clear'),reset=document.getElementById('sc-h-reset');
+const RECENT_KEY='sc_h_recent_tools_v1';
+function loadRecent(){try{const value=JSON.parse(localStorage.getItem(RECENT_KEY)||'[]');return Array.isArray(value)?value.filter(x=>typeof x==='string').slice(0,4):[]}catch(e){return []}}
+let recent=loadRecent();
+function drawRecent(){
+ if(!recentBox||!recentItems)return;
+ const matched=recent.map(url=>tools.find(t=>t.url===url)).filter(Boolean);
+ recentBox.hidden=matched.length===0;
+ recentItems.innerHTML=matched.map(t=>`<a class="sc-h-recent-item" href="${escape(t.url)}">${escape(t.title)} <small>${t.year==='all'?'共通':t.year+'卒'}</small><span aria-hidden="true">↗</span></a>`).join('');
+}
+function remember(url){
+ if(!tools.some(t=>t.url===url))return;
+ recent=[url,...recent.filter(x=>x!==url)].slice(0,4);
+ try{localStorage.setItem(RECENT_KEY,JSON.stringify(recent))}catch(e){};
+ drawRecent();
+}
+list.addEventListener('click',event=>{const a=event.target.closest('a.sc-h-tool');if(a&&list.contains(a))remember(a.getAttribute('href'));});
+list.addEventListener('click',event=>{
+ const button=event.target.closest('button.sc-h-fav-star');
+ if(!button||!list.contains(button))return;
+ const url=button.dataset.favoriteUrl;
+ if(!tools.some(t=>t.url===url))return;
+ if(favorites.has(url))favorites.delete(url);else favorites.add(url);
+ saveFavorites();syncFavoritesButton();update();
+});
+if(favoritesToggle)favoritesToggle.addEventListener('click',()=>{favoritesOnly=!favoritesOnly;expanded=false;syncFavoritesButton();update();});
+// Sharing uses the actual destination URL; it never sends or reads user-entered ES data.
+const shareFeedback=document.getElementById('sc-h-share-feedback');
+let shareFeedbackTimer;
+function shareNotice(message){
+ if(!shareFeedback)return;
+ shareFeedback.textContent=message;
+ clearTimeout(shareFeedbackTimer);
+ shareFeedbackTimer=setTimeout(()=>{shareFeedback.textContent='';},3500);
+}
+async function copyToolUrl(url){
+ const resolved=new URL(url,document.baseURI);
+ if(resolved.origin!==new URL(document.baseURI).origin)throw new Error('外部リンクは対象外');
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  try{await navigator.clipboard.writeText(resolved.href);return true;}catch(e){}
+ }
+ const el=document.createElement('textarea');
+ el.value=resolved.href;el.setAttribute('readonly','');
+ el.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+ document.body.appendChild(el);el.focus();el.select();
+ let ok=false;
+ try{ok=document.execCommand('copy');}finally{el.remove();}
+ return ok;
+}
+// A share link includes ONLY the explicit directory filters. Never serialize localStorage,
+// favorites, recently used tools, ES drafts, applications, or calendar entries.
+function filterShareUrl(){
+ const url=new URL(window.location.href);url.search='';url.hash='';
+ if(year!=='all')url.searchParams.set('sc_year',year);
+ if(topic!=='すべて')url.searchParams.set('sc_topic',topic);
+ const q=search.value.trim().slice(0,80);
+ if(q)url.searchParams.set('sc_q',q);
+ url.hash='discover';
+ return url.href;
+}
+if(filterShare)filterShare.addEventListener('click',async()=>{
+ filterShare.disabled=true;
+ try{
+  const ok=await copyToolUrl(filterShareUrl());
+  shareNotice(ok?'現在の検索条件を開けるURLをコピーしました':'コピーできませんでした。');
+ }catch(e){shareNotice('コピーできませんでした。');}
+ finally{filterShare.disabled=false;}
+});
+list.addEventListener('click',async event=>{
+ const button=event.target.closest('button.sc-h-share');
+ if(!button||!list.contains(button))return;
+ const url=button.dataset.shareUrl;
+ if(!tools.some(t=>t.url===url))return;
+ button.disabled=true;
+ try{
+  if(await copyToolUrl(url))shareNotice(button.dataset.shareTitle+' のリンクをコピーしました');
+  else shareNotice('コピーできませんでした。ツールを開いてURLをコピーしてください。');
+ }catch(e){shareNotice('コピーできませんでした。ツールを開いてURLをコピーしてください。');}
+ finally{button.disabled=false;}
+});
+
+
+if(recentItems)recentItems.addEventListener('click',event=>{const a=event.target.closest('a.sc-h-recent-item');if(a&&recentItems.contains(a))remember(a.getAttribute('href'));});
+if(recentClear)recentClear.addEventListener('click',()=>{recent=[];try{localStorage.removeItem(RECENT_KEY)}catch(e){};drawRecent();});
+function resetFilters(){year='all';topic='すべて';expanded=false;favoritesOnly=false;search.value='';syncFavoritesButton();
+ document.querySelectorAll('[data-sc-year]').forEach(b=>{const on=b.dataset.scYear==='all';b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));});
+ document.querySelectorAll('[data-sc-topic]').forEach(b=>{const on=b.dataset.scTopic==='すべて';b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));});
+ update();
+}
+if(reset)reset.addEventListener('click',resetFilters);
+search.addEventListener('keydown',event=>{if(event.key==='Escape'&&search.value){search.value='';update();event.stopPropagation();}});
+document.addEventListener('keydown',event=>{if(event.key!=='/'||event.altKey||event.ctrlKey||event.metaKey||event.isComposing)return;
+ const el=document.activeElement;if(el&&(el.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)))return;
+ event.preventDefault();search.focus();});
+
 const norm=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[\s\u3000]+/g,'');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function update(){
- const query=norm(search.value);
- const filtered=tools.filter(t=>(year==='all'||(year==='common'?t.year==='all':t.year===year))&&(topic==='すべて'||t.topic===topic)&&(!query||norm([t.title,t.desc,t.topic,t.year].join(' ')).includes(query)));
- const visible=expanded||query||year!=='all'||topic!=='すべて'?filtered:filtered.slice(0,12);
- list.innerHTML=visible.map(t=>`<a class="sc-h-tool" href="${escape(t.url)}"><span class="sc-h-tool-code" aria-hidden="true">${escape(t.code)}</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">${escape(t.title)}</span><span class="sc-h-tool-year">${t.year==='all'?'共通':t.year+'卒'}</span></span><span class="sc-h-tool-desc">${escape(t.desc)}</span></span><span class="sc-h-tool-arrow" aria-hidden="true">↗</span></a>`).join('');
+ // Multi-word AND search: '29卒 自己分析' and '28卒 SPI' both work.
+ const query=search.value.trim();
+ const terms=query.split(/[\s\u3000]+/).map(norm).filter(Boolean);
+ const filtered=tools.filter(t=>{
+  if(!(year==='all'||(year==='common'?t.year==='all':t.year===year)))return false;
+  if(topic!=='すべて'&&t.topic!==topic)return false;
+  if(favoritesOnly&&!favorites.has(t.url))return false;
+  const haystack=norm([t.title,t.desc,t.topic,t.year==='all'?'共通':t.year+'卒'].join(' '));
+  return terms.every(term=>haystack.includes(term));
+ });
+ if(sortMode==='favorites')filtered.sort((a,b)=>Number(favorites.has(b.url))-Number(favorites.has(a.url)));
+ else if(sortMode==='recent')filtered.sort((a,b)=>{const ia=recent.indexOf(a.url),ib=recent.indexOf(b.url);return (ia<0?Infinity:ia)-(ib<0?Infinity:ib);});
+ else if(sortMode==='name')filtered.sort((a,b)=>a.title.localeCompare(b.title,'ja'));
+ const visible=expanded||terms.length||year!=='all'||topic!=='すべて'||favoritesOnly?filtered:filtered.slice(0,12);
+ list.innerHTML=visible.map(t=>`<div class="sc-h-tool-row"><a class="sc-h-tool" href="${escape(t.url)}"><span class="sc-h-tool-code" aria-hidden="true">${escape(t.code)}</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">${escape(t.title)}</span><span class="sc-h-tool-year">${t.year==='all'?'共通':t.year+'卒'}</span></span><span class="sc-h-tool-desc">${escape(t.desc)}</span></span><span class="sc-h-tool-arrow" aria-hidden="true">↗</span></a><button type="button" class="sc-h-fav-star" data-favorite-url="${escape(t.url)}" aria-label="${escape(t.title)}を${favorites.has(t.url)?'お気に入りから解除':'お気に入りに登録'}" aria-pressed="${favorites.has(t.url)}">${favorites.has(t.url)?'★':'☆'}</button><button type="button" class="sc-h-share" data-share-url="${escape(t.url)}" data-share-title="${escape(t.title)}" aria-label="${escape(t.title)}のリンクをコピー" title="リンクをコピー">⧉</button></div>`).join('');
  count.textContent=`${filtered.length}件のツール${visible.length<filtered.length?' / '+visible.length+'件を表示':''}`;
  empty.hidden=filtered.length!==0;
- more.hidden=filtered.length<=12||!!query||year!=='all'||topic!=='すべて';
+ empty.textContent=favoritesOnly&&!favorites.size?'まだお気に入りがありません。各ツールの☆を押して登録できます。':'一致するツールがありません。キーワードや条件を変えてみてください。';
+ more.hidden=filtered.length<=12||!!query||year!=='all'||topic!=='すべて'||favoritesOnly;
  more.innerHTML=expanded?'表示を少なくする <span aria-hidden="true">↑</span>':'すべてのツールを表示 <span aria-hidden="true">↓</span>';
+ if(reset)reset.hidden=!(year!=='all'||topic!=='すべて'||!!query||favoritesOnly);
+ if(filterShare)filterShare.hidden=!(year!=='all'||topic!=='すべて'||!!query);
 }
 function bind(selector,key){document.querySelectorAll(selector).forEach(button=>button.addEventListener('click',()=>{
  const value=button.dataset[key];if(key==='scYear')year=value;else topic=value;
@@ -363,5 +545,24 @@ function bind(selector,key){document.querySelectorAll(selector).forEach(button=>
 bind('[data-sc-year]','scYear');bind('[data-sc-topic]','scTopic');
 search.addEventListener('input',update);
 more.addEventListener('click',()=>{expanded=!expanded;update();});
+// Restore validated directory filters from a shared URL (only on initial load).
+// Unknown values are ignored; query length is capped to prevent oversized search work.
+try{
+ const params=new URL(window.location.href).searchParams;
+ const requestedYear=params.get('sc_year');
+ if(['all','28','29','common'].includes(requestedYear))year=requestedYear;
+ const requestedTopic=params.get('sc_topic');
+ if([...document.querySelectorAll('[data-sc-topic]')].some(b=>b.dataset.scTopic===requestedTopic))topic=requestedTopic;
+ const requestedQuery=params.get('sc_q');
+ if(requestedQuery)search.value=requestedQuery.slice(0,80);
+ document.querySelectorAll('[data-sc-year]').forEach(b=>{
+  const on=b.dataset.scYear===year;b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));
+ });
+ document.querySelectorAll('[data-sc-topic]').forEach(b=>{
+  const on=b.dataset.scTopic===topic;b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));
+ });
+}catch(e){}
+drawRecent();
+syncFavoritesButton();
 update();
 })();</script></body></html>
