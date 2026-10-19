@@ -20,6 +20,20 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 .article-card{display:block;text-decoration:none;color:inherit;border:1px solid #dbe4ec;border-radius:14px;padding:18px;background:var(--soft)}.article-card:hover{border-color:#9fb8df}.article-card strong{display:block;color:#174077;font-size:18px;margin-bottom:6px}.article-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .notice{background:#f8fbff;border:1px solid #dbe4ec;border-radius:12px;padding:15px}.hidden{display:none!important}footer{padding:30px;text-align:center;color:#68778d;font-size:13px}
 @media(max-width:760px){.grid4{grid-template-columns:1fr 1fr}.article-grid{grid-template-columns:1fr}.flex{display:block}.flex>*{margin-bottom:9px}.saved-card-head,.job-card-head{display:block}.actions{margin-top:10px}section{padding:18px}nav{padding-left:10px}.hero{padding:20px}}
+
+/* 2026-10-18: Compact, accessible year-aware quick-search suggestions. */
+.sc-h-suggestions{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin:12px 0 5px;color:#637b81;font-size:12px}
+.sc-h-suggestions-label{font-weight:750;white-space:nowrap;color:#526b71}
+.sc-h-suggestions-buttons{display:flex;gap:7px;flex-wrap:wrap;min-width:0}
+.sc-h-suggestions-buttons button{background:#fff;border:1px solid #dce9e6;border-radius:999px;color:#176e68;padding:5px 11px;font:inherit;font-weight:700;line-height:1.45;min-height:30px;cursor:pointer;box-shadow:none;transition:background .15s,border-color .15s}
+.sc-h-suggestions-buttons button:hover{background:#e9f7f4;border-color:#9ed5ca}
+.sc-h-suggestions-buttons button:focus-visible{outline:2px solid #0b8d7e;outline-offset:2px}
+@media(max-width:480px){.sc-h-suggestions{gap:6px;margin:11px 0 3px}.sc-h-suggestions-label{width:100%;font-size:11px}.sc-h-suggestions-buttons{gap:6px}.sc-h-suggestions-buttons button{padding:5px 9px;font-size:12px}}
+
+/* 2026-10-18 18:30: local-data backup freshness reminder. */
+.sc-backup-health{margin:12px 0;padding:10px 13px;border:1px solid #d4e7e1;background:#f3faf8;border-radius:10px;color:#25544a;font-size:13px;line-height:1.65}
+.sc-backup-health[data-state="attention"]{border-color:#eed5a0;background:#fffaf0;color:#704c14}
+.sc-backup-health[data-state="empty"]{border-color:#e3e8f0;background:#f8fafc;color:#56687b}
 </style>
 <style>.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.cal-head{text-align:center;font-size:.8rem;font-weight:700;padding:7px 0;color:#46566d}.cal-day{min-height:90px;border:1px solid #dbe3ee;border-radius:9px;padding:6px;background:#fff;min-width:0}.cal-day.outside{background:#f4f6fa;opacity:.5}.cal-day.today{outline:2px solid #3478d4}.cal-num{font-weight:700;font-size:.82rem}.cal-event{font-size:.72rem;line-height:1.35;padding:4px 5px;margin-top:4px;background:#e8f1ff;border-radius:5px;overflow-wrap:anywhere;color:#14345d}.cal-event.deadline{background:#fff0d9;color:#694006}.cal-event small{display:block;opacity:.8}@media(max-width:600px){.cal-grid{gap:2px}.cal-day{min-height:77px;padding:3px;border-radius:5px}.cal-event{font-size:.63rem;padding:3px}.cal-num{font-size:.72rem}}</style><meta content="website" property="og:type"/><meta content="就活コンパス｜28卒・29卒の就活ツールをスマートに探す" property="og:title"/><meta content="自己分析・ES・SPI・企業研究・面接・選考管理。28卒・29卒向け無料ツールを目的別に検索。" property="og:description"/><meta content="https://goonyogunyo-prog.github.io/shukatsu-compass/" property="og:url"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"就活コンパス","url":"https://goonyogunyo-prog.github.io/shukatsu-compass/","inLanguage":"ja","description":"28卒向けの就活ガイドと無料選考管理ツール"}</script>
@@ -78,13 +92,22 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 .sc-h-directory{background:#fff!important;border:1px solid #e4ebe9!important;border-radius:22px!important;padding:clamp(20px,3.2vw,34px)!important;box-shadow:0 10px 36px #1c3e3707!important;margin:0 0 26px!important}.sc-h-section-head{display:flex;justify-content:space-between;align-items:center;gap:16px}.sc-h-section-tag{font-size:10px;letter-spacing:.18em;color:#238478;font-weight:900}.sc-h-section-head h2,.sc-h-workspace h2{font-size:25px!important;font-weight:820;letter-spacing:-.035em;margin:7px 0 7px!important;color:#173239}.sc-h-section-head p,.sc-h-workspace p{color:#6b7e87!important;font-size:13px!important;margin:0!important;line-height:1.7}.sc-h-head-link{color:#0f746c!important;font-size:12px;font-weight:800;white-space:nowrap;padding:8px 0}
 .sc-h-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:24px 0 18px}.sc-h-year-tabs{display:flex;gap:5px;background:#f1f5f4;padding:5px;border-radius:11px;flex:0 0 auto}.sc-h-year-tabs button,.sc-h-topic-tabs button{box-shadow:none!important;background:none;color:#627a7a;border:0;cursor:pointer}.sc-h-year-tabs button{padding:10px 19px;font-size:13px;min-height:39px;border-radius:8px;font-weight:780}.sc-h-year-tabs button.is-current{background:#fff;color:#0a6d63;box-shadow:0 1px 5px #173c3015!important}.sc-h-search{position:relative;max-width:370px;flex:1}.sc-h-search input{width:100%;min-height:47px;background:#fff!important;border:1px solid #dde8e6!important;border-radius:11px!important;box-shadow:none!important;padding:11px 16px 11px 40px!important;font-size:13px!important;color:#203a42}.sc-h-search input:focus{outline:2px solid #73b3a8;outline-offset:1px}.sc-h-search-icon{position:absolute;left:13px;top:11px;font-size:22px;color:#6e928e;line-height:1;pointer-events:none}.sc-h-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .sc-h-topic-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.sc-h-topic-tabs button{border:1px solid #e0e9e6;border-radius:99px;padding:8px 13px!important;font-size:12px;font-weight:720;min-height:34px}.sc-h-topic-tabs button.is-current{background:#e8f4f0;color:#0e7066;border-color:#c4e4d9}.sc-h-list-bar{border-top:1px solid #edf0f0;padding:16px 2px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#6a7e85;font-size:12px}.sc-h-list-bar #sc-h-count{font-weight:800;color:#37545c}.sc-h-list-note{color:#96a3a6}
-.sc-h-tool-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sc-h-tool{border:1px solid #e8eeed;background:#fff;border-radius:12px;padding:14px 15px;display:flex;align-items:center;gap:13px;min-height:82px;color:#1b343e!important;transition:border-color .15s,background .15s,transform .15s;min-width:0}.sc-h-tool:hover{border-color:#8ac5b7;background:#f9fcfb;transform:translateY(-1px)}.sc-h-tool-code{display:flex;align-items:center;justify-content:center;border:1px solid #e2efeb;background:#f1f8f5;color:#0f796f;border-radius:9px;min-width:41px;width:41px;height:41px;font-size:12px;font-weight:850;flex-shrink:0}.sc-h-tool-content{min-width:0;flex:1;display:grid;gap:5px}.sc-h-tool-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sc-h-tool-title{font-size:14px;font-weight:780;color:#19323a;line-height:1.5}.sc-h-tool-year{font-size:10px;color:#45847b;background:#ecf6f2;border-radius:99px;padding:2px 6px;font-weight:800}.sc-h-tool-desc{font-size:12px;color:#73838a;line-height:1.5}.sc-h-tool-arrow{font-size:17px;color:#669b94;flex-shrink:0}.sc-h-empty{padding:30px;text-align:center;font-size:13px;color:#617b83;background:#f7faf9;border-radius:12px}.sc-h-showmore-wrap{display:flex;justify-content:center;margin:20px 0 2px}.sc-h-showmore{border:1px solid #d6e6e1!important;background:#f3f9f6!important;border-radius:10px!important;color:#146b62!important;font-size:13px!important;font-weight:800!important;min-height:43px;padding:11px 24px!important}.sc-h-showmore:hover{background:#e6f3ed!important}
+.sc-h-tool-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sc-h-tool{border:1px solid #e8eeed;background:#fff;border-radius:12px;padding:14px 15px;display:flex;align-items:center;gap:13px;min-height:82px;color:#1b343e!important;transition:border-color .15s,background .15s,transform .15s;min-width:0}.sc-h-tool:hover{border-color:#8ac5b7;background:#f9fcfb;transform:translateY(-1px)}.sc-h-tool-code{display:flex;align-items:center;justify-content:center;border:1px solid #e2efeb;background:#f1f8f5;color:#0f796f;border-radius:9px;min-width:41px;width:41px;height:41px;font-size:12px;font-weight:850;flex-shrink:0}.sc-h-tool-content{min-width:0;flex:1;display:grid;gap:5px}.sc-h-tool-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sc-h-tool-title{font-size:14px;font-weight:780;color:#19323a;line-height:1.5}.sc-h-tool-year{font-size:10px;color:#45847b;background:#ecf6f2;border-radius:99px;padding:2px 6px;font-weight:800}.sc-h-tool-desc{font-size:12px;color:#73838a;line-height:1.5}.sc-h-tool-arrow{font-size:17px;color:#669b94;flex-shrink:0}
+/* 2026-10-18 21:28: highlight matched search terms in tool cards. */
+.sc-h-tool-title mark.sc-h-hit,.sc-h-tool-desc mark.sc-h-hit{background:#e4f5bd;color:#1b463a;border-radius:3px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+@media(prefers-contrast:more){.sc-h-tool-title mark.sc-h-hit,.sc-h-tool-desc mark.sc-h-hit{background:#fff08c;color:#101d1b;outline:1px solid currentColor}}
+.sc-h-empty{padding:30px;text-align:center;font-size:13px;color:#617b83;background:#f7faf9;border-radius:12px}.sc-h-showmore-wrap{display:flex;justify-content:center;margin:20px 0 2px}.sc-h-showmore{border:1px solid #d6e6e1!important;background:#f3f9f6!important;border-radius:10px!important;color:#146b62!important;font-size:13px!important;font-weight:800!important;min-height:43px;padding:11px 24px!important}.sc-h-showmore:hover{background:#e6f3ed!important}
 .sc-h-workspace{display:flex;align-items:center;justify-content:space-between;gap:18px;background:#f0f7f5;border:1px solid #dfebe7;border-radius:16px;padding:22px 25px;margin:28px 0 18px;scroll-margin-top:100px}.sc-h-workspace h2{font-size:22px!important}.sc-h-work-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.sc-h-work-links a{display:inline-flex;gap:15px;align-items:center;background:#fff;border:1px solid #dce9e4;padding:10px 13px;border-radius:9px;color:#246d65;font-weight:750;text-decoration:none;font-size:12px}.sc-h-work-links a:hover{border-color:#8ec8b8}.sc-h-archive{background:#fff;border:1px solid #e4ebe9;border-radius:14px;padding:0;margin:28px 0;overflow:hidden}.sc-h-archive>summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;padding:18px 22px;color:#47626d;font-size:13px;font-weight:780}.sc-h-archive>summary::-webkit-details-marker{display:none}.sc-h-archive-inner{padding:0 14px 20px;background:#fafcfb}.sc-h-archive-inner>section{margin:14px 0!important}.sc-h-archive[open]>summary{border-bottom:1px solid #e5efeb}.sc-h-archive[open]>summary>span:last-child{transform:rotate(45deg)}
 #dashboard,#es-counter,#calendar,#tracker,#checklist-section,#backup-section{scroll-margin-top:110px}
 #services{scroll-margin-top:110px}
 @media(max-width:850px){.sc-h-hero{grid-template-columns:1fr;padding:35px}.sc-h-hero-aside{display:none}.sc-h-workspace{align-items:flex-start;flex-direction:column}.sc-h-work-links{justify-content:flex-start}.sc-h-controls{flex-wrap:wrap}.sc-h-search{max-width:none}.sc-h-year-tabs{flex:1}.sc-h-year-tabs button{flex:1}}
 @media(max-width:600px){main#main-content{padding:15px 12px 44px!important}.site-header-inner{min-height:64px!important}.site-header .header-kicker{display:none!important}.site-nav-inner{gap:19px!important}.site-nav-inner>a{font-size:12px!important;white-space:nowrap!important}.sc-h-hero{padding:28px 21px;border-radius:17px;gap:0}.sc-h-mobile-break{display:block}.sc-h-hero h1{font-size:29px!important}.sc-h-hero h1 em{font-size:27px;white-space:nowrap}.sc-h-hero .sc-h-eyebrow{letter-spacing:.12em;font-size:9px;flex-wrap:wrap;margin-bottom:17px}.sc-h-eyebrow-ja{font-size:10px}.sc-h-lead{font-size:13px!important}.sc-h-hero-cta{gap:10px}.sc-h-hero-cta a{width:100%;justify-content:space-between}.sc-h-facts{gap:8px 15px!important;margin-top:18px!important;font-size:10px!important}.sc-h-quick{grid-template-columns:1fr;gap:9px;margin:12px 0 26px}.sc-h-quick-link{padding:13px 15px}.sc-h-directory{border-radius:15px!important;padding:19px 14px!important}.sc-h-section-head{display:block}.sc-h-section-head h2{font-size:22px!important}.sc-h-head-link{display:inline-block;margin-top:8px}.sc-h-controls{margin:18px 0 14px;gap:10px}.sc-h-year-tabs{width:100%}.sc-h-year-tabs button{padding:9px 12px;font-size:12px}.sc-h-search{width:100%;flex-basis:100%}.sc-h-topic-tabs{gap:6px;margin-bottom:12px}.sc-h-topic-tabs button{font-size:11px;padding:8px 10px!important}.sc-h-tool-list{grid-template-columns:1fr;gap:8px}.sc-h-tool{padding:12px;min-height:77px}.sc-h-list-note{display:none}.sc-h-workspace{padding:20px 17px}.sc-h-work-links{gap:7px}.sc-h-work-links a{font-size:11px;padding:9px 10px}.sc-h-archive-inner{padding:0 8px 15px}}
 @media(prefers-reduced-motion:reduce){.sc-h-quick-link,.sc-h-tool{transition:none!important}}
+
+/* 2026-10-19 00:32: keyboard-first catalog navigation. */
+.sc-h-shortcut-tip{font-size:11px;color:#718781;margin:-10px 0 12px;text-align:right;line-height:1.5}
+.sc-h-tool:focus-visible{outline:3px solid #138779!important;outline-offset:2px;box-shadow:0 0 0 4px #e2f4ef!important}
+@media(max-width:600px){.sc-h-shortcut-tip{display:none}}
 </style><style id="sc-returning-tools-20261018">
 /* 2026-10-18 / 09:27: compact returning-user shortcuts; invisible for first-time visitors */
 .sc-h-recent[hidden]{display:none!important}
@@ -131,14 +154,299 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 .sc-h-sort-label select:focus-visible{outline:2px solid #147d70;outline-offset:2px}
 @media(max-width:600px){.sc-h-list-bar{gap:8px}.sc-h-list-bar #sc-h-count{flex:1 1 100%;margin-right:0}.sc-h-sort-label{font-size:11px}.sc-h-sort-label select{padding:6px 23px 6px 7px;max-width:140px}.sc-h-list-note{display:none!important}}
 </style>
-<style id="sc-filter-share-20261018">
+<style id="sc-catalog-export-20261018">
+/* Filtered public tool metadata only; no ES drafts, saved company data or raw search terms. */
+.sc-h-export[hidden]{display:none!important}
+.sc-h-export{display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;background:#fff!important;color:#176b62!important;border:1px solid #cdded8!important;border-radius:9px!important;padding:7px 10px!important;font-size:12px!important;font-weight:750!important;box-shadow:none!important;min-height:34px}
+.sc-h-export:hover{background:#f0f9f5!important;border-color:#8cc4b3!important}
+.sc-h-export:focus-visible{outline:3px solid #52a6b5;outline-offset:2px}
+@media(max-width:420px){.sc-h-export{padding:7px 8px!important;font-size:11px!important}}
+</style><style id="sc-filter-share-20261018">
 /* Shareable search filters: hidden unless there is a shareable filter; no user data exported. */
 .sc-h-filter-share[hidden]{display:none!important}
 .sc-h-filter-share{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid #cbded8;background:#f2faf7;color:#17695d;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:750;cursor:pointer}
 .sc-h-filter-share:hover{background:#e6f5ef;border-color:#9bcbbd}
 .sc-h-filter-share:focus-visible{outline:3px solid #52a6b5;outline-offset:2px}
 @media(max-width:420px){.sc-h-filter-share{padding:7px 8px;font-size:11px}}
-</style></head>
+</style><style id="sc-empty-recovery-20261018">
+/* Only appears when a directory search has zero matches; preserves the quiet default UI. */
+.sc-h-empty[hidden]{display:none!important}
+.sc-h-empty{display:grid;justify-items:center;gap:11px;padding:25px 15px}
+.sc-h-empty-title{margin:0;font-size:14px;font-weight:800;color:#244d4c}
+.sc-h-empty-description{margin:0;font-size:12px;line-height:1.65;color:#667f83}
+.sc-h-empty-suggestions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:100%}
+.sc-h-empty-suggestions a{display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:#136b61!important;background:white;border:1px solid #d4e8df;border-radius:9px;padding:8px 11px;font-size:12px;font-weight:750;max-width:100%;overflow-wrap:anywhere}
+.sc-h-empty-suggestions a:hover,.sc-h-empty-suggestions a:focus-visible{background:#e9f6f1;border-color:#83bba9}
+.sc-h-empty-reset{border:1px solid #167c6d!important;background:#147b6e!important;color:white!important;border-radius:9px;padding:9px 16px!important;min-height:39px;font-size:12px!important;font-weight:800!important;cursor:pointer}
+.sc-h-empty-reset:hover,.sc-h-empty-reset:focus-visible{background:#08665b!important}
+@media(max-width:420px){.sc-h-empty-suggestions{flex-direction:column;align-items:stretch;width:100%}.sc-h-empty-suggestions a{justify-content:center}}
+</style><style id="sc-job-duplicate-preview-20261020">
+/* Read-only matching records shown before the user saves a duplicate. */
+#tracker .sc-job-duplicate-preview{margin:8px 0 14px;padding:12px 14px;border:1px solid #f0d5a3;border-radius:12px;background:#fffaf0;color:#684a23;overflow-wrap:anywhere}
+#tracker .sc-job-duplicate-preview[hidden]{display:none!important}
+#tracker .sc-job-duplicate-preview strong{display:block;font-size:13px;line-height:1.6}
+#tracker .sc-job-duplicate-preview ul{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:7px}
+#tracker .sc-job-duplicate-preview li{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px solid #f0dfc0;padding-top:7px;font-size:12px}
+#tracker .sc-job-duplicate-preview li span{min-width:0;flex:1 1 180px}
+#tracker .sc-job-duplicate-preview button{font:inherit;font-size:12px;font-weight:750;padding:7px 10px;min-height:36px;background:#fff;color:#79531e;border:1px solid #d6b77d;border-radius:8px;cursor:pointer}
+#tracker .sc-job-duplicate-preview button:focus-visible{outline:3px solid #c88d39;outline-offset:2px}
+@media(max-width:420px){#tracker .sc-job-duplicate-preview{padding:10px 12px}#tracker .sc-job-duplicate-preview li button{width:100%}}
+</style><style id="sc-tracker-quick-stage-20261019">
+/* Compact stage update inside each tracker card; all existing edit/delete flows remain. */
+#tracker .sc-stage-quick-label{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#456276;max-width:100%;flex-wrap:wrap}
+#tracker .sc-stage-quick-select{min-height:36px;min-width:112px;max-width:100%;border:1px solid #cbdedb;border-radius:8px;background:#f8fcfb;color:#195b55;padding:6px 26px 6px 9px;font:inherit;cursor:pointer}
+#tracker .sc-stage-quick-select:focus-visible{outline:3px solid #60b4a6;outline-offset:2px}
+#tracker .sc-stage-change-status{margin:4px 0;color:#236b61;font-size:12px;min-height:0}
+#tracker .sc-stage-change-status:empty{display:none}
+@media(max-width:420px){#tracker .sc-stage-quick-label{width:100%}#tracker .sc-stage-quick-select{flex:1}}
+</style><style id="sc-upcoming-agenda-20261019">
+/* Upcoming tracker actions: compact, responsive, derived from existing sc_jobs. */
+#dashboard .sc-upcoming{margin-top:13px;border:1px solid #d7e6e6;border-radius:12px;padding:13px 15px;background:#f9fcfc}
+#dashboard .sc-upcoming-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:7px}
+#dashboard .sc-upcoming-head strong{font-size:14px;color:#234c57}
+#dashboard .sc-upcoming-head a{font-size:12px;font-weight:750;color:#176b86}
+#dashboard .sc-upcoming-list{list-style:none;margin:0;padding:0;display:grid;gap:0}
+#dashboard .sc-upcoming-list li{display:grid;grid-template-columns:80px minmax(0,1fr) auto;align-items:center;gap:8px;padding:9px 0;border-top:1px solid #e2eded;font-size:13px;min-width:0}
+#dashboard .sc-upcoming-list li:first-child{border-top:0}
+#dashboard .sc-upcoming-date{font-variant-numeric:tabular-nums;color:#516779;white-space:nowrap}
+#dashboard .sc-upcoming-name{min-width:0;overflow-wrap:anywhere;font-weight:700;color:#243c4b}
+#dashboard .sc-upcoming-tag{font-size:11px;border-radius:999px;padding:4px 7px;background:#e9f3f4;color:#236c70;white-space:nowrap}
+#dashboard .sc-upcoming-tag.is-overdue{background:#fff0e9;color:#a64b2e}
+#dashboard .sc-upcoming-empty{margin:0;font-size:13px;color:#60747d;line-height:1.7}
+#dashboard .sc-upcoming-more{margin:7px 0 0;font-size:12px;color:#536c7a}
+#dashboard .sc-upcoming-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+#dashboard .sc-upcoming-actions button{font:inherit;font-size:12px;font-weight:700;min-height:36px;padding:7px 12px;border:1px solid #9cc9c7;border-radius:8px;background:#fff;color:#146765;cursor:pointer}
+#dashboard .sc-upcoming-actions button:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-upcoming-actions button[hidden]{display:none!important}
+@media(max-width:430px){#dashboard .sc-upcoming{padding:11px 12px}#dashboard .sc-upcoming-list li{grid-template-columns:57px minmax(0,1fr);gap:4px 7px}#dashboard .sc-upcoming-tag{grid-column:2;justify-self:start}#dashboard .sc-upcoming-head strong{font-size:13px}}
+</style><style id="sc-upcoming-edit-20261019">
+#dashboard .sc-upcoming-list li{grid-template-columns:80px minmax(0,1fr) auto auto}
+#dashboard .sc-upcoming-edit{font:inherit;font-size:12px;font-weight:700;padding:6px 9px;min-height:34px;border:1px solid #b6d6d8;border-radius:8px;background:#fff;color:#17677a;cursor:pointer;white-space:nowrap}
+#dashboard .sc-upcoming-edit:hover{background:#e8f6f7}
+#dashboard .sc-upcoming-edit:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+@media(max-width:430px){#dashboard .sc-upcoming-list li{grid-template-columns:57px minmax(0,1fr) auto}#dashboard .sc-upcoming-edit{grid-column:3;grid-row:1 / span 2;align-self:center}#dashboard .sc-upcoming-tag{grid-column:2}}
+</style><style id="sc-upcoming-filters-20261019">
+#dashboard .sc-upcoming-controls{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:8px 0 4px;padding:7px 0;border-top:1px solid #e2eded}
+#dashboard .sc-upcoming-controls label{display:inline-flex;align-items:center;gap:7px;color:#355c68;font-size:12px;font-weight:700;line-height:1.4}
+#dashboard .sc-upcoming-controls select{max-width:190px;min-height:36px;padding:5px 26px 5px 8px;border:1px solid #b9d2d6;border-radius:8px;background:#fff;color:#243c4b;font:inherit}
+#dashboard .sc-upcoming-check{cursor:pointer}
+#dashboard .sc-upcoming-check input{width:17px;height:17px;margin:0;accent-color:#167b78}
+#dashboard .sc-upcoming-count{font-size:11px;color:#526d76;margin-left:auto}
+@media(max-width:430px){#dashboard .sc-upcoming-controls{gap:8px}#dashboard .sc-upcoming-count{width:100%;margin-left:0}#dashboard .sc-upcoming-controls select{max-width:180px}}
+</style><style id="sc-upcoming-company-search-20261019">
+/* Read-only company search within the upcoming agenda; 28/29卒 tool navigation unaffected. */
+#dashboard .sc-upcoming-search{display:inline-flex;align-items:center;gap:7px;flex:1 1 240px;min-width:0;max-width:410px}
+#dashboard .sc-upcoming-search input{flex:1 1 140px;min-width:0;min-height:36px;padding:7px 10px;border:1px solid #b9d2d6;border-radius:8px;background:#fff;color:#243c4b;font:inherit;font-size:13px}
+#dashboard .sc-upcoming-search input:focus-visible,#dashboard .sc-upcoming-search button:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-upcoming-search button{flex:0 0 auto;min-height:36px;padding:6px 9px;border:1px solid #b9d2d6;border-radius:8px;background:#fff;color:#17677a;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+#dashboard .sc-upcoming-search button[hidden]{display:none!important}
+@media(max-width:600px){#dashboard .sc-upcoming-search{flex-basis:100%;max-width:none}#dashboard .sc-upcoming-search input{width:100%}}
+</style><style id="sc-upcoming-ics-20261019">
+/* Per-event calendar export; avoid clipping the extra action on narrow screens. */
+#dashboard .sc-upcoming-list li{grid-template-columns:80px minmax(0,1fr) auto auto auto}
+#dashboard .sc-upcoming-ics{font:inherit;font-size:12px;font-weight:700;min-height:34px;padding:6px 9px;border:1px solid #9ccab8;border-radius:8px;background:#f0faf5;color:#16664e;cursor:pointer;white-space:nowrap}
+#dashboard .sc-upcoming-ics:hover{background:#e0f4e9}
+#dashboard .sc-upcoming-ics:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-upcoming-privacy{font-size:11px;line-height:1.7;color:#526d76;margin:8px 0 0}
+@media(max-width:600px){#dashboard .sc-upcoming-list li{grid-template-columns:65px minmax(0,1fr) auto auto;gap:6px 7px}#dashboard .sc-upcoming-date{grid-column:1;grid-row:1}#dashboard .sc-upcoming-name{grid-column:2 / 5;grid-row:1}#dashboard .sc-upcoming-tag{grid-column:2 / 5;grid-row:2;justify-self:start}#dashboard .sc-upcoming-ics{grid-column:3;grid-row:3}#dashboard .sc-upcoming-edit{grid-column:4;grid-row:3;align-self:center}}
+@media(max-width:360px){#dashboard .sc-upcoming-list li{grid-template-columns:55px minmax(0,1fr) auto auto}#dashboard .sc-upcoming-ics,#dashboard .sc-upcoming-edit{font-size:11px;padding:5px 7px}}
+</style><style id="sc-upcoming-csv-export-20261019">
+#dashboard #sc-upcoming-export-csv{background:#e9f5ff;color:#155a86;border-color:#a5cbe5}
+#dashboard #sc-upcoming-export-csv:hover{background:#dceeff}
+#dashboard #sc-upcoming-export-csv[hidden]{display:none!important}
+</style><style id="sc-upcoming-bulk-ics-20261019">
+#dashboard #sc-upcoming-export-ics{background:#e7f7ed;color:#155c45;border-color:#a8d5bc}
+#dashboard #sc-upcoming-export-ics:hover{background:#d8f0e2}
+#dashboard #sc-upcoming-export-ics[hidden]{display:none!important}
+#dashboard .sc-upcoming-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+</style><style id="sc-upcoming-focus-20261019">
+/* Read-only, filtered agenda snapshot; no change to existing saved records. */
+#dashboard .sc-upcoming-controls label:not(.sc-upcoming-search){white-space:nowrap}
+#dashboard .sc-upcoming-focus{display:flex;align-items:center;gap:7px 12px;flex-wrap:wrap;padding:8px 10px;margin:5px 0 9px;background:#eef7f8;border:1px solid #d1e7e9;border-radius:9px;font-size:12px;color:#355c68}
+#dashboard .sc-upcoming-focus[hidden]{display:none!important}
+#dashboard .sc-upcoming-focus .sc-focus-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:999px;background:#fff;border:1px solid #d2e4e6;font-weight:700;white-space:nowrap}
+#dashboard .sc-upcoming-focus .sc-focus-urgent{background:#fff4ed;border-color:#f2d1bc;color:#9a492b}
+#dashboard .sc-upcoming-focus .sc-focus-overlap{flex-basis:100%;line-height:1.6;overflow-wrap:anywhere}
+#dashboard .sc-upcoming-list .sc-upcoming-clash{display:inline-block;font-size:10px;font-weight:800;color:#855a0c;background:#fff5d9;border:1px solid #f1dfa6;padding:2px 5px;border-radius:6px;vertical-align:middle;margin-left:6px;white-space:nowrap}
+@media(max-width:430px){#dashboard .sc-upcoming-focus{gap:6px;padding:8px}#dashboard .sc-upcoming-focus .sc-focus-pill{font-size:11px}}
+</style><style id="sc-upcoming-urgency-20261019">
+/* 12:27: urgency selector and reset are view-only, no localStorage writes. */
+#dashboard .sc-upcoming-controls .sc-upcoming-reset{font:inherit;font-size:12px;font-weight:700;min-height:36px;padding:7px 10px;border:1px solid #b9d2d6;border-radius:8px;background:#fff;color:#17677a;cursor:pointer}
+#dashboard .sc-upcoming-controls .sc-upcoming-reset:hover{background:#e8f5f5}
+#dashboard .sc-upcoming-controls .sc-upcoming-reset:focus-visible,#dashboard .sc-upcoming-controls select:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+@media(max-width:430px){#dashboard .sc-upcoming-controls .sc-upcoming-reset{flex:1 1 auto}}
+</style><style id="sc-upcoming-copy-20261019">
+/* 13:27: accessible, view-only clipboard export of filtered upcoming events. */
+#dashboard #sc-upcoming-copy-text{background:#f1f1ff;color:#46408d;border-color:#c9c5ee}
+#dashboard #sc-upcoming-copy-text:hover{background:#e8e6fc}
+#dashboard .sc-upcoming-copy-status{display:block;min-height:1.4em;margin:6px 0 0;font-size:12px;line-height:1.5;color:#216a62}
+#dashboard .sc-upcoming-copy-status[data-state="error"]{color:#9a492b}
+</style><style id="sc-upcoming-sort-20261019">
+/* Sort only the filtered agenda projection. Saved job order and data remain unchanged. */
+#dashboard #sc-upcoming-sort{min-width:138px;max-width:185px}
+@media(max-width:430px){#dashboard #sc-upcoming-sort{max-width:165px}}
+</style><style id="sc-upcoming-disclosure-20261019">
+/* Keep the high-frequency controls visible; native details makes the remaining filters accessible. */
+#dashboard .sc-upcoming-controls .sc-upcoming-advanced{flex:1 1 100%;min-width:0;margin-top:3px;border:1px solid #d6e6e8;border-radius:10px;background:#f8fbfc}
+#dashboard .sc-upcoming-advanced>summary{list-style-position:inside;cursor:pointer;padding:10px 12px;color:#17677a;font-size:12px;font-weight:800;min-height:40px;display:list-item}
+#dashboard .sc-upcoming-advanced>summary:focus-visible{outline:3px solid #0b7f83;outline-offset:2px;border-radius:8px}
+#dashboard .sc-upcoming-advanced[open]>summary{border-bottom:1px solid #d6e6e8}
+#dashboard .sc-upcoming-advanced-inner{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;padding:12px}
+#dashboard .sc-upcoming-active-badge{display:inline-block;margin-left:5px;background:#e1f1ec;color:#206455;padding:2px 7px;border-radius:999px;font-size:11px}
+#dashboard .sc-upcoming-active-badge[hidden]{display:none!important}
+@media(max-width:430px){#dashboard .sc-upcoming-controls .sc-upcoming-count{width:auto;margin-left:auto}#dashboard .sc-upcoming-advanced-inner{gap:10px}#dashboard .sc-upcoming-advanced-inner .sc-upcoming-search{flex-basis:100%;max-width:100%}}
+</style><style id="sc-upcoming-week-strip-20261019">
+/* Seven-day compact agenda; purely a read-only projection of sc_jobs. */
+#dashboard .sc-upcoming-week{margin:8px 0 10px;border:1px solid #d6e6e5;border-radius:10px;background:#fff;padding:8px 10px}
+#dashboard .sc-upcoming-week>summary{cursor:pointer;color:#245965;font-size:12px;font-weight:800;min-height:28px;line-height:28px}
+#dashboard .sc-upcoming-week>summary:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-upcoming-week-status{margin-left:8px;color:#0b746c;font-size:11px}
+#dashboard .sc-upcoming-week-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:8px 0 7px}
+#dashboard .sc-upcoming-week-day{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:62px;min-width:0;padding:6px 3px;border:1px solid #d4e5e6;border-radius:9px;background:#f7fbfb;color:#35596a;font:inherit;font-size:11px;cursor:pointer}
+#dashboard .sc-upcoming-week-day strong{font-size:14px;font-variant-numeric:tabular-nums}
+#dashboard .sc-upcoming-week-day[aria-pressed="true"]{border-color:#177e78;background:#e5f5f1;color:#115e57;box-shadow:inset 0 0 0 1px #177e78}
+#dashboard .sc-upcoming-week-day:focus-visible,#dashboard .sc-upcoming-week-clear:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-upcoming-week-foot{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:#647781;line-height:1.6}
+#dashboard .sc-upcoming-week-clear{font:inherit;font-weight:800;color:#17677a;border:1px solid #b8d6d8;background:#fff;border-radius:7px;min-height:32px;padding:5px 9px;cursor:pointer}
+#dashboard .sc-upcoming-week-clear[hidden]{display:none!important}
+@media(max-width:600px){#dashboard .sc-upcoming-week-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:360px){#dashboard .sc-upcoming-week-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}#dashboard .sc-upcoming-week{padding:7px 8px}#dashboard .sc-upcoming-week-day{font-size:10px}}
+</style><style id="sc-prep-actions-20261019">
+/* Local-only suggestions derived from existing job dates; no extra storage or network. */
+#dashboard .sc-prep-actions{margin:10px 0;border:1px solid #cddfe5;border-radius:10px;background:#f8fbff;padding:8px 11px}
+#dashboard .sc-prep-actions>summary{cursor:pointer;color:#285166;font-size:13px;font-weight:800;line-height:1.65;min-height:28px}
+#dashboard .sc-prep-actions>summary:focus-visible,#dashboard .sc-prep-edit:focus-visible{outline:3px solid #0b7f83;outline-offset:3px}
+#dashboard .sc-prep-count{display:inline-block;margin-left:7px;padding:1px 8px;border-radius:999px;background:#e3f2f3;color:#175f67;font-size:11px;vertical-align:middle}
+#dashboard .sc-prep-list{list-style:none;margin:9px 0 4px;padding:0;display:grid;gap:7px}
+#dashboard .sc-prep-list li{display:flex;gap:8px;align-items:center;justify-content:space-between;border:1px solid #e0e9ee;background:#fff;border-radius:9px;padding:9px 10px;min-width:0}
+#dashboard .sc-prep-main{min-width:0;overflow-wrap:anywhere}
+#dashboard .sc-prep-main strong{display:block;font-size:12px;color:#24485a;line-height:1.5}
+#dashboard .sc-prep-main small{display:block;color:#526a76;font-size:11px;line-height:1.6;margin-top:2px}
+#dashboard .sc-prep-edit{font:inherit;white-space:nowrap;font-size:12px;font-weight:750;border:1px solid #b6d4d7;background:#fff;color:#17687a;border-radius:8px;min-height:34px;padding:5px 9px;cursor:pointer}
+#dashboard .sc-prep-more{font-size:11px;color:#566c79;margin:6px 0 2px;line-height:1.6}
+#dashboard .sc-prep-empty{font-size:12px;color:#546d78;margin:8px 0;line-height:1.6}
+@media(max-width:430px){#dashboard .sc-prep-actions{padding:8px 9px}#dashboard .sc-prep-list li{padding:8px;gap:5px;flex-wrap:wrap}#dashboard .sc-prep-main{flex:1 1 100%}#dashboard .sc-prep-edit{padding:5px 7px;margin-left:auto}}
+
+/* 18:30: privacy-conscious export of the full preparation checklist. */
+#dashboard .sc-prep-download{font:inherit;font-size:12px;font-weight:750;border:1px solid #a9cbd1;background:#e9f5f7;color:#17566a;border-radius:8px;min-height:36px;padding:7px 11px;cursor:pointer;margin-top:8px}
+#dashboard .sc-prep-download:hover{background:#d9eff1}
+#dashboard .sc-prep-download:focus-visible{outline:3px solid #0b7f83;outline-offset:3px}
+#dashboard .sc-prep-download[hidden]{display:none!important}
+#dashboard .sc-prep-copy{margin-left:6px;background:#fff}
+@media(max-width:430px){#dashboard .sc-prep-copy{margin-left:0;display:block;width:100%;text-align:center}}
+#dashboard .sc-prep-export-status{display:block;font-size:12px;line-height:1.6;color:#245f66;min-height:1.3em;margin-top:4px}
+</style><style id="sc-upcoming-google-calendar-20261019">
+/* Compact, accessible event actions. Google Calendar opens only on explicit click. */
+#dashboard .sc-upcoming-list li{grid-template-columns:80px minmax(0,1fr) auto auto}
+#dashboard .sc-upcoming-event-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:flex-end;min-width:0}
+#dashboard .sc-upcoming-google{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:12px;font-weight:700;min-height:34px;padding:6px 9px;border:1px solid #c3cde4;border-radius:8px;background:#f3f6ff;color:#284d80;text-decoration:none;white-space:nowrap}
+#dashboard .sc-upcoming-google:hover{background:#e9effe}
+#dashboard .sc-upcoming-google:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+@media(max-width:720px){
+ #dashboard .sc-upcoming-list li{grid-template-columns:65px minmax(0,1fr);gap:6px 7px}
+ #dashboard .sc-upcoming-date{grid-column:1;grid-row:1}
+ #dashboard .sc-upcoming-name{grid-column:2;grid-row:1;min-width:0;overflow-wrap:anywhere}
+ #dashboard .sc-upcoming-tag{grid-column:2;grid-row:2;justify-self:start}
+ #dashboard .sc-upcoming-event-actions{grid-column:1 / -1;grid-row:3;justify-content:flex-end}
+}
+@media(max-width:390px){#dashboard .sc-upcoming-event-actions{gap:5px}#dashboard .sc-upcoming-event-actions .sc-upcoming-ics,#dashboard .sc-upcoming-event-actions .sc-upcoming-edit,#dashboard .sc-upcoming-google{font-size:11px;padding:5px 7px;min-height:34px}}
+</style>
+<style id="sc-upcoming-print-20261019">
+/* Print-only summary: filtered view, not a mutation of sc_jobs. */
+#dashboard #sc-upcoming-print{border-color:#c5d9d9;background:#fff}
+#dashboard #sc-upcoming-print:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard #sc-upcoming-print[hidden]{display:none!important}
+#dashboard #sc-upcoming-print-status{display:block;font-size:12px;color:#276269;min-height:1em}
+#sc-upcoming-print-sheet{display:none}
+@media print {
+ @page{size:A4 portrait;margin:12mm}
+ body.sc-agenda-print-mode{background:#fff!important;color:#172d38!important;font:11pt/1.5 system-ui,"Noto Sans JP",sans-serif!important}
+ body.sc-agenda-print-mode > :not(#sc-upcoming-print-sheet){display:none!important}
+ body.sc-agenda-print-mode #sc-upcoming-print-sheet{display:block!important;position:static!important;visibility:visible!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;color:#172d38!important}
+ #sc-upcoming-print-sheet h1{font-size:19pt;margin:0 0 5mm}
+ #sc-upcoming-print-sheet .sc-print-summary{font-size:9pt;color:#455964;margin:0 0 6mm}
+ #sc-upcoming-print-sheet table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:10pt}
+ #sc-upcoming-print-sheet thead{display:table-header-group}
+ #sc-upcoming-print-sheet tr{break-inside:avoid;page-break-inside:avoid}
+ #sc-upcoming-print-sheet th,#sc-upcoming-print-sheet td{border-bottom:1px solid #cbd8de;padding:3mm 2mm;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word}
+ #sc-upcoming-print-sheet th{background:#f1f5f6;font-weight:700}
+ #sc-upcoming-print-sheet th:nth-child(1){width:25%}
+ #sc-upcoming-print-sheet th:nth-child(2){width:20%}
+ #sc-upcoming-print-sheet th:nth-child(4){width:20%}
+ #sc-upcoming-print-sheet .sc-print-footer{font-size:8pt;color:#526670;margin-top:6mm}
+}
+</style>
+<style id="sc-upcoming-kind-shortcuts-20261019">
+/* 22:35: one-tap type filters mirror the existing select without changing saved jobs. */
+#dashboard .sc-upcoming-kind-tabs{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:5px 0 10px}
+#dashboard .sc-upcoming-kind-tabs .sc-kind-heading{font-size:11px;font-weight:750;color:#526d76;margin-right:2px}
+#dashboard .sc-upcoming-kind-tabs button{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:7px 11px;border-radius:999px;border:1px solid #c4d9dd;background:#fff;color:#315b65;font:inherit;font-size:12px;font-weight:750;cursor:pointer}
+#dashboard .sc-upcoming-kind-tabs button[aria-pressed="true"]{background:#176c73;color:#fff;border-color:#176c73}
+#dashboard .sc-upcoming-kind-tabs button:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-upcoming-kind-tabs .sc-kind-count{font-variant-numeric:tabular-nums;font-size:11px;min-width:1.1em;text-align:center}
+@media(max-width:390px){#dashboard .sc-upcoming-kind-tabs .sc-kind-heading{flex-basis:100%}#dashboard .sc-upcoming-kind-tabs{gap:6px}#dashboard .sc-upcoming-kind-tabs button{padding:7px 9px;font-size:11px}}
+</style><style id="sc-agenda-compact-actions-20261019">
+/* Keep the primary schedule controls visible; tuck four secondary exports and long help under native, keyboard-accessible disclosures. */
+#dashboard .sc-upcoming-export-menu,#dashboard .sc-upcoming-help{margin-top:9px;border:1px solid #d4e4e5;border-radius:9px;background:#fff;max-width:100%}
+#dashboard .sc-upcoming-export-menu>summary,#dashboard .sc-upcoming-help>summary{list-style:none;display:flex;align-items:center;gap:10px;justify-content:space-between;cursor:pointer;padding:10px 12px;color:#1d5c68;font-weight:750;font-size:12px;min-height:40px}
+#dashboard .sc-upcoming-export-menu>summary::-webkit-details-marker,#dashboard .sc-upcoming-help>summary::-webkit-details-marker{display:none}
+#dashboard .sc-upcoming-export-menu>summary::after,#dashboard .sc-upcoming-help>summary::after{content:"＋";font-weight:900;font-size:16px;margin-left:auto;line-height:1}
+#dashboard .sc-upcoming-export-menu[open]>summary::after,#dashboard .sc-upcoming-help[open]>summary::after{content:"−"}
+#dashboard .sc-upcoming-export-menu>summary:focus-visible,#dashboard .sc-upcoming-help>summary:focus-visible{outline:3px solid #0b7f83;outline-offset:2px;border-radius:8px}
+#dashboard #sc-upcoming-export-count{font-size:11px;color:#526d76;font-weight:600;margin-left:0}
+#dashboard .sc-upcoming-export-buttons{margin:0;padding:0 12px 12px;border-top:1px solid #edf2f2;padding-top:10px}
+#dashboard .sc-upcoming-help .sc-upcoming-privacy{margin:0;padding:0 12px 12px}
+@media(max-width:430px){#dashboard .sc-upcoming-export-buttons button{flex:1 1 150px}#dashboard .sc-upcoming-export-menu>summary,#dashboard .sc-upcoming-help>summary{padding:9px 10px}}
+</style><style id="sc-upcoming-empty-recovery-20261020">
+/* Contextual actions appear only when the upcoming list has no matching events. */
+#dashboard .sc-upcoming-empty-actions{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0 4px}
+#dashboard .sc-upcoming-empty-actions[hidden],#dashboard .sc-upcoming-empty-actions [hidden]{display:none!important}
+#dashboard .sc-upcoming-empty-actions button,#dashboard .sc-upcoming-empty-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;border:1px solid #b6d5d6;border-radius:9px;background:#fff;color:#155e71;padding:8px 12px;font-size:13px;font-weight:750;text-decoration:none;cursor:pointer}
+#dashboard .sc-upcoming-empty-actions button:hover,#dashboard .sc-upcoming-empty-actions a:hover{background:#e9f5f4}
+#dashboard .sc-upcoming-empty-actions button:focus-visible,#dashboard .sc-upcoming-empty-actions a:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+@media(max-width:430px){#dashboard .sc-upcoming-empty-actions button,#dashboard .sc-upcoming-empty-actions a{flex:1 1 100%}}
+</style><style id="sc-next-action-20261020">
+/* 01:30: A single actionable next step, calculated only from existing local job records. */
+#dashboard #nextDeadline.sc-next-action{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px 16px;padding:14px 16px;background:#f1f8f5;border:1px solid #cce6dc;border-radius:12px;color:#244b4b}
+#dashboard .sc-next-action-copy{display:grid;gap:4px;min-width:0;flex:1 1 240px;overflow-wrap:anywhere}
+#dashboard .sc-next-action-label{font-size:10px;letter-spacing:.09em;font-weight:850;color:#207b6d}
+#dashboard .sc-next-action-main{font-size:14px;font-weight:800;line-height:1.5;color:#173f3c}
+#dashboard .sc-next-action-hint{font-size:12px;line-height:1.6;color:#55726e}
+#dashboard .sc-next-action-buttons{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#dashboard .sc-next-action-buttons button,#dashboard .sc-next-action-buttons a{font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 12px;border:1px solid #b9d8cf;border-radius:9px;background:#fff;color:#17695e;font-size:12px;font-weight:800;text-decoration:none;cursor:pointer;white-space:nowrap}
+#dashboard .sc-next-action-buttons button{background:#14766a;color:#fff;border-color:#14766a}
+#dashboard .sc-next-action-buttons button:focus-visible,#dashboard .sc-next-action-buttons a:focus-visible{outline:3px solid #0b7f83;outline-offset:3px}
+@media(max-width:430px){#dashboard #nextDeadline.sc-next-action{padding:12px;gap:10px}#dashboard .sc-next-action-buttons{width:100%}#dashboard .sc-next-action-buttons button,#dashboard .sc-next-action-buttons a{flex:1 1 auto}}
+</style>
+<style id="sc-same-day-load-20261020">
+/* 2026-10-20 02:27: same-date workload notice; derived from existing tracker records only. */
+#dashboard .sc-same-day-load{margin:12px 0 0;border:1px solid #e9d5b2;border-radius:12px;background:#fffaf0;color:#59421c;overflow:hidden}
+#dashboard .sc-same-day-load summary{cursor:pointer;padding:12px 14px;font-size:13px;font-weight:800;line-height:1.5}
+#dashboard .sc-same-day-load summary:focus-visible{outline:3px solid #c67d12;outline-offset:-3px}
+#dashboard .sc-same-day-load .sc-same-day-body{padding:0 14px 13px}
+#dashboard .sc-same-day-load .sc-same-day-body p{font-size:12px;line-height:1.65;margin:0 0 9px}
+#dashboard .sc-same-day-load ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+#dashboard .sc-same-day-load li{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid #efe2cb;padding-top:8px}
+#dashboard .sc-same-day-load .sc-same-day-text{min-width:0;flex:1 1 200px;font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+#dashboard .sc-same-day-load .sc-same-day-text strong{display:block;font-size:13px}
+#dashboard .sc-same-day-load button{font:inherit;font-size:12px;font-weight:750;border:1px solid #d8b984;border-radius:8px;background:white;color:#614b27;padding:7px 10px;cursor:pointer}
+#dashboard .sc-same-day-load button:hover{background:#fff0cf}
+#dashboard .sc-same-day-load .sc-same-day-more{margin-top:8px}
+#dashboard .sc-same-day-load .sc-same-day-more button{width:100%;min-height:40px;background:#fff7e7;border-color:#cfaa70;color:#5b421d;text-align:center}
+#dashboard .sc-same-day-load .sc-same-day-more button:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+@media(max-width:390px){#dashboard .sc-same-day-load li button{width:100%}}
+</style>
+<style id="sc-same-day-checklist-20261020">
+/* One-day printable checklist: no changes to saved jobs or other export tools. */
+#dashboard .sc-same-day-load .sc-same-day-buttons{display:flex;flex:0 1 auto;flex-wrap:wrap;gap:7px;align-items:center}
+#dashboard .sc-same-day-load .sc-same-day-buttons button{min-height:35px;white-space:nowrap}
+#dashboard .sc-same-day-load .sc-same-day-buttons button.sc-same-day-checklist{background:#fff3d8;border-color:#b8893f;color:#4f3819}
+#dashboard .sc-same-day-load .sc-same-day-buttons button.sc-same-day-ics{background:#e8f6f3;border-color:#6fa99d;color:#16574f}
+#dashboard .sc-same-day-load .sc-same-day-buttons button:focus-visible{outline:3px solid #0b7f83;outline-offset:2px}
+#dashboard .sc-same-day-download-status{font-size:12px;min-height:1em;margin:7px 0!important;color:#285166}
+@media(max-width:390px){#dashboard .sc-same-day-load .sc-same-day-buttons{width:100%}#dashboard .sc-same-day-load .sc-same-day-buttons button{flex:1 1 130px;white-space:normal}}
+</style>
+</head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
 <header class="site-header"><div class="site-header-inner">
@@ -164,13 +472,14 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 <div class="sc-h-recent" id="sc-h-recent" hidden aria-label="最近使ったツール"><span class="sc-h-recent-label">最近使ったツール</span><div class="sc-h-recent-items" id="sc-h-recent-items"></div><button class="sc-h-recent-clear" id="sc-h-recent-clear" type="button" aria-label="最近使ったツールの履歴を削除">履歴を消す</button></div>
 <div class="sc-h-controls">
 <div aria-label="卒業年度で絞り込み" class="sc-h-year-tabs" role="group"><button aria-pressed="true" class="is-current" data-sc-year="all" type="button">すべて</button><button aria-pressed="false" data-sc-year="28" type="button">28卒</button><button aria-pressed="false" data-sc-year="29" type="button">29卒</button><button aria-pressed="false" data-sc-year="common" type="button">共通</button></div>
-<label class="sc-h-search"><span aria-hidden="true" class="sc-h-search-icon">⌕</span><span class="sc-h-sr-only">ツールを検索</span><input autocomplete="off" id="sc-h-search" placeholder="例：29卒 自己分析 / 28卒 SPI" type="search"/></label>
-</div>
+<label class="sc-h-search"><span aria-hidden="true" class="sc-h-search-icon">⌕</span><span class="sc-h-sr-only">ツールを検索</span><input autocomplete="off" id="sc-h-search" aria-describedby="sc-h-shortcut-tip" placeholder="例：29卒 自己分析 / 適性検査 / エントリーシート" type="search"/></label>
+</div><p class="sc-h-shortcut-tip" id="sc-h-shortcut-tip">キーボード： / または Ctrl・⌘＋K で検索、↓で結果へ移動</p>
 <div aria-label="目的で絞り込み" class="sc-h-topic-tabs" role="group"><button aria-pressed="true" class="is-current" data-sc-topic="すべて" type="button">すべて</button><button aria-pressed="false" data-sc-topic="自己分析" type="button">自己分析</button><button aria-pressed="false" data-sc-topic="ES" type="button">ES・自己PR</button><button aria-pressed="false" data-sc-topic="企業研究" type="button">企業研究</button><button aria-pressed="false" data-sc-topic="Webテスト" type="button">Webテスト</button><button aria-pressed="false" data-sc-topic="面接・OB訪問" type="button">面接・OB訪問</button><button aria-pressed="false" data-sc-topic="選考管理" type="button">選考管理</button></div>
-<div class="sc-h-list-bar"><span aria-live="polite" id="sc-h-count"></span><label class="sc-h-sort-label" for="sc-h-sort">並び順 <select id="sc-h-sort" aria-label="ツールの並び順"><option value="recommended">おすすめ順</option><option value="favorites">お気に入り優先</option><option value="recent">最近使った順</option><option value="name">名前順</option></select></label><button class="sc-h-favorites-only" id="sc-h-favorites-only" type="button" aria-pressed="false" aria-label="お気に入りのツールだけを表示">☆ お気に入り <span id="sc-h-favorites-count">0</span></button><button class="sc-h-filter-share" hidden="" id="sc-h-filter-share" type="button" title="卒年・目的・検索語を含むURLをコピー。お気に入りや入力データは含みません。" aria-label="現在の卒年・目的・検索語の絞り込みURLをコピー">条件URLをコピー <span aria-hidden="true">⧉</span></button> <button class="sc-h-reset" id="sc-h-reset" type="button" hidden>絞り込みを解除</button><span class="sc-h-list-note">☆ お気に入り / ⧉ リンクをコピー</span></div>
+<div class="sc-h-suggestions" id="sc-h-suggestions" role="group" aria-label="卒年に合わせたクイック検索"><span class="sc-h-suggestions-label">クイック検索</span><span class="sc-h-suggestions-buttons" id="sc-h-suggestions-buttons"></span></div>
+<div class="sc-h-list-bar"><span aria-live="polite" id="sc-h-count"></span><label class="sc-h-sort-label" for="sc-h-sort">並び順 <select id="sc-h-sort" aria-label="ツールの並び順"><option value="recommended">おすすめ・関連度順</option><option value="favorites">お気に入り優先</option><option value="recent">最近使った順</option><option value="name">名前順</option></select></label><button class="sc-h-favorites-only" id="sc-h-favorites-only" type="button" aria-pressed="false" aria-label="お気に入りのツールだけを表示">☆ お気に入り <span id="sc-h-favorites-count">0</span></button><button class="sc-h-filter-share" hidden="" id="sc-h-filter-share" type="button" title="卒年・目的・検索語を含むURLをコピー。お気に入りや入力データは含みません。" aria-label="現在の卒年・目的・検索語の絞り込みURLをコピー">条件URLをコピー <span aria-hidden="true">⧉</span></button> <button class="sc-h-export" hidden id="sc-h-copy-results" type="button" title="表示中の検索結果のツール名と公開URLだけをコピー">一覧をコピー</button><button class="sc-h-export" hidden id="sc-h-export-results" type="button" title="絞り込み結果のツール名と公開URLをテキスト保存。ESや企業メモは含みません。">TXT保存</button> <button class="sc-h-reset" id="sc-h-reset" type="button" hidden>絞り込みを解除</button><span class="sc-h-list-note">☆ お気に入り / ⧉ リンクをコピー</span></div>
 <div id="sc-h-share-feedback" class="sc-h-share-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
 <div aria-label="検索結果" class="sc-h-tool-list" id="sc-h-tool-list"><a class="sc-h-tool" href="29sotsu-jikobunseki-10questions.html"><span aria-hidden="true" class="sc-h-tool-code">01</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己分析10問</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">経験を整理し、強みの材料を見つける</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-mojisu-counter.html"><span aria-hidden="true" class="sc-h-tool-code">21</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES文字数カウンター</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">200〜500字の文字数をすぐ確認</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-jikopr-400ji-revision-work.html"><span aria-hidden="true" class="sc-h-tool-code">05</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己PR 400字ワーク</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">6項目から下書きを作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-mensetsu-1min-timer.html"><span aria-hidden="true" class="sc-h-tool-code">25</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">面接1分回答タイマー</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">回答を30〜120秒で練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-kigyou-erabi-jiku-match-board.html"><span aria-hidden="true" class="sc-h-tool-code">10</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業選び比較ボード</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">仕事・成長・働き方などを比較</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-spi-gengo-12mon-practice.html"><span aria-hidden="true" class="sc-h-tool-code">30</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">SPI言語12問演習</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">語彙・読解を練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-schedule-conflict-checker.html"><span aria-hidden="true" class="sc-h-tool-code">13</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン日程かぶり確認</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">授業・面接・説明会の重複を探す</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-shimekiri-gyakusan.html"><span aria-hidden="true" class="sc-h-tool-code">22</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES締切逆算</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">締切から作業計画を組み立てる</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-obog-30min-question-planner.html"><span aria-hidden="true" class="sc-h-tool-code">14</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">OB・OG訪問質問プラン</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">30分の質問と時間配分を考える</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-kigyo-kenkyu-30min.html"><span aria-hidden="true" class="sc-h-tool-code">20</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業研究30分ワーク</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">仕事内容・応募条件を整理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="#tracker"><span aria-hidden="true" class="sc-h-tool-code">38</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">選考進捗トラッカー</span><span class="sc-h-tool-year">共通</span></span><span class="sc-h-tool-desc">企業・締切・選考段階を管理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-shiboudouki-work.html"><span aria-hidden="true" class="sc-h-tool-code">07</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン志望動機</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">200字・400字の志望理由を作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a></div>
-<p class="sc-h-empty" hidden="" id="sc-h-no-match">一致するツールがありません。キーワードや条件を変えてみてください。</p>
+<div class="sc-h-empty" hidden="" id="sc-h-no-match" role="region" aria-label="検索結果がない場合の案内">一致するツールがありません。キーワードや条件を変えてみてください。</div>
 <div class="sc-h-showmore-wrap"><button class="sc-h-showmore" id="sc-h-showmore" type="button">すべてのツールを表示 <span aria-hidden="true">↓</span></button></div>
 </section><div aria-label="卒業年度別のスタートガイド" class="sc-h-quick">
 <a class="sc-h-quick-link" href="28sotsu-start-hub.html"><span class="sc-h-quick-tag">28卒</span><span><strong>早期選考・面接の準備</strong><small>今やることを整理する</small></span><span aria-hidden="true" class="sc-h-quick-arrow">↗</span></a>
@@ -184,21 +493,22 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 
 
 <div class="workspace-divider"><span>YOUR WORKSPACE</span><span>ここから先は、入力して使う就活管理ツール</span></div>
-<div class="sc-h-workspace" id="workspace-intro"><div><span class="sc-h-section-tag">MY WORKSPACE</span><h2>管理も、このページで。</h2><p>ESの下書き、締切、面接予定。ブラウザに記録して、いつでも続きから。</p></div><div class="sc-h-work-links"><a href="#es-counter">ES下書き <span aria-hidden="true">↗</span></a><a href="#tracker">選考管理 <span aria-hidden="true">↗</span></a><a href="#calendar">カレンダー <span aria-hidden="true">↗</span></a></div></div><section id="dashboard"><h2>📊 就活ダッシュボード</h2><p class="muted">選考トラッカーの登録内容から自動集計します。</p><div class="grid4"><div class="metric"><b id="mTotal">0</b><span>登録企業</span></div><div class="metric"><b id="mSoon">0</b><span>7日以内の締切</span></div><div class="metric"><b id="mInterview">0</b><span>面接中</span></div><div class="metric"><b id="mOffer">0</b><span>内定</span></div></div><div class="notice muted" id="nextDeadline">次の締切はまだ登録されていません。</div></section>
+<div class="sc-h-workspace" id="workspace-intro"><div><span class="sc-h-section-tag">MY WORKSPACE</span><h2>管理も、このページで。</h2><p>ESの下書き、締切、面接予定。ブラウザに記録して、いつでも続きから。</p></div><div class="sc-h-work-links"><a href="#es-counter">ES下書き <span aria-hidden="true">↗</span></a><a href="#tracker">選考管理 <span aria-hidden="true">↗</span></a><a href="#calendar">カレンダー <span aria-hidden="true">↗</span></a></div></div><section id="dashboard"><h2>📊 就活ダッシュボード</h2><p class="muted">選考トラッカーの登録内容から自動集計します。</p><div class="grid4"><div class="metric"><b id="mTotal">0</b><span>登録企業</span></div><div class="metric"><b id="mSoon">0</b><span>7日以内の締切</span></div><div class="metric"><b id="mInterview">0</b><span>面接中</span></div><div class="metric"><b id="mOffer">0</b><span>内定</span></div></div><div class="notice muted" id="nextDeadline">次の締切はまだ登録されていません。</div><div class="sc-upcoming" id="sc-upcoming-agenda" aria-labelledby="sc-upcoming-title"><div class="sc-upcoming-head"><strong id="sc-upcoming-title">直近14日間の締切・選考予定</strong><a href="#tracker">選考管理で確認 →</a></div><details id="sc-same-day-load" class="sc-same-day-load" hidden><summary id="sc-same-day-title">同じ日に予定が集中しています</summary><div class="sc-same-day-body"><p>同じ日付の締切・次回予定をまとめました。各日の「準備チェック表TXT」で確認項目を保存し、「この日の予定をICS保存」でカレンダーへまとめて取り込めます。時刻が未登録のため終日予定として出力します。取り込みは手動で、自動同期されません。選考メモ・選考段階は含めません。</p><ul id="sc-same-day-list" aria-label="同じ日に集中する予定"></ul><p id="sc-same-day-more" class="sc-same-day-more" hidden></p><p id="sc-same-day-download-status" class="sc-same-day-download-status" role="status" aria-live="polite" aria-atomic="true"></p><a href="#tracker">選考管理で日程を確認 →</a></div></details><div class="sc-upcoming-controls" role="group" aria-label="予定の表示条件"><label for="sc-upcoming-range">期間 <select id="sc-upcoming-range" aria-label="今日から何日先までの予定を表示するか"><option value="7">7日間</option><option value="14" selected>14日間</option><option value="30">30日間</option><option value="60">60日間</option></select></label><label for="sc-upcoming-urgency">優先度 <select id="sc-upcoming-urgency" aria-label="予定までの残り日数で絞り込み"><option value="all">すべて</option><option value="today">今日</option><option value="tomorrow">明日</option><option value="three">3日以内</option><option value="seven">7日以内</option><option value="overdue">期限超過</option></select></label><span id="sc-upcoming-count" class="sc-upcoming-count" aria-live="polite"></span><details id="sc-upcoming-advanced" class="sc-upcoming-advanced"><summary id="sc-upcoming-advanced-summary">詳細条件を表示 <span id="sc-upcoming-active-badge" class="sc-upcoming-active-badge" hidden></span></summary><div class="sc-upcoming-advanced-inner"><label for="sc-upcoming-kind">予定の種類 <select id="sc-upcoming-kind"><option value="all">すべて</option><option value="締切">応募締切のみ</option><option value="次回予定">次回予定のみ</option></select></label><label for="sc-upcoming-sort">並び順 <select id="sc-upcoming-sort" aria-label="予定一覧の並び順"><option value="date-asc">日付が早い順</option><option value="date-desc">日付が遅い順</option><option value="name-asc">企業名順</option></select></label><label class="sc-upcoming-check"><input id="sc-upcoming-hide-overdue" type="checkbox"/>期限超過を隠す</label><label class="sc-upcoming-search" for="sc-upcoming-company-query">企業名 <input id="sc-upcoming-company-query" type="search" placeholder="企業名で検索" aria-label="予定を企業名で検索" autocomplete="off" maxlength="120"/><button type="button" id="sc-upcoming-clear-query" aria-label="企業名検索をクリア" hidden>クリア</button></label><button type="button" id="sc-upcoming-reset" class="sc-upcoming-reset" aria-label="予定一覧のすべての絞り込みを初期状態に戻す">条件をリセット</button></div></details></div><div id="sc-upcoming-kind-tabs" class="sc-upcoming-kind-tabs" role="group" aria-label="予定の種類をすぐに切り替える"><span class="sc-kind-heading">予定の種類を切り替え</span><button type="button" data-kind="all" aria-pressed="true">すべて <span class="sc-kind-count">0</span></button><button type="button" data-kind="締切" aria-pressed="false">応募締切 <span class="sc-kind-count">0</span></button><button type="button" data-kind="次回予定" aria-pressed="false">次回予定 <span class="sc-kind-count">0</span></button></div><details id="sc-prep-actions" class="sc-prep-actions"><summary>締切・次回予定の準備アクション <span id="sc-prep-count" class="sc-prep-count" aria-live="polite">確認中</span></summary><ul id="sc-prep-list" class="sc-prep-list" aria-label="直近3日以内と期限超過の予定に応じた確認事項"></ul><p id="sc-prep-more" class="sc-prep-more" hidden></p><button id="sc-prep-download" type="button" class="sc-prep-download" hidden aria-label="直近の準備アクション全件をテキストファイルに保存">準備アクションをTXT保存（全件）</button><button id="sc-prep-copy" type="button" class="sc-prep-download sc-prep-copy" hidden aria-label="直近の準備アクション全件をクリップボードにコピー">準備アクションをコピー（全件）</button><span id="sc-prep-export-status" class="sc-prep-export-status" role="status" aria-live="polite" aria-atomic="true"></span><p id="sc-prep-empty" class="sc-prep-empty" hidden>直近3日以内の締切・予定はありません。<a href="#tracker">選考管理に企業を登録する</a></p><p class="sc-prep-more">端末内の選考管理から表示する確認用の提案です。提出状況や募集継続は自動判定しません。</p></details><div id="sc-upcoming-focus" class="sc-upcoming-focus" role="status" aria-live="polite" aria-atomic="true" hidden></div><details id="sc-upcoming-week" class="sc-upcoming-week"><summary>直近7日を日別に確認 <span id="sc-upcoming-week-status" class="sc-upcoming-week-status" aria-live="polite"></span></summary><div id="sc-upcoming-week-grid" class="sc-upcoming-week-grid" role="group" aria-label="直近7日間の予定を日付別に絞り込む"></div><div class="sc-upcoming-week-foot"><span>日付を押すと一覧・CSV・カレンダー保存もその日だけに絞り込みます。件数は企業名・予定種類の条件に連動します。</span><button id="sc-upcoming-week-clear" type="button" class="sc-upcoming-week-clear" hidden>日付の絞り込みを解除</button></div></details><ul class="sc-upcoming-list" id="sc-upcoming-list" aria-live="polite"></ul><p class="sc-upcoming-empty" id="sc-upcoming-empty">予定はまだありません。選考管理で締切や次回予定を登録できます。</p><div id="sc-upcoming-empty-actions" class="sc-upcoming-empty-actions" hidden><button type="button" id="sc-upcoming-empty-reset" hidden>条件を解除して表示</button><button type="button" id="sc-upcoming-empty-expand" hidden>60日間に広げて探す</button><a id="sc-upcoming-empty-tracker" href="#tracker" hidden>選考管理で予定を登録 →</a></div><p class="sc-upcoming-more" id="sc-upcoming-more" hidden></p><div class="sc-upcoming-actions"><button type="button" id="sc-upcoming-show-more" aria-controls="sc-upcoming-list" hidden>さらに5件表示</button><button type="button" id="sc-upcoming-collapse" aria-controls="sc-upcoming-list" hidden>最初の5件に戻す</button></div><details id="sc-upcoming-export-menu" class="sc-upcoming-export-menu"><summary id="sc-upcoming-export-summary">予定を保存・共有 <span id="sc-upcoming-export-count" aria-live="polite">対象0件</span></summary><div class="sc-upcoming-actions sc-upcoming-export-buttons"><button type="button" id="sc-upcoming-export-csv" aria-label="表示条件に一致する予定をすべてCSVで保存" hidden>絞り込み結果をCSV保存</button><button type="button" id="sc-upcoming-export-ics" aria-label="表示条件に一致する予定をまとめてカレンダーファイルで保存" hidden>絞り込み結果をカレンダー保存</button><button type="button" id="sc-upcoming-copy-text" aria-label="表示条件に一致するすべての予定をテキストでコピー" hidden>絞り込み結果をコピー</button><button type="button" id="sc-upcoming-print" aria-label="表示条件に一致するすべての予定を印刷用一覧にして印刷" hidden>予定一覧を印刷</button></div></details><span id="sc-upcoming-copy-status" class="sc-upcoming-copy-status" role="status" aria-live="polite" aria-atomic="true"></span><span id="sc-upcoming-print-status" role="status" aria-live="polite" aria-atomic="true"></span><details id="sc-upcoming-help" class="sc-upcoming-help"><summary>使い方・個人情報の注意</summary><p class="sc-upcoming-privacy">「予定の種類を切り替え」から応募締切・次回予定をワンタップで切り替えられます。件数は期間・優先度・検索条件などに連動します。「直近7日を日別に確認」から日付ごとの予定件数を見て、1日分だけに絞り込めます。「詳細条件を表示」から予定の種類・並び順・企業名検索などを設定できます。閉じても設定は維持され、適用中の項目数を表示します。「並び順」は日付の昇順・降順・企業名順を切り替え、CSV・カレンダー保存・コピーにも反映されます。「優先度」は今日・明日・3日以内・7日以内・期限超過の予定を絞り込めます。「条件をリセット」は表示条件だけを戻し、企業データを変更しません。「予定を保存」は選んだ1件のみを.icsで端末に保存します。「Googleで追加」は別タブでGoogleカレンダーの登録確認画面を開きます。企業名・予定日がGoogleに送信されます。日時は登録時点では終日の仮予定です。時間・通知はGoogle側で確認してから保存してください。自動同期ではありません。「絞り込み結果をCSV保存」「絞り込み結果をカレンダー保存」は、選択した表示期間・種類・企業名検索などの条件に合う全予定（5件表示の範囲外も含む）をまとめて出力します。選考メモは含めません。「絞り込み結果をコピー」は条件に合う全予定の日付・種類・企業名・残り日数をクリップボードへコピーします（メモ・選考段階は含みません）。「予定一覧を印刷」は絞り込み・並び順を反映した全予定をA4向けの印刷画面にまとめます。印刷用一覧にも選考メモ・選考段階は含めません。企業名と日付が含まれるため、ファイルやコピーした内容の共有に注意してください。カレンダーへの取り込みは手動で、元データを編集しても自動同期されません。</p></details></div></section>
 <section id="es-counter"><h2>✍️ ESワークスペース</h2><p class="muted">文字数を確認しながら下書きを保存できます。ガクチカ・自己PR・志望動機などを分けて管理できます。</p>
 <div class="flex"><label>種類<select id="draftType"><option>ガクチカ</option><option>自己PR</option><option>志望動機</option><option>挫折経験</option><option>その他</option></select></label><label>下書き名<input id="draftName" placeholder="例：ガクチカ400字"/></label><label>目標文字数<input id="limit" min="1" type="number" value="400"/></label><div><div class="stat" id="count">0文字</div><div class="muted" id="remaining">あと400文字</div></div></div>
 <div aria-label="文字数プリセット" class="toolbar"><button class="secondary len" data-len="200">200字</button><button class="secondary len" data-len="300">300字</button><button class="secondary len" data-len="400">400字</button><button class="secondary len" data-len="500">500字</button><button class="secondary len" data-len="600">600字</button></div>
 <textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p class="muted" id="countDetail"></p>
 <div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div class="saved-list" id="drafts"></div><div class="notice" style="margin-top:14px"><strong>秋冬インターンの志望動機で迷ったら：</strong> <a href="28sotsu-akifuyu-intern-shiboudouki-200-400.html">200字・400字の例文と無料作成シート →</a></div><div class="notice" style="margin-top:14px"><strong>企業別にESを管理したい人へ：</strong> <a href="es-shitsumon-kanri.html">ES設問・回答・文字数・提出締切をまとめて管理する（無料） →</a></div></section>
-<section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。</p>
-<form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form>
+<section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。<strong>登録後は企業カードから選考段階を直接変更できます。</strong></p>
+<form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form><p id="sc-job-duplicate-status" class="muted small" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-job-duplicate-preview" class="sc-job-duplicate-preview" aria-live="polite" aria-label="同名企業の登録状況" hidden></div>
 <div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"/></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label></div>
-<div class="job-list" id="jobs"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
+<div class="job-list" id="jobs"></div><p id="sc-stage-change-status" class="sc-stage-change-status" role="status" aria-live="polite" aria-atomic="true"></p><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
 <section id="checklist-section"><h2>✅ 就活準備チェックリスト</h2><div id="checklist"></div></section>
 <section id="backup-section"><h2>💾 全データのバックアップ・復元</h2>
-<p>ESの下書き・企業別ES設問・企業比較・面接記録・入力中の文章・選考管理・チェックリストを、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
+<p>ESの下書き・企業別ES設問・企業比較・面接記録・選考管理・チェックリストに加え、<strong>お気に入り・最近使ったツール・卒年・並び順</strong>も、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
 <div class="toolbar"><button id="backupAll" type="button">全データをバックアップ（JSON）</button>
 <label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">バックアップから復元<input accept=".json,application/json" id="restoreAllFile" style="display:none" type="file"/></span></label></div>
+<p id="sc-backup-health" class="sc-backup-health" role="status" aria-live="polite">バックアップ状況を確認しています…</p>
 <p class="muted small">復元すると、このブラウザに保存されているES・選考情報・チェック状態がすべて置き換わります。復元前に現在のデータをバックアップしてください。</p>
 <div class="notice"><strong>個人情報に注意：</strong>バックアップファイルには企業名、選考メモ、ES本文などが含まれます。第三者に共有せず、安全な場所に保管してください。ファイルの読み込みはブラウザ内で行われ、当サイト独自のサーバーには送信されません。</div>
 <p aria-live="polite" class="muted" id="backupStatus" role="status"></p></section>
@@ -295,18 +605,749 @@ $('saveDraft').onclick=()=>{const text=es.value.trim();if(!text){alert('文章�
 
 // Job tracker
 let jobs=[];try{jobs=JSON.parse(localStorage.getItem('sc_jobs')||'[]')}catch{}jobs=Array.isArray(jobs)?jobs:[];
-function saveJobs(){localStorage.setItem('sc_jobs',JSON.stringify(jobs));renderJobs();renderDashboard()}
+function saveJobs(){localStorage.setItem('sc_jobs',JSON.stringify(jobs));renderJobs();renderDashboard();scRenderDuplicatePreview()}
 function normalize(j){return {id:j.id||Date.now()+Math.random(),name:j.name||'',stage:j.stage||'検討中',deadline:j.deadline||'',nextDate:j.nextDate||'',memo:j.memo||'',created:j.created||Number(String(j.id).split('.')[0])||Date.now()}}
 function filteredJobs(){const q=$('jobSearch').value.trim().toLowerCase(),st=$('stageFilter').value,sort=$('jobSort').value;let arr=jobs.map(normalize).filter(j=>(!q||(j.name+' '+j.memo).toLowerCase().includes(q))&&(!st||j.stage===st));const far='9999-12-31';arr.sort((a,b)=>sort==='company'?a.name.localeCompare(b.name,'ja'):sort==='newest'?b.created-a.created:sort==='nextDate'?(a.nextDate||far).localeCompare(b.nextDate||far):(a.deadline||far).localeCompare(b.deadline||far));return arr}
-function renderJobs(){const root=$('jobs');root.replaceChildren();const arr=filteredJobs();if(!arr.length){root.innerHTML='<p class="muted">条件に合う企業がありません。</p>';return}arr.forEach(j=>{const left=daysUntil(j.deadline),card=document.createElement('div');card.className='job-card'+(j.stage==='終了'?' done-card':left!==null&&left<0?' urgent':left!==null&&left<=7?' soon':'');let deadlineText=j.deadline?'締切 '+fmt(j.deadline)+(left!==null?(left<0?'（期限超過）':left===0?'（今日）':'（あと'+left+'日）'):''):'締切未登録';card.innerHTML='<div class="job-card-head"><div><div class="job-title">'+esc(j.name)+'</div><div class="job-meta"><span class="pill">'+esc(j.stage)+'</span><span class="muted">'+esc(deadlineText)+'</span>'+(j.nextDate?'<span class="muted">次回 '+esc(fmt(j.nextDate))+'</span>':'')+'</div></div></div>'+(j.memo?'<div class="job-note">'+esc(j.memo)+'</div>':'')+'<div class="actions"></div>';const a=card.querySelector('.actions');const edit=document.createElement('button');edit.className='secondary';edit.textContent='編集';edit.onclick=()=>{const x=normalize(j);$('editingId').value=x.id;$('company').value=x.name;$('stage').value=x.stage;$('deadline').value=x.deadline;$('nextDate').value=x.nextDate;$('jobMemo').value=x.memo;$('jobSubmit').textContent='更新する';$('cancelEdit').classList.remove('hidden');location.hash='tracker'};const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm(j.name+'を削除しますか？')){jobs=jobs.filter(x=>String(x.id)!==String(j.id));saveJobs()}};a.append(edit,del);root.append(card)})}
-function resetJobForm(){$('jobform').reset();$('editingId').value='';$('jobSubmit').textContent='企業を追加';$('cancelEdit').classList.add('hidden')}
-$('jobform').onsubmit=e=>{e.preventDefault();const name=$('company').value.trim();if(!name)return;const editId=$('editingId').value;const data={name,stage:$('stage').value,deadline:$('deadline').value,nextDate:$('nextDate').value,memo:$('jobMemo').value.trim()};if(editId){jobs=jobs.map(j=>String(j.id)===editId?{...normalize(j),...data}:j)}else{jobs.push({id:Date.now()+Math.random(),created:Date.now(),...data})}saveJobs();resetJobForm()};
+// Shared editing entry point: cards and the upcoming-agenda list open the same existing form.
+function beginEditJob(record){
+ const j=jobs.map(normalize).find(x=>String(x.id)===String(record.id));
+ if(!j)return; // The event may have been deleted after rendering.
+ $('editingId').value=j.id;
+ $('company').value=j.name;
+ $('stage').value=j.stage;
+ $('deadline').value=j.deadline;
+ $('nextDate').value=j.nextDate;
+ $('jobMemo').value=j.memo;
+ $('jobSubmit').textContent='更新する';
+ $('cancelEdit').classList.remove('hidden');
+ location.hash='tracker';
+ $('company').focus({preventScroll:true});
+ scRenderDuplicatePreview();
+}
+function renderJobs(){const root=$('jobs');root.replaceChildren();const arr=filteredJobs();if(!arr.length){root.innerHTML='<p class="muted">条件に合う企業がありません。</p>';return}arr.forEach(j=>{const left=daysUntil(j.deadline),card=document.createElement('div');card.className='job-card'+(j.stage==='終了'?' done-card':left!==null&&left<0?' urgent':left!==null&&left<=7?' soon':'');let deadlineText=j.deadline?'締切 '+fmt(j.deadline)+(left!==null?(left<0?'（期限超過）':left===0?'（今日）':'（あと'+left+'日）'):''):'締切未登録';card.innerHTML='<div class="job-card-head"><div><div class="job-title">'+esc(j.name)+'</div><div class="job-meta"><span class="pill">'+esc(j.stage)+'</span><span class="muted">'+esc(deadlineText)+'</span>'+(j.nextDate?'<span class="muted">次回 '+esc(fmt(j.nextDate))+'</span>':'')+'</div></div></div>'+(j.memo?'<div class="job-note">'+esc(j.memo)+'</div>':'')+'<div class="actions"></div>';const a=card.querySelector('.actions');const edit=document.createElement('button');edit.className='secondary';edit.textContent='編集';edit.onclick=()=>beginEditJob(j);const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm(j.name+'を削除しますか？')){jobs=jobs.filter(x=>String(x.id)!==String(j.id));saveJobs()}};/* Quick stage update: keep the same record and all existing fields intact. */
+const quickLabel=document.createElement('label');quickLabel.className='sc-stage-quick-label';
+const quickText=document.createElement('span');quickText.textContent='選考段階';
+const quickSelect=document.createElement('select');quickSelect.className='sc-stage-quick-select';
+quickSelect.setAttribute('aria-label',j.name+'の選考段階を変更');
+['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'].forEach(stage=>{const option=document.createElement('option');option.value=stage;option.textContent=stage;quickSelect.append(option)});
+quickSelect.value=j.stage;
+quickSelect.addEventListener('change',()=>{
+ const stage=quickSelect.value;
+ const target=jobs.find(x=>String(x.id)===String(j.id));
+ if(!target||!['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'].includes(stage))return;
+ target.stage=stage;
+ if(String($('editingId').value)===String(j.id))$('stage').value=stage;
+ saveJobs();
+ const status=$('sc-stage-change-status');if(status)status.textContent=j.name+'の選考段階を「'+stage+'」に変更して保存しました。';
+});
+quickLabel.append(quickText,quickSelect);a.prepend(quickLabel);a.append(edit,del);root.append(card)})}
+function resetJobForm(){$('jobform').reset();$('editingId').value='';$('jobSubmit').textContent='企業を追加';$('cancelEdit').classList.add('hidden');scRenderDuplicatePreview()}
+// 2026-10-20 06:30: Warn before saving a second record for the same company.
+// Only compares existing names; deliberate multiple applications remain possible.
+// Does not change the sc_jobs schema, imported records, or existing records on cancel.
+function scCompanyNameKey(name){
+ return String(name??'').normalize('NFKC').replace(/[\s\u3000]+/g,'').toLocaleLowerCase('ja');
+}
+// 2026-10-20 07:28: Show existing matching records while entering a company name.
+// Safe DOM-only rendering, never includes private memos, never changes stored data.
+function scRenderDuplicatePreview(){
+ const root=$('sc-job-duplicate-preview');if(!root)return;
+ root.replaceChildren();root.hidden=true;
+ const name=$('company').value.trim(),key=scCompanyNameKey(name),editId=$('editingId').value;
+ if(!key)return;
+ const matches=jobs.map(normalize).filter(j=>String(j.id)!==String(editId)&&scCompanyNameKey(j.name)===key);
+ if(!matches.length)return;
+ root.hidden=false;
+ const heading=document.createElement('strong');
+ heading.textContent='同名の登録が'+matches.length+'件あります。別の応募枠なら追加できます。';
+ root.append(heading);
+ const list=document.createElement('ul');
+ matches.slice(0,5).forEach(j=>{
+  const li=document.createElement('li'),info=document.createElement('span'),button=document.createElement('button');
+  const dates=[j.deadline?'締切 '+j.deadline:'',j.nextDate?'次回 '+j.nextDate:''].filter(Boolean);
+  info.textContent=j.name+'｜'+j.stage+(dates.length?'｜'+dates.join(' / '):'');
+  button.type='button';button.textContent='この記録を編集';
+  button.setAttribute('aria-label',j.name+'の登録済み記録を編集');
+  button.addEventListener('click',()=>{
+   const formHasInput=$('jobMemo').value.trim()||$('deadline').value||$('nextDate').value||$('editingId').value;
+   if(formHasInput&&!confirm('現在のフォーム入力を破棄して、登録済みの記録を開きますか？'))return;
+   beginEditJob(j);
+  });
+  li.append(info,button);list.append(li);
+ });
+ root.append(list);
+ if(matches.length>5){const extra=document.createElement('p');extra.className='small';extra.textContent='ほか'+(matches.length-5)+'件の同名登録があります。';root.append(extra)}
+}
+$('company').addEventListener('input',()=>{const status=$('sc-job-duplicate-status');if(status)status.textContent='';scRenderDuplicatePreview()});
+$('jobform').onsubmit=e=>{
+ e.preventDefault();
+ const name=$('company').value.trim();if(!name)return;
+ const editId=$('editingId').value;
+ const key=scCompanyNameKey(name);
+ const duplicates=jobs.map(normalize).filter(j=>String(j.id)!==String(editId)&&scCompanyNameKey(j.name)===key);
+ const status=$('sc-job-duplicate-status');
+ if(duplicates.length){
+  const verb=editId?'更新':'追加';
+  const accepted=confirm('「'+name+'」はすでに'+duplicates.length+'件登録されています。\n別の応募・選考記録として'+verb+'しますか？');
+  if(!accepted){if(status)status.textContent='同名企業の'+verb+'を取り消しました。登録済みの情報は変更されていません。';return;}
+ }
+ const data={name,stage:$('stage').value,deadline:$('deadline').value,nextDate:$('nextDate').value,memo:$('jobMemo').value.trim()};
+ if(editId){jobs=jobs.map(j=>String(j.id)===editId?{...normalize(j),...data}:j)}
+ else{jobs.push({id:Date.now()+Math.random(),created:Date.now(),...data})}
+ saveJobs();resetJobForm();
+ if(status)status.textContent=duplicates.length?'同名企業の別記録として保存しました。':'選考情報を保存しました。';
+};
 $('cancelEdit').onclick=resetJobForm;['jobSearch','stageFilter','jobSort'].forEach(id=>$(id).addEventListener(id==='jobSearch'?'input':'change',renderJobs));
-function renderDashboard(){const norm=jobs.map(normalize),active=norm.filter(j=>j.stage!=='終了'&&j.stage!=='内定');$('mTotal').textContent=norm.length;$('mInterview').textContent=norm.filter(j=>j.stage==='面接').length;$('mOffer').textContent=norm.filter(j=>j.stage==='内定').length;const soon=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0&&d<=7});$('mSoon').textContent=soon.length;const future=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0}).sort((a,b)=>a.deadline.localeCompare(b.deadline));$('nextDeadline').textContent=future.length?'次の締切：'+future[0].name+'　'+fmt(future[0].deadline)+'（あと'+daysUntil(future[0].deadline)+'日）':'次の締切はまだ登録されていません。'}
+function renderDashboard(){const norm=jobs.map(normalize),active=norm.filter(j=>j.stage!=='終了'&&j.stage!=='内定');$('mTotal').textContent=norm.length;$('mInterview').textContent=norm.filter(j=>j.stage==='面接').length;$('mOffer').textContent=norm.filter(j=>j.stage==='内定').length;const soon=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0&&d<=7});$('mSoon').textContent=soon.length;const future=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0}).sort((a,b)=>a.deadline.localeCompare(b.deadline));$('nextDeadline').textContent=future.length?'次の締切：'+future[0].name+'　'+fmt(future[0].deadline)+'（あと'+daysUntil(future[0].deadline)+'日）':'次の締切はまだ登録されていません。';scRenderNextAction(active);renderUpcomingTasks()}
+
+
+// 2026-10-20 01:30: A concise "next step" above the detailed agenda.
+// No network calls, saved-key changes or mutation of job records.
+function scRenderNextAction(active){
+ const root=$('nextDeadline');if(!root)return;
+ root.classList.add('sc-next-action');root.replaceChildren();
+ const copy=document.createElement('div');copy.className='sc-next-action-copy';
+ const label=document.createElement('span');label.className='sc-next-action-label';label.textContent='NEXT ACTION / 次の一手';
+ const main=document.createElement('strong');main.className='sc-next-action-main';
+ const hint=document.createElement('span');hint.className='sc-next-action-hint';
+ const actions=document.createElement('div');actions.className='sc-next-action-buttons';
+ const events=[];
+ active.forEach(job=>{
+  [['deadline','応募締切'],['nextDate','次回予定']].forEach(([key,type])=>{
+   const date=job[key];if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return;
+   const d=new Date(date+'T12:00:00');
+   if(Number.isNaN(d.getTime())||d.getFullYear()!==Number(date.slice(0,4))||d.getMonth()+1!==Number(date.slice(5,7))||d.getDate()!==Number(date.slice(8,10)))return;
+   const days=daysUntil(date);
+   if(days===null||days>60||(days<0&&(key!=='deadline'||days< -7)))return;
+   const rank=key==='deadline'&&days<0?0:key==='deadline'&&days<=3?1:key==='nextDate'&&days<=3?2:3;
+   events.push({job,date,days,type,rank});
+  });
+ });
+ events.sort((a,b)=>a.rank-b.rank||(a.days<0?Math.abs(a.days):a.days)-(b.days<0?Math.abs(b.days):b.days)||a.date.localeCompare(b.date)||a.job.name.localeCompare(b.job.name,'ja'));
+ const event=events[0];
+ if(event){
+  const when=event.days<0?'期限から'+Math.abs(event.days)+'日経過':event.days===0?'今日':event.days===1?'明日':'あと'+event.days+'日';
+  main.textContent=event.job.name+'｜'+event.type+' '+fmt(event.date)+'（'+when+'）';
+  hint.textContent=event.days<0?'期限超過の可能性があります。公式募集ページで受付状況を確認してください。':event.type==='応募締切'?'提出条件・ES・受付完了の確認を進めましょう。':'日時・参加方法・必要書類を確認して準備しましょう。';
+  const edit=document.createElement('button');edit.type='button';edit.textContent='この企業を編集 →';
+  edit.setAttribute('aria-label',event.job.name+'の選考情報を編集');
+  edit.addEventListener('click',()=>beginEditJob({id:event.job.id}));actions.append(edit);
+ }else{
+  main.textContent=active.length?'直近60日間の予定はありません':'登録中の選考予定はありません';
+  hint.textContent=active.length?'選考管理で締切・次回予定が正しく登録されているか確認しましょう。':'応募候補を1社登録すると、次の締切や準備内容をここに表示します。';
+ }
+ const tracker=document.createElement('a');tracker.href='#tracker';tracker.textContent='選考管理へ';actions.append(tracker);
+ copy.append(label,main,hint);root.append(copy,actions);
+}
+
+
+// 2026-10-20 03:35: A single-day checklist file for days with multiple events.
+// Read-only: no localStorage writes, no third-party requests, no memo or stage export.
+function scSameDayChecklistText(date,events){
+ const clean=value=>String(value??'').replace(/[\r\n\t\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim().slice(0,180);
+ const rows=['就活コンパス｜同日予定の準備チェック表','日付：'+date,'予定件数：'+events.length+'件','','※日付のみを管理しています。時刻・受付状況・提出完了は公式案内で確認してください。',''];
+ events.forEach((event,i)=>{
+  const kind=event.label==='締切'?'応募締切':'次回予定';
+  rows.push((i+1)+'. '+clean(event.name||'名称未設定')+'｜'+kind);
+  if(kind==='応募締切'){
+   rows.push('□ 募集要項・応募資格・提出期限を公式サイトで確認','□ ES・添付書類・Webテストの要否を確認','□ 提出後の受付完了を確認');
+  }else{
+   rows.push('□ 開始時刻・会場／参加URLを公式案内で確認','□ 面接・説明会などの形式と持ち物を確認','□ 前日までに移動・接続・回答準備を確認');
+  }
+  rows.push('');
+ });
+ rows.push('※企業名・予定日を含みます。共有・保管には注意してください。','※選考メモ・選考段階は含めていません。');
+ return rows.join('\r\n')+'\r\n';
+}
+function scDownloadSameDayChecklist(date,events){
+ const status=$('sc-same-day-download-status');
+ try{
+  const contents=scSameDayChecklistText(date,events);
+  const blob=new Blob(['\ufeff',contents],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const anchor=document.createElement('a');anchor.href=url;anchor.download='shukatsu-checklist-'+date+'.txt';
+  document.body.append(anchor);anchor.click();anchor.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  if(status)status.textContent=date+'の'+events.length+'件分の準備チェック表を保存しました。';
+ }catch(err){if(status)status.textContent='TXT保存に失敗しました。ブラウザのダウンロード設定を確認してください。';}
+}
+
+// 2026-10-20 05:35: Save every matching event on one busy day to a single local .ics file.
+// Stable per-event UIDs match the existing agenda export; no notes/stages, storage edits or network calls.
+function scDownloadSameDayIcs(date,events){
+ const status=$('sc-same-day-download-status');
+ try{
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Array.isArray(events)||!events.length)throw Error('invalid date or entries');
+  const day=new Date(date+'T12:00:00');
+  if(Number.isNaN(day.getTime())||day.getFullYear()!==Number(date.slice(0,4))||day.getMonth()+1!==Number(date.slice(5,7))||day.getDate()!==Number(date.slice(8,10)))throw Error('invalid date');
+  const tomorrow=new Date(day);tomorrow.setDate(day.getDate()+1);
+  const pad=n=>String(n).padStart(2,'0');
+  const compact=date.replace(/-/g,'');
+  const next=[tomorrow.getFullYear(),pad(tomorrow.getMonth()+1),pad(tomorrow.getDate())].join('');
+  const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Same Day Agenda//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  events.forEach(item=>{
+   const key=String(item.jobId)+'|'+item.label+'|'+date;
+   let hash=2166136261;for(let i=0;i<key.length;i++)hash=Math.imul(hash^key.charCodeAt(i),16777619)>>>0;
+   const uid='sc-'+hash.toString(16)+'-'+compact+'@shukatsu-compass';
+   const summary=item.label+'：'+String(item.name||'名称未設定');
+   lines.push('BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+compact,'DTEND;VALUE=DATE:'+next,'SUMMARY:'+scAgendaIcsEscape(summary),'DESCRIPTION:'+scAgendaIcsEscape('選考管理から出力した終日仮予定。開始時刻・提出期限は公式案内で確認してください。'),'END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  const blob=new Blob([lines.map(scAgendaIcsFold).join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='shukatsu-same-day-'+date+'.ics';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  if(status)status.textContent=date+'の'+events.length+'件をICSで保存しました。カレンダーへの取り込みと時刻の確認が必要です。';
+ }catch(e){if(status)status.textContent='ICS保存に失敗しました。ブラウザのダウンロード設定を確認してください。';}
+}
+
+// 2026-10-20 04:32: Expand/collapse all busy dates, including the fifth and later dates.
+let scSameDayExpanded=false;
+// 2026-10-20 02:27: Highlight same-date workloads without changing sc_jobs.
+// The tracker stores dates, not times; this is NOT an overlapping-hours detector.
+function scRenderSameDayLoad(items){
+ const panel=$('sc-same-day-load'),list=$('sc-same-day-list'),title=$('sc-same-day-title'),more=$('sc-same-day-more');
+ if(!panel||!list||!title||!more)return;
+ const status=$('sc-same-day-download-status');if(status)status.textContent='';
+ const groups=new Map();
+ items.forEach(item=>{
+  if(item.remaining<0||item.remaining===null)return;
+  const arr=groups.get(item.date)||[];arr.push(item);groups.set(item.date,arr);
+ });
+ const busy=[...groups].filter(([,items])=>items.length>=2).sort((a,b)=>a[0].localeCompare(b[0]));
+ panel.hidden=busy.length===0;
+ list.replaceChildren();
+ if(!busy.length){panel.open=false;scSameDayExpanded=false;title.textContent='同じ日に予定が集中しています';more.hidden=true;more.replaceChildren();return}
+ const total=busy.reduce((n,[,items])=>n+items.length,0);
+ title.textContent='同じ日に予定が集中：'+busy.length+'日・'+total+'件（確認する）';
+ const weekdays=['日','月','火','水','木','金','土'];
+ busy.slice(0,scSameDayExpanded?busy.length:4).forEach(([date,events])=>{
+  const d=new Date(date+'T12:00:00');
+  const li=document.createElement('li');
+  const body=document.createElement('div');body.className='sc-same-day-text';
+  const head=document.createElement('strong');head.textContent=(d.getMonth()+1)+'/'+d.getDate()+'（'+weekdays[d.getDay()]+'）・'+events.length+'件';
+  const names=document.createElement('span');
+  names.textContent=events.slice(0,3).map(x=>x.name+'［'+(x.label==='締切'?'応募締切':x.label)+'］').join(' ／ ')+(events.length>3?' ほか'+(events.length-3)+'件':'');
+  body.append(head,names);
+  const button=document.createElement('button');button.type='button';button.textContent='この日を表示';
+  button.setAttribute('aria-label',date+'の予定'+events.length+'件を表示');
+  button.addEventListener('click',()=>{
+   scUpcomingSelectedDay=date;
+   $('sc-upcoming-urgency').value='all';
+   scUpcomingVisibleLimit=5;
+   renderUpcomingTasks();
+   const agenda=$('sc-upcoming-list');if(agenda&&agenda.scrollIntoView)agenda.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+  const checklist=document.createElement('button');checklist.type='button';checklist.className='sc-same-day-checklist';
+  checklist.textContent='準備チェック表TXT';
+  checklist.setAttribute('aria-label',date+'の'+events.length+'件の準備チェック表をTXTで保存');
+  checklist.addEventListener('click',()=>scDownloadSameDayChecklist(date,events));
+  const ics=document.createElement('button');ics.type='button';ics.className='sc-same-day-ics';
+  ics.textContent='この日の予定をICS保存';
+  ics.setAttribute('aria-label',date+'の'+events.length+'件をカレンダー取り込み用ICSで保存');
+  ics.addEventListener('click',()=>scDownloadSameDayIcs(date,events));
+  const buttons=document.createElement('div');buttons.className='sc-same-day-buttons';buttons.append(button,checklist,ics);
+  li.append(body,buttons);list.append(li);
+ });
+ more.hidden=busy.length<=4;
+ more.replaceChildren();
+ if(busy.length>4){
+  const toggle=document.createElement('button');toggle.type='button';
+  toggle.textContent=scSameDayExpanded?'最初の4日だけ表示（折りたたむ）':'残り'+(busy.length-4)+'日も表示する';
+  toggle.setAttribute('aria-expanded',String(scSameDayExpanded));
+  toggle.setAttribute('aria-controls','sc-same-day-list');
+  toggle.addEventListener('click',()=>{
+   scSameDayExpanded=!scSameDayExpanded;
+   scRenderSameDayLoad(items);
+  });
+  more.append(toggle);
+ }
+
+}
+
+// 2026-10-19 20:35: Explicit Google Calendar template link for one all-day event.
+// Only company name, event type and date enter the URL; no memo, stage, ID or stored data.
+// No request is made until the user clicks the link, and Google requires confirmation to save.
+function scAgendaGoogleCalendarUrl(item){
+ const date=String(item.date||'');
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return null;
+ const y=Number(date.slice(0,4)),m=Number(date.slice(5,7)),d=Number(date.slice(8,10));
+ const day=new Date(Date.UTC(y,m-1,d));
+ if(day.getUTCFullYear()!==y||day.getUTCMonth()+1!==m||day.getUTCDate()!==d)return null;
+ const next=new Date(day);next.setUTCDate(next.getUTCDate()+1);
+ const pad=n=>String(n).padStart(2,'0');
+ const end=String(next.getUTCFullYear())+pad(next.getUTCMonth()+1)+pad(next.getUTCDate());
+ const params=new URLSearchParams({action:'TEMPLATE',text:(String(item.label||'予定')+'：'+String(item.name||'名称未設定')).slice(0,180),dates:date.replace(/-/g,'')+'/'+end});
+ return 'https://calendar.google.com/calendar/render?'+params.toString();
+}
+// 2026-10-19 06:27: Export ONE selected event as a UTF-8 all-day .ics file.
+// This only reads the existing sc_jobs entry and does not transmit it anywhere.
+function scAgendaIcsEscape(value){return String(value??'').replace(/\\/g,'\\\\').replace(/\r\n|\r|\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;')}
+function scAgendaIcsFold(line){
+ const encoder=new TextEncoder();let chunks=[],part='',size=0;
+ for(const ch of line){const bytes=encoder.encode(ch).length;if(size+bytes>70){chunks.push(part);part=' ';size=1}part+=ch;size+=bytes}
+ chunks.push(part);return chunks.join('\r\n');
+}
+function scAgendaDownloadEvent(item){
+ const date=item.date;
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return;
+ const day=new Date(date+'T12:00:00');
+ if(Number.isNaN(day.getTime())||day.getFullYear()!==Number(date.slice(0,4))||day.getMonth()+1!==Number(date.slice(5,7))||day.getDate()!==Number(date.slice(8,10)))return;
+ const tomorrow=new Date(day);tomorrow.setDate(day.getDate()+1);
+ const pad=n=>String(n).padStart(2,'0');
+ const next=[tomorrow.getFullYear(),pad(tomorrow.getMonth()+1),pad(tomorrow.getDate())].join('');
+ const dateCompact=date.replace(/-/g,'');
+ const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+ // Deterministic, anonymous UID: same job/event/date re-imports as the same event in many calendars.
+ const key=String(item.jobId)+'|'+item.label+'|'+date;
+ let hash=2166136261;for(let i=0;i<key.length;i++){hash=Math.imul(hash^key.charCodeAt(i),16777619)>>>0}
+ const uid='sc-'+hash.toString(16)+'-'+dateCompact+'@shukatsu-compass';
+ const stage=jobs.find(j=>String(j.id)===String(item.jobId));
+ const summary=item.label+'：'+item.name;
+ const desc='就活コンパスの選考管理から書き出した予定'+(stage?'（選考段階：'+normalize(stage).stage+'）':'');
+ const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Single Event//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+dateCompact,'DTEND;VALUE=DATE:'+next,'SUMMARY:'+scAgendaIcsEscape(summary),'DESCRIPTION:'+scAgendaIcsEscape(desc),'END:VEVENT','END:VCALENDAR'];
+ const blob=new Blob([lines.map(scAgendaIcsFold).join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='shukatsu-event-'+dateCompact+'.ics';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+// 2026-10-19 09:35: 7/14/30/60-day selectable horizon shared by display, CSV and ICS exports.
+// 2026-10-19 02:35: Compact agenda for upcoming deadlines AND next selection dates.
+// Read-only projection of existing sc_jobs; never changes or duplicates saved data.
+// 2026-10-19 04:31: reveal all filtered events in increments of five without changing saved jobs.
+let scUpcomingVisibleLimit=5;
+// 2026-10-19 07:26: Read-only, filtered upcoming events for CSV export (not limited to five visible rows).
+let scUpcomingFilteredEntries=[];
+// 16:35: view-only day selection, never persisted or included in backups.
+let scUpcomingSelectedDay=null;
+function scUpcomingCsvCell(value){
+ const text=String(value??'');
+ // Prevent spreadsheet formula injection from user-entered company names.
+ const safe=/^[\s\uFEFF]*[=+\-@]/.test(text)?"'"+text:text;
+ return '"'+safe.replace(/"/g,'""')+'"';
+}
+function scUpcomingExportCsv(){
+ if(!scUpcomingFilteredEntries.length)return;
+ const headers=['日付','予定の種類','企業名','残り日数','選考段階'];
+ const rows=scUpcomingFilteredEntries.map(item=>{
+  const job=jobs.find(j=>String(j.id)===String(item.jobId));
+  const remaining=item.remaining<0?'期限超過'+Math.abs(item.remaining)+'日':item.remaining===0?'今日':item.remaining+'日';
+  return [item.date,item.label,item.name,remaining,job?normalize(job).stage:''];
+ });
+ const csv='\uFEFF'+[headers,...rows].map(row=>row.map(scUpcomingCsvCell).join(',')).join('\r\n')+'\r\n';
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ const now=new Date(),pad=n=>String(n).padStart(2,'0');
+ a.href=url;a.download='shukatsu-upcoming-'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'.csv';
+ document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+// 2026-10-19 08:35: Export ALL filtered agenda entries as one standards-compliant .ics calendar.
+// Reuses the existing stable UID scheme so re-imports can match single-event exports.
+// Never includes private interview notes and never changes sc_jobs/localStorage.
+function scUpcomingExportIcs(){
+ if(!scUpcomingFilteredEntries.length)return;
+ const pad=n=>String(n).padStart(2,'0');
+ const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+ const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Filtered Agenda//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+ let added=0;
+ scUpcomingFilteredEntries.forEach(item=>{
+  const date=item.date;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return;
+  const day=new Date(date+'T12:00:00');
+  if(Number.isNaN(day.getTime())||day.getFullYear()!==Number(date.slice(0,4))||day.getMonth()+1!==Number(date.slice(5,7))||day.getDate()!==Number(date.slice(8,10)))return;
+  const tomorrow=new Date(day);tomorrow.setDate(day.getDate()+1);
+  const next=[tomorrow.getFullYear(),pad(tomorrow.getMonth()+1),pad(tomorrow.getDate())].join('');
+  const compact=date.replace(/-/g,'');
+  const key=String(item.jobId)+'|'+item.label+'|'+date;
+  let hash=2166136261;
+  for(let i=0;i<key.length;i++)hash=Math.imul(hash^key.charCodeAt(i),16777619)>>>0;
+  const uid='sc-'+hash.toString(16)+'-'+compact+'@shukatsu-compass';
+  const job=jobs.find(j=>String(j.id)===String(item.jobId));
+  const desc='就活コンパスの選考管理から書き出した予定'+(job?'（選考段階：'+normalize(job).stage+'）':'');
+  lines.push('BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+compact,'DTEND;VALUE=DATE:'+next,'SUMMARY:'+scAgendaIcsEscape(item.label+'：'+item.name),'DESCRIPTION:'+scAgendaIcsEscape(desc),'END:VEVENT');
+  added++;
+ });
+ if(!added)return;
+ lines.push('END:VCALENDAR');
+ const blob=new Blob([lines.map(scAgendaIcsFold).join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ const now=new Date();
+ a.href=url;a.download='shukatsu-filtered-'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'.ics';
+ document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+// 2026-10-19 13:27: Copy ALL filtered events, not just the five currently displayed.
+// No persistence, network transmission, or private memo/stage exposure.
+function scUpcomingTextSnapshot(){
+ const pad=n=>String(n).padStart(2,'0');
+ const now=new Date();
+ const day=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+ const clean=value=>String(value??'').replace(/[\r\n\t\u0000-\u001f\u007f]/g,' ').trim();
+ const header='就活コンパス｜予定一覧（'+day+'時点・'+scUpcomingFilteredEntries.length+'件）';
+ const lines=scUpcomingFilteredEntries.map(item=>{
+  const left=item.remaining<0?'期限超過'+Math.abs(item.remaining)+'日':item.remaining===0?'今日':item.remaining===1?'明日':'あと'+item.remaining+'日';
+  return clean(item.date)+'｜'+clean(item.label)+'｜'+clean(item.name)+'｜'+left;
+ });
+ return [header,...lines].join('\n');
+}
+async function scUpcomingCopyText(){
+ const status=$('sc-upcoming-copy-status');
+ if(!scUpcomingFilteredEntries.length){status.textContent='コピーする予定がありません。';status.dataset.state='error';return}
+ const snapshot=scUpcomingTextSnapshot(),copiedCount=scUpcomingFilteredEntries.length;
+ try{
+  if(navigator.clipboard&&typeof navigator.clipboard.writeText==='function'){
+   await navigator.clipboard.writeText(snapshot);
+  }else{
+   // Older browsers / non-secure local previews may not expose Clipboard API.
+   const box=document.createElement('textarea');box.value=snapshot;box.readOnly=true;
+   box.style.cssText='position:fixed;top:0;left:-9999px;opacity:0';document.body.append(box);
+   box.focus();box.select();
+   let ok=false;try{ok=document.execCommand('copy')}finally{box.remove()}
+   if(!ok)throw new Error('clipboard unavailable');
+  }
+  status.dataset.state='ok';
+  status.textContent=copiedCount+'件の予定をコピーしました。貼り付け先に企業名・日付が含まれる点にご注意ください。';
+ }catch(error){
+  status.dataset.state='error';
+  status.textContent='コピーできませんでした。ブラウザのクリップボード権限をご確認ください。';
+ }
+}
+// 2026-10-19 21:35: A4-ready printable agenda of ALL filtered events (not only visible five).
+// No network request, no stored data changes, and no memo/stage fields in the print view.
+function scUpcomingPrintAgenda(){
+ const status=$('sc-upcoming-print-status');
+ const entries=scUpcomingFilteredEntries.slice();
+ if(!entries.length){if(status)status.textContent='印刷する予定がありません。';return}
+ // Remove a stale sheet from a previously cancelled print operation.
+ const old=$('sc-upcoming-print-sheet');if(old)old.remove();
+ const sheet=document.createElement('section');sheet.id='sc-upcoming-print-sheet';
+ sheet.setAttribute('aria-label','就活予定の印刷用一覧');
+ const heading=document.createElement('h1');heading.textContent='就活コンパス｜予定一覧';
+ const now=new Date();const pad=n=>String(n).padStart(2,'0');
+ const today=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+ const intro=document.createElement('p');intro.className='sc-print-summary';
+ const range=$('sc-upcoming-range').value;
+ const kind=$('sc-upcoming-kind').value;
+ const urgency=$('sc-upcoming-urgency').selectedOptions[0].textContent;
+ const sort=$('sc-upcoming-sort').selectedOptions[0].textContent;
+ const query=$('sc-upcoming-company-query').value.trim();
+ const parts=['印刷日：'+today,'対象：'+range+'日間','種類：'+kind,'優先度：'+urgency,'並び順：'+sort,'全'+entries.length+'件'];
+ if(query)parts.push('企業名検索：'+query.slice(0,80));
+ if(scUpcomingSelectedDay)parts.push('日付指定：'+scUpcomingSelectedDay);
+ if($('sc-upcoming-hide-overdue').checked)parts.push('期限超過を除外');
+ intro.textContent=parts.join('　｜　');
+ const table=document.createElement('table');
+ const head=document.createElement('thead');const headerRow=document.createElement('tr');
+ ['日付','種類','企業名','残り日数'].forEach(value=>{const th=document.createElement('th');th.scope='col';th.textContent=value;headerRow.append(th)});
+ head.append(headerRow);table.append(head);
+ const tbody=document.createElement('tbody');
+ entries.forEach(item=>{
+  const tr=document.createElement('tr');
+  const remaining=item.remaining<0?'期限超過'+Math.abs(item.remaining)+'日':item.remaining===0?'今日':item.remaining===1?'明日':'あと'+item.remaining+'日';
+  [item.date,item.label,item.name,remaining].forEach(value=>{const td=document.createElement('td');td.textContent=String(value??'');tr.append(td)});
+  tbody.append(tr);
+ });
+ table.append(tbody);
+ const footer=document.createElement('p');footer.className='sc-print-footer';
+ footer.textContent='※この一覧は端末内の登録内容を印刷したものです。応募期限や面接時刻は必ず企業の公式案内で確認してください。企業名・予定日が含まれるため共有にご注意ください。';
+ sheet.append(heading,intro,table,footer);document.body.append(sheet);
+ document.body.classList.add('sc-agenda-print-mode');
+ let cleaned=false;
+ const cleanup=()=>{if(cleaned)return;cleaned=true;document.body.classList.remove('sc-agenda-print-mode');sheet.remove();window.removeEventListener('afterprint',cleanup)};
+ window.addEventListener('afterprint',cleanup);
+ // Some mobile browsers never emit afterprint when a print dialog is cancelled.
+ window.setTimeout(cleanup,60000);
+ try{
+  window.print();
+  if(status)status.textContent=entries.length+'件の印刷画面を開きました。印刷・PDF保存はブラウザで選択してください。';
+ }catch(error){cleanup();if(status)status.textContent='印刷画面を開けませんでした。ブラウザの印刷機能をご利用ください。'}
+}
+// 2026-10-19 18:30: Export ALL prep suggestions, including rows hidden beyond the first four.
+// Never stores or sends company data; no notes or selection-stage details in the file.
+let scPrepExportEntries=[];
+function scPrepCleanText(value){return String(value??'').replace(/[\r\n\t\u0000-\u001f\u007f]/g,' ').trim()}
+function scPrepBuildText(){
+ if(!scPrepExportEntries.length)return null;
+ const pad=n=>String(n).padStart(2,'0');
+ const now=new Date();const today=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+ const rows=scPrepExportEntries.map((item,i)=>{
+  const when=item.remaining<0?'期限を'+Math.abs(item.remaining)+'日経過':item.remaining===0?'今日':item.remaining===1?'明日':'あと'+item.remaining+'日';
+  const hint=item.remaining<0?'募集状況・提出状況を公式案内で再確認':item.label==='締切'?'提出書類・受付条件・提出完了を確認':'日時・会場・参加方法と準備物を確認';
+  return (i+1)+'. '+scPrepCleanText(item.date)+'｜'+scPrepCleanText(item.name)+'｜'+scPrepCleanText(item.label)+'（'+when+'）\n   □ '+hint;
+ });
+ const body=['就活コンパス｜準備アクション（'+today+'時点・'+rows.length+'件）','※自動的に提出完了や募集継続を判定するものではありません。','※企業名・予定日が含まれます。ファイルの共有にご注意ください。','',...rows,''].join('\n');
+ return {body,today,count:rows.length};
+}
+function scPrepExportText(){
+ const status=$('sc-prep-export-status');
+ const result=scPrepBuildText();
+ if(!result){if(status)status.textContent='保存する準備アクションがありません。';return}
+ const {body,today,count}=result;
+ const blob=new Blob(['\uFEFF'+body],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='shukatsu-prep-actions-'+today.replace(/-/g,'')+'.txt';
+ document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ if(status)status.textContent=count+'件の準備アクションをTXT保存しました。企業名・予定日を含むため共有にはご注意ください。';
+}
+// 19:32: Copy ALL actionable items. Prefer async Clipboard API, fall back to execCommand.
+// Never copy selection notes or stage details, and never change stored job records.
+async function scPrepCopyText(){
+ const status=$('sc-prep-export-status'),result=scPrepBuildText();
+ if(!result){if(status)status.textContent='コピーする準備アクションがありません。';return}
+ let copied=false;
+ try{
+  if(navigator.clipboard&&typeof navigator.clipboard.writeText==='function'){
+   await navigator.clipboard.writeText(result.body);copied=true;
+  }else{
+   const area=document.createElement('textarea');
+   area.value=result.body;area.setAttribute('readonly','');area.setAttribute('aria-hidden','true');
+   area.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';
+   document.body.append(area);
+   try{area.select();copied=!!document.execCommand('copy')}finally{area.remove()}
+  }
+ }catch{copied=false}
+ if(status)status.textContent=copied
+  ?result.count+'件の準備アクションをコピーしました。企業名・予定日を含むため共有にはご注意ください。'
+  :'コピーできませんでした。TXT保存をご利用ください。';
+}
+// 2026-10-19 17:33: Deadline/interview preparation cues, read-only from sc_jobs.
+// No extra storage keys, reminders, notifications or external requests.
+function scRenderPrepActions(entries){
+ const root=$('sc-prep-list'),count=$('sc-prep-count'),more=$('sc-prep-more'),empty=$('sc-prep-empty');
+ if(!root||!count||!more||!empty)return;
+ root.replaceChildren();
+ // Overdue means a date has passed, NOT that the company stopped accepting applications.
+ const soon=entries.filter(item=>item.remaining>=-7&&item.remaining<=3);
+ soon.sort((a,b)=>{
+  const priority=x=>x.remaining<0?0:x.remaining===0?1:x.remaining===1?2:3;
+  return priority(a)-priority(b)||a.date.localeCompare(b.date)||a.name.localeCompare(b.name,'ja');
+ });
+   scPrepExportEntries=soon.slice();
+  const download=$('sc-prep-download');if(download)download.hidden=!soon.length;
+  const copy=$('sc-prep-copy');if(copy)copy.hidden=!soon.length;
+  const exportStatus=$('sc-prep-export-status');if(exportStatus)exportStatus.textContent='';
+  count.textContent=soon.length+'件';
+  empty.hidden=soon.length>0;
+ more.hidden=soon.length<=4;
+ more.textContent=soon.length>4?'ほか'+(soon.length-4)+'件。予定一覧からすべて確認できます。':'';
+ soon.slice(0,4).forEach(item=>{
+  const li=document.createElement('li');
+  const main=document.createElement('span');main.className='sc-prep-main';
+  const title=document.createElement('strong');
+  const when=item.remaining<0?'期限を'+Math.abs(item.remaining)+'日経過':item.remaining===0?'今日':item.remaining===1?'明日':'あと'+item.remaining+'日';
+  title.textContent=item.name+'｜'+item.label+' '+fmt(item.date)+'（'+when+'）';
+  const hint=document.createElement('small');
+  hint.textContent=item.remaining<0?'募集状況・提出状況を公式案内で再確認':item.label==='締切'?'提出書類・受付条件・提出完了を確認':'日時・会場・参加方法と準備物を確認';
+  main.append(title,hint);
+  const edit=document.createElement('button');edit.type='button';edit.className='sc-prep-edit';edit.textContent='予定を編集';
+  edit.setAttribute('aria-label',item.name+'の'+item.label+'を選考管理で編集');
+  edit.addEventListener('click',()=>beginEditJob({id:item.jobId}));
+  li.append(main,edit);root.append(li);
+ });
+}
+function renderUpcomingTasks(){
+ const list=$('sc-upcoming-list'),empty=$('sc-upcoming-empty'),more=$('sc-upcoming-more');
+ const showMore=$('sc-upcoming-show-more'),collapse=$('sc-upcoming-collapse');
+ const kindControl=$('sc-upcoming-kind'),rangeControl=$('sc-upcoming-range'),urgencyControl=$('sc-upcoming-urgency'),hideOverdueControl=$('sc-upcoming-hide-overdue'),companyQuery=$('sc-upcoming-company-query'),clearQuery=$('sc-upcoming-clear-query'),count=$('sc-upcoming-count');
+ if(!list||!empty||!more||!kindControl||!rangeControl||!urgencyControl||!hideOverdueControl||!companyQuery||!clearQuery||!count||!showMore||!collapse)return;
+ list.replaceChildren();
+ // This is a read-only view setting; never persist it in sc_jobs or modify existing records.
+ const rangeDays=[7,14,30,60].includes(Number(rangeControl.value))?Number(rangeControl.value):14;
+ $('sc-upcoming-title').textContent='直近'+rangeDays+'日間の締切・選考予定';
+ const entries=[];
+ jobs.map(normalize).forEach(job=>{
+  if(job.stage==='内定'||job.stage==='終了')return;
+  [['deadline','締切'],['nextDate','次回予定']].forEach(([field,label])=>{
+   const value=job[field];
+   if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return;
+   const date=new Date(value+'T00:00:00');
+   if(Number.isNaN(date.getTime())||date.getFullYear()!==Number(value.slice(0,4))||date.getMonth()+1!==Number(value.slice(5,7))||date.getDate()!==Number(value.slice(8,10)))return;
+   const remaining=daysUntil(value);
+   // Show the selected upcoming window; overdue deadlines remain visible for one week.
+   if(remaining===null||remaining>rangeDays||(remaining<0&&(field!=='deadline'||remaining< -7)))return;
+   entries.push({jobId:job.id,name:job.name||'名称未設定',date:value,remaining,label,overdue:remaining<0});
+  });
+ });
+ entries.sort((a,b)=>a.date.localeCompare(b.date)||(a.label===b.label?0:a.label==='締切'?-1:1)||(a.name.localeCompare(b.name,'ja')));
+ scRenderPrepActions(entries);
+ const kind=kindControl.value,hideOverdue=hideOverdueControl.checked,urgency=urgencyControl.value;
+ const sortControl=$('sc-upcoming-sort');
+ // Unicode-normalized, space-separated AND search: never reads or writes saved memo fields.
+ const tokens=companyQuery.value.normalize('NFKC').toLocaleLowerCase('ja').trim().split(/\s+/).filter(Boolean);
+ clearQuery.hidden=!companyQuery.value;
+ // A collapsed panel still announces any active advanced filters; only the view is affected.
+ const advancedBadge=$('sc-upcoming-active-badge');
+ if(advancedBadge){
+  const activeCount=Number(kindControl.value!=='all')+Number(sortControl&&sortControl.value!=='date-asc')+Number(hideOverdueControl.checked)+Number(Boolean(companyQuery.value.trim()));
+  advancedBadge.hidden=!activeCount;
+  advancedBadge.textContent=activeCount+'項目適用中';
+ }
+ // Urgency is a pure projection: exports, counts and same-day collisions use the same filtered array.
+ const matchesUrgency=item=>urgency==='all'||urgency==='today'&&item.remaining===0||urgency==='tomorrow'&&item.remaining===1||urgency==='three'&&item.remaining>=0&&item.remaining<=3||urgency==='seven'&&item.remaining>=0&&item.remaining<=7||urgency==='overdue'&&item.overdue;
+ // Day buttons summarize the next seven local calendar dates. Counts respect company/type
+ // and overdue filters but intentionally ignore urgency to avoid hiding future days.
+ const weekGrid=$('sc-upcoming-week-grid'),weekStatus=$('sc-upcoming-week-status'),weekClear=$('sc-upcoming-week-clear');
+ const padDay=n=>String(n).padStart(2,'0');
+ const localToday=new Date();localToday.setHours(12,0,0,0);
+ const weekDates=Array.from({length:7},(_,i)=>{const d=new Date(localToday);d.setDate(d.getDate()+i);return d.getFullYear()+'-'+padDay(d.getMonth()+1)+'-'+padDay(d.getDate())});
+ if(scUpcomingSelectedDay&&!entries.some(item=>item.date===scUpcomingSelectedDay))scUpcomingSelectedDay=null;
+ const weekBase=entries.filter(item=>(kind==='all'||item.label===kind)&&(!hideOverdue||!item.overdue)&&tokens.every(token=>item.name.normalize('NFKC').toLocaleLowerCase('ja').includes(token)));
+ if(weekGrid){
+  weekGrid.replaceChildren();
+  const weekdays=['日','月','火','水','木','金','土'];
+  weekDates.forEach((date,i)=>{
+   const d=new Date(date+'T12:00:00');
+   const total=weekBase.filter(item=>item.date===date).length;
+   const button=document.createElement('button');button.type='button';button.className='sc-upcoming-week-day';
+   button.setAttribute('aria-pressed',String(scUpcomingSelectedDay===date));
+   button.setAttribute('aria-label',(i===0?'今日 ':'' )+(d.getMonth()+1)+'月'+d.getDate()+'日 '+weekdays[d.getDay()]+'曜日の予定 '+total+'件で絞り込む');
+   const dateLabel=document.createElement('span');dateLabel.textContent=i===0?'今日':(d.getMonth()+1)+'/'+d.getDate()+'（'+weekdays[d.getDay()]+'）';
+   const countLabel=document.createElement('strong');countLabel.textContent=total+'件';
+   button.append(dateLabel,countLabel);
+   button.addEventListener('click',()=>{
+    scUpcomingSelectedDay=scUpcomingSelectedDay===date?null:date;
+    // A day choice is an alternative to urgency; keep type/company filters.
+    $('sc-upcoming-urgency').value='all';scUpcomingVisibleLimit=5;renderUpcomingTasks();
+   });
+   weekGrid.append(button);
+  });
+ }
+ if(weekStatus)weekStatus.textContent=scUpcomingSelectedDay?'・'+scUpcomingSelectedDay.slice(5).replace('-','/')+'だけ表示中':'';
+ if(weekClear)weekClear.hidden=!scUpcomingSelectedDay;
+ // Counts ignore the type selector itself but honor the other visible filters.
+ // This makes it possible to see available deadline/next-event counts before switching.
+ const kindTabBase=entries.filter(item=>(!hideOverdue||!item.overdue)&&matchesUrgency(item)&&tokens.every(token=>item.name.normalize('NFKC').toLocaleLowerCase('ja').includes(token))&&(!scUpcomingSelectedDay||item.date===scUpcomingSelectedDay));
+ const kindTabs=$('sc-upcoming-kind-tabs');
+ if(kindTabs)kindTabs.querySelectorAll('button[data-kind]').forEach(button=>{
+  const value=button.dataset.kind;
+  const countNode=button.querySelector('.sc-kind-count');
+  if(countNode)countNode.textContent=String(value==='all'?kindTabBase.length:kindTabBase.filter(item=>item.label===value).length);
+  button.setAttribute('aria-pressed',String(kind===value));
+ });
+ // Highlight busy dates based on the active search/type/urgency controls, ignoring
+ // the one-day focus so other busy dates remain discoverable.
+ scRenderSameDayLoad(entries.filter(item=>(kind==='all'||item.label===kind)&&(!hideOverdue||!item.overdue)&&matchesUrgency(item)&&tokens.every(token=>item.name.normalize('NFKC').toLocaleLowerCase('ja').includes(token))));
+ const filtered=entries.filter(item=>(kind==='all'||item.label===kind)&&(!hideOverdue||!item.overdue)&&matchesUrgency(item)&&tokens.every(token=>item.name.normalize('NFKC').toLocaleLowerCase('ja').includes(token))&&(!scUpcomingSelectedDay||item.date===scUpcomingSelectedDay));
+ // Apply the chosen order to the *view* only. CSV, ICS and copy use this same order.
+ const order=sortControl&&['date-asc','date-desc','name-asc'].includes(sortControl.value)?sortControl.value:'date-asc';
+ if(order==='date-desc')filtered.sort((a,b)=>b.date.localeCompare(a.date)||a.name.localeCompare(b.name,'ja')||a.label.localeCompare(b.label,'ja'));
+ if(order==='name-asc')filtered.sort((a,b)=>a.name.localeCompare(b.name,'ja')||a.date.localeCompare(b.date)||a.label.localeCompare(b.label,'ja'));
+ scUpcomingFilteredEntries=filtered.slice();
+ const csvButton=$('sc-upcoming-export-csv');if(csvButton)csvButton.hidden=!filtered.length;
+ const icsButton=$('sc-upcoming-export-ics');if(icsButton)icsButton.hidden=!filtered.length;
+ const copyButton=$('sc-upcoming-copy-text');if(copyButton)copyButton.hidden=!filtered.length;
+ const printButton=$('sc-upcoming-print');if(printButton)printButton.hidden=!filtered.length;
+ const copyStatus=$('sc-upcoming-copy-status');if(copyStatus){copyStatus.textContent='';copyStatus.removeAttribute('data-state')}
+ count.textContent=filtered.length+'件 / 全'+entries.length+'件';
+ const exportCount=$('sc-upcoming-export-count');if(exportCount)exportCount.textContent='対象'+filtered.length+'件';
+ // Count all matching events (including those not yet expanded) without changing sc_jobs.
+ const focus=$('sc-upcoming-focus');
+ const perDay=new Map();
+ filtered.forEach(item=>perDay.set(item.date,(perDay.get(item.date)||0)+1));
+ const collisions=[...perDay.entries()].filter(([,n])=>n>=2).sort((a,b)=>a[0].localeCompare(b[0]));
+ if(focus){
+  focus.replaceChildren();focus.hidden=!filtered.length;
+  if(filtered.length){
+   const metrics=[['今日',filtered.filter(item=>item.remaining===0).length,false],['明日',filtered.filter(item=>item.remaining===1).length,false],['期限超過',filtered.filter(item=>item.overdue).length,true]];
+   metrics.forEach(([label,n,urgent])=>{const pill=document.createElement('span');pill.className='sc-focus-pill'+(urgent&&n?' sc-focus-urgent':'');pill.textContent=label+' '+n+'件';focus.append(pill)});
+   const overlap=document.createElement('span');overlap.className='sc-focus-overlap';
+   overlap.textContent=collisions.length?'同じ日に複数の予定：'+collisions.slice(0,3).map(([date,n])=>fmt(date)+'（'+n+'件）').join('、')+(collisions.length>3?' ほか'+(collisions.length-3)+'日':''):'同じ日に重なる予定はありません。';
+   focus.append(overlap);
+  }
+ }
+ const shown=filtered.slice(0,scUpcomingVisibleLimit);
+ shown.forEach(item=>{
+  const li=document.createElement('li');
+  const date=document.createElement('span');date.className='sc-upcoming-date';date.textContent=fmt(item.date);
+  const name=document.createElement('span');name.className='sc-upcoming-name';name.textContent=item.name;
+  const tag=document.createElement('span');tag.className='sc-upcoming-tag'+(item.overdue?' is-overdue':'');
+  tag.textContent=item.label+'・'+(item.overdue?'期限超過'+Math.abs(item.remaining)+'日':item.remaining===0?'今日':item.remaining===1?'明日':'あと'+item.remaining+'日');
+  if((perDay.get(item.date)||0)>=2){const clash=document.createElement('span');clash.className='sc-upcoming-clash';clash.textContent='同日'+perDay.get(item.date)+'件';name.append(clash)}
+  const edit=document.createElement('button');
+  edit.type='button';edit.className='sc-upcoming-edit';edit.textContent='編集';
+  edit.setAttribute('aria-label',item.name+'の'+item.label+'を編集');
+  edit.addEventListener('click',()=>beginEditJob({id:item.jobId}));
+  const ics=document.createElement('button');ics.type='button';ics.className='sc-upcoming-ics';ics.textContent='予定を保存';
+  ics.setAttribute('aria-label',item.name+'の'+item.label+'をカレンダーファイルに保存');
+  ics.addEventListener('click',()=>scAgendaDownloadEvent(item));
+  const actions=document.createElement('span');actions.className='sc-upcoming-event-actions';
+  actions.append(ics);
+  const googleUrl=scAgendaGoogleCalendarUrl(item);
+  if(googleUrl){
+   const google=document.createElement('a');google.className='sc-upcoming-google';
+   google.href=googleUrl;google.target='_blank';google.rel='noopener noreferrer';
+   google.textContent='Googleで追加';
+   google.setAttribute('aria-label',item.name+'の'+item.label+'をGoogleカレンダーで確認して追加');
+   google.title='Googleカレンダーを開きます。企業名・予定日がGoogleに送信されます。';
+   actions.append(google);
+  }
+  actions.append(edit);
+  li.append(date,name,tag,actions);list.append(li);
+ });
+ empty.hidden=shown.length>0;
+ // Distinguish zero matches from an empty date window; no edits to sc_jobs.
+ const emptyActions=$('sc-upcoming-empty-actions'),emptyReset=$('sc-upcoming-empty-reset'),emptyExpand=$('sc-upcoming-empty-expand'),emptyTracker=$('sc-upcoming-empty-tracker');
+ const hasFutureIn60=jobs.map(normalize).some(job=>{
+  if(job.stage==='内定'||job.stage==='終了')return false;
+  return [job.deadline,job.nextDate].some(value=>{
+   if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+   const date=new Date(value+'T00:00:00');
+   if(Number.isNaN(date.getTime())||date.getFullYear()!==Number(value.slice(0,4))||date.getMonth()+1!==Number(value.slice(5,7))||date.getDate()!==Number(value.slice(8,10)))return false;
+   const days=daysUntil(value);return days!==null&&days>=0&&days<=60;
+  });
+ });
+ const noMatches=filtered.length===0;
+ if(emptyActions&&emptyReset&&emptyExpand&&emptyTracker){
+  emptyActions.hidden=!noMatches;
+  emptyReset.hidden=!noMatches||entries.length===0;
+  emptyExpand.hidden=!noMatches||entries.length>0||rangeDays>=60||!hasFutureIn60;
+  emptyTracker.hidden=!noMatches||(entries.length>0)||(rangeDays<60&&hasFutureIn60);
+ }
+ empty.textContent=entries.length
+  ?(tokens.length?'検索条件に一致する予定はありません。':'選択中の条件に一致する予定はありません。')
+  :(hasFutureIn60&&rangeDays<60?'この期間に予定はありません。期間を広げると確認できます。':'表示期間内に予定がありません。選考管理で締切・次回予定を確認してください。');
+ more.hidden=filtered.length<=scUpcomingVisibleLimit;
+ more.textContent=filtered.length>scUpcomingVisibleLimit?'未表示の予定：'+(filtered.length-scUpcomingVisibleLimit)+'件':'';
+ showMore.hidden=filtered.length<=scUpcomingVisibleLimit;
+ showMore.textContent='さらに'+Math.min(5,Math.max(0,filtered.length-scUpcomingVisibleLimit))+'件表示';
+ collapse.hidden=scUpcomingVisibleLimit<=5||filtered.length<=5;
+}
+// Filters only affect this view. Saved company records and backup keys stay unchanged.
+// Quick type chips are a second, keyboard-accessible control for the existing kind filter.
+$('sc-upcoming-kind-tabs').querySelectorAll('button[data-kind]').forEach(button=>button.addEventListener('click',()=>{
+ $('sc-upcoming-kind').value=button.dataset.kind;
+ scUpcomingVisibleLimit=5;
+ renderUpcomingTasks();
+}));
+$('sc-upcoming-show-more').addEventListener('click',()=>{scUpcomingVisibleLimit+=5;renderUpcomingTasks()});
+$('sc-upcoming-collapse').addEventListener('click',()=>{scUpcomingVisibleLimit=5;renderUpcomingTasks();$('sc-upcoming-show-more').focus()});
+$('sc-upcoming-export-csv').addEventListener('click',scUpcomingExportCsv);
+$('sc-upcoming-export-ics').addEventListener('click',scUpcomingExportIcs);
+$('sc-upcoming-copy-text').addEventListener('click',scUpcomingCopyText);
+$('sc-upcoming-print').addEventListener('click',scUpcomingPrintAgenda);
+$('sc-prep-download').addEventListener('click',scPrepExportText);
+$('sc-prep-copy').addEventListener('click',scPrepCopyText);
+$('sc-upcoming-week-clear').addEventListener('click',()=>{scUpcomingSelectedDay=null;scUpcomingVisibleLimit=5;renderUpcomingTasks()});
+$('sc-upcoming-company-query').addEventListener('input',()=>{scUpcomingVisibleLimit=5;renderUpcomingTasks()});
+$('sc-upcoming-clear-query').addEventListener('click',()=>{const input=$('sc-upcoming-company-query');input.value='';scUpcomingVisibleLimit=5;renderUpcomingTasks();input.focus()});
+$('sc-upcoming-company-query').addEventListener('keydown',event=>{if(event.key==='Escape'&&event.currentTarget.value){event.preventDefault();event.currentTarget.value='';scUpcomingVisibleLimit=5;renderUpcomingTasks()}});
+['sc-upcoming-range','sc-upcoming-kind','sc-upcoming-urgency','sc-upcoming-sort','sc-upcoming-hide-overdue'].forEach(id=>{const el=$(id);if(el)el.addEventListener('change',()=>{if(id==='sc-upcoming-urgency')scUpcomingSelectedDay=null;scUpcomingVisibleLimit=5;renderUpcomingTasks()})});
+// Zero-results recovery uses the same reset behavior as the advanced filter panel.
+$('sc-upcoming-empty-reset').addEventListener('click',()=>{$('sc-upcoming-reset').click()});
+$('sc-upcoming-empty-expand').addEventListener('click',()=>{
+ $('sc-upcoming-range').value='60';$('sc-upcoming-kind').value='all';$('sc-upcoming-urgency').value='all';
+ $('sc-upcoming-sort').value='date-asc';$('sc-upcoming-hide-overdue').checked=false;
+ $('sc-upcoming-company-query').value='';scUpcomingSelectedDay=null;scUpcomingVisibleLimit=5;
+ renderUpcomingTasks();
+});
+$('sc-upcoming-reset').addEventListener('click',()=>{
+ $('sc-upcoming-range').value='14';$('sc-upcoming-kind').value='all';$('sc-upcoming-urgency').value='all';$('sc-upcoming-sort').value='date-asc';
+ $('sc-upcoming-hide-overdue').checked=false;$('sc-upcoming-company-query').value='';
+ scUpcomingSelectedDay=null;scUpcomingVisibleLimit=5;renderUpcomingTasks();$('sc-upcoming-urgency').focus();
+});
 $('export').onclick=()=>{const rows=[['企業名','選考段階','締切','次回予定','メモ'],...jobs.map(j=>{j=normalize(j);return[j.name,j.stage,j.deadline,j.nextDate,j.memo]})],csv='﻿'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='就活選考管理.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
 function parseCsv(text){const rows=[];let row=[],field='',q=false;for(let i=0;i<text.length;i++){const c=text[i];if(q){if(c==='"'&&text[i+1]==='"'){field+='"';i++}else if(c==='"')q=false;else field+=c}else{if(c==='"')q=true;else if(c===','){row.push(field);field=''}else if(c==='\n'){row.push(field.replace(/\r$/,''));rows.push(row);row=[];field=''}else field+=c}}if(field||row.length){row.push(field);rows.push(row)}return rows}
 $('importCsv').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const text=(await f.text()).replace(/^﻿/,'');const rows=parseCsv(text);if(rows.length<2)throw new Error();const imported=rows.slice(1).filter(r=>r[0]).map(r=>({id:Date.now()+Math.random(),created:Date.now(),name:r[0]||'',stage:r[1]||'検討中',deadline:r[2]||'',nextDate:r[3]||'',memo:r[4]||''}));if(!imported.length)throw new Error();if(confirm(imported.length+'件を追加で読み込みますか？')){jobs=jobs.concat(imported);saveJobs()}}catch{alert('CSVを読み込めませんでした。就活コンパスから出力したCSVを使用してください')}e.target.value=''};
 renderJobs();renderDashboard();
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){renderDashboard();}});
 
 // Checklist
 const checks=['自己分析のエピソードを3つ整理する','ESの基本文章を用意する','応募先の締切を確認する','Webテストの形式を調べる','面接で話す志望理由を整理する','企業公式サイトで募集条件を確認する'];let state={};try{state=JSON.parse(localStorage.getItem('sc_checks')||'{}')}catch{}
@@ -314,15 +1355,50 @@ function renderChecklist(){const root=$('checklist');root.replaceChildren();chec
 renderChecklist();
 
 // Full local backup and restore. No network requests are made.
-const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1','sc_interviews_v1','sc_company_compare_v1','sc_company_weights_v1','sc_reverse_questions_v1'];
+const BACKUP_LAST_EXPORT_KEY='sc_backup_last_export_v1';
+const BACKUP_STALE_AFTER_DAYS=7;
+// A backup reminder never uploads or inspects the contents of an ES. It only
+// checks whether local entries exist and when this browser last initiated export.
+function hasLocalWorkToBackUp(){
+ try{
+  return jobs.length>0||drafts.length>0||!!es.value.trim()||
+    Object.values(state).some(Boolean)||readEsQuestions().length>0||
+    readInterviews().length>0||readCompanyCompare().length>0||
+    !!readReverseQuestions();
+ }catch(e){return false}
+}
+function renderBackupHealth(){
+ const box=document.getElementById('sc-backup-health');if(!box)return;
+ const hasWork=hasLocalWorkToBackUp();
+ let last=null;try{last=localStorage.getItem(BACKUP_LAST_EXPORT_KEY)}catch(e){}
+ const t=last?Date.parse(last):NaN;
+ const valid=Number.isFinite(t)&&t<=Date.now()+60000&&t>0;
+ const days=valid?Math.max(0,Math.floor((Date.now()-t)/86400000)):null;
+ let stateName='ok',message='';
+ if(!hasWork){stateName='empty';message='まだ入力・保存したデータはありません。データを保存したら、定期的にJSONバックアップを作成しましょう。';}
+ else if(!valid){stateName='attention';message='保存データがありますが、現在のデータのバックアップ日時を確認できません。「全データをバックアップ」からJSONを保存してください。';}
+ else if(days>=BACKUP_STALE_AFTER_DAYS){stateName='attention';message='前回のバックアップ操作から'+days+'日経過しています。新しいES・選考情報を守るため、再度JSONを保存してください。';}
+ else{message='前回のバックアップ操作：'+new Date(t).toLocaleDateString('ja-JP')+'（'+days+'日前）。端末のデータ削除に備え、定期的に保存してください。';}
+ if(box.textContent!==message)box.textContent=message;
+ box.dataset.state=stateName;
+}
+const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1','sc_interviews_v1','sc_company_compare_v1','sc_company_weights_v1','sc_reverse_questions_v1','sc_h_favorite_tools_v1','sc_h_recent_tools_v1','sc_h_grad_year_v1','sc_h_tool_sort_v1'];
 function readEsQuestions(){try{const d=JSON.parse(localStorage.getItem('sc_es_questions_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readInterviews(){try{const d=JSON.parse(localStorage.getItem('sc_interviews_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readCompanyCompare(){try{const d=JSON.parse(localStorage.getItem('sc_company_compare_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readCompanyWeights(){try{const d=JSON.parse(localStorage.getItem('sc_company_weights_v1')||'null');return d&&typeof d==='object'?d:{work:5,place:4,pay:4,growth:3,culture:3}}catch{return {work:5,place:4,pay:4,growth:3,culture:3}}}
 function readReverseQuestions(){try{const d=JSON.parse(localStorage.getItem('sc_reverse_questions_v1')||'null');return d&&typeof d==='object'&&!Array.isArray(d)?d:null}catch{return null}}
-function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions(),interviews:readInterviews(),companyCompare:readCompanyCompare(),companyWeights:readCompanyWeights(),reverseQuestions:readReverseQuestions()}}}
+// 2026-10-18: Tool-directory preferences now travel with the full backup.
+// Keep v1 compatible with backups created before this optional field existed.
+function readToolSettingsForBackup(){
+ const readArray=(key,max)=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(a)?[...new Set(a.filter(x=>typeof x==='string'&&x.length<=140&&(/^[a-z0-9][a-z0-9._-]*\.html$/.test(x)||/^#[a-z][a-z0-9-]*$/.test(x))))].slice(0,max):[]}catch(e){return []}};
+ const gradYear=localStorage.getItem('sc_h_grad_year_v1');
+ const sort=localStorage.getItem('sc_h_tool_sort_v1');
+ return {favorites:readArray('sc_h_favorite_tools_v1',41),recent:readArray('sc_h_recent_tools_v1',4),gradYear:['28','29','common'].includes(gradYear)?gradYear:'all',sort:['recommended','favorites','recent','name'].includes(sort)?sort:'recommended'};
+}
+function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions(),interviews:readInterviews(),companyCompare:readCompanyCompare(),companyWeights:readCompanyWeights(),reverseQuestions:readReverseQuestions(),toolsSettings:readToolSettingsForBackup()}}}
 function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
-$('backupAll').onclick=()=>{try{const stamp=new Date().toLocaleDateString('sv-SE');downloadJson(backupPayload(),'shukatsu-compass-backup-'+stamp+'.json');$('backupStatus').textContent='バックアップファイルを保存しました。ES本文や企業情報を含むため安全に保管してください。'}catch(e){$('backupStatus').textContent='バックアップに失敗しました。ブラウザのダウンロード設定を確認してください。'}};
+$('backupAll').onclick=()=>{try{const stamp=new Date().toLocaleDateString('sv-SE');downloadJson(backupPayload(),'shukatsu-compass-backup-'+stamp+'.json');try{localStorage.setItem(BACKUP_LAST_EXPORT_KEY,new Date().toISOString())}catch(e){}renderBackupHealth();$('backupStatus').textContent='バックアップのダウンロードを開始しました。保存先でJSONファイルがあるか確認し、安全に保管してください。'}catch(e){$('backupStatus').textContent='バックアップに失敗しました。ブラウザのダウンロード設定を確認してください。'}};
 function validateBackup(v){
   if(!v||v.format!=='shukatsu-compass-backup'||v.version!==1||!v.data||typeof v.data!=='object')throw new Error('就活コンパスのバックアップ形式ではありません。');
   const d=v.data,stages=['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'];
@@ -351,10 +1427,18 @@ function validateBackup(v){
   }
   if(d.companyWeights!==undefined){const keys=['work','place','pay','growth','culture'],w=d.companyWeights;if(!w||typeof w!=='object'||!keys.every(k=>Number.isInteger(w[k])&&w[k]>=0&&w[k]<=5)||!keys.some(k=>w[k]>0))throw new Error('企業比較の重要度データが正しくありません。');}
   if(d.reverseQuestions!==undefined&&d.reverseQuestions!==null){const r=d.reverseQuestions,keys=['company','role','focus','custom','notes','output'];if(!r||typeof r!=='object'||Array.isArray(r)||!keys.every(k=>typeof r[k]==='string'&&r[k].length<=20000)||!Array.isArray(r.selected)||r.selected.length>24||!r.selected.every(v=>typeof v==='string'&&/^(job|team|grow|client|business|culture)[1-4]$/.test(v)))throw new Error('逆質問メモの形式が正しくありません。');}
+  if(d.toolsSettings!==undefined){
+    const t=d.toolsSettings,validLink=x=>typeof x==='string'&&x.length<=140&&(/^[a-z0-9][a-z0-9._-]*\.html$/.test(x)||/^#[a-z][a-z0-9-]*$/.test(x));
+    if(!t||typeof t!=='object'||Array.isArray(t)||!Array.isArray(t.favorites)||!Array.isArray(t.recent)||t.favorites.length>41||t.recent.length>4||!t.favorites.every(validLink)||!t.recent.every(validLink)||new Set(t.favorites).size!==t.favorites.length||new Set(t.recent).size!==t.recent.length||!['all','28','29','common'].includes(t.gradYear)||!['recommended','favorites','recent','name'].includes(t.sort))throw new Error('お気に入り・最近使ったツールのバックアップ形式が正しくありません。');
+  }
   if(typeof(d.esMeta.name||'')!=='string'||typeof(d.esMeta.type||'')!=='string'||!Number.isFinite(Number(d.esMeta.limit||400)))throw new Error('ES入力欄の設定が正しくありません。');
   if(Object.values(d.checks).some(x=>typeof x!=='boolean'))throw new Error('チェックリストの形式が正しくありません。');
   return d;
 }
+renderBackupHealth();
+const backupSection=document.getElementById('backup-section');
+if(backupSection){backupSection.addEventListener('focusin',renderBackupHealth);backupSection.addEventListener('mouseenter',renderBackupHealth);}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderBackupHealth()});
 $('restoreAllFile').onchange=async e=>{
   const f=e.target.files&&e.target.files[0];if(!f)return;
   try{
@@ -368,11 +1452,22 @@ $('restoreAllFile').onchange=async e=>{
     if(Array.isArray(d.companyCompare))next.sc_company_compare_v1=JSON.stringify(d.companyCompare); // 旧バックアップなら現在の企業比較を保持
     if(d.companyWeights)next.sc_company_weights_v1=JSON.stringify(d.companyWeights);
     if(d.reverseQuestions)next.sc_reverse_questions_v1=JSON.stringify(d.reverseQuestions); // 旧バックアップなら既存の逆質問メモを保持
-    try{Object.entries(next).forEach(([k,v])=>localStorage.setItem(k,v))}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
+    if(d.toolsSettings){
+      next.sc_h_favorite_tools_v1=JSON.stringify(d.toolsSettings.favorites);
+      next.sc_h_recent_tools_v1=JSON.stringify(d.toolsSettings.recent);
+      // 'all' represents no year preference, not a permanent 'all' setting.
+      next.sc_h_grad_year_v1=d.toolsSettings.gradYear==='all'?null:d.toolsSettings.gradYear;
+      next.sc_h_tool_sort_v1=d.toolsSettings.sort;
+    } // 旧バックアップではツール設定を上書きしない
+
+    try{Object.entries(next).forEach(([k,v])=>{if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)})}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
     jobs=d.jobs;drafts=d.drafts;state=d.checks;es.value=d.esWorking;
     $('draftType').value=d.esMeta.type||'ガクチカ';$('draftName').value=d.esMeta.name||'';lim.value=Number(d.esMeta.limit)>0?d.esMeta.limit:400;
     updateCount();renderDrafts();renderJobs();renderDashboard();renderChecklist();resetJobForm();
-    $('backupStatus').textContent='復元が完了しました。企業'+jobs.length+'件・ES下書き'+d.drafts.length+'件'+(Array.isArray(d.esQuestions)?'・ES設問'+d.esQuestions.length+'件':'（旧形式：ES設問は維持）')+(Array.isArray(d.interviews)?'・面接記録'+d.interviews.length+'件':'（旧形式：面接記録は維持）')+(Array.isArray(d.companyCompare)?'・企業比較'+d.companyCompare.length+'件':'（旧形式：企業比較は維持）')+'を読み込みました。';
+    if(d.toolsSettings)window.dispatchEvent(new Event('sc-tools-settings-restored'));
+    try{localStorage.removeItem(BACKUP_LAST_EXPORT_KEY)}catch(e){}
+    renderBackupHealth();
+    $('backupStatus').textContent='復元が完了しました。企業'+jobs.length+'件・ES下書き'+d.drafts.length+'件'+(Array.isArray(d.esQuestions)?'・ES設問'+d.esQuestions.length+'件':'（旧形式：ES設問は維持）')+(Array.isArray(d.interviews)?'・面接記録'+d.interviews.length+'件':'（旧形式：面接記録は維持）')+(Array.isArray(d.companyCompare)?'・企業比較'+d.companyCompare.length+'件':'（旧形式：企業比較は維持）')+(d.toolsSettings?'・お気に入り'+d.toolsSettings.favorites.length+'件・ツール設定':'（旧形式：ツール設定は維持）')+'を読み込みました。';
   }catch(err){$('backupStatus').textContent='復元できませんでした：'+(err&&err.message?err.message:'ファイルを確認してください。')}
   finally{e.target.value=''}
 };
@@ -399,8 +1494,25 @@ const list=document.getElementById('sc-h-tool-list'),search=document.getElementB
 if(!list||!search||!count||!more||!empty)return;
 const sortSelect=document.getElementById('sc-h-sort');
 const filterShare=document.getElementById('sc-h-filter-share');
+const copyResultsButton=document.getElementById('sc-h-copy-results');
+const exportResultsButton=document.getElementById('sc-h-export-results');
+let currentFilteredTools=[];
+
 const tools=[{"title":"自己分析10問","desc":"経験を整理し、強みの材料を見つける","year":"29","topic":"自己分析","url":"29sotsu-jikobunseki-10questions.html","code":"01"},{"title":"ES文字数カウンター","desc":"200〜500字の文字数をすぐ確認","year":"28","topic":"ES","url":"28sotsu-es-mojisu-counter.html","code":"21"},{"title":"自己PR 400字ワーク","desc":"6項目から下書きを作成","year":"29","topic":"ES","url":"29sotsu-jikopr-400ji-revision-work.html","code":"05"},{"title":"面接1分回答タイマー","desc":"回答を30〜120秒で練習","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-1min-timer.html","code":"25"},{"title":"企業選び比較ボード","desc":"仕事・成長・働き方などを比較","year":"29","topic":"企業研究","url":"29sotsu-kigyou-erabi-jiku-match-board.html","code":"10"},{"title":"SPI言語12問演習","desc":"語彙・読解を練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-12mon-practice.html","code":"30"},{"title":"インターン日程かぶり確認","desc":"授業・面接・説明会の重複を探す","year":"29","topic":"選考管理","url":"29sotsu-intern-schedule-conflict-checker.html","code":"13"},{"title":"ES締切逆算","desc":"締切から作業計画を組み立てる","year":"28","topic":"選考管理","url":"28sotsu-es-shimekiri-gyakusan.html","code":"22"},{"title":"OB・OG訪問質問プラン","desc":"30分の質問と時間配分を考える","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-30min-question-planner.html","code":"14"},{"title":"企業研究30分ワーク","desc":"仕事内容・応募条件を整理","year":"28","topic":"企業研究","url":"28sotsu-kigyo-kenkyu-30min.html","code":"20"},{"title":"選考進捗トラッカー","desc":"企業・締切・選考段階を管理","year":"all","topic":"選考管理","url":"#tracker","code":"38"},{"title":"インターン志望動機","desc":"200字・400字の志望理由を作成","year":"29","topic":"ES","url":"29sotsu-intern-shiboudouki-work.html","code":"07"},{"title":"モチベーショングラフ","desc":"過去の経験を曲線で可視化","year":"29","topic":"自己分析","url":"29sotsu-motivation-curve-work.html","code":"02"},{"title":"強み・弱み整理","desc":"経験から自己PRの根拠を整理","year":"29","topic":"自己分析","url":"29sotsu-tsuyomi-yowami-episode-work.html","code":"03"},{"title":"就活の軸5つ整理","desc":"大切にしたい価値観を言語化","year":"29","topic":"自己分析","url":"29sotsu-shukatsu-jiku-5values.html","code":"04"},{"title":"ガクチカ作成ワーク","desc":"経験を200字・400字にまとめる","year":"29","topic":"ES","url":"29sotsu-gakuchika-star-400.html","code":"06"},{"title":"ES提出前チェック","desc":"応募前に22項目を確認","year":"29","topic":"ES","url":"29sotsu-intern-es-submit-check.html","code":"08"},{"title":"企業研究15分シート","desc":"事業・強み・志望理由の材料を整理","year":"29","topic":"企業研究","url":"29sotsu-kigyou-kenkyu-15min.html","code":"09"},{"title":"業界比較シート","desc":"興味のある3業界を比べる","year":"29","topic":"企業研究","url":"29sotsu-gyoukai-hikaku-sheet.html","code":"11"},{"title":"インターン優先順位","desc":"参加候補を比較して優先順位を決める","year":"29","topic":"選考管理","url":"29sotsu-intern-priority-board.html","code":"12"},{"title":"OB・OG訪問の依頼文","desc":"メール・DMの下書きを作る","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-request-mail.html","code":"15"},{"title":"OB・OG訪問のお礼文","desc":"訪問後のお礼メールを作成","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-orei-mail.html","code":"16"},{"title":"OB・OG質問メーカー","desc":"聞きたい内容から質問を組み立てる","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-question-maker.html","code":"17"},{"title":"12週間ロードマップ","desc":"週ごとに就活準備を管理","year":"29","topic":"選考管理","url":"29sotsu-12weeks-roadmap.html","code":"18"},{"title":"4週間チェックリスト","desc":"最初の就活準備20項目をチェック","year":"29","topic":"選考管理","url":"29sotsu-4weeks-checklist.html","code":"19"},{"title":"提出前20項目チェック","desc":"誤字・添付・送信完了まで確認","year":"28","topic":"ES","url":"28sotsu-es-teishutsu-mae-checklist.html","code":"23"},{"title":"ガクチカ深掘り15問","desc":"経験ごとの面接質問を整理","year":"28","topic":"面接・OB訪問","url":"28sotsu-gakuchika-fukabori-shitsumon.html","code":"24"},{"title":"面接PREP・STAR整理","desc":"伝わる回答の構成をつくる","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-prep-star-work.html","code":"26"},{"title":"面接前日チェック","desc":"19項目で準備漏れを防ぐ","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-zenjitsu-check.html","code":"27"},{"title":"面接メール作成","desc":"日程変更・確定・辞退を作成","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-schedule-mail.html","code":"28"},{"title":"ES・面接の一貫性チェック","desc":"経験・数字・役割のずれを確認","year":"28","topic":"面接・OB訪問","url":"28sotsu-es-mensetsu-consistency.html","code":"29"},{"title":"SPI非言語12問演習","desc":"割合・確率・速さを練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-higengo-12mon-practice.html","code":"31"},{"title":"SPI成績ダッシュボード","desc":"得意・苦手分野を可視化","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-higengo-score-dashboard.html","code":"32"},{"title":"Webテスト復習ノート","desc":"間違いの原因と復習日を記録","year":"28","topic":"Webテスト","url":"28sotsu-webtest-machigai-note.html","code":"33"},{"title":"就活1週間プラン","desc":"7日間のタスクをつくる","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-1week-schedule.html","code":"34"},{"title":"今日の優先順位","desc":"ES・締切・Webテストから整理","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-yusenjuni-shindan.html","code":"35"},{"title":"秋冬インターン比較","desc":"応募先の条件・締切を比較","year":"28","topic":"企業研究","url":"28sotsu-akifuyu-intern-oubo-hikaku.html","code":"36"},{"title":"ES下書き・文字数管理","desc":"文章を作りながら保存する","year":"all","topic":"ES","url":"#es-counter","code":"37"},{"title":"就活カレンダー","desc":"応募締切と面接予定を確認","year":"all","topic":"選考管理","url":"#calendar","code":"39"},{"title":"全データバックアップ","desc":"端末内に保存した記録を書き出す","year":"all","topic":"選考管理","url":"#backup-section","code":"40"},{"title":"就活サービス比較","desc":"スカウト・選考情報・エージェントを比較","year":"all","topic":"企業研究","url":"shukatsu-service-compare-2026.html","code":"41"}];
 let year='all',topic='すべて',expanded=false;
+// Keep only the graduation-year filter between visits. Never store search text,
+// shared-link filters, ES drafts, or other personal inputs as part of this preference.
+// Remember catalog browsing state only in the current tab/session.
+// This is a UI convenience: never store application records, ES text, or
+// personal notes in the catalog state, and never put it in a share URL.
+const CATALOG_SESSION_KEY='sc_h_catalog_session_v1';
+function saveCatalogSession(){
+ try{sessionStorage.setItem(CATALOG_SESSION_KEY,JSON.stringify({
+  year,topic,query:search.value.slice(0,80),favoritesOnly,expanded
+ }));}catch(e){} // Private browsing or storage restrictions must not break search.
+}
+const YEAR_KEY='sc_h_grad_year_v1';
+try{const savedYear=localStorage.getItem(YEAR_KEY);if(['28','29','common'].includes(savedYear))year=savedYear;}catch(e){}
 const SORT_KEY='sc_h_tool_sort_v1';
 const SORT_VALUES=new Set(['recommended','favorites','recent','name']);
 let sortMode='recommended';
@@ -485,6 +1597,49 @@ if(filterShare)filterShare.addEventListener('click',async()=>{
  }catch(e){shareNotice('コピーできませんでした。');}
  finally{filterShare.disabled=false;}
 });
+// Export only publicly listed tool metadata; never read personal localStorage values.
+// Use a fixed canonical base URL, so the TXT works even if downloaded from a local preview.
+function publicToolListText(){
+ const base='https://goonyogunyo-prog.github.io/shukatsu-compass/';
+ const lines=['就活コンパス｜検索結果のツール一覧',`該当ツール：${currentFilteredTools.length}件`,
+  `卒業年度：${year==='all'?'すべて':year==='common'?'共通':year+'卒'}`,
+  `目的：${topic==='すべて'?'すべて':topic}`,
+  '※検索語・お気に入り情報・ES本文・企業名・選考メモは含まれません。',''];
+ currentFilteredTools.forEach((tool,index)=>{
+  const label=tool.year==='all'?'共通':tool.year+'卒';
+  lines.push(`${index+1}. ${tool.title}（${label} / ${tool.topic}）`);
+  lines.push(tool.desc);
+  lines.push(new URL(tool.url,base).href,'');
+ });
+ lines.push('掲載内容や募集条件は、各公式ページで最新情報を確認してください。');
+ return lines.join('\n');
+}
+async function copyPublicToolList(text){
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  try{await navigator.clipboard.writeText(text);return true;}catch(e){}
+ }
+ const area=document.createElement('textarea');area.value=text;area.setAttribute('readonly','');
+ area.style.cssText='position:fixed;left:-9999px;top:0;opacity:0';document.body.appendChild(area);
+ area.focus();area.select();let ok=false;
+ try{ok=document.execCommand('copy');}finally{area.remove();}
+ return ok;
+}
+if(copyResultsButton)copyResultsButton.addEventListener('click',async()=>{
+ if(!currentFilteredTools.length)return;
+ copyResultsButton.disabled=true;
+ try{const ok=await copyPublicToolList(publicToolListText());shareNotice(ok?`${currentFilteredTools.length}件の公開ツール一覧をコピーしました`:'コピーできませんでした。TXT保存をお試しください。');}
+ catch(e){shareNotice('コピーできませんでした。TXT保存をお試しください。');}
+ finally{copyResultsButton.disabled=false;}
+});
+if(exportResultsButton)exportResultsButton.addEventListener('click',()=>{
+ if(!currentFilteredTools.length)return;
+ const blob=new Blob(['\ufeff',publicToolListText()],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob);
+ const link=document.createElement('a');link.href=url;link.download='shukatsu-compass-tools.txt';
+ document.body.appendChild(link);link.click();link.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1500);
+ shareNotice(`${currentFilteredTools.length}件の公開ツール一覧をTXT保存しました`);
+});
 list.addEventListener('click',async event=>{
  const button=event.target.closest('button.sc-h-share');
  if(!button||!list.contains(button))return;
@@ -502,18 +1657,167 @@ list.addEventListener('click',async event=>{
 if(recentItems)recentItems.addEventListener('click',event=>{const a=event.target.closest('a.sc-h-recent-item');if(a&&recentItems.contains(a))remember(a.getAttribute('href'));});
 if(recentClear)recentClear.addEventListener('click',()=>{recent=[];try{localStorage.removeItem(RECENT_KEY)}catch(e){};drawRecent();});
 function resetFilters(){year='all';topic='すべて';expanded=false;favoritesOnly=false;search.value='';syncFavoritesButton();
+ // Reset shared URLs as well, without disturbing other query parameters or page anchors.
+ try{const url=new URL(window.location.href);['sc_year','sc_topic','sc_q'].forEach(k=>url.searchParams.delete(k));
+  window.history.replaceState(window.history.state,'',url.href);}catch(e){}
+ try{localStorage.removeItem(YEAR_KEY);}catch(e){}
  document.querySelectorAll('[data-sc-year]').forEach(b=>{const on=b.dataset.scYear==='all';b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));});
  document.querySelectorAll('[data-sc-topic]').forEach(b=>{const on=b.dataset.scTopic==='すべて';b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));});
  update();
 }
 if(reset)reset.addEventListener('click',resetFilters);
 search.addEventListener('keydown',event=>{if(event.key==='Escape'&&search.value){search.value='';update();event.stopPropagation();}});
+// 2026-10-19 00:32: Ctrl/Command+K focuses the catalog search.
+// ArrowDown from search moves to the first matching tool, and ArrowUp from
+// the first tool returns to search. Other inputs and ES editors are untouched.
+document.addEventListener('keydown',event=>{
+ if(event.isComposing||event.altKey||event.shiftKey)return;
+ if(event.key.toLowerCase()==='k'&&(event.ctrlKey||event.metaKey)){
+  event.preventDefault();search.focus();search.select();
+ }
+});
+search.addEventListener('keydown',event=>{
+ if(event.key!=='ArrowDown'||event.altKey||event.ctrlKey||event.metaKey||event.isComposing)return;
+ const first=list.querySelector('a.sc-h-tool');
+ if(first){event.preventDefault();first.focus();}
+});
+list.addEventListener('keydown',event=>{
+ if(event.key!=='ArrowUp'||event.altKey||event.ctrlKey||event.metaKey||event.isComposing)return;
+ const first=list.querySelector('a.sc-h-tool');
+ if(first&&event.target===first){event.preventDefault();search.focus();}
+});
 document.addEventListener('keydown',event=>{if(event.key!=='/'||event.altKey||event.ctrlKey||event.metaKey||event.isComposing)return;
  const el=document.activeElement;if(el&&(el.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)))return;
  event.preventDefault();search.focus();});
 
+// Suggest existing tools when restrictive filters hide matches; never expose stored user data.
+function renderEmptyRecovery(terms){
+ empty.replaceChildren();
+ const heading=document.createElement('p');heading.className='sc-h-empty-title';
+ heading.textContent=favoritesOnly&&!favorites.size?'お気に入りがまだありません':'条件に一致するツールがありません';
+ const help=document.createElement('p');help.className='sc-h-empty-description';
+ help.textContent='条件を広げるか、次のツールから探してみてください。';
+ empty.append(heading,help);
+ // First try all tools matching the search text, ignoring year/topic/favorite filters.
+ const matching=terms.length?tools.filter(t=>{
+  const haystack=norm([t.title,t.desc,t.topic,t.year==='all'?'共通':t.year+'卒'].join(' '));
+  return matchesTerms(haystack,terms,norm([t.title,t.desc].join(' ')));
+ }):[];
+ const fallback=tools.filter(t=>year==='all'||year==='common'?t.year==='all'||year==='all':t.year===year||t.year==='all');
+ const suggestions=(matching.length?matching:fallback.length?fallback:tools).slice(0,3);
+ const box=document.createElement('div');box.className='sc-h-empty-suggestions';
+ for(const t of suggestions){
+  const a=document.createElement('a');a.href=t.url;a.textContent=t.title+' ↗';
+  a.setAttribute('aria-label',t.title+'を開く');box.append(a);
+ }
+ empty.append(box);
+ const button=document.createElement('button');button.type='button';button.className='sc-h-empty-reset';
+ button.textContent='条件を解除してすべて見る';button.addEventListener('click',resetFilters);
+ empty.append(button);
+}
 const norm=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[\s\u3000]+/g,'');
+// 2026-10-18 20:32: Interpret common job-hunting terms without altering
+// existing search terms or stored data. Only exact normalized tokens get aliases.
+const SEARCH_ALIASES={
+ 'エントリーシート':['es'],
+ 'エントリシート':['es'],
+ '適性検査':['spi','webテスト'],
+ '適性テスト':['spi','webテスト'],
+ '筆記試験':['spi','webテスト'],
+ '自己アピール':['自己pr'],
+ 'インターンシップ':['インターン'],
+ 'obog':['ob','og'],
+ 'ob訪問':['ob','og'],
+ 'og訪問':['ob','og'],
+ '志望理由':['志望理由','志望動機'],
+ '志望動機':['志望動機','志望理由']
+};
+function matchesTerms(haystack,terms,primaryHaystack){
+ return terms.every(term=>{
+  const words=[term,...(SEARCH_ALIASES[term]||[])];
+  // "OBOG" must find actual OB/OG tools, not unrelated interview tools
+  // that merely share the broader "面接・OB訪問" category.
+  const target=['obog','ob訪問','og訪問'].includes(term)?primaryHaystack:haystack;
+  return words.some(word=>target.includes(word));
+ });
+}
+
+// 2026-10-18 23:35: Rank search results by relevance without changing the
+// catalog's default order or the user's explicit favorite/recent/name sort.
+// An exact title match beats a partial title match, then description,
+// topic and graduation-year matches. Aliases are supported but not over-weighted.
+function toolRelevanceScore(tool,terms){
+ const fields=[norm(tool.title),norm(tool.desc),norm(tool.topic),norm(tool.year==='all'?'共通':tool.year+'卒')];
+ return terms.reduce((total,term)=>{
+  let best=0;
+  const words=[term,...(SEARCH_ALIASES[term]||[])];
+  words.forEach((word,index)=>{
+   if(!word)return;
+   const penalty=index?2:0;
+   let score=0;
+   if(fields[0]===word)score=140;
+   else if(fields[0].includes(word))score=100;
+   else if(fields[1].includes(word))score=40;
+   else if(fields[2].includes(word))score=12;
+   else if(fields[3].includes(word))score=2;
+   best=Math.max(best,Math.max(0,score-penalty));
+  });
+  return total+best;
+ },0);
+}
+
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Highlight literal query terms and supported synonyms in the result title/description.
+// Every substring is HTML-escaped before being added to innerHTML.
+function highlightToolText(value,terms){
+ const raw=String(value??'');
+ if(!terms.length)return escape(raw);
+ const needles=[...new Set(terms.flatMap(t=>[t,...(SEARCH_ALIASES[t]||[])]))]
+  .filter(t=>t.length>=2&&t.length<=40).sort((a,b)=>b.length-a.length);
+ if(!needles.length)return escape(raw);
+ const regex=new RegExp(needles.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'gi');
+ let html='',last=0,match;
+ while((match=regex.exec(raw))!==null){
+  html+=escape(raw.slice(last,match.index));
+  html+='<mark class="sc-h-hit">'+escape(match[0])+'</mark>';
+  last=regex.lastIndex;
+ }
+ return html+escape(raw.slice(last));
+}
+
+const quickSearch=document.getElementById('sc-h-suggestions-buttons');
+const QUICK_TERMS={
+ all:['自己分析','ガクチカ','面接','SPI','締切'],
+ '28':['面接','SPI','ES','締切','企業研究'],
+ '29':['自己分析','ガクチカ','インターン','OB','業界'],
+ common:['ES','選考','カレンダー','バックアップ']
+};
+function drawQuickSearch(){
+ if(!quickSearch)return;
+ const terms=QUICK_TERMS[year]||QUICK_TERMS.all;
+ quickSearch.replaceChildren();
+ for(const term of terms){
+  // Only show searches that actually match the selected graduation year.
+  const matches=tools.filter(t=>(year==='all'||(year==='common'?t.year==='all':t.year===year))&&
+   norm([t.title,t.desc,t.topic].join(' ')).includes(norm(term)));
+  if(!matches.length)continue;
+  const button=document.createElement('button');button.type='button';button.textContent=term;
+  button.dataset.quickSearch=term;
+  button.setAttribute('aria-label',term+'で検索（'+matches.length+'件）');
+  quickSearch.append(button);
+ }
+}
+if(quickSearch)quickSearch.addEventListener('click',event=>{
+ const button=event.target.closest('button[data-quick-search]');
+ if(!button||!quickSearch.contains(button))return;
+ // Keep the user's chosen graduation year, but remove conflicting topic/favorite filters.
+ topic='すべて';favoritesOnly=false;expanded=false;
+ document.querySelectorAll('[data-sc-topic]').forEach(b=>{
+  const on=b.dataset.scTopic==='すべて';b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));
+ });
+ syncFavoritesButton();search.value=button.dataset.quickSearch;update();search.focus();
+});
 function update(){
  // Multi-word AND search: '29卒 自己分析' and '28卒 SPI' both work.
  const query=search.value.trim();
@@ -523,32 +1827,63 @@ function update(){
   if(topic!=='すべて'&&t.topic!==topic)return false;
   if(favoritesOnly&&!favorites.has(t.url))return false;
   const haystack=norm([t.title,t.desc,t.topic,t.year==='all'?'共通':t.year+'卒'].join(' '));
-  return terms.every(term=>haystack.includes(term));
+  return matchesTerms(haystack,terms,norm([t.title,t.desc].join(' ')));
  });
+ if(sortMode==='recommended'&&terms.length)filtered.sort((a,b)=>toolRelevanceScore(b,terms)-toolRelevanceScore(a,terms));
  if(sortMode==='favorites')filtered.sort((a,b)=>Number(favorites.has(b.url))-Number(favorites.has(a.url)));
  else if(sortMode==='recent')filtered.sort((a,b)=>{const ia=recent.indexOf(a.url),ib=recent.indexOf(b.url);return (ia<0?Infinity:ia)-(ib<0?Infinity:ib);});
  else if(sortMode==='name')filtered.sort((a,b)=>a.title.localeCompare(b.title,'ja'));
+ // Snapshot the exact filtered and sorted results for export, not just the first 12 cards.
+ currentFilteredTools=filtered.slice();
  const visible=expanded||terms.length||year!=='all'||topic!=='すべて'||favoritesOnly?filtered:filtered.slice(0,12);
- list.innerHTML=visible.map(t=>`<div class="sc-h-tool-row"><a class="sc-h-tool" href="${escape(t.url)}"><span class="sc-h-tool-code" aria-hidden="true">${escape(t.code)}</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">${escape(t.title)}</span><span class="sc-h-tool-year">${t.year==='all'?'共通':t.year+'卒'}</span></span><span class="sc-h-tool-desc">${escape(t.desc)}</span></span><span class="sc-h-tool-arrow" aria-hidden="true">↗</span></a><button type="button" class="sc-h-fav-star" data-favorite-url="${escape(t.url)}" aria-label="${escape(t.title)}を${favorites.has(t.url)?'お気に入りから解除':'お気に入りに登録'}" aria-pressed="${favorites.has(t.url)}">${favorites.has(t.url)?'★':'☆'}</button><button type="button" class="sc-h-share" data-share-url="${escape(t.url)}" data-share-title="${escape(t.title)}" aria-label="${escape(t.title)}のリンクをコピー" title="リンクをコピー">⧉</button></div>`).join('');
+ list.innerHTML=visible.map(t=>`<div class="sc-h-tool-row"><a class="sc-h-tool" href="${escape(t.url)}"><span class="sc-h-tool-code" aria-hidden="true">${escape(t.code)}</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">${highlightToolText(t.title,terms)}</span><span class="sc-h-tool-year">${t.year==='all'?'共通':t.year+'卒'}</span></span><span class="sc-h-tool-desc">${highlightToolText(t.desc,terms)}</span></span><span class="sc-h-tool-arrow" aria-hidden="true">↗</span></a><button type="button" class="sc-h-fav-star" data-favorite-url="${escape(t.url)}" aria-label="${escape(t.title)}を${favorites.has(t.url)?'お気に入りから解除':'お気に入りに登録'}" aria-pressed="${favorites.has(t.url)}">${favorites.has(t.url)?'★':'☆'}</button><button type="button" class="sc-h-share" data-share-url="${escape(t.url)}" data-share-title="${escape(t.title)}" aria-label="${escape(t.title)}のリンクをコピー" title="リンクをコピー">⧉</button></div>`).join('');
  count.textContent=`${filtered.length}件のツール${visible.length<filtered.length?' / '+visible.length+'件を表示':''}`;
  empty.hidden=filtered.length!==0;
- empty.textContent=favoritesOnly&&!favorites.size?'まだお気に入りがありません。各ツールの☆を押して登録できます。':'一致するツールがありません。キーワードや条件を変えてみてください。';
+ if(!filtered.length)renderEmptyRecovery(terms);else empty.replaceChildren();
  more.hidden=filtered.length<=12||!!query||year!=='all'||topic!=='すべて'||favoritesOnly;
  more.innerHTML=expanded?'表示を少なくする <span aria-hidden="true">↑</span>':'すべてのツールを表示 <span aria-hidden="true">↓</span>';
  if(reset)reset.hidden=!(year!=='all'||topic!=='すべて'||!!query||favoritesOnly);
  if(filterShare)filterShare.hidden=!(year!=='all'||topic!=='すべて'||!!query);
+ // Keep the unfiltered landing page quiet, and prevent empty exports.
+ const canExport=filtered.length>0&&(year!=='all'||topic!=='すべて'||!!query||favoritesOnly);
+ if(copyResultsButton)copyResultsButton.hidden=!canExport;
+ if(exportResultsButton)exportResultsButton.hidden=!canExport;
+
+ drawQuickSearch();
+ saveCatalogSession();
 }
 function bind(selector,key){document.querySelectorAll(selector).forEach(button=>button.addEventListener('click',()=>{
- const value=button.dataset[key];if(key==='scYear')year=value;else topic=value;
+ const value=button.dataset[key];if(key==='scYear'){
+  year=value;
+  try{if(value==='all')localStorage.removeItem(YEAR_KEY);else localStorage.setItem(YEAR_KEY,value);}catch(e){}
+ }else topic=value;
  document.querySelectorAll(selector).forEach(x=>{const on=x===button;x.classList.toggle('is-current',on);x.setAttribute('aria-pressed',String(on));});expanded=false;update();
 }));}
 bind('[data-sc-year]','scYear');bind('[data-sc-topic]','scTopic');
 search.addEventListener('input',update);
 more.addEventListener('click',()=>{expanded=!expanded;update();});
-// Restore validated directory filters from a shared URL (only on initial load).
-// Unknown values are ignored; query length is capped to prevent oversized search work.
+// Restore directory filters on initial load. Shared URLs always take priority
+// over tab-local history and the saved graduation year.
 try{
  const params=new URL(window.location.href).searchParams;
+ const hasSharedFilters=['sc_year','sc_topic','sc_q'].some(key=>params.has(key));
+ if(hasSharedFilters){
+  year='all';
+ }else{
+  // Only validated catalog fields are restored, and only for this tab.
+  // sessionStorage is cleared when the tab/session ends.
+  try{
+   const saved=JSON.parse(sessionStorage.getItem(CATALOG_SESSION_KEY)||'null');
+   if(saved&&typeof saved==='object'&&!Array.isArray(saved)){
+    if(['all','28','29','common'].includes(saved.year))year=saved.year;
+    if([...document.querySelectorAll('[data-sc-topic]')].some(b=>b.dataset.scTopic===saved.topic))topic=saved.topic;
+    if(typeof saved.query==='string')search.value=saved.query.slice(0,80);
+    favoritesOnly=saved.favoritesOnly===true;
+    expanded=saved.expanded===true;
+   }
+  }catch(e){} // Malformed session data is ignored.
+ }
+
  const requestedYear=params.get('sc_year');
  if(['all','28','29','common'].includes(requestedYear))year=requestedYear;
  const requestedTopic=params.get('sc_topic');
@@ -562,6 +1897,23 @@ try{
   const on=b.dataset.scTopic===topic;b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));
  });
 }catch(e){}
+// Repaint the catalog immediately after a full-data restore; no page reload required.
+window.addEventListener('sc-tools-settings-restored',()=>{
+ try{
+  const y=localStorage.getItem(YEAR_KEY);
+  year=['28','29','common'].includes(y)?y:'all';
+  const savedSort=localStorage.getItem(SORT_KEY);
+  sortMode=SORT_VALUES.has(savedSort)?savedSort:'recommended';
+  if(sortSelect)sortSelect.value=sortMode;
+  favorites=new Set(readFavorites());recent=loadRecent();
+  favoritesOnly=false;expanded=false;topic='すべて';search.value='';
+  // A restored preference should not be overridden by an old shared-filter URL.
+  try{const url=new URL(window.location.href);['sc_year','sc_topic','sc_q'].forEach(k=>url.searchParams.delete(k));window.history.replaceState(window.history.state,'',url.href);}catch(e){}
+  document.querySelectorAll('[data-sc-year]').forEach(b=>{const on=b.dataset.scYear===year;b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));});
+  document.querySelectorAll('[data-sc-topic]').forEach(b=>{const on=b.dataset.scTopic==='すべて';b.classList.toggle('is-current',on);b.setAttribute('aria-pressed',String(on));});
+  drawRecent();syncFavoritesButton();update();
+ }catch(e){/* Full backup has already been restored; catalog can be refreshed manually. */}
+});
 drawRecent();
 syncFavoritesButton();
 update();
