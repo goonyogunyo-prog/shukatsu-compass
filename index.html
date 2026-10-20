@@ -34,6 +34,35 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 .sc-backup-health{margin:12px 0;padding:10px 13px;border:1px solid #d4e7e1;background:#f3faf8;border-radius:10px;color:#25544a;font-size:13px;line-height:1.65}
 .sc-backup-health[data-state="attention"]{border-color:#eed5a0;background:#fffaf0;color:#704c14}
 .sc-backup-health[data-state="empty"]{border-color:#e3e8f0;background:#f8fafc;color:#56687b}
+
+/* 2026-10-20: selection tracker completeness summary */
+#tracker .sc-job-filter-summary{margin:7px 0 4px;padding:8px 11px;background:#f1f7fb;border:1px solid #d7e6ef;border-radius:10px;color:#3e5b70;font-size:12px;line-height:1.7}
+#tracker #sc-job-date-filter{max-width:100%;min-width:145px}
+
+/* 2026-10-20 10:26: Stage counts and one-tap filters; no data mutations. */
+#tracker .sc-stage-overview{margin:12px 0 10px;padding:12px;border:1px solid #dce9e8;border-radius:12px;background:#f7fbfa}
+#tracker .sc-stage-overview-title{font-size:12px;color:#496b69;font-weight:750;margin:0 0 9px}
+#tracker .sc-stage-overview-actions{display:flex;flex-wrap:wrap;gap:7px}
+#tracker .sc-stage-overview button{font:inherit;font-size:12px;font-weight:700;border:1px solid #d4e4e1;background:#fff;color:#275a54;border-radius:999px;padding:7px 11px;min-height:36px;cursor:pointer;max-width:100%}
+#tracker .sc-stage-overview button[aria-pressed="true"]{background:#176b62;border-color:#176b62;color:#fff}
+#tracker .sc-stage-overview button:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
+#tracker .sc-stage-overview button:disabled{opacity:.48;cursor:not-allowed}
+@media(max-width:420px){#tracker .sc-stage-overview{padding:10px}#tracker .sc-stage-overview-actions{gap:6px}#tracker .sc-stage-overview button{padding:7px 9px}}
+
+/* 2026-10-20 09:31: Non-blocking date review before saving a job. */
+#tracker .sc-job-date-review{margin:8px 0 12px;padding:10px 12px;border:1px solid #d6e8e3;background:#f2faf7;border-radius:10px;color:#2b6155;font-size:12px;line-height:1.7}
+#tracker .sc-job-date-review[data-state="attention"]{background:#fff8ec;border-color:#f0d7a6;color:#76511c}
+#tracker .sc-job-date-review[hidden]{display:none}
+
+
+/* 2026-10-20 14:32: unified 7-day action queue and safe filter reset. */
+#tracker .sc-job-filter-shortcuts{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:9px 0 4px}
+#tracker .sc-job-filter-shortcuts button{min-height:38px;border-radius:10px;font-size:13px;font-weight:700;padding:8px 12px}
+#tracker #sc-job-action7-quick{background:#e8f5f2;border:1px solid #a8d2c8;color:#155a50}
+#tracker #sc-job-action7-quick[aria-pressed="true"]{background:#176b62;border-color:#176b62;color:white}
+#tracker #sc-job-clear-filters{background:#fff;border:1px solid #cbd9df;color:#365368}
+#tracker .sc-job-filter-shortcuts button:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
+@media(max-width:390px){#tracker .sc-job-filter-shortcuts button{flex:1 1 auto}}
 </style>
 <style>.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.cal-head{text-align:center;font-size:.8rem;font-weight:700;padding:7px 0;color:#46566d}.cal-day{min-height:90px;border:1px solid #dbe3ee;border-radius:9px;padding:6px;background:#fff;min-width:0}.cal-day.outside{background:#f4f6fa;opacity:.5}.cal-day.today{outline:2px solid #3478d4}.cal-num{font-weight:700;font-size:.82rem}.cal-event{font-size:.72rem;line-height:1.35;padding:4px 5px;margin-top:4px;background:#e8f1ff;border-radius:5px;overflow-wrap:anywhere;color:#14345d}.cal-event.deadline{background:#fff0d9;color:#694006}.cal-event small{display:block;opacity:.8}@media(max-width:600px){.cal-grid{gap:2px}.cal-day{min-height:77px;padding:3px;border-radius:5px}.cal-event{font-size:.63rem;padding:3px}.cal-num{font-size:.72rem}}</style><meta content="website" property="og:type"/><meta content="就活コンパス｜28卒・29卒の就活ツールをスマートに探す" property="og:title"/><meta content="自己分析・ES・SPI・企業研究・面接・選考管理。28卒・29卒向け無料ツールを目的別に検索。" property="og:description"/><meta content="https://goonyogunyo-prog.github.io/shukatsu-compass/" property="og:url"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"就活コンパス","url":"https://goonyogunyo-prog.github.io/shukatsu-compass/","inLanguage":"ja","description":"28卒向けの就活ガイドと無料選考管理ツール"}</script>
@@ -196,8 +225,10 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 #tracker .sc-stage-quick-label{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#456276;max-width:100%;flex-wrap:wrap}
 #tracker .sc-stage-quick-select{min-height:36px;min-width:112px;max-width:100%;border:1px solid #cbdedb;border-radius:8px;background:#f8fcfb;color:#195b55;padding:6px 26px 6px 9px;font:inherit;cursor:pointer}
 #tracker .sc-stage-quick-select:focus-visible{outline:3px solid #60b4a6;outline-offset:2px}
-#tracker .sc-stage-change-status{margin:4px 0;color:#236b61;font-size:12px;min-height:0}
+#tracker .sc-stage-change-status{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:10px 0 8px;padding:10px 12px;color:#195b54;background:#f1faf7;border:1px solid #c9e4da;border-radius:10px;font-size:12px;line-height:1.6}
 #tracker .sc-stage-change-status:empty{display:none}
+#tracker .sc-stage-undo-button{font:inherit;font-size:12px;font-weight:750;color:#176b62;background:#fff;border:1px solid #96c8ba;border-radius:8px;padding:6px 12px;min-height:34px;cursor:pointer}
+#tracker .sc-stage-undo-button:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
 @media(max-width:420px){#tracker .sc-stage-quick-label{width:100%}#tracker .sc-stage-quick-select{flex:1}}
 </style><style id="sc-upcoming-agenda-20261019">
 /* Upcoming tracker actions: compact, responsive, derived from existing sc_jobs. */
@@ -446,7 +477,20 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 #dashboard .sc-same-day-download-status{font-size:12px;min-height:1em;margin:7px 0!important;color:#285166}
 @media(max-width:390px){#dashboard .sc-same-day-load .sc-same-day-buttons{width:100%}#dashboard .sc-same-day-load .sc-same-day-buttons button{flex:1 1 130px;white-space:normal}}
 </style>
-</head>
+<style id="sc-filtered-jobs-export-20261020">
+#tracker .sc-filtered-export{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:8px 0 12px}
+#tracker .sc-filtered-export button{font:inherit;font-size:12px;font-weight:750;padding:9px 12px;border-radius:9px;background:#176b62;color:#fff;border:1px solid #176b62;min-height:40px;cursor:pointer}
+#tracker .sc-filtered-export button:disabled{background:#e9eef0;border-color:#d7e0e4;color:#627680;cursor:not-allowed}
+#tracker .sc-filtered-export button:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
+#tracker .sc-filtered-export-note{font-size:12px;color:#52677a;line-height:1.6}
+#tracker #sc-filtered-export-status:not(:empty){font-size:12px;color:#176b62;margin:0 0 12px;line-height:1.6}
+</style>
+<style id="sc-job-urgency-20261020">
+#tracker #sc-job-urgency-filter{max-width:100%;min-width:155px}
+#tracker #sc-job-urgency-filter:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
+@media(max-width:390px){#tracker #sc-job-urgency-filter{width:100%}}
+</style>
+<style id="sc-filtered-share-20261020">#tracker #sc-copy-filtered-jobs,#tracker #sc-print-filtered-jobs{background:#fff;color:#176b62;border-color:#9ac8bc}#tracker #sc-copy-filtered-jobs:disabled,#tracker #sc-print-filtered-jobs:disabled{background:#e9eef0;color:#627680;border-color:#d7e0e4}@media(max-width:420px){#tracker .sc-filtered-export>button{flex:1 1 140px}}</style></head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
 <header class="site-header"><div class="site-header-inner">
@@ -500,9 +544,13 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 <textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p class="muted" id="countDetail"></p>
 <div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div class="saved-list" id="drafts"></div><div class="notice" style="margin-top:14px"><strong>秋冬インターンの志望動機で迷ったら：</strong> <a href="28sotsu-akifuyu-intern-shiboudouki-200-400.html">200字・400字の例文と無料作成シート →</a></div><div class="notice" style="margin-top:14px"><strong>企業別にESを管理したい人へ：</strong> <a href="es-shitsumon-kanri.html">ES設問・回答・文字数・提出締切をまとめて管理する（無料） →</a></div></section>
 <section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。<strong>登録後は企業カードから選考段階を直接変更できます。</strong></p>
-<form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form><p id="sc-job-duplicate-status" class="muted small" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-job-duplicate-preview" class="sc-job-duplicate-preview" aria-live="polite" aria-label="同名企業の登録状況" hidden></div>
-<div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"/></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label></div>
-<div class="job-list" id="jobs"></div><p id="sc-stage-change-status" class="sc-stage-change-status" role="status" aria-live="polite" aria-atomic="true"></p><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
+<form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form><p id="sc-job-date-review" class="sc-job-date-review" role="status" aria-live="polite" aria-atomic="true" hidden></p><p id="sc-job-duplicate-status" class="muted small" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-job-duplicate-preview" class="sc-job-duplicate-preview" aria-live="polite" aria-label="同名企業の登録状況" hidden></div>
+<div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"/></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label><label>日付の登録状況<select id="sc-job-date-filter" aria-label="締切や次回予定の登録状況で企業を絞り込む"><option value="all">すべて</option><option value="deadline">締切が未登録</option><option value="next">次回予定が未登録</option><option value="both">両方とも未登録</option></select></label><label>期限・次回予定<select id="sc-job-urgency-filter" aria-label="応募締切や次回予定の近さで企業を絞り込む"><option value="all">すべて</option><option value="deadline7">応募締切が7日以内</option><option value="next7">次回予定が7日以内</option><option value="action7">締切・次回予定が7日以内</option><option value="overdue">応募締切が期限超過</option></select></label></div>
+<div class="sc-job-filter-shortcuts" role="group" aria-label="選考一覧のクイック絞り込み"><button type="button" id="sc-job-action7-quick" aria-pressed="false" aria-controls="jobs">7日以内の要対応を表示</button><button type="button" id="sc-job-clear-filters" aria-controls="jobs">絞り込みをすべて解除</button></div>
+<div class="sc-stage-overview" id="sc-stage-overview" aria-label="選考段階ごとの登録件数と絞り込み"><p class="sc-stage-overview-title">選考段階別の登録件数（全企業）｜タップで一覧を絞り込み</p><div class="sc-stage-overview-actions" id="sc-stage-overview-actions" role="group" aria-label="選考段階を選ぶ"></div></div>
+<p class="sc-job-filter-summary" id="sc-job-filter-summary" role="status" aria-live="polite" aria-atomic="true"></p>
+<div class="sc-filtered-export"><button id="sc-export-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">表示中の企業をCSV保存</button><button id="sc-copy-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">一覧をコピー</button><button id="sc-print-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">一覧を印刷</button><span class="sc-filtered-export-note" id="sc-filtered-export-note">現在の検索・段階・日付・期限条件と並び順を反映。企業名・段階・締切・次回予定のみ。メモは含みません（復元用は下の「CSVでバックアップ」）。コピー内容や印刷物の共有先に注意してください。</span></div>
+<p id="sc-filtered-export-status" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-stage-change-status" class="sc-stage-change-status" role="status" aria-live="polite" aria-atomic="true"></div><div class="job-list" id="jobs"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
 <section id="checklist-section"><h2>✅ 就活準備チェックリスト</h2><div id="checklist"></div></section>
 <section id="backup-section"><h2>💾 全データのバックアップ・復元</h2>
 <p>ESの下書き・企業別ES設問・企業比較・面接記録・選考管理・チェックリストに加え、<strong>お気に入り・最近使ったツール・卒年・並び順</strong>も、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
@@ -607,7 +655,111 @@ $('saveDraft').onclick=()=>{const text=es.value.trim();if(!text){alert('文章�
 let jobs=[];try{jobs=JSON.parse(localStorage.getItem('sc_jobs')||'[]')}catch{}jobs=Array.isArray(jobs)?jobs:[];
 function saveJobs(){localStorage.setItem('sc_jobs',JSON.stringify(jobs));renderJobs();renderDashboard();scRenderDuplicatePreview()}
 function normalize(j){return {id:j.id||Date.now()+Math.random(),name:j.name||'',stage:j.stage||'検討中',deadline:j.deadline||'',nextDate:j.nextDate||'',memo:j.memo||'',created:j.created||Number(String(j.id).split('.')[0])||Date.now()}}
-function filteredJobs(){const q=$('jobSearch').value.trim().toLowerCase(),st=$('stageFilter').value,sort=$('jobSort').value;let arr=jobs.map(normalize).filter(j=>(!q||(j.name+' '+j.memo).toLowerCase().includes(q))&&(!st||j.stage===st));const far='9999-12-31';arr.sort((a,b)=>sort==='company'?a.name.localeCompare(b.name,'ja'):sort==='newest'?b.created-a.created:sort==='nextDate'?(a.nextDate||far).localeCompare(b.nextDate||far):(a.deadline||far).localeCompare(b.deadline||far));return arr}
+// 2026-10-20 08:35: Read-only date-completeness filter. Existing sc_jobs records
+// and saved schema are untouched. Blank dates can be intentional, not errors.
+function scJobDateFilterMatches(job,mode){
+ if(mode==='deadline')return !job.deadline;
+ if(mode==='next')return !job.nextDate;
+ if(mode==='both')return !job.deadline&&!job.nextDate;
+ return true;
+}
+// 2026-10-20 13:26: Read-only urgency filter for actionable companies.
+// "内定" and "終了" are excluded from urgent results, never deleted from storage.
+function scJobUrgencyMatches(job,mode){
+ if(mode==='all')return true;
+ if(job.stage==='内定'||job.stage==='終了')return false;
+ // Include companies with EITHER a deadline or a next appointment within 7 days.
+ // Count each company only once even if both dates qualify.
+ if(mode==='action7'){
+  return [job.deadline,job.nextDate].some(date=>{const d=daysUntil(date);return d!==null&&Number.isFinite(d)&&d>=0&&d<=7});
+ }
+ const d=daysUntil(mode==='next7'?job.nextDate:job.deadline);
+ if(d===null||!Number.isFinite(d))return false;
+ if(mode==='deadline7'||mode==='next7')return d>=0&&d<=7;
+ if(mode==='overdue')return d<0;
+ return true;
+}
+function filteredJobs(){const q=$('jobSearch').value.trim().toLowerCase(),st=$('stageFilter').value,sort=$('jobSort').value,dateMode=$('sc-job-date-filter').value,urgencyMode=$('sc-job-urgency-filter').value;let arr=jobs.map(normalize).filter(j=>(!q||(j.name+' '+j.memo).toLowerCase().includes(q))&&(!st||j.stage===st)&&scJobDateFilterMatches(j,dateMode)&&scJobUrgencyMatches(j,urgencyMode));const far='9999-12-31';arr.sort((a,b)=>sort==='company'?a.name.localeCompare(b.name,'ja'):sort==='newest'?b.created-a.created:sort==='nextDate'?(a.nextDate||far).localeCompare(b.nextDate||far):(a.deadline||far).localeCompare(b.deadline||far));return arr}
+// 2026-10-20 14:32: One-click union of near-term deadlines and appointments.
+// Filter controls are view-only; they do not modify sc_jobs or its storage key.
+function scSetAction7Quick(){
+ const urgency=$('sc-job-urgency-filter');
+ urgency.value=urgency.value==='action7'?'all':'action7';
+ const status=$('sc-filtered-export-status');if(status)status.textContent='';
+ renderJobs();
+}
+function scClearJobFilters(){
+ $('jobSearch').value='';$('stageFilter').value='';$('jobSort').value='deadline';
+ $('sc-job-date-filter').value='all';$('sc-job-urgency-filter').value='all';
+ const status=$('sc-filtered-export-status');if(status)status.textContent='';
+ renderJobs();
+}
+$('sc-job-action7-quick').addEventListener('click',scSetAction7Quick);
+$('sc-job-clear-filters').addEventListener('click',scClearJobFilters);
+
+// 2026-10-20 12:28: Read-only, privacy-conscious export of the CURRENT tracker view.
+// Does not change sc_jobs or the existing full-fidelity CSV backup/import format.
+// Protect spreadsheet users against formulas supplied in company names.
+function scFilteredJobCsvCell(value){
+ let raw=String(value??'');
+ if(/^[\s\uFEFF]*[=+\-@]/.test(raw)||/^[\t\r\n]/.test(raw))raw="'"+raw;
+ return '"'+raw.replace(/"/g,'""')+'"';
+}
+function scExportFilteredJobs(){
+ const rows=filteredJobs();
+ const status=$('sc-filtered-export-status');
+ if(!rows.length){if(status)status.textContent='保存できる企業がありません。絞り込み条件を見直してください。';return}
+ const table=[['企業名','選考段階','応募締切','次回予定'],...rows.map(j=>[j.name,j.stage,j.deadline,j.nextDate])];
+ const csv='\uFEFF'+table.map(row=>row.map(scFilteredJobCsvCell).join(',')).join('\r\n')+'\r\n';
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob);
+ const a=document.createElement('a');a.href=url;
+ const today=new Date(),pad=n=>String(n).padStart(2,'0');
+ a.download='shukatsu-filtered-companies-'+today.getFullYear()+pad(today.getMonth()+1)+pad(today.getDate())+'.csv';
+ document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+ if(status)status.textContent=rows.length+'件の企業をCSVで保存しました。メモは含まれません。復元用には既存の「CSVでバックアップ」を使ってください。';
+}
+$('sc-export-filtered-jobs').addEventListener('click',scExportFilteredJobs);
+// 2026-10-20 15:35: Copy or print exactly the visible filtered companies.
+// Read-only and intentionally excludes sensitive interview notes.
+function scFilteredJobsPlainText(rows){
+ const lines=['就活コンパス｜選考一覧','出力日：'+new Date().toLocaleDateString('ja-JP'),'対象：'+rows.length+'社','',...rows.map((j,i)=>[
+  (i+1)+'. '+String(j.name).replace(/[\r\n\t]+/g,' '),
+  '   選考段階：'+j.stage,
+  '   応募締切：'+(j.deadline||'未登録'),
+  '   次回予定：'+(j.nextDate||'未登録')
+ ].join('\n'))];
+ return lines.join('\n')+'\n';
+}
+async function scCopyFilteredJobs(){
+ const rows=filteredJobs(),status=$('sc-filtered-export-status');
+ if(!rows.length){if(status)status.textContent='コピーする企業がありません。';return}
+ const text=scFilteredJobsPlainText(rows);
+ try{
+  if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(text)}
+  else{
+   const input=document.createElement('textarea');input.value=text;input.setAttribute('readonly','');input.style.position='fixed';input.style.left='-9999px';document.body.append(input);input.select();
+   const ok=document.execCommand('copy');input.remove();if(!ok)throw new Error('copy unavailable');
+  }
+  if(status)status.textContent=rows.length+'社の一覧をコピーしました。メモは含みません。共有先にご注意ください。';
+ }catch(e){if(status)status.textContent='コピーできませんでした。ブラウザの権限を確認するか、CSV保存をご利用ください。'}
+}
+function scPrintFilteredJobs(){
+ const rows=filteredJobs(),status=$('sc-filtered-export-status');
+ if(!rows.length){if(status)status.textContent='印刷する企業がありません。';return}
+ // The new window is opened synchronously by a user click to avoid popup blockers.
+ const w=window.open('','_blank');
+ if(!w){if(status)status.textContent='印刷画面を開けませんでした。ポップアップ設定をご確認ください。';return}
+ w.opener=null;
+ const body=rows.map((j,i)=>'<tr><td>'+String(i+1)+'</td><td>'+esc(j.name)+'</td><td>'+esc(j.stage)+'</td><td>'+esc(j.deadline||'未登録')+'</td><td>'+esc(j.nextDate||'未登録')+'</td></tr>').join('');
+ const date=new Date().toLocaleDateString('ja-JP');
+ const html='<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>就活コンパス｜選考一覧（印刷用）</title><style>body{font-family:system-ui,"Noto Sans JP",sans-serif;color:#182b3a;max-width:1100px;margin:32px auto;padding:0 16px}h1{font-size:23px}p{font-size:13px;color:#506171}table{border-collapse:collapse;width:100%;font-size:12px;table-layout:fixed}th,td{border:1px solid #cbd5db;padding:8px;text-align:left;overflow-wrap:anywhere}th{background:#e8f5f2}th:first-child{width:30px}.actions{display:flex;gap:8px;margin-bottom:20px}.actions button{border:0;border-radius:8px;background:#176b62;color:white;padding:12px 20px;cursor:pointer}@page{size:A4 landscape;margin:12mm}@media print{body{margin:0;padding:0}.actions{display:none}thead{display:table-header-group}tr{break-inside:avoid}}</style></head><body><div class="actions"><button type="button" onclick="window.print()">印刷する／PDF保存</button><button type="button" onclick="window.close()">閉じる</button></div><h1>就活コンパス｜選考一覧</h1><p>出力日：'+esc(date)+'　対象：'+rows.length+'社　｜　現在の絞り込み・並び順を反映。選考メモは含みません。</p><table><thead><tr><th>No.</th><th>企業名</th><th>選考段階</th><th>応募締切</th><th>次回予定</th></tr></thead><tbody>'+body+'</tbody></table><p>個人情報が含まれるため、印刷物・PDFの共有にご注意ください。</p></body></html>';
+ w.document.open();w.document.write(html);w.document.close();
+ if(status)status.textContent=rows.length+'社の印刷用画面を開きました。ブラウザの印刷操作からPDF保存もできます。';
+}
+$('sc-copy-filtered-jobs').addEventListener('click',scCopyFilteredJobs);
+$('sc-print-filtered-jobs').addEventListener('click',scPrintFilteredJobs);
+
+
 // Shared editing entry point: cards and the upcoming-agenda list open the same existing form.
 function beginEditJob(record){
  const j=jobs.map(normalize).find(x=>String(x.id)===String(record.id));
@@ -622,9 +774,74 @@ function beginEditJob(record){
  $('cancelEdit').classList.remove('hidden');
  location.hash='tracker';
  $('company').focus({preventScroll:true});
+ scReviewJobDates();
  scRenderDuplicatePreview();
 }
-function renderJobs(){const root=$('jobs');root.replaceChildren();const arr=filteredJobs();if(!arr.length){root.innerHTML='<p class="muted">条件に合う企業がありません。</p>';return}arr.forEach(j=>{const left=daysUntil(j.deadline),card=document.createElement('div');card.className='job-card'+(j.stage==='終了'?' done-card':left!==null&&left<0?' urgent':left!==null&&left<=7?' soon':'');let deadlineText=j.deadline?'締切 '+fmt(j.deadline)+(left!==null?(left<0?'（期限超過）':left===0?'（今日）':'（あと'+left+'日）'):''):'締切未登録';card.innerHTML='<div class="job-card-head"><div><div class="job-title">'+esc(j.name)+'</div><div class="job-meta"><span class="pill">'+esc(j.stage)+'</span><span class="muted">'+esc(deadlineText)+'</span>'+(j.nextDate?'<span class="muted">次回 '+esc(fmt(j.nextDate))+'</span>':'')+'</div></div></div>'+(j.memo?'<div class="job-note">'+esc(j.memo)+'</div>':'')+'<div class="actions"></div>';const a=card.querySelector('.actions');const edit=document.createElement('button');edit.className='secondary';edit.textContent='編集';edit.onclick=()=>beginEditJob(j);const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm(j.name+'を削除しますか？')){jobs=jobs.filter(x=>String(x.id)!==String(j.id));saveJobs()}};/* Quick stage update: keep the same record and all existing fields intact. */
+// Stage overview reads existing jobs only; selecting a chip updates the existing filter.
+// Counts always cover all saved companies, regardless of search/date filters.
+function scRenderStageOverview(){
+ const root=$('sc-stage-overview-actions');if(!root)return;
+ const stages=['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'];
+ const counts=new Map(stages.map(stage=>[stage,0]));
+ jobs.map(normalize).forEach(job=>{if(counts.has(job.stage))counts.set(job.stage,counts.get(job.stage)+1)});
+ const selected=$('stageFilter').value;
+ root.replaceChildren();
+ const items=[['','すべて',jobs.length],...stages.map(stage=>[stage,stage,counts.get(stage)])];
+ items.forEach(([value,label,count])=>{
+  const button=document.createElement('button');button.type='button';
+  button.textContent=label+' '+count+'件';
+  button.setAttribute('aria-pressed',String(selected===value));
+  button.setAttribute('aria-label',label+'の登録企業 '+count+'件を表示');
+  button.disabled=!!value&&count===0&&selected!==value;
+  button.addEventListener('click',()=>{$('stageFilter').value=value;renderJobs()});
+  root.append(button);
+ });
+}
+
+// 2026-10-20 11:33: One-step undo for accidental quick stage changes.
+// The undo state is in memory only. No localStorage schema changes or private memo display.
+let scLastStageChange=null;
+function scShowStageChangeFeedback(message,withUndo){
+ const root=$('sc-stage-change-status');if(!root)return;
+ root.replaceChildren();
+ const label=document.createElement('span');label.textContent=message;root.append(label);
+ if(!withUndo||!scLastStageChange)return;
+ const button=document.createElement('button');button.type='button';button.className='sc-stage-undo-button';
+ button.textContent='元に戻す';button.setAttribute('aria-label','直前の選考段階の変更を元に戻す');
+ button.addEventListener('click',()=>{
+  const change=scLastStageChange;if(!change)return;
+  const target=jobs.find(j=>String(j.id)===change.id);
+  if(!target||target.stage!==change.next){
+   scLastStageChange=null;
+   scShowStageChangeFeedback('その記録は後から変更または削除されたため、元に戻せません。',false);
+   return;
+  }
+  target.stage=change.previous;
+  if(String($('editingId').value)===change.id)$('stage').value=change.previous;
+  scLastStageChange=null;
+  saveJobs();
+  scShowStageChangeFeedback(change.name+'の選考段階を「'+change.previous+'」に戻しました。',false);
+ });
+ root.append(button);
+}
+
+function renderJobs(){const root=$('jobs');root.replaceChildren();const arr=filteredJobs();scRenderStageOverview();
+ const quick=$('sc-job-action7-quick');if(quick){
+  const count=jobs.map(normalize).filter(j=>scJobUrgencyMatches(j,'action7')).length;
+  quick.textContent='7日以内の要対応（'+count+'件）';
+  quick.setAttribute('aria-pressed',String($('sc-job-urgency-filter').value==='action7'));
+ }
+ const clear=$('sc-job-clear-filters');if(clear){
+  const active=!!$('jobSearch').value.trim()||!!$('stageFilter').value||$('jobSort').value!=='deadline'||$('sc-job-date-filter').value!=='all'||$('sc-job-urgency-filter').value!=='all';
+  clear.disabled=!active;
+ }
+ const filteredExport=$('sc-export-filtered-jobs');if(filteredExport)filteredExport.disabled=arr.length===0;
+ ['sc-copy-filtered-jobs','sc-print-filtered-jobs'].forEach(id=>{const b=$(id);if(b)b.disabled=arr.length===0});
+ const summary=$('sc-job-filter-summary');if(summary){
+  const all=jobs.map(normalize),deadlineMissing=all.filter(j=>!j.deadline).length,nextMissing=all.filter(j=>!j.nextDate).length;
+  summary.textContent=arr.length+' / '+all.length+'件を表示｜締切未登録 '+deadlineMissing+'件・次回予定未登録 '+nextMissing+'件。7日以内の要対応は応募締切・次回予定のいずれかが該当する企業を1件として集計（内定・終了は除外）。日付の空欄は必ずしも入力漏れではありません。';
+ }
+ if(!arr.length){root.innerHTML='<p class="muted">条件に合う企業がありません。検索・段階・日付・期限の条件を見直してください。</p>';return}arr.forEach(j=>{const left=daysUntil(j.deadline),card=document.createElement('div');card.className='job-card'+(j.stage==='終了'?' done-card':left!==null&&left<0?' urgent':left!==null&&left<=7?' soon':'');let deadlineText=j.deadline?'締切 '+fmt(j.deadline)+(left!==null?(left<0?'（期限超過）':left===0?'（今日）':'（あと'+left+'日）'):''):'締切未登録';card.innerHTML='<div class="job-card-head"><div><div class="job-title">'+esc(j.name)+'</div><div class="job-meta"><span class="pill">'+esc(j.stage)+'</span><span class="muted">'+esc(deadlineText)+'</span>'+(j.nextDate?'<span class="muted">次回 '+esc(fmt(j.nextDate))+'</span>':'')+'</div></div></div>'+(j.memo?'<div class="job-note">'+esc(j.memo)+'</div>':'')+'<div class="actions"></div>';const a=card.querySelector('.actions');const edit=document.createElement('button');edit.className='secondary';edit.textContent='編集';edit.onclick=()=>beginEditJob(j);const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm(j.name+'を削除しますか？')){jobs=jobs.filter(x=>String(x.id)!==String(j.id));saveJobs()}};/* Quick stage update: keep the same record and all existing fields intact. */
 const quickLabel=document.createElement('label');quickLabel.className='sc-stage-quick-label';
 const quickText=document.createElement('span');quickText.textContent='選考段階';
 const quickSelect=document.createElement('select');quickSelect.className='sc-stage-quick-select';
@@ -635,13 +852,43 @@ quickSelect.addEventListener('change',()=>{
  const stage=quickSelect.value;
  const target=jobs.find(x=>String(x.id)===String(j.id));
  if(!target||!['検討中','ES作成中','応募済','Webテスト','面接','内定','終了'].includes(stage))return;
+ const previous=target.stage;
+ if(previous===stage)return;
  target.stage=stage;
+ scLastStageChange={id:String(j.id),name:j.name,previous,next:stage};
  if(String($('editingId').value)===String(j.id))$('stage').value=stage;
  saveJobs();
- const status=$('sc-stage-change-status');if(status)status.textContent=j.name+'の選考段階を「'+stage+'」に変更して保存しました。';
+ scShowStageChangeFeedback(j.name+'の選考段階を「'+stage+'」に変更しました。',true);
 });
 quickLabel.append(quickText,quickSelect);a.prepend(quickLabel);a.append(edit,del);root.append(card)})}
-function resetJobForm(){$('jobform').reset();$('editingId').value='';$('jobSubmit').textContent='企業を追加';$('cancelEdit').classList.add('hidden');scRenderDuplicatePreview()}
+function resetJobForm(){$('jobform').reset();$('editingId').value='';$('jobSubmit').textContent='企業を追加';$('cancelEdit').classList.add('hidden');scReviewJobDates();scRenderDuplicatePreview()}
+// 2026-10-20 09:31: Show a read-only review of entered dates. This does not
+// alter sc_jobs, block intentional historical records, or introduce new keys.
+function scReviewJobDates(){
+ const root=$('sc-job-date-review');if(!root)return;
+ const deadline=$('deadline').value,next=$('nextDate').value;
+ if(!deadline&&!next){root.hidden=true;root.textContent='';root.removeAttribute('data-state');return}
+ const details=[];let attention=false;
+ const describe=(label,date)=>{
+  if(!date){details.push(label+'は未登録です。');return}
+  const days=daysUntil(date);
+  const relative=days===null?'':days<0?'（'+Math.abs(days)+'日前）':days===0?'（今日）':'（あと'+days+'日）';
+  details.push(label+'：'+fmt(date)+relative);
+  if(days!==null&&days<0){attention=true}
+ };
+ describe('応募締切',deadline);describe('次回予定',next);
+ if(deadline&&next&&next<deadline){
+  details.push('確認：次回予定が応募締切より前です。入力日付を確認してください（意図的な場合はそのまま保存できます）。');
+  attention=true;
+ }else if(deadline&&next&&next===deadline){
+  details.push('確認：応募締切と次回予定が同じ日です。');
+ }
+ if(attention)details.push('過去の日付を含む場合も、履歴としてそのまま保存できます。');
+ root.textContent=details.join(' ／ ');root.dataset.state=attention?'attention':'normal';root.hidden=false;
+}
+['deadline','nextDate'].forEach(id=>{['input','change'].forEach(type=>$(id).addEventListener(type,scReviewJobDates))});
+scReviewJobDates();
+
 // 2026-10-20 06:30: Warn before saving a second record for the same company.
 // Only compares existing names; deliberate multiple applications remain possible.
 // Does not change the sc_jobs schema, imported records, or existing records on cancel.
@@ -697,7 +944,7 @@ $('jobform').onsubmit=e=>{
  saveJobs();resetJobForm();
  if(status)status.textContent=duplicates.length?'同名企業の別記録として保存しました。':'選考情報を保存しました。';
 };
-$('cancelEdit').onclick=resetJobForm;['jobSearch','stageFilter','jobSort'].forEach(id=>$(id).addEventListener(id==='jobSearch'?'input':'change',renderJobs));
+$('cancelEdit').onclick=resetJobForm;['jobSearch','stageFilter','jobSort','sc-job-date-filter','sc-job-urgency-filter'].forEach(id=>$(id).addEventListener(id==='jobSearch'?'input':'change',()=>{const status=$('sc-filtered-export-status');if(status)status.textContent='';renderJobs()}));
 function renderDashboard(){const norm=jobs.map(normalize),active=norm.filter(j=>j.stage!=='終了'&&j.stage!=='内定');$('mTotal').textContent=norm.length;$('mInterview').textContent=norm.filter(j=>j.stage==='面接').length;$('mOffer').textContent=norm.filter(j=>j.stage==='内定').length;const soon=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0&&d<=7});$('mSoon').textContent=soon.length;const future=active.filter(j=>{const d=daysUntil(j.deadline);return d!==null&&d>=0}).sort((a,b)=>a.deadline.localeCompare(b.deadline));$('nextDeadline').textContent=future.length?'次の締切：'+future[0].name+'　'+fmt(future[0].deadline)+'（あと'+daysUntil(future[0].deadline)+'日）':'次の締切はまだ登録されていません。';scRenderNextAction(active);renderUpcomingTasks()}
 
 
