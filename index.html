@@ -16,7 +16,13 @@ main{max-width:1040px;margin:26px auto;padding:0 18px}.hero{background:#e8efff;b
 section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 2px 10px #1b3c6b0a}h2{margin:0 0 14px;font-size:21px}h3{margin:0 0 8px}
 input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;width:100%;background:#fff}textarea{min-height:170px;resize:vertical}button{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:11px 15px;cursor:pointer;font-weight:700}button.secondary{background:#eaf0f9;color:#174077}button.ghost{background:#fff;color:#174077;border:1px solid #cbd5e1}button.danger{background:#fff1f1;color:#9b2525}.flex{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.flex>*{flex:1;min-width:150px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.toolbar button{padding:8px 11px}.muted{color:var(--muted);font-size:14px}.small{font-size:12px}.stat{font-size:32px;font-weight:800;color:#1f55ad}.pill{display:inline-block;font-size:12px;background:#edf3ff;border-radius:999px;padding:4px 9px;margin-right:5px}.tag{display:inline-block;font-size:12px;font-weight:700;background:#edf3ff;color:#174077;border-radius:999px;padding:4px 9px;margin-bottom:10px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.metric{background:#f7faff;border:1px solid #dbe4ec;border-radius:13px;padding:14px}.metric b{display:block;font-size:25px;color:#174077}.metric span{font-size:12px;color:var(--muted)}
-.saved-list,.job-list{display:grid;gap:10px;margin-top:14px}.saved-card,.job-card{border:1px solid #dbe4ec;border-radius:13px;padding:14px;background:#fff}.saved-card-head,.job-card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.job-title{font-weight:800;font-size:17px}.job-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}.job-note{margin-top:8px;color:#40516a;white-space:pre-wrap}.urgent{border-color:#e6a1a1;background:#fffafa}.soon{border-color:#e8ca7a;background:#fffcf2}.done-card{opacity:.66}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.actions button{padding:7px 10px;font-size:13px}
+.saved-list,.job-list{display:grid;gap:10px;margin-top:14px}.saved-card,.job-card{border:1px solid #dbe4ec;border-radius:13px;padding:14px;background:#fff}.saved-card-head,.job-card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.job-title{font-weight:800;font-size:17px}.job-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}.job-note{margin-top:8px;color:#40516a;white-space:pre-wrap}
+/* 2026-10-20 21:31: Next-appointment urgency is visible without editing records. */
+#tracker .job-card.sc-next-soon:not(.urgent):not(.soon){border-color:#90c9cb;background:#f6fbfc}
+#tracker .sc-next-date-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border:1px solid #dbe5ed;border-radius:999px;background:#f7f9fc;color:#42576c;font-size:12px;line-height:1.5}
+#tracker .sc-next-date-chip.is-soon{border-color:#7fc5c0;background:#e8f7f4;color:#145e59;font-weight:750}
+#tracker .sc-next-date-chip.is-past{border-color:#e1e6ec;background:#f6f7f9;color:#687785}
+.urgent{border-color:#e6a1a1;background:#fffafa}.soon{border-color:#e8ca7a;background:#fffcf2}.done-card{opacity:.66}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.actions button{padding:7px 10px;font-size:13px}
 .article-card{display:block;text-decoration:none;color:inherit;border:1px solid #dbe4ec;border-radius:14px;padding:18px;background:var(--soft)}.article-card:hover{border-color:#9fb8df}.article-card strong{display:block;color:#174077;font-size:18px;margin-bottom:6px}.article-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .notice{background:#f8fbff;border:1px solid #dbe4ec;border-radius:12px;padding:15px}.hidden{display:none!important}footer{padding:30px;text-align:center;color:#68778d;font-size:13px}
 @media(max-width:760px){.grid4{grid-template-columns:1fr 1fr}.article-grid{grid-template-columns:1fr}.flex{display:block}.flex>*{margin-bottom:9px}.saved-card-head,.job-card-head{display:block}.actions{margin-top:10px}section{padding:18px}nav{padding-left:10px}.hero{padding:20px}}
@@ -63,6 +69,13 @@ input,select,textarea{border:1px solid #cbd5e1;border-radius:9px;padding:11px;wi
 #tracker #sc-job-clear-filters{background:#fff;border:1px solid #cbd9df;color:#365368}
 #tracker .sc-job-filter-shortcuts button:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
 @media(max-width:390px){#tracker .sc-job-filter-shortcuts button{flex:1 1 auto}}
+
+/* 2026-10-20 16:31: individual calendar export from selection cards. */
+#tracker .sc-job-ics-button{border:1px solid #a7d3c3;background:#edf8f3;color:#155d49;font-size:12px;font-weight:750;min-height:38px;padding:8px 10px;border-radius:9px}
+#tracker .sc-job-ics-button:hover{background:#dbf0e5}
+#tracker .sc-job-ics-button:focus-visible{outline:3px solid #0c8271;outline-offset:2px}
+#tracker .sc-job-ics-note{margin:6px 0 12px;font-size:12px;color:#4c6471;line-height:1.65}
+@media(max-width:430px){#tracker .job-card .actions{flex-wrap:wrap}#tracker .sc-job-ics-button{flex:1 1 142px}}
 </style>
 <style>.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.cal-head{text-align:center;font-size:.8rem;font-weight:700;padding:7px 0;color:#46566d}.cal-day{min-height:90px;border:1px solid #dbe3ee;border-radius:9px;padding:6px;background:#fff;min-width:0}.cal-day.outside{background:#f4f6fa;opacity:.5}.cal-day.today{outline:2px solid #3478d4}.cal-num{font-weight:700;font-size:.82rem}.cal-event{font-size:.72rem;line-height:1.35;padding:4px 5px;margin-top:4px;background:#e8f1ff;border-radius:5px;overflow-wrap:anywhere;color:#14345d}.cal-event.deadline{background:#fff0d9;color:#694006}.cal-event small{display:block;opacity:.8}@media(max-width:600px){.cal-grid{gap:2px}.cal-day{min-height:77px;padding:3px;border-radius:5px}.cal-event{font-size:.63rem;padding:3px}.cal-num{font-size:.72rem}}</style><meta content="website" property="og:type"/><meta content="就活コンパス｜28卒・29卒の就活ツールをスマートに探す" property="og:title"/><meta content="自己分析・ES・SPI・企業研究・面接・選考管理。28卒・29卒向け無料ツールを目的別に検索。" property="og:description"/><meta content="https://goonyogunyo-prog.github.io/shukatsu-compass/" property="og:url"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"就活コンパス","url":"https://goonyogunyo-prog.github.io/shukatsu-compass/","inLanguage":"ja","description":"28卒向けの就活ガイドと無料選考管理ツール"}</script>
@@ -490,7 +503,266 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 #tracker #sc-job-urgency-filter:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
 @media(max-width:390px){#tracker #sc-job-urgency-filter{width:100%}}
 </style>
-<style id="sc-filtered-share-20261020">#tracker #sc-copy-filtered-jobs,#tracker #sc-print-filtered-jobs{background:#fff;color:#176b62;border-color:#9ac8bc}#tracker #sc-copy-filtered-jobs:disabled,#tracker #sc-print-filtered-jobs:disabled{background:#e9eef0;color:#627680;border-color:#d7e0e4}@media(max-width:420px){#tracker .sc-filtered-export>button{flex:1 1 140px}}</style></head>
+<style id="sc-filtered-share-20261020">#tracker #sc-copy-filtered-jobs,#tracker #sc-print-filtered-jobs{background:#fff;color:#176b62;border-color:#9ac8bc}#tracker #sc-copy-filtered-jobs:disabled,#tracker #sc-print-filtered-jobs:disabled{background:#e9eef0;color:#627680;border-color:#d7e0e4}@media(max-width:420px){#tracker .sc-filtered-export>button{flex:1 1 140px}}</style><style id="sc-job-bulk-ics-20261020">
+#tracker #sc-job-bulk-ics{background:#1b587d;border-color:#1b587d}
+#tracker #sc-job-bulk-ics:disabled{background:#e9eef0;border-color:#d7e0e4;color:#627680}
+#tracker .sc-job-bulk-ics-option{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:750;color:#234c61;padding:6px 8px;border-radius:8px;background:#f2f8fc;min-height:40px}
+#tracker .sc-job-bulk-ics-option input{width:17px;height:17px;accent-color:#176b62}
+#tracker #sc-job-bulk-ics-note{flex:1 1 100%}
+/* 2026-10-20 19:30: Optional calendar reminder selector; no localStorage writes. */
+#tracker #sc-job-bulk-ics-reminder{min-width:140px}
+/* 2026-10-20 20:33: Per-event ICS reminder, separate from bulk export. */
+#tracker .sc-job-single-ics-options{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 14px;margin:8px 0 12px;background:#f3f9fd;border:1px solid #d2e5f0;border-radius:12px}
+#tracker .sc-job-single-ics-options label{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:750;color:#234c61}
+#tracker #sc-job-single-ics-reminder{width:auto;min-width:150px;max-width:100%;padding:9px 10px;font-size:14px;background:white}
+#tracker .sc-job-single-ics-hint{font-size:12px;line-height:1.5;color:#516a7b}
+#tracker #sc-job-single-ics-status:not(:empty){padding:7px 0;font-size:12px;color:#155d49}
+@media(max-width:430px){#tracker .sc-job-single-ics-options label{width:100%;justify-content:space-between;flex-wrap:wrap}#tracker #sc-job-single-ics-reminder{flex:1 1 150px}}
+
+/* 2026-10-20 18:35: Type-specific ICS export (no saved-data schema changes). */
+#tracker .sc-job-bulk-ics-kind{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:750;color:#234c61;padding:6px 8px;border-radius:8px;background:#f2f8fc;min-height:40px}
+#tracker .sc-job-bulk-ics-kind select{font:inherit;font-size:13px;min-height:34px;max-width:100%;padding:5px 8px;border:1px solid #9ebac5;border-radius:7px;background:#fff;color:#173a4d}
+#tracker .sc-job-bulk-ics-kind select:focus-visible{outline:3px solid #f1b94e;outline-offset:2px}
+#tracker #sc-job-bulk-ics-count{flex:1 1 100%;font-size:12px;font-weight:750;color:#205b69;line-height:1.5}
+@media(max-width:420px){#tracker .sc-job-bulk-ics-option,#tracker .sc-job-bulk-ics-kind{flex:1 1 100%;justify-content:space-between}#tracker .sc-job-bulk-ics-kind select{min-width:0;flex:1 1 50%}}
+</style><style id="sc-sameday-styles">/* 2026-10-20 22:30: Read-only same-day schedule overview. */
+#tracker .sc-sameday-panel{border:1px solid #c9dae9;border-radius:13px;background:#f8fbff;margin:12px 0 18px;padding:12px 14px}
+#tracker .sc-sameday-panel summary{cursor:pointer;font-weight:750;color:#173f69;line-height:1.65}
+#tracker .sc-sameday-panel summary:focus-visible{outline:3px solid #0c8271;outline-offset:4px;border-radius:3px}
+#tracker .sc-sameday-note{color:#546779;font-size:12px;line-height:1.75;margin:9px 0}
+#tracker .sc-sameday-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+#tracker .sc-sameday-list li{background:#fff;border:1px solid #dce6ef;border-radius:10px;padding:10px 12px;overflow-wrap:anywhere}
+#tracker .sc-sameday-date{font-weight:800;color:#234d7b;margin:0 0 5px}
+#tracker .sc-sameday-event{font-size:13px;line-height:1.6;color:#3b5269;margin:3px 0}
+#tracker .sc-sameday-empty{color:#5b6b82;font-size:13px}
+</style><style id="sc-selfintro-style">
+/* 2026-10-20 23:35: 28卒 面接自己紹介30/60秒ワーク */
+#sc-selfintro{scroll-margin-top:86px}
+#sc-selfintro .si-lead{max-width:760px;color:#42576d;line-height:1.85}
+#sc-selfintro .si-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+#sc-selfintro .si-card{border:1px solid #dbe7ed;border-radius:15px;background:#fff;padding:18px;min-width:0}
+#sc-selfintro .si-card h3{font-size:17px;margin:0 0 14px;color:#163a54}
+#sc-selfintro .si-card label{display:block;font-size:13px;font-weight:700;margin:0 0 12px;color:#27445a}
+#sc-selfintro .si-card input,#sc-selfintro .si-card textarea{display:block;width:100%;max-width:100%;margin:6px 0 0;border:1px solid #cbd8e2;border-radius:9px;padding:10px 11px;background:#fff;color:#192f42;line-height:1.55;font-weight:400}
+#sc-selfintro .si-card textarea{resize:vertical;min-height:88px}
+#sc-selfintro .si-output{min-height:240px}
+#sc-selfintro .si-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#sc-selfintro .si-actions button{min-height:42px;border-radius:9px;padding:9px 13px;cursor:pointer}
+#sc-selfintro .si-secondary{background:#fff!important;border:1px solid #b8cbd6!important;color:#25465c!important}
+#sc-selfintro .si-segments{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 14px}
+#sc-selfintro .si-segments label{display:inline-flex;align-items:center;gap:6px;border:1px solid #cbd8e2;border-radius:999px;padding:7px 12px;margin:0;cursor:pointer}
+#sc-selfintro .si-segments input{display:inline;width:auto;margin:0;accent-color:#176b64}
+#sc-selfintro .si-metrics{border-radius:10px;background:#f1f8f6;border:1px solid #d1e5de;padding:10px 12px;color:#2b5550;font-size:13px;line-height:1.75}
+#sc-selfintro .si-metrics[data-state="over"]{background:#fff8ed;border-color:#f1d7a8;color:#80531c}
+#sc-selfintro .si-help{font-size:12px;color:#5b6b82;line-height:1.7;margin:10px 0 0}
+#sc-selfintro #si-feedback{min-height:1.6em;font-size:13px;font-weight:650;color:#176b64}
+@media(max-width:760px){#sc-selfintro .si-layout{grid-template-columns:minmax(0,1fr)}#sc-selfintro .si-card{padding:14px}#sc-selfintro .si-actions button{flex:1 1 130px}}
+
+/* 2026-10-21 02:32: 28卒自己紹介・音読ストップウォッチ（マイク不使用） */
+#sc-selfintro .si-practice{margin-top:20px;padding:16px;border:1px solid #c9dedb;border-radius:13px;background:#f7fbfa}
+#sc-selfintro .si-practice h4{font-size:16px;color:#163a54;margin:0 0 6px}
+#sc-selfintro .si-practice .si-practice-note{font-size:12px;line-height:1.7;color:#516679;margin:0 0 10px}
+#sc-selfintro .si-practice-clock{font-size:clamp(29px,6vw,40px);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.03em;color:#145e57;line-height:1.3}
+#sc-selfintro .si-practice-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#sc-selfintro .si-practice-actions button{flex:1 1 120px;min-height:44px;border-radius:9px;padding:9px 11px;cursor:pointer}
+#sc-selfintro .si-practice-actions button:disabled{opacity:.5;cursor:not-allowed}
+#sc-selfintro .si-practice-result{font-size:13px;line-height:1.7;margin:0;color:#245366;min-height:2.5em}
+#sc-selfintro .si-practice-result[data-state="done"]{color:#13604e;font-weight:700}
+#sc-selfintro .si-practice-result[data-state="paused"]{color:#85580e;font-weight:700}
+
+/* 2026-10-21 03:32: session-only spoken-practice history */
+#sc-selfintro .si-practice-history{margin-top:15px;padding-top:14px;border-top:1px solid #d1e3df}
+#sc-selfintro .si-practice-history h5{margin:0 0 6px;color:#173f53;font-size:14px}
+#sc-selfintro .si-practice-history p{font-size:12px;color:#52677b;line-height:1.7;margin:4px 0}
+#sc-selfintro .si-history-list{padding-left:23px;margin:10px 0;color:#26465a;font-size:13px;line-height:1.9}
+#sc-selfintro .si-history-summary{font-size:13px!important;font-weight:700;color:#145e57!important}
+#sc-selfintro .si-history-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#sc-selfintro .si-history-actions button{min-height:44px;flex:1 1 140px;border:1px solid #a9c7c3;background:#fff;color:#164d54;border-radius:9px;padding:9px 11px;cursor:pointer}
+#sc-selfintro .si-history-actions button:disabled{opacity:.5;cursor:not-allowed}
+/* 2026-10-21 05:30: accessible spoken-practice trends */
+#sc-selfintro .si-history-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+#sc-selfintro .si-history-insights[hidden],#sc-selfintro .si-history-bars[hidden]{display:none}
+#sc-selfintro .si-insight{padding:10px 8px;background:#fff;border:1px solid #cfe2e0;border-radius:10px;min-width:0}
+#sc-selfintro .si-insight span{display:block;font-size:11px;line-height:1.5;color:#52677b}
+#sc-selfintro .si-insight strong{display:block;margin-top:4px;font-size:clamp(13px,2.7vw,17px);line-height:1.5;color:#134d55;overflow-wrap:anywhere}
+#sc-selfintro .si-history-bars{display:grid;gap:7px;margin:12px 0 14px}
+#sc-selfintro .si-history-bar-row{display:grid;grid-template-columns:36px minmax(0,1fr) 54px;align-items:center;gap:8px;font-size:12px;color:#334f61}
+#sc-selfintro .si-history-bar-track{height:12px;border-radius:8px;background:#e5efee;overflow:hidden}
+#sc-selfintro .si-history-bar-fill{display:block;height:100%;min-width:2px;background:#267f81;border-radius:8px}
+#sc-selfintro .si-history-bar-fill[data-near="false"]{background:#bd8249}
+#sc-selfintro .si-history-bar-row output{text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:390px){#sc-selfintro .si-history-insights{grid-template-columns:1fr 1fr}#sc-selfintro .si-insight:last-child{grid-column:1/-1}}
+
+/* 2026-10-21 06:30: self-introduction pacing guidance */
+#sc-selfintro .si-pace-panel{border:1px solid #c9dce5;border-radius:12px;background:#f8fbff;padding:12px 14px;margin:10px 0 14px;overflow-wrap:anywhere}
+#sc-selfintro .si-pace-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px 12px;font-size:13px;color:#163a54}
+#sc-selfintro .si-pace-top span{font-variant-numeric:tabular-nums;color:#3b5c70}
+#sc-selfintro .si-pace-track{height:9px;background:#dbe8ee;border-radius:20px;margin:10px 0 9px;overflow:hidden}
+#sc-selfintro .si-pace-track span{display:block;width:0;height:100%;border-radius:20px;background:#21867e;transition:width .15s ease}
+#sc-selfintro .si-pace-panel[data-state="short"] .si-pace-track span{background:#bd8249}
+#sc-selfintro .si-pace-panel[data-state="long"] .si-pace-track span{background:#ba6657}
+#sc-selfintro .si-pace-advice{font-size:13px;line-height:1.65;margin:0;color:#183f54;font-weight:650}
+#sc-selfintro .si-pace-note{font-size:11px;line-height:1.55;margin:7px 0 0;color:#61778a}
+@media(prefers-reduced-motion:reduce){#sc-selfintro .si-pace-track span{transition:none}}
+</style><style id="sc-selfintro-goal-progress-style">
+/* 2026-10-21 07:28: speaking-time goal progress */
+#sc-selfintro .si-goal-progress{margin:9px 0 14px}
+#sc-selfintro .si-goal-track{height:12px;border-radius:999px;background:#d8e8e4;overflow:hidden;border:1px solid #c5dcd6}
+#sc-selfintro .si-goal-fill{display:block;height:100%;width:0;background:#21867e;transition:width .1s linear}
+#sc-selfintro .si-goal-progress[data-state="over"] .si-goal-fill{background:#bf694b}
+#sc-selfintro .si-goal-label{display:block;margin-top:7px;font-size:13px;font-weight:700;color:#2c555b;font-variant-numeric:tabular-nums}
+#sc-selfintro .si-goal-progress[data-state="over"] .si-goal-label{color:#934a32}
+@media(prefers-reduced-motion:reduce){#sc-selfintro .si-goal-fill{transition:none}}
+</style><style id="sc-selfintro-save-style">
+/* 2026-10-21 01:28: explicit opt-in draft persistence */
+#sc-selfintro .si-storage-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#sc-selfintro .si-storage-actions button{flex:1 1 140px;min-height:40px;white-space:normal}
+#sc-selfintro #si-save-status{margin:8px 0 0;color:#42576d;line-height:1.6}
+@media(max-width:390px){#sc-selfintro .si-storage-actions button{flex-basis:100%}}
+</style>
+<style id="sc-selfintro-structure-style">
+/* 2026-10-21 08:35: non-AI completeness check for 28-grad interview introductions */
+#sc-selfintro .si-structure{border:1px solid #cbded8;background:#f7fcfa;border-radius:12px;padding:14px;margin:12px 0 15px;color:#234a42}
+#sc-selfintro .si-structure-heading{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;margin:0 0 8px}
+#sc-selfintro .si-structure-heading strong{font-size:15px}
+#sc-selfintro .si-structure-count{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+#sc-selfintro .si-structure-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 10px}
+#sc-selfintro .si-structure-list li{font-size:13px;line-height:1.45;padding:6px 8px;background:#fff;border:1px solid #dbe9e4;border-radius:7px;overflow-wrap:anywhere}
+#sc-selfintro .si-structure-list li::before{content:'○';display:inline-block;margin-right:6px;color:#71807c;font-weight:700}
+#sc-selfintro .si-structure-list li[data-ready="true"]{background:#e8f6ef;border-color:#acd7c3}
+#sc-selfintro .si-structure-list li[data-ready="true"]::before{content:'✓';color:#176746}
+#sc-selfintro .si-structure-note{font-size:12px;line-height:1.6;margin:10px 0 0;color:#49645c}
+@media(max-width:520px){#sc-selfintro .si-structure-list{grid-template-columns:1fr}}
+</style>
+
+<style id="sc-selfintro-followup-style">
+/* 2026-10-21 09:33 | 面接自己紹介から深掘り6問へ */
+#si-followup{margin-top:22px;padding:18px;border:1px solid #cddde8;border-radius:15px;background:#f7fafc;color:#163a54}
+#si-followup h4{margin:0 0 9px;font-size:18px;line-height:1.45}
+#si-followup .si-fu-lead{margin:0 0 14px;color:#43596c;font-size:13px;line-height:1.75}
+#si-followup .si-fu-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+#si-followup .si-fu-item{min-width:0;background:#fff;border:1px solid #dce6ee;border-radius:12px;padding:13px}
+#si-followup .si-fu-question{display:block;font-weight:750;font-size:14px;line-height:1.65;margin-bottom:8px;overflow-wrap:anywhere}
+#si-followup .si-fu-item textarea{display:block;box-sizing:border-box;width:100%;min-height:76px;padding:10px;border:1px solid #bfcfdd;border-radius:8px;background:#fff;color:#1d3446;font:inherit;font-size:14px;resize:vertical}
+#si-followup .si-fu-item textarea:focus-visible,#si-followup button:focus-visible{outline:3px solid #2b7aab;outline-offset:2px}
+#si-followup .si-fu-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px;align-items:center}
+#si-followup button{background:#174a70;border:1px solid #174a70;border-radius:9px;color:#fff;font-size:13px;font-weight:700;padding:10px 13px;cursor:pointer}
+#si-followup button.si-fu-clear{background:#fff;color:#174a70}
+#si-followup .si-fu-progress{margin:0;color:#315269;font-size:13px;font-weight:700}
+#si-followup .si-fu-notice{margin:8px 0 0;font-size:12px;line-height:1.7;color:#526879}
+@media(max-width:480px){#si-followup{padding:12px}#si-followup .si-fu-item{padding:10px}#si-followup .si-fu-actions button{flex:1 1 140px}}
+#si-followup .si-fu-persist{display:flex;flex-wrap:wrap;gap:9px;margin-top:11px;align-items:center;border-top:1px solid #dbe6ee;padding-top:13px}
+#si-followup .si-fu-persist button{background:#fff;color:#174a70;border-color:#abc6d7}
+#si-followup .si-fu-persist button:first-child{background:#176b62;border-color:#176b62;color:#fff}
+#si-followup .si-fu-persist .si-fu-danger{color:#914237;border-color:#e5bfb9}
+@media(max-width:480px){#si-followup .si-fu-persist button{flex:1 1 130px}}
+</style>
+
+<style id="sc-selfintro-followup-practice-style">
+/* 2026-10-21 11:27 | 6問ランダム模擬面接 */
+#si-fu-practice{margin:15px 0 18px;padding:15px;border:1px solid #b9d7e4;border-radius:12px;background:#eef7fa;min-width:0}
+#si-fu-practice h5{font-size:16px;line-height:1.5;color:#16445f;margin:0 0 7px}
+#si-fu-practice>p{font-size:13px;line-height:1.7;margin:0 0 12px;color:#415b6b}
+#si-fu-practice .si-fu-practice-buttons{display:flex;gap:8px;flex-wrap:wrap}
+#si-fu-practice button{min-height:42px}
+#si-fu-practice button:disabled{opacity:.5;cursor:not-allowed}
+#si-fu-practice .si-fu-practice-stage{background:#fff;border:1px solid #cddfe8;border-radius:10px;margin-top:12px;padding:14px;min-width:0}
+#si-fu-practice .si-fu-practice-counter{font-size:12px;color:#36617a;font-weight:700;margin:0 0 7px}
+#si-fu-practice .si-fu-practice-question{font-size:16px;line-height:1.7;font-weight:700;color:#12374e;overflow-wrap:anywhere;margin:0}
+#si-fu-practice .si-fu-practice-answer{margin-top:12px;padding:12px;border-left:4px solid #168078;background:#f1faf6;border-radius:6px;font-size:13px;overflow-wrap:anywhere;white-space:pre-wrap}
+#si-fu-practice .si-fu-practice-answer p{margin:5px 0 0;line-height:1.65}
+#si-fu-practice .si-fu-practice-status{margin:11px 0 0;font-size:12px;color:#365568}
+@media(max-width:480px){#si-fu-practice{padding:11px}#si-fu-practice .si-fu-practice-buttons button{flex:1 1 135px}}
+</style>
+
+<style id="sc-selfintro-followup-review-style">
+/* 2026-10-21 15:30 | 面接6問の次回練習プラン */
+#si-fu-review{margin:15px 0;padding:14px;border:1px solid #c9d9e7;border-radius:12px;background:#f7fafc;min-width:0}
+#si-fu-review h6{margin:0 0 8px;font-size:16px;color:#163a54}
+#si-fu-review .si-fu-review-note{font-size:13px;line-height:1.7;color:#40596d;margin:0 0 10px}
+#si-fu-review-list{padding-left:1.3em;margin:8px 0 12px;display:grid;gap:10px}
+#si-fu-review-list li{padding:10px;background:white;border:1px solid #dce6ee;border-radius:9px;overflow-wrap:anywhere;line-height:1.65}
+#si-fu-review-list li strong{display:block;font-size:14px;color:#163a54}
+#si-fu-review-list li span{display:block;font-size:13px;color:#40596d}
+#si-fu-review-list label{display:flex;gap:8px;align-items:center;margin-top:6px;font-size:13px;cursor:pointer}
+#si-fu-review-list input{width:18px;height:18px;flex:0 0 auto}
+#si-fu-review-list li:has(input:checked){opacity:.72}
+#si-fu-review-export{max-width:100%;white-space:normal}
+@media(max-width:520px){#si-fu-review{padding:12px}#si-fu-review-export{width:100%}}
+</style>
+<style id="sc-selfintro-review-drill-style">
+/* 2026-10-21 16:35 | 28卒・重点質問の再練習（端末内・録音なし） */
+#si-fu-review-drill{margin:14px 0;padding:14px;border:1px solid #bcd6c9;border-radius:12px;background:#f2faf6;min-width:0}
+#si-fu-review-drill-start{max-width:100%;white-space:normal}
+#si-fu-review-drill-stage{margin-top:12px}
+#si-fu-review-drill-stage[hidden],#si-fu-review-drill-hints[hidden]{display:none}
+#si-fu-review-drill-counter{font-size:12px;font-weight:800;letter-spacing:.04em;color:#24664c;margin:0 0 6px}
+#si-fu-review-drill-question{font-size:16px;font-weight:750;line-height:1.7;color:#163a34;overflow-wrap:anywhere;margin:0 0 12px}
+#si-fu-review-drill-hints{padding:10px 12px;border:1px solid #d0e2d7;background:#fff;border-radius:9px;overflow-wrap:anywhere}
+#si-fu-review-drill-hints strong{font-size:13px;color:#205940}
+#si-fu-review-drill-hints p{margin:6px 0 0;font-size:13px;line-height:1.7}
+#si-fu-review-drill .si-fu-review-drill-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#si-fu-review-drill .si-fu-review-drill-actions button{flex:1 1 145px;min-width:0;white-space:normal}
+#si-fu-review-drill-status{font-size:12px;line-height:1.7;color:#385c4e;margin:10px 0 0}
+/* 2026-10-21 17:30: 復習カード独立タイマー。既存の模擬面接タイマーは変更しない */
+#si-fu-review-drill-timer{padding:12px;margin:0 0 12px;background:#fff;border:1px solid #d0e2d7;border-radius:10px;min-width:0}
+#si-fu-review-drill-timer label{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700;color:#205940}
+#si-fu-review-drill-timer select{min-width:95px;min-height:40px;border:1px solid #8ca99d;border-radius:8px;background:white;padding:6px;color:#163a34}
+#si-fu-review-drill-clock{font-size:clamp(25px,6vw,34px);font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:.025em;color:#173d32;margin:8px 0;line-height:1.2}
+#si-fu-review-drill-clock.is-over{color:#b34a32}
+#si-fu-review-drill-timer .si-fu-review-drill-time-actions{display:flex;flex-wrap:wrap;gap:7px}
+#si-fu-review-drill-timer .si-fu-review-drill-time-actions button{flex:1 1 120px;min-width:0;white-space:normal}
+#si-fu-review-drill-time-status{font-size:12px;line-height:1.7;color:#385c4e;margin:8px 0 0;overflow-wrap:anywhere}
+@media(max-width:520px){#si-fu-review-drill{padding:12px}#si-fu-review-drill-start{width:100%}#si-fu-review-drill .si-fu-review-drill-actions button{flex:1 1 100%}}
+</style>
+<style id="sc-selfintro-drill-progress-style">
+/* 2026-10-21 18:35 | 重点復習の進歩比較・CSV出力 */
+#si-fu-drill-progress{margin:14px 0;padding:13px;border:1px solid #b8d5e1;background:#f5faff;border-radius:12px;min-width:0}
+#si-fu-drill-progress h6{margin:0 0 6px;color:#1d4960;font-size:15px}
+#si-fu-drill-progress-note{font-size:12px;line-height:1.7;color:#385c6e;margin:0 0 8px}
+#si-fu-drill-progress-list{margin:8px 0 0;padding-left:20px;overflow-wrap:anywhere}
+#si-fu-drill-progress-list li{margin:8px 0;font-size:13px;line-height:1.7}
+#si-fu-review-export-csv{margin-top:8px;max-width:100%;white-space:normal}
+@media(max-width:520px){#si-fu-drill-progress{padding:12px}#si-fu-review-export-csv{width:100%}}
+</style>
+<style id="sc-selfintro-followup-rating-style">
+/* 2026-10-21 14:36 | 28卒模擬面接：質問別の3軸自己評価 */
+#si-fu-rating{margin:12px 0;padding:12px 14px;border:1px solid #c4d9ca;border-radius:10px;background:#f5faf6;min-width:0}
+#si-fu-rating legend{padding:0 5px;font-size:14px;font-weight:800;color:#24543c}
+#si-fu-rating p{margin:0 0 9px;font-size:12px;line-height:1.65;color:#3d5b49}
+#si-fu-rating label{display:flex;gap:8px;align-items:flex-start;min-height:36px;padding:5px 0;font-size:14px;line-height:1.5;color:#163e2d;cursor:pointer}
+#si-fu-rating input{width:18px;height:18px;flex:none;margin:2px 0 0;accent-color:#1e7650}
+#si-fu-rating-summary{font-size:13px;line-height:1.65;font-weight:700;color:#24543c;margin:8px 0 13px}
+@media(max-width:480px){#si-fu-rating{padding:11px}#si-fu-rating label{font-size:13px}}
+</style>
+
+<style id="sc-selfintro-followup-timer-style">
+/* 2026-10-21 12:35 | 面接官モードの質問別回答時間・結果集計 */
+#si-fu-timebox{margin:12px 0 0;padding:12px;border:1px solid #c9dde8;background:#fff;border-radius:10px;min-width:0}
+#si-fu-timebox .si-fu-time-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+#si-fu-timebox label{font-size:13px;font-weight:700;color:#17455f;display:flex;align-items:center;gap:7px}
+#si-fu-timebox select{font-size:14px;min-height:40px;max-width:100%;padding:6px 10px;border:1px solid #91b5c7;border-radius:7px;background:#fff;color:#14384c}
+#si-fu-timebox .si-fu-time-readout{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:#174f69}
+#si-fu-timebox .si-fu-time-readout.is-over{color:#a83e34}
+#si-fu-timebox .si-fu-time-progress{height:9px;background:#e1eaf0;border-radius:99px;overflow:hidden;margin:10px 0}
+#si-fu-timebox .si-fu-time-progress span{display:block;height:100%;width:0%;background:#14867d;transition:width .1s linear}
+#si-fu-timebox .si-fu-time-progress span.is-over{background:#ba5242}
+#si-fu-timebox .si-fu-time-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+#si-fu-timebox .si-fu-time-buttons button{min-height:42px;flex:1 1 110px}
+#si-fu-timebox .si-fu-time-buttons button:first-child{background:#136f69;color:#fff;border-color:#136f69}
+#si-fu-timebox .si-fu-time-help,#si-fu-timebox .si-fu-time-status{font-size:12px;line-height:1.65;color:#415f70;margin:7px 0 0}
+#si-fu-time-summary{margin-top:12px;padding:13px;border:1px solid #a6d4c8;border-radius:10px;background:#f3fbf7;min-width:0}
+#si-fu-time-summary h6{font-size:15px;color:#1b5148;margin:0 0 7px}
+#si-fu-time-summary p,#si-fu-time-summary li{font-size:13px;line-height:1.65;color:#254b47;overflow-wrap:anywhere}
+#si-fu-time-summary ol{padding-left:22px;margin:8px 0 0}
+#si-fu-time-summary .si-fu-time-export-actions{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0 4px}
+#si-fu-time-summary .si-fu-time-export-actions button{flex:1 1 145px;min-height:44px;border:1px solid #196a61;border-radius:8px;background:#fff;color:#17594f;font-weight:700;cursor:pointer}
+#si-fu-time-summary .si-fu-time-export-actions button:focus-visible{outline:3px solid #267c9c;outline-offset:3px}
+#si-fu-time-summary .si-fu-time-export-actions button:hover{background:#e1f4ee}
+#si-fu-time-summary .si-fu-time-export-note{font-size:12px;color:#4c6561;margin:8px 0 0}
+@media(max-width:480px){#si-fu-timebox{padding:10px}#si-fu-timebox .si-fu-time-readout{font-size:24px}#si-fu-timebox .si-fu-time-top{align-items:flex-start}}
+</style>
+</head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
 <header class="site-header"><div class="site-header-inner">
@@ -522,7 +794,7 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 <div class="sc-h-suggestions" id="sc-h-suggestions" role="group" aria-label="卒年に合わせたクイック検索"><span class="sc-h-suggestions-label">クイック検索</span><span class="sc-h-suggestions-buttons" id="sc-h-suggestions-buttons"></span></div>
 <div class="sc-h-list-bar"><span aria-live="polite" id="sc-h-count"></span><label class="sc-h-sort-label" for="sc-h-sort">並び順 <select id="sc-h-sort" aria-label="ツールの並び順"><option value="recommended">おすすめ・関連度順</option><option value="favorites">お気に入り優先</option><option value="recent">最近使った順</option><option value="name">名前順</option></select></label><button class="sc-h-favorites-only" id="sc-h-favorites-only" type="button" aria-pressed="false" aria-label="お気に入りのツールだけを表示">☆ お気に入り <span id="sc-h-favorites-count">0</span></button><button class="sc-h-filter-share" hidden="" id="sc-h-filter-share" type="button" title="卒年・目的・検索語を含むURLをコピー。お気に入りや入力データは含みません。" aria-label="現在の卒年・目的・検索語の絞り込みURLをコピー">条件URLをコピー <span aria-hidden="true">⧉</span></button> <button class="sc-h-export" hidden id="sc-h-copy-results" type="button" title="表示中の検索結果のツール名と公開URLだけをコピー">一覧をコピー</button><button class="sc-h-export" hidden id="sc-h-export-results" type="button" title="絞り込み結果のツール名と公開URLをテキスト保存。ESや企業メモは含みません。">TXT保存</button> <button class="sc-h-reset" id="sc-h-reset" type="button" hidden>絞り込みを解除</button><span class="sc-h-list-note">☆ お気に入り / ⧉ リンクをコピー</span></div>
 <div id="sc-h-share-feedback" class="sc-h-share-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
-<div aria-label="検索結果" class="sc-h-tool-list" id="sc-h-tool-list"><a class="sc-h-tool" href="29sotsu-jikobunseki-10questions.html"><span aria-hidden="true" class="sc-h-tool-code">01</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己分析10問</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">経験を整理し、強みの材料を見つける</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-mojisu-counter.html"><span aria-hidden="true" class="sc-h-tool-code">21</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES文字数カウンター</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">200〜500字の文字数をすぐ確認</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-jikopr-400ji-revision-work.html"><span aria-hidden="true" class="sc-h-tool-code">05</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己PR 400字ワーク</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">6項目から下書きを作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-mensetsu-1min-timer.html"><span aria-hidden="true" class="sc-h-tool-code">25</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">面接1分回答タイマー</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">回答を30〜120秒で練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-kigyou-erabi-jiku-match-board.html"><span aria-hidden="true" class="sc-h-tool-code">10</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業選び比較ボード</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">仕事・成長・働き方などを比較</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-spi-gengo-12mon-practice.html"><span aria-hidden="true" class="sc-h-tool-code">30</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">SPI言語12問演習</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">語彙・読解を練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-schedule-conflict-checker.html"><span aria-hidden="true" class="sc-h-tool-code">13</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン日程かぶり確認</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">授業・面接・説明会の重複を探す</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-shimekiri-gyakusan.html"><span aria-hidden="true" class="sc-h-tool-code">22</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES締切逆算</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">締切から作業計画を組み立てる</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-obog-30min-question-planner.html"><span aria-hidden="true" class="sc-h-tool-code">14</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">OB・OG訪問質問プラン</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">30分の質問と時間配分を考える</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-kigyo-kenkyu-30min.html"><span aria-hidden="true" class="sc-h-tool-code">20</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業研究30分ワーク</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">仕事内容・応募条件を整理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="#tracker"><span aria-hidden="true" class="sc-h-tool-code">38</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">選考進捗トラッカー</span><span class="sc-h-tool-year">共通</span></span><span class="sc-h-tool-desc">企業・締切・選考段階を管理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-shiboudouki-work.html"><span aria-hidden="true" class="sc-h-tool-code">07</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン志望動機</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">200字・400字の志望理由を作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a></div>
+<div aria-label="検索結果" class="sc-h-tool-list" id="sc-h-tool-list"><a class="sc-h-tool" href="#sc-selfintro"><span aria-hidden="true" class="sc-h-tool-code">39</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">面接自己紹介30秒・60秒</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">自分の経験から話す原稿を作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-jikobunseki-10questions.html"><span aria-hidden="true" class="sc-h-tool-code">01</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己分析10問</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">経験を整理し、強みの材料を見つける</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-mojisu-counter.html"><span aria-hidden="true" class="sc-h-tool-code">21</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES文字数カウンター</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">200〜500字の文字数をすぐ確認</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-jikopr-400ji-revision-work.html"><span aria-hidden="true" class="sc-h-tool-code">05</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">自己PR 400字ワーク</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">6項目から下書きを作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-mensetsu-1min-timer.html"><span aria-hidden="true" class="sc-h-tool-code">25</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">面接1分回答タイマー</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">回答を30〜120秒で練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-kigyou-erabi-jiku-match-board.html"><span aria-hidden="true" class="sc-h-tool-code">10</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業選び比較ボード</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">仕事・成長・働き方などを比較</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-spi-gengo-12mon-practice.html"><span aria-hidden="true" class="sc-h-tool-code">30</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">SPI言語12問演習</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">語彙・読解を練習</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-schedule-conflict-checker.html"><span aria-hidden="true" class="sc-h-tool-code">13</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン日程かぶり確認</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">授業・面接・説明会の重複を探す</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-es-shimekiri-gyakusan.html"><span aria-hidden="true" class="sc-h-tool-code">22</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">ES締切逆算</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">締切から作業計画を組み立てる</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-obog-30min-question-planner.html"><span aria-hidden="true" class="sc-h-tool-code">14</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">OB・OG訪問質問プラン</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">30分の質問と時間配分を考える</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="28sotsu-kigyo-kenkyu-30min.html"><span aria-hidden="true" class="sc-h-tool-code">20</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">企業研究30分ワーク</span><span class="sc-h-tool-year">28卒</span></span><span class="sc-h-tool-desc">仕事内容・応募条件を整理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="#tracker"><span aria-hidden="true" class="sc-h-tool-code">38</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">選考進捗トラッカー</span><span class="sc-h-tool-year">共通</span></span><span class="sc-h-tool-desc">企業・締切・選考段階を管理</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a><a class="sc-h-tool" href="29sotsu-intern-shiboudouki-work.html"><span aria-hidden="true" class="sc-h-tool-code">07</span><span class="sc-h-tool-content"><span class="sc-h-tool-top"><span class="sc-h-tool-title">インターン志望動機</span><span class="sc-h-tool-year">29卒</span></span><span class="sc-h-tool-desc">200字・400字の志望理由を作成</span></span><span aria-hidden="true" class="sc-h-tool-arrow">↗</span></a></div>
 <div class="sc-h-empty" hidden="" id="sc-h-no-match" role="region" aria-label="検索結果がない場合の案内">一致するツールがありません。キーワードや条件を変えてみてください。</div>
 <div class="sc-h-showmore-wrap"><button class="sc-h-showmore" id="sc-h-showmore" type="button">すべてのツールを表示 <span aria-hidden="true">↓</span></button></div>
 </section><div aria-label="卒業年度別のスタートガイド" class="sc-h-quick">
@@ -543,17 +815,206 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 <div aria-label="文字数プリセット" class="toolbar"><button class="secondary len" data-len="200">200字</button><button class="secondary len" data-len="300">300字</button><button class="secondary len" data-len="400">400字</button><button class="secondary len" data-len="500">500字</button><button class="secondary len" data-len="600">600字</button></div>
 <textarea id="es" placeholder="ここにESの文章を入力してください"></textarea><p class="muted" id="countDetail"></p>
 <div class="toolbar"><button id="saveDraft">下書きを保存</button><button id="copy">文章をコピー</button><button class="ghost" id="clear">入力欄をクリア</button></div><p class="muted small">保存した下書きはこのブラウザ内のローカルストレージに保存されます。端末変更・ブラウザのデータ削除に備え、<a href="#backup-section">定期的に一括バックアップ</a>してください。</p><div class="saved-list" id="drafts"></div><div class="notice" style="margin-top:14px"><strong>秋冬インターンの志望動機で迷ったら：</strong> <a href="28sotsu-akifuyu-intern-shiboudouki-200-400.html">200字・400字の例文と無料作成シート →</a></div><div class="notice" style="margin-top:14px"><strong>企業別にESを管理したい人へ：</strong> <a href="es-shitsumon-kanri.html">ES設問・回答・文字数・提出締切をまとめて管理する（無料） →</a></div></section>
-<section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。<strong>登録後は企業カードから選考段階を直接変更できます。</strong></p>
+<section class="card" id="calendar" style="margin-top:20px"><h2>📅 就活カレンダー</h2><p class="muted">選考管理に登録した「締切」「次回予定」を自動表示。予定はこのブラウザに保存されています。</p><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0"><button aria-label="前の月" id="calPrev" type="button">← 前月</button><strong aria-live="polite" id="calMonth"></strong><button aria-label="次の月" id="calNext" type="button">翌月 →</button><button id="calToday" type="button">今月</button><button id="calExport" type="button">カレンダーに書き出す（.ics）</button></div><div aria-label="選考予定カレンダー" class="cal-grid" id="calGrid" role="grid"></div><p class="muted" id="calEmpty" style="margin-top:12px"></p><p class="muted">※書き出し後、iPhone・Googleカレンダー等への取り込み操作が必要です。登録済み予定を更新しても取り込み先には自動反映されません。</p></section><section id="tracker"><h2>📋 選考進捗トラッカー</h2><p class="muted">企業名・選考段階・締切・次回予定・メモをまとめて管理できます。<strong>登録後は企業カードから選考段階を直接変更できます。</strong> 次回予定の残り日数は日付単位で表示し、3日以内を強調します（予定の時刻や確定状況は公式案内で確認）。</p>
 <form id="jobform"><input id="editingId" type="hidden"/><div class="flex"><label>企業名<input id="company" maxlength="80" placeholder="企業名" required=""/></label><label>選考段階<select id="stage"><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>締切<input id="deadline" type="date"/></label><label>次回予定<input id="nextDate" type="date"/></label></div><label>メモ<input id="jobMemo" placeholder="例：一次面接／OB訪問後に志望動機修正"/></label><div class="toolbar"><button id="jobSubmit" type="submit">企業を追加</button><button class="ghost hidden" id="cancelEdit" type="button">編集を取消</button></div></form><p id="sc-job-date-review" class="sc-job-date-review" role="status" aria-live="polite" aria-atomic="true" hidden></p><p id="sc-job-duplicate-status" class="muted small" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-job-duplicate-preview" class="sc-job-duplicate-preview" aria-live="polite" aria-label="同名企業の登録状況" hidden></div>
 <div class="flex"><label>検索<input id="jobSearch" placeholder="企業名・メモで検索"/></label><label>段階<select id="stageFilter"><option value="">すべて</option><option>検討中</option><option>ES作成中</option><option>応募済</option><option>Webテスト</option><option>面接</option><option>内定</option><option>終了</option></select></label><label>並び順<select id="jobSort"><option value="deadline">締切が近い順</option><option value="nextDate">次回予定が近い順</option><option value="newest">登録が新しい順</option><option value="company">企業名順</option></select></label><label>日付の登録状況<select id="sc-job-date-filter" aria-label="締切や次回予定の登録状況で企業を絞り込む"><option value="all">すべて</option><option value="deadline">締切が未登録</option><option value="next">次回予定が未登録</option><option value="both">両方とも未登録</option></select></label><label>期限・次回予定<select id="sc-job-urgency-filter" aria-label="応募締切や次回予定の近さで企業を絞り込む"><option value="all">すべて</option><option value="deadline7">応募締切が7日以内</option><option value="next7">次回予定が7日以内</option><option value="action7">締切・次回予定が7日以内</option><option value="overdue">応募締切が期限超過</option></select></label></div>
 <div class="sc-job-filter-shortcuts" role="group" aria-label="選考一覧のクイック絞り込み"><button type="button" id="sc-job-action7-quick" aria-pressed="false" aria-controls="jobs">7日以内の要対応を表示</button><button type="button" id="sc-job-clear-filters" aria-controls="jobs">絞り込みをすべて解除</button></div>
 <div class="sc-stage-overview" id="sc-stage-overview" aria-label="選考段階ごとの登録件数と絞り込み"><p class="sc-stage-overview-title">選考段階別の登録件数（全企業）｜タップで一覧を絞り込み</p><div class="sc-stage-overview-actions" id="sc-stage-overview-actions" role="group" aria-label="選考段階を選ぶ"></div></div>
 <p class="sc-job-filter-summary" id="sc-job-filter-summary" role="status" aria-live="polite" aria-atomic="true"></p>
-<div class="sc-filtered-export"><button id="sc-export-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">表示中の企業をCSV保存</button><button id="sc-copy-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">一覧をコピー</button><button id="sc-print-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">一覧を印刷</button><span class="sc-filtered-export-note" id="sc-filtered-export-note">現在の検索・段階・日付・期限条件と並び順を反映。企業名・段階・締切・次回予定のみ。メモは含みません（復元用は下の「CSVでバックアップ」）。コピー内容や印刷物の共有先に注意してください。</span></div>
-<p id="sc-filtered-export-status" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-stage-change-status" class="sc-stage-change-status" role="status" aria-live="polite" aria-atomic="true"></div><div class="job-list" id="jobs"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
+<details id="sc-sameday-panel" class="sc-sameday-panel">
+ <summary id="sc-sameday-summary">同じ日に予定が重なる日を確認</summary>
+ <p class="sc-sameday-note">登録済みの全企業について、今後の応募締切・次回予定が同じ日付に2件以上ある日を表示します（内定・終了済みを除く）。時刻は記録されていないため、実際の時間重複を示すものではありません。予定時刻は各企業の案内で確認してください。</p>
+ <div id="sc-sameday-result" role="status" aria-live="polite" aria-atomic="true"></div>
+</details>
+<div class="sc-filtered-export"><button id="sc-export-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">表示中の企業をCSV保存</button><button id="sc-job-bulk-ics" type="button" aria-describedby="sc-job-bulk-ics-count sc-job-bulk-ics-note" disabled>表示中の予定をICS保存</button><label class="sc-job-bulk-ics-kind" for="sc-job-bulk-ics-kind">出力する予定<select id="sc-job-bulk-ics-kind" aria-describedby="sc-job-bulk-ics-count"><option value="both">締切と次回予定</option><option value="deadline">応募締切だけ</option><option value="nextDate">次回予定だけ</option></select></label><label class="sc-job-bulk-ics-kind" for="sc-job-bulk-ics-reminder">カレンダー通知<select id="sc-job-bulk-ics-reminder" aria-describedby="sc-job-bulk-ics-note"><option value="none">通知なし（初期設定）</option><option value="P1D">1日前</option><option value="P3D">3日前</option><option value="P7D">7日前</option></select></label><label class="sc-job-bulk-ics-option"><input type="checkbox" id="sc-job-bulk-ics-future-only" checked>過去の予定は除外</label><span id="sc-job-bulk-ics-count" role="status" aria-live="polite" aria-atomic="true">出力対象を確認中</span><button id="sc-copy-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">一覧をコピー</button><button id="sc-print-filtered-jobs" type="button" aria-describedby="sc-filtered-export-note">一覧を印刷</button><span class="sc-filtered-export-note" id="sc-filtered-export-note">現在の検索・段階・日付・期限条件と並び順を反映。企業名・段階・締切・次回予定のみ。メモは含みません（復元用は下の「CSVでバックアップ」）。コピー内容や印刷物の共有先に注意してください。</span><span class="sc-filtered-export-note" id="sc-job-bulk-ics-note">ICS保存は表示中の企業から「締切と次回予定」「応募締切だけ」「次回予定だけ」を選んで1ファイルにまとめます。件数は絞り込み・予定の種類・過去の予定の除外に連動します。時刻は未登録のため終日予定。選考メモ・段階は出力しません。通知は初期設定でオフ。選ぶと各予定に1・3・7日前の通知設定を追加します。終日予定の開始時刻（通常0時）を基準にするため、通知時刻・対応状況はカレンダーアプリで確認してください。カレンダーへの取り込みは手動で、自動同期されません。共有先にご注意ください。</span></div>
+<p id="sc-filtered-export-status" role="status" aria-live="polite" aria-atomic="true"></p><div id="sc-stage-change-status" class="sc-stage-change-status" role="status" aria-live="polite" aria-atomic="true"></div><p class="sc-job-ics-note" id="sc-job-ics-note">企業カードの「締切を予定保存」「次回予定を保存」、または直近予定の「予定を保存」で1件ずつ.ics保存できます。下の通知設定は個別保存だけに適用され、一括ICS保存の通知設定とは独立しています。時刻未登録のため終日予定です。取り込みは手動で、自動同期されません。企業名・日付・選考段階が含まれます（選考メモは含まれません）。通知時刻・対応可否はカレンダーアプリでご確認ください。共有先にもご注意ください。</p><div class="sc-job-single-ics-options"><label for="sc-job-single-ics-reminder">1件ずつ保存するときの通知<select id="sc-job-single-ics-reminder" aria-describedby="sc-job-ics-note"><option value="none">通知なし（初期設定）</option><option value="P1D">1日前</option><option value="P3D">3日前</option><option value="P7D">7日前</option></select></label><span class="sc-job-single-ics-hint">設定はこの画面だけで有効。端末の保存データは変更しません。</span></div><p id="sc-job-single-ics-status" class="muted small" role="status" aria-live="polite" aria-atomic="true"></p><div class="job-list" id="jobs"></div><p class="muted small">ブラウザのデータ消去や端末変更で記録が失われる場合があります。定期的なバックアップを推奨します。</p><div class="toolbar"><button class="secondary" id="export">CSVでバックアップ</button><label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">CSVを復元<input accept=".csv,text/csv" id="importCsv" style="display:none" type="file"/></span></label></div></section>
+
+<section id="sc-selfintro" aria-labelledby="si-heading">
+  <p class="tag">28卒 / 面接準備・無料ワーク</p>
+  <h2 id="si-heading">🎙️ 面接の自己紹介を30秒・60秒で作る</h2>
+  <p class="si-lead">「自己紹介をお願いします」に備えて、所属・学び・強み・経験を整理。入力した事実だけで下書きを組み立て、話す長さを確認できます。<strong>AIによる自動生成ではなく、入力した内容を組み合わせるワーク</strong>です。</p>
+  <div class="si-layout">
+    <div class="si-card">
+      <h3>01｜話す材料を入力</h3>
+      <label for="si-name">所属・氏名 <input id="si-name" maxlength="100" autocomplete="off" placeholder="例：〇〇大学 経済学部の山田です"></label>
+      <label for="si-study">学んでいること <input id="si-study" maxlength="140" placeholder="例：地域経済について学んでいます"></label>
+      <label for="si-strength">自分の強み <input id="si-strength" maxlength="120" placeholder="例：周囲と協力し課題を整理すること"></label>
+      <label for="si-action">強みを示す経験・行動 <textarea id="si-action" maxlength="360" placeholder="例：学園祭の企画運営で、役割を整理しながらチームをまとめました"></textarea></label>
+      <label for="si-result">成果・学び（60秒版で使用） <textarea id="si-result" maxlength="240" placeholder="例：全員が動きやすい仕組みを作る大切さを学びました"></textarea></label>
+      <p class="si-help">※会社名・個人情報は必要以上に入力しないでください。サーバーへ送信せず、<strong>「端末に保存」を押した場合だけ</strong>このブラウザに保存します。共有端末では保存を避けてください。端末保存は全データのJSONバックアップにも含まれます。</p>
+    </div>
+    <div class="si-card">
+      <h3>02｜時間を選んで下書きを作る</h3>
+      <fieldset style="border:0;margin:0;padding:0"><legend style="font-size:13px;font-weight:700;margin-bottom:8px">回答の長さ</legend>
+        <div class="si-segments"><label><input type="radio" name="si-duration" value="30" checked>30秒</label><label><input type="radio" name="si-duration" value="60">60秒</label></div>
+      </fieldset>
+      <div class="si-actions"><button id="si-build" type="button">下書きを作成</button><button id="si-clear" class="si-secondary" type="button">入力をクリア</button></div>
+      <label for="si-output">編集できる自己紹介文 <textarea class="si-output" id="si-output" maxlength="1800" placeholder="左側の材料を入力して「下書きを作成」を押してください"></textarea></label>
+      <div class="si-metrics" id="si-metrics" role="status" aria-live="polite">0文字｜発話時間の目安：0秒</div>
+      <div class="si-pace-panel" id="si-pace-panel" data-state="empty" aria-label="自己紹介原稿の長さの目安">
+        <div class="si-pace-top"><strong>目標時間とのバランス</strong><span id="si-pace-label">原稿を入力してください</span></div>
+        <div class="si-pace-track" aria-hidden="true"><span id="si-pace-fill"></span></div>
+        <p id="si-pace-advice" class="si-pace-advice" role="status" aria-live="polite">原稿を入力すると、30秒・60秒の目安に対して長さを診断します。</p>
+        <p class="si-pace-note">日本語の発話速度を1分約300文字と仮定した参考値です。実際の話す速さや間の取り方は音読で確認してください。</p>
+      </div>
+      <div class="si-structure" id="si-structure" aria-labelledby="si-structure-title">
+        <div class="si-structure-heading"><strong id="si-structure-title">自己紹介の構成チェック</strong><span class="si-structure-count" id="si-structure-count" role="status" aria-live="polite">0 / 5項目</span></div>
+        <ul class="si-structure-list" id="si-structure-list" aria-label="原稿を作るための入力状況"></ul>
+        <p class="si-structure-note">材料の入力状況を確認する補助機能です。文章の良し悪しや面接評価を判定するものではありません。60秒版では成果・学びも確認します。</p>
+      </div>
+      <div class="si-actions"><button id="si-copy" class="si-secondary" type="button">文章をコピー</button><button id="si-txt" class="si-secondary" type="button">TXT保存</button></div>
+      <div class="si-actions si-storage-actions" aria-label="自己紹介の端末保存"><button id="si-save" class="si-secondary" type="button">端末に保存</button><button id="si-load" class="si-secondary" type="button">保存した内容を読み込む</button><button id="si-delete" class="si-secondary" type="button">端末保存を削除</button></div>
+      <p id="si-save-status" class="si-help" role="status" aria-live="polite">端末保存は任意です。保存した下書きは同じブラウザで読み込めます。</p>
+      <p id="si-feedback" role="status" aria-live="polite"></p>
+      <p class="si-help">話す速さは<strong>1分約300文字</strong>として概算。個人差や間の取り方によって変わります。30秒版は簡潔に、60秒版は成果・学びも含める構成です。実際に声に出して調整してください。</p>
+      
+<div class="si-practice" aria-labelledby="si-practice-heading">
+<h4 id="si-practice-heading">03｜声に出して時間を測る</h4>
+<p class="si-practice-note">「計測開始」で読み上げを始め、途中で考える時間が必要なら「一時停止／再開」。読み終わったら「停止して判定」。一時停止中の時間は実測から除外し、選択中の30秒・60秒目標との差を確認できます。<strong>録音・マイク使用・データ送信はしません。</strong></p>
+<div class="si-practice-clock" id="si-practice-clock" role="timer" aria-label="音読の経過時間">00:00.0</div>
+<div class="si-goal-progress" id="si-goal-progress" data-state="ready">
+ <div class="si-goal-track" id="si-goal-track" role="progressbar" aria-label="目標時間までの進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="si-goal-fill" id="si-goal-fill"></span></div>
+ <span class="si-goal-label" id="si-goal-label">目標30秒まで残り30.0秒</span>
+</div>
+<div class="si-practice-actions">
+<button id="si-practice-start" type="button">計測開始</button>
+<button id="si-practice-pause" type="button" class="si-secondary" disabled aria-pressed="false">一時停止</button>
+<button id="si-practice-stop" type="button" class="si-secondary" disabled>停止して判定</button>
+<button id="si-practice-reset" type="button" class="si-secondary">リセット</button>
+</div>
+<p class="si-practice-result" id="si-practice-result" role="status" aria-live="polite">目標30秒。原稿を作成したら声に出して練習しましょう。</p>
+<div class="si-practice-history" aria-labelledby="si-history-heading">
+ <h5 id="si-history-heading">練習履歴｜直近5回</h5>
+ <p>同じ画面での練習を比較できます。履歴はページを閉じると消え、端末保存・録音・外部送信はしません。</p>
+ <p class="si-history-summary" id="si-history-summary" aria-live="polite">まだ練習記録はありません。</p>
+ <div class="si-history-insights" id="si-history-insights" aria-label="練習結果の傾向" hidden>
+  <div class="si-insight"><span>平均の目標との差</span><strong id="si-history-average">—</strong></div>
+  <div class="si-insight"><span>目標±3秒以内</span><strong id="si-history-hit">—</strong></div>
+  <div class="si-insight"><span>初回からの変化</span><strong id="si-history-trend">—</strong></div>
+ </div>
+ <div class="si-history-bars" id="si-history-bars" role="group" aria-label="直近の練習の目標との差（棒が短いほど目標に近い）" hidden></div>
+ <ol class="si-history-list" id="si-history-list" aria-label="音読練習の記録"></ol>
+ <div class="si-history-actions"><button type="button" id="si-history-txt" disabled>履歴をTXT保存</button><button type="button" id="si-history-clear" disabled>履歴を消去</button></div>
+</div>
+</div>
+
+<div id="si-followup" aria-labelledby="si-fu-heading">
+  <h4 id="si-fu-heading">04｜自己紹介から深掘り質問6問を練習</h4>
+  <p class="si-fu-lead">面接官から聞かれやすい「なぜ？」「具体的には？」を想定。左側の入力内容をもとに質問の一部を更新します。各回答のメモを記入し、まとめてTXT保存できます。</p>
+
+  <section id="si-fu-practice" class="si-fu-practice" aria-labelledby="si-fu-practice-title">
+    <h5 id="si-fu-practice-title">面接官モード｜6問をランダム出題</h5>
+    <p>回答メモを隠して1問ずつ練習できます。6問を重複なしで出題。録音・通信・自動保存は行いません。</p>
+    <div class="si-fu-practice-buttons">
+      <button id="si-fu-practice-start" type="button">ランダム出題を開始</button>
+      <button id="si-fu-practice-reveal" type="button" disabled>回答メモを確認</button>
+      <button id="si-fu-practice-next" type="button" disabled>次の質問へ</button>
+    </div>
+    <div id="si-fu-practice-stage" class="si-fu-practice-stage" hidden>
+      <p id="si-fu-practice-counter" class="si-fu-practice-counter" aria-live="polite"></p>
+      <p id="si-fu-practice-question" class="si-fu-practice-question"></p>
+      <div id="si-fu-practice-answer" class="si-fu-practice-answer" hidden>
+        <strong>保存前の画面にある回答メモ</strong>
+        <p id="si-fu-practice-answer-text"></p>
+      </div>
+    </div>
+
+    <fieldset id="si-fu-rating" class="si-fu-rating" hidden>
+      <legend>この質問の回答を自己チェック（任意）</legend>
+      <p>回答後にチェック。次の質問に進むと質問別に集計されます。採用評価を予測するものではありません。</p>
+      <label><input type="checkbox" data-si-fu-rating="direct">質問に直接答えた</label>
+      <label><input type="checkbox" data-si-fu-rating="example">具体的な経験・根拠を話せた</label>
+      <label><input type="checkbox" data-si-fu-rating="concise">要点を簡潔に伝えた</label>
+    </fieldset>
+    <div id="si-fu-timebox" aria-label="質問ごとの回答時間を計測" hidden>
+      <div class="si-fu-time-top">
+        <label for="si-fu-time-goal">回答時間の目標
+          <select id="si-fu-time-goal"><option value="30">30秒</option><option value="60" selected>60秒</option><option value="90">90秒</option><option value="120">120秒</option></select>
+        </label>
+        <output id="si-fu-time-display" class="si-fu-time-readout" role="timer" aria-live="off">00:00.0</output>
+      </div>
+      <div class="si-fu-time-progress" aria-hidden="true"><span id="si-fu-time-fill"></span></div>
+      <div class="si-fu-time-buttons">
+        <button id="si-fu-time-start" type="button">計測開始</button>
+        <button id="si-fu-time-pause" type="button" disabled>一時停止</button>
+        <button id="si-fu-time-reset" type="button">やり直す</button>
+      </div>
+      <p id="si-fu-time-status" class="si-fu-time-status" role="status" aria-live="polite">準備ができたら「計測開始」。回答後に「回答メモを確認」を押すと時間を記録します。</p>
+      <p class="si-fu-time-help">録音・送信・自動保存なし。回答時間は練習の目安で、面接評価を判定するものではありません。</p>
+    </div>
+    <section id="si-fu-time-summary" aria-labelledby="si-fu-time-summary-title" hidden>
+      <h6 id="si-fu-time-summary-title">6問の回答時間ふりかえり</h6>
+      <p id="si-fu-time-summary-text"></p>
+      <ol id="si-fu-time-summary-list"></ol>
+      <p id="si-fu-rating-summary" class="si-fu-rating-summary" aria-live="polite"></p>
+      <section id="si-fu-review" aria-labelledby="si-fu-review-title" hidden>
+        <h6 id="si-fu-review-title">次回の重点復習｜最大3問</h6>
+        <p class="si-fu-review-note">回答時間と任意の自己チェックから、次に練習する質問を整理します。自己チェックが空欄の場合は「未入力か未達成か不明」として扱い、採用評価には使用しません。チェック状態はページを閉じると消えます。</p>
+        <p id="si-fu-review-status" role="status" aria-live="polite"></p>
+        <ol id="si-fu-review-list"></ol>
+        <div id="si-fu-review-drill" class="si-fu-review-drill" aria-label="重点復習の実践練習">
+          <button type="button" id="si-fu-review-drill-start" disabled>重点質問だけを1問ずつ再練習</button>
+          <div id="si-fu-review-drill-stage" hidden>
+            <p id="si-fu-review-drill-counter" class="si-fu-review-drill-counter" aria-live="polite"></p>
+            <p id="si-fu-review-drill-question" class="si-fu-review-drill-question"></p>
+            <div id="si-fu-review-drill-timer" aria-label="重点復習の回答時間計測">
+              <label for="si-fu-review-drill-goal">回答の目標時間 <select id="si-fu-review-drill-goal"><option value="30">30秒</option><option value="60" selected>60秒</option><option value="90">90秒</option><option value="120">120秒</option></select></label>
+              <p id="si-fu-review-drill-clock" role="timer" aria-live="off">00:00.0</p>
+              <div class="si-fu-review-drill-time-actions">
+                <button type="button" id="si-fu-review-drill-time-start">計測開始</button>
+                <button type="button" id="si-fu-review-drill-time-pause" disabled>一時停止</button>
+                <button type="button" id="si-fu-review-drill-time-finish" disabled>時間を記録</button>
+              </div>
+              <p id="si-fu-review-drill-time-status" role="status" aria-live="polite">計測は任意です。回答後に時間を記録すると初回との差を確認できます。計測中に次へ進んだ場合は、その時点の時間を記録します。</p>
+            </div>
+            <div id="si-fu-review-drill-hints" class="si-fu-review-drill-hints" hidden>
+              <strong>今回の改善ポイント</strong><p id="si-fu-review-drill-hints-text"></p>
+            </div>
+            <div class="si-fu-review-drill-actions">
+              <button type="button" id="si-fu-review-drill-reveal">改善ポイントを確認</button>
+              <button type="button" id="si-fu-review-drill-next">練習済みにして次へ</button>
+              <button type="button" id="si-fu-review-drill-stop">中断</button>
+            </div>
+          </div>
+          <p id="si-fu-review-drill-status" role="status" aria-live="polite">復習プランができると、重点質問だけを練習できます。回答メモは隠して表示します。</p>
+          <section id="si-fu-drill-progress" aria-labelledby="si-fu-drill-progress-title">
+            <h6 id="si-fu-drill-progress-title">初回と重点復習の比較</h6>
+            <p id="si-fu-drill-progress-note">復習の回答時間を記録すると、初回との差と目標時間への近づき方を確認できます。目標時間が違う場合、改善判定はしません。</p>
+            <ol id="si-fu-drill-progress-list" aria-live="polite"></ol>
+          </section>
+        </div>
+        <button type="button" id="si-fu-review-export" disabled>重点復習プランをTXT保存</button>
+        <button type="button" id="si-fu-review-export-csv" disabled>重点復習結果をCSV保存</button>
+      </section>
+      <div class="si-fu-time-export-actions" aria-label="模擬面接結果の保存">
+        <button type="button" id="si-fu-time-export-txt">結果をTXT保存</button>
+        <button type="button" id="si-fu-time-export-csv">結果をCSV保存</button>
+      </div>
+      <p class="si-fu-time-export-note">練習結果は自動保存されません。端末に残したい場合は保存してください。質問文に個人情報が含まれる場合があるため、共有先に注意してください。</p>
+    </section>
+    <p id="si-fu-practice-status" class="si-fu-practice-status" role="status" aria-live="polite">「ランダム出題を開始」で練習を始められます。</p>
+  </section>
+  <ol id="si-fu-list" class="si-fu-list" aria-label="面接深掘り質問6問"></ol>
+  <div class="si-fu-actions">
+    <button id="si-fu-export" type="button">質問と回答メモをTXT保存</button>
+    <button id="si-fu-clear" class="si-fu-clear" type="button">画面の回答メモを消去</button>
+    <p id="si-fu-progress" class="si-fu-progress" role="status" aria-live="polite">回答メモ 0 / 6件</p>
+  </div>
+  <div class="si-fu-persist" aria-label="深掘り回答メモの端末保存">
+    <button id="si-fu-save" type="button">回答メモを端末保存</button>
+    <button id="si-fu-load" type="button">保存したメモを読み込む</button>
+    <button id="si-fu-delete" class="si-fu-danger" type="button">端末保存を削除</button>
+  </div>
+  <p id="si-fu-feedback" class="si-fu-notice" role="status" aria-live="polite">回答メモは自動保存されません。「端末保存」を押した場合だけこのブラウザに保存します。共有端末では保存データに注意してください。録音・外部送信は行いません。</p>
+</div>
+
+<p class="si-help">関連ツール：<a href="28sotsu-mensetsu-1min-timer.html">面接1分回答タイマー</a> ／ <a href="28sotsu-mensetsu-prep-star-work.html">PREP・STAR回答整理</a></p>
+    </div>
+  </div>
+</section>
 <section id="checklist-section"><h2>✅ 就活準備チェックリスト</h2><div id="checklist"></div></section>
 <section id="backup-section"><h2>💾 全データのバックアップ・復元</h2>
-<p>ESの下書き・企業別ES設問・企業比較・面接記録・選考管理・チェックリストに加え、<strong>お気に入り・最近使ったツール・卒年・並び順</strong>も、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
+<p>ESの下書き・企業別ES設問・企業比較・面接記録・選考管理・チェックリストに加え、<strong>お気に入り・最近使ったツール・卒年・並び順・任意保存した面接自己紹介・深掘り回答メモ</strong>も、<strong>1つのJSONファイル</strong>に保存できます。機種変更やブラウザのデータ削除に備えて、定期的にバックアップしてください。</p>
 <div class="toolbar"><button id="backupAll" type="button">全データをバックアップ（JSON）</button>
 <label style="display:inline-block"><span class="secondary" style="display:inline-block;padding:9px 12px;border-radius:9px;font-weight:700;cursor:pointer">バックアップから復元<input accept=".json,application/json" id="restoreAllFile" style="display:none" type="file"/></span></label></div>
 <p id="sc-backup-health" class="sc-backup-health" role="status" aria-live="polite">バックアップ状況を確認しています…</p>
@@ -719,6 +1180,82 @@ function scExportFilteredJobs(){
  if(status)status.textContent=rows.length+'件の企業をCSVで保存しました。メモは含まれません。復元用には既存の「CSVでバックアップ」を使ってください。';
 }
 $('sc-export-filtered-jobs').addEventListener('click',scExportFilteredJobs);
+// 2026-10-20 17:28: Export all dated events from the currently filtered company list.
+// This is a read-only projection of sc_jobs; it never reads notes or sends data online.
+function scJobBulkIcsValidDate(value){
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(String(value||'')))return false;
+ const day=new Date(value+'T12:00:00');
+ return !Number.isNaN(day.getTime())&&day.getFullYear()===Number(value.slice(0,4))&&day.getMonth()+1===Number(value.slice(5,7))&&day.getDate()===Number(value.slice(8,10));
+}
+function scFilteredJobIcsEvents(){
+ const checkbox=$('sc-job-bulk-ics-future-only');
+ const today=new Date(),pad=n=>String(n).padStart(2,'0');
+ const todayLocal=today.getFullYear()+'-'+pad(today.getMonth()+1)+'-'+pad(today.getDate());
+ const futureOnly=!!checkbox&&checkbox.checked;
+ const selected=$('sc-job-bulk-ics-kind');
+ const kind=selected?selected.value:'both';
+ const fields=kind==='deadline'?[['deadline','応募締切']]:kind==='nextDate'?[['nextDate','次回予定']]:[['deadline','応募締切'],['nextDate','次回予定']];
+ const entries=[];
+ filteredJobs().forEach(j=>{
+  fields.forEach(([field,label])=>{
+   const date=j[field];
+   if(!scJobBulkIcsValidDate(date)||(futureOnly&&date<todayLocal))return;
+   entries.push({jobId:j.id,name:j.name||'名称未設定',label,date});
+  });
+ });
+ return entries;
+}
+function scUpdateFilteredJobIcsControls(){
+ const button=$('sc-job-bulk-ics');if(!button)return;
+ const entries=scFilteredJobIcsEvents(),count=entries.length;
+ const deadlineCount=entries.filter(x=>x.label==='応募締切').length;
+ const nextCount=count-deadlineCount;
+ button.disabled=count===0;
+ button.textContent='表示中の予定 '+count+'件をICS保存';
+ const summary=$('sc-job-bulk-ics-count');
+ if(summary)summary.textContent='出力対象 '+count+'件（応募締切 '+deadlineCount+'件・次回予定 '+nextCount+'件）';
+}
+function scExportFilteredJobIcs(){
+ const status=$('sc-filtered-export-status'),entries=scFilteredJobIcsEvents();
+ if(!entries.length){if(status)status.textContent='保存できる予定がありません。日付・絞り込み・過去の予定の除外設定を確認してください。';return;}
+ try{
+  const pad=n=>String(n).padStart(2,'0');
+  const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const reminderSelect=$('sc-job-bulk-ics-reminder');
+  const reminder=reminderSelect?reminderSelect.value:'none';
+  const reminderDays={P1D:1,P3D:3,P7D:7};
+  const reminderTrigger=Object.prototype.hasOwnProperty.call(reminderDays,reminder)?'-'+reminder:null;
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Filtered Jobs//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  entries.forEach(item=>{
+   const day=new Date(item.date+'T12:00:00'),nextDay=new Date(day);
+   nextDay.setDate(day.getDate()+1);
+   const next=[nextDay.getFullYear(),pad(nextDay.getMonth()+1),pad(nextDay.getDate())].join('');
+   const compact=item.date.replace(/-/g,'');
+   // Match the per-company export UID to avoid duplicate calendar entries on reimport where supported.
+   const key=String(item.jobId)+'|'+item.label+'|'+item.date;
+   let hash=2166136261;for(let i=0;i<key.length;i++)hash=Math.imul(hash^key.charCodeAt(i),16777619)>>>0;
+   const uid='sc-'+hash.toString(16)+'-'+compact+'@shukatsu-compass';
+   lines.push('BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+compact,'DTEND;VALUE=DATE:'+next,
+    'SUMMARY:'+scAgendaIcsEscape(item.label+'：'+item.name),
+    'DESCRIPTION:'+scAgendaIcsEscape('選考管理から出力した終日仮予定。開始時刻・提出期限は公式案内で確認してください。'));
+   if(reminderTrigger){
+    lines.push('BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+scAgendaIcsEscape(item.label+'：'+item.name),
+     'TRIGGER:'+reminderTrigger,'END:VALARM');
+   }
+   lines.push('END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  const blob=new Blob([lines.map(scAgendaIcsFold).join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  const now=new Date();a.href=url;a.download='shukatsu-filtered-schedule-'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'.ics';
+  document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+  if(status)status.textContent=entries.length+'件の予定をICS保存しました。'+(reminderTrigger?'通知：'+reminderDays[reminder]+'日前（カレンダーアプリで通知時刻をご確認ください）。':'通知なし。')+'選考メモ・段階は含みません。取り込み先で日時を確認してください。';
+ }catch(e){if(status)status.textContent='ICS保存に失敗しました。ブラウザのダウンロード設定を確認してください。';}
+}
+$('sc-job-bulk-ics').addEventListener('click',scExportFilteredJobIcs);
+// Keep counts in sync with the view and both export options; never write to localStorage.
+['sc-job-bulk-ics-future-only','sc-job-bulk-ics-kind'].forEach(id=>$(id).addEventListener('change',()=>{scUpdateFilteredJobIcsControls();const status=$('sc-filtered-export-status');if(status)status.textContent='';}));
+
 // 2026-10-20 15:35: Copy or print exactly the visible filtered companies.
 // Read-only and intentionally excludes sensitive interview notes.
 function scFilteredJobsPlainText(rows){
@@ -836,12 +1373,23 @@ function renderJobs(){const root=$('jobs');root.replaceChildren();const arr=filt
   clear.disabled=!active;
  }
  const filteredExport=$('sc-export-filtered-jobs');if(filteredExport)filteredExport.disabled=arr.length===0;
+ scUpdateFilteredJobIcsControls();
  ['sc-copy-filtered-jobs','sc-print-filtered-jobs'].forEach(id=>{const b=$(id);if(b)b.disabled=arr.length===0});
  const summary=$('sc-job-filter-summary');if(summary){
   const all=jobs.map(normalize),deadlineMissing=all.filter(j=>!j.deadline).length,nextMissing=all.filter(j=>!j.nextDate).length;
   summary.textContent=arr.length+' / '+all.length+'件を表示｜締切未登録 '+deadlineMissing+'件・次回予定未登録 '+nextMissing+'件。7日以内の要対応は応募締切・次回予定のいずれかが該当する企業を1件として集計（内定・終了は除外）。日付の空欄は必ずしも入力漏れではありません。';
  }
- if(!arr.length){root.innerHTML='<p class="muted">条件に合う企業がありません。検索・段階・日付・期限の条件を見直してください。</p>';return}arr.forEach(j=>{const left=daysUntil(j.deadline),card=document.createElement('div');card.className='job-card'+(j.stage==='終了'?' done-card':left!==null&&left<0?' urgent':left!==null&&left<=7?' soon':'');let deadlineText=j.deadline?'締切 '+fmt(j.deadline)+(left!==null?(left<0?'（期限超過）':left===0?'（今日）':'（あと'+left+'日）'):''):'締切未登録';card.innerHTML='<div class="job-card-head"><div><div class="job-title">'+esc(j.name)+'</div><div class="job-meta"><span class="pill">'+esc(j.stage)+'</span><span class="muted">'+esc(deadlineText)+'</span>'+(j.nextDate?'<span class="muted">次回 '+esc(fmt(j.nextDate))+'</span>':'')+'</div></div></div>'+(j.memo?'<div class="job-note">'+esc(j.memo)+'</div>':'')+'<div class="actions"></div>';const a=card.querySelector('.actions');const edit=document.createElement('button');edit.className='secondary';edit.textContent='編集';edit.onclick=()=>beginEditJob(j);const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm(j.name+'を削除しますか？')){jobs=jobs.filter(x=>String(x.id)!==String(j.id));saveJobs()}};/* Quick stage update: keep the same record and all existing fields intact. */
+ if(!arr.length){root.innerHTML='<p class="muted">条件に合う企業がありません。検索・段階・日付・期限の条件を見直してください。</p>';return}arr.forEach(j=>{
+ // Next appointment uses the same day-count helper as deadline; past dates are history, not overdue applications.
+ const left=daysUntil(j.deadline),nextLeft=daysUntil(j.nextDate),inactive=j.stage==='終了'||j.stage==='内定';
+ const nextSoon=!inactive&&nextLeft!==null&&Number.isFinite(nextLeft)&&nextLeft>=0&&nextLeft<=3;
+ const card=document.createElement('div');
+ card.className='job-card'+(j.stage==='終了'?' done-card':!inactive&&left!==null&&left<0?' urgent':!inactive&&left!==null&&left<=7?' soon':'')+(nextSoon?' sc-next-soon':'');
+ const deadlineText=j.deadline?'締切 '+fmt(j.deadline)+(left!==null?(left<0?'（期限超過）':left===0?'（今日）':'（あと'+left+'日）'):''):'締切未登録';
+ const nextRelative=nextLeft===null||!Number.isFinite(nextLeft)?'':nextLeft<0?'（'+Math.abs(nextLeft)+'日前・履歴）':nextLeft===0?'（今日）':nextLeft===1?'（明日）':'（あと'+nextLeft+'日）';
+ const nextClass='sc-next-date-chip'+(nextSoon?' is-soon':nextLeft!==null&&nextLeft<0?' is-past':'');
+ const nextMarkup=j.nextDate?'<span class="'+nextClass+'">次回予定 '+esc(fmt(j.nextDate)+nextRelative)+'</span>':'';
+ card.innerHTML='<div class="job-card-head"><div><div class="job-title">'+esc(j.name)+'</div><div class="job-meta"><span class="pill">'+esc(j.stage)+'</span><span class="muted">'+esc(deadlineText)+'</span>'+nextMarkup+'</div></div></div>'+(j.memo?'<div class="job-note">'+esc(j.memo)+'</div>':'')+'<div class="actions"></div>';const a=card.querySelector('.actions');const edit=document.createElement('button');edit.className='secondary';edit.textContent='編集';edit.onclick=()=>beginEditJob(j);const del=document.createElement('button');del.className='danger';del.textContent='削除';del.onclick=()=>{if(confirm(j.name+'を削除しますか？')){jobs=jobs.filter(x=>String(x.id)!==String(j.id));saveJobs()}};/* Quick stage update: keep the same record and all existing fields intact. */
 const quickLabel=document.createElement('label');quickLabel.className='sc-stage-quick-label';
 const quickText=document.createElement('span');quickText.textContent='選考段階';
 const quickSelect=document.createElement('select');quickSelect.className='sc-stage-quick-select';
@@ -860,7 +1408,18 @@ quickSelect.addEventListener('change',()=>{
  saveJobs();
  scShowStageChangeFeedback(j.name+'の選考段階を「'+stage+'」に変更しました。',true);
 });
-quickLabel.append(quickText,quickSelect);a.prepend(quickLabel);a.append(edit,del);root.append(card)})}
+quickLabel.append(quickText,quickSelect);a.prepend(quickLabel);
+ // 2026-10-20 16:31: One-click .ics export for each dated item, reusing the
+ // existing single-event calendar exporter. No writes to sc_jobs or network.
+ [['deadline','応募締切','締切を予定保存'],['nextDate','次回予定','次回予定を保存']].forEach(([field,label,title])=>{
+  const date=j[field];if(!date)return;
+  const btn=document.createElement('button');btn.type='button';btn.className='sc-job-ics-button';
+  btn.textContent=title;btn.setAttribute('aria-label',j.name+'の'+label+'をカレンダーファイルで保存');
+  btn.setAttribute('aria-describedby','sc-job-ics-note');
+  btn.addEventListener('click',()=>scAgendaDownloadEvent({jobId:j.id,name:j.name,label,date}));
+  a.append(btn);
+ });
+ a.append(edit,del);root.append(card)})}
 function resetJobForm(){$('jobform').reset();$('editingId').value='';$('jobSubmit').textContent='企業を追加';$('cancelEdit').classList.add('hidden');scReviewJobDates();scRenderDuplicatePreview()}
 // 2026-10-20 09:31: Show a read-only review of entered dates. This does not
 // alter sc_jobs, block intentional historical records, or introduce new keys.
@@ -1153,9 +1712,18 @@ function scAgendaDownloadEvent(item){
  const stage=jobs.find(j=>String(j.id)===String(item.jobId));
  const summary=item.label+'：'+item.name;
  const desc='就活コンパスの選考管理から書き出した予定'+(stage?'（選考段階：'+normalize(stage).stage+'）':'');
- const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Single Event//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+dateCompact,'DTEND;VALUE=DATE:'+next,'SUMMARY:'+scAgendaIcsEscape(summary),'DESCRIPTION:'+scAgendaIcsEscape(desc),'END:VEVENT','END:VCALENDAR'];
+ // 2026-10-20 20:33: Optional per-event VALARM; does not change UID, stored jobs or bulk settings.
+ const singleReminder=$('sc-job-single-ics-reminder');
+ const reminder=singleReminder?singleReminder.value:'none';
+ const reminderDays={P1D:1,P3D:3,P7D:7};
+ const reminderTrigger=Object.prototype.hasOwnProperty.call(reminderDays,reminder)?'-'+reminder:null;
+ const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Single Event//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+dateCompact,'DTEND;VALUE=DATE:'+next,'SUMMARY:'+scAgendaIcsEscape(summary),'DESCRIPTION:'+scAgendaIcsEscape(desc)];
+ if(reminderTrigger){lines.push('BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+scAgendaIcsEscape(summary),'TRIGGER:'+reminderTrigger,'END:VALARM')}
+ lines.push('END:VEVENT','END:VCALENDAR');
  const blob=new Blob([lines.map(scAgendaIcsFold).join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='shukatsu-event-'+dateCompact+'.ics';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ const singleStatus=$('sc-job-single-ics-status');
+ if(singleStatus)singleStatus.textContent=summary+'をICS保存しました。'+(reminderTrigger?'通知：'+reminderDays[reminder]+'日前。':'通知なし。')+'取り込み先で日時・通知時刻をご確認ください。';
 }
 // 2026-10-19 09:35: 7/14/30/60-day selectable horizon shared by display, CSV and ICS exports.
 // 2026-10-19 02:35: Compact agenda for upcoming deadlines AND next selection dates.
@@ -1629,7 +2197,7 @@ function renderBackupHealth(){
  if(box.textContent!==message)box.textContent=message;
  box.dataset.state=stateName;
 }
-const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1','sc_interviews_v1','sc_company_compare_v1','sc_company_weights_v1','sc_reverse_questions_v1','sc_h_favorite_tools_v1','sc_h_recent_tools_v1','sc_h_grad_year_v1','sc_h_tool_sort_v1'];
+const BACKUP_KEYS=['sc_jobs','sc_drafts','sc_checks','sc_es_working','sc_es_meta','sc_es_questions_v1','sc_interviews_v1','sc_company_compare_v1','sc_company_weights_v1','sc_reverse_questions_v1','sc_h_favorite_tools_v1','sc_h_recent_tools_v1','sc_h_grad_year_v1','sc_h_tool_sort_v1','sc_selfintro_v1','sc_selfintro_followup_v1'];
 function readEsQuestions(){try{const d=JSON.parse(localStorage.getItem('sc_es_questions_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readInterviews(){try{const d=JSON.parse(localStorage.getItem('sc_interviews_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function readCompanyCompare(){try{const d=JSON.parse(localStorage.getItem('sc_company_compare_v1')||'[]');return Array.isArray(d)?d:[]}catch{return []}}
@@ -1643,7 +2211,13 @@ function readToolSettingsForBackup(){
  const sort=localStorage.getItem('sc_h_tool_sort_v1');
  return {favorites:readArray('sc_h_favorite_tools_v1',41),recent:readArray('sc_h_recent_tools_v1',4),gradYear:['28','29','common'].includes(gradYear)?gradYear:'all',sort:['recommended','favorites','recent','name'].includes(sort)?sort:'recommended'};
 }
-function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions(),interviews:readInterviews(),companyCompare:readCompanyCompare(),companyWeights:readCompanyWeights(),reverseQuestions:readReverseQuestions(),toolsSettings:readToolSettingsForBackup()}}}
+function readSelfIntroForBackup(){
+ try{const raw=localStorage.getItem('sc_selfintro_v1');return raw?JSON.parse(raw):null}catch(e){return null}
+}
+function readFollowupForBackup(){
+ try{const raw=localStorage.getItem('sc_selfintro_followup_v1');if(!raw)return null;const d=JSON.parse(raw);return d&&d.version===1&&Array.isArray(d.notes)&&d.notes.length===6&&d.notes.every(v=>typeof v==='string'&&v.length<=1500)?d:null}catch(e){return null}
+}
+function backupPayload(){return {format:'shukatsu-compass-backup',version:1,exportedAt:new Date().toISOString(),data:{jobs,drafts,checks:state,esWorking:es.value,esMeta:{type:$('draftType').value,name:$('draftName').value,limit:Number(lim.value)||400},esQuestions:readEsQuestions(),interviews:readInterviews(),companyCompare:readCompanyCompare(),companyWeights:readCompanyWeights(),reverseQuestions:readReverseQuestions(),toolsSettings:readToolSettingsForBackup(),selfIntro:readSelfIntroForBackup(),selfIntroFollowup:readFollowupForBackup()}}}
 function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
 $('backupAll').onclick=()=>{try{const stamp=new Date().toLocaleDateString('sv-SE');downloadJson(backupPayload(),'shukatsu-compass-backup-'+stamp+'.json');try{localStorage.setItem(BACKUP_LAST_EXPORT_KEY,new Date().toISOString())}catch(e){}renderBackupHealth();$('backupStatus').textContent='バックアップのダウンロードを開始しました。保存先でJSONファイルがあるか確認し、安全に保管してください。'}catch(e){$('backupStatus').textContent='バックアップに失敗しました。ブラウザのダウンロード設定を確認してください。'}};
 function validateBackup(v){
@@ -1678,6 +2252,11 @@ function validateBackup(v){
     const t=d.toolsSettings,validLink=x=>typeof x==='string'&&x.length<=140&&(/^[a-z0-9][a-z0-9._-]*\.html$/.test(x)||/^#[a-z][a-z0-9-]*$/.test(x));
     if(!t||typeof t!=='object'||Array.isArray(t)||!Array.isArray(t.favorites)||!Array.isArray(t.recent)||t.favorites.length>41||t.recent.length>4||!t.favorites.every(validLink)||!t.recent.every(validLink)||new Set(t.favorites).size!==t.favorites.length||new Set(t.recent).size!==t.recent.length||!['all','28','29','common'].includes(t.gradYear)||!['recommended','favorites','recent','name'].includes(t.sort))throw new Error('お気に入り・最近使ったツールのバックアップ形式が正しくありません。');
   }
+  if(d.selfIntro!==undefined && d.selfIntro!==null){
+    const v=d.selfIntro,limits={'si-name':100,'si-study':140,'si-strength':120,'si-action':360,'si-result':240};
+    if(!v||typeof v!=='object'||Array.isArray(v)||v.version!==1||![30,60].includes(v.duration)||typeof v.output!=='string'||v.output.length>1800||!v.fields||typeof v.fields!=='object'||Array.isArray(v.fields)||Object.keys(limits).some(k=>typeof v.fields[k]!=='string'||v.fields[k].length>limits[k]))throw new Error('自己紹介の保存データの形式が正しくありません。');
+  }
+  if(d.selfIntroFollowup!==undefined&&d.selfIntroFollowup!==null){const v=d.selfIntroFollowup;if(!v||typeof v!=='object'||Array.isArray(v)||v.version!==1||!Array.isArray(v.notes)||v.notes.length!==6||!v.notes.every(x=>typeof x==='string'&&x.length<=1500))throw new Error('深掘り回答メモの保存形式が正しくありません。');}
   if(typeof(d.esMeta.name||'')!=='string'||typeof(d.esMeta.type||'')!=='string'||!Number.isFinite(Number(d.esMeta.limit||400)))throw new Error('ES入力欄の設定が正しくありません。');
   if(Object.values(d.checks).some(x=>typeof x!=='boolean'))throw new Error('チェックリストの形式が正しくありません。');
   return d;
@@ -1707,11 +2286,15 @@ $('restoreAllFile').onchange=async e=>{
       next.sc_h_tool_sort_v1=d.toolsSettings.sort;
     } // 旧バックアップではツール設定を上書きしない
 
+    if(d.selfIntro!==undefined)next.sc_selfintro_v1=d.selfIntro===null?null:JSON.stringify(d.selfIntro); // 旧バックアップは現在の自己紹介を保持
+    if(d.selfIntroFollowup!==undefined)next.sc_selfintro_followup_v1=d.selfIntroFollowup===null?null:JSON.stringify(d.selfIntroFollowup); // 旧バックアップでは現在の深掘り回答メモを保持
     try{Object.entries(next).forEach(([k,v])=>{if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)})}catch(err){BACKUP_KEYS.forEach(k=>{try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}});throw new Error('保存領域への書き込みに失敗しました。空き容量やブラウザの設定を確認してください。')}
     jobs=d.jobs;drafts=d.drafts;state=d.checks;es.value=d.esWorking;
     $('draftType').value=d.esMeta.type||'ガクチカ';$('draftName').value=d.esMeta.name||'';lim.value=Number(d.esMeta.limit)>0?d.esMeta.limit:400;
     updateCount();renderDrafts();renderJobs();renderDashboard();renderChecklist();resetJobForm();
     if(d.toolsSettings)window.dispatchEvent(new Event('sc-tools-settings-restored'));
+    if(d.selfIntro!==undefined)window.dispatchEvent(new Event('sc-selfintro-restored'));
+    if(d.selfIntroFollowup!==undefined)window.dispatchEvent(new Event('sc-selfintro-followup-restored'));
     try{localStorage.removeItem(BACKUP_LAST_EXPORT_KEY)}catch(e){}
     renderBackupHealth();
     $('backupStatus').textContent='復元が完了しました。企業'+jobs.length+'件・ES下書き'+d.drafts.length+'件'+(Array.isArray(d.esQuestions)?'・ES設問'+d.esQuestions.length+'件':'（旧形式：ES設問は維持）')+(Array.isArray(d.interviews)?'・面接記録'+d.interviews.length+'件':'（旧形式：面接記録は維持）')+(Array.isArray(d.companyCompare)?'・企業比較'+d.companyCompare.length+'件':'（旧形式：企業比較は維持）')+(d.toolsSettings?'・お気に入り'+d.toolsSettings.favorites.length+'件・ツール設定':'（旧形式：ツール設定は維持）')+'を読み込みました。';
@@ -1745,7 +2328,7 @@ const copyResultsButton=document.getElementById('sc-h-copy-results');
 const exportResultsButton=document.getElementById('sc-h-export-results');
 let currentFilteredTools=[];
 
-const tools=[{"title":"自己分析10問","desc":"経験を整理し、強みの材料を見つける","year":"29","topic":"自己分析","url":"29sotsu-jikobunseki-10questions.html","code":"01"},{"title":"ES文字数カウンター","desc":"200〜500字の文字数をすぐ確認","year":"28","topic":"ES","url":"28sotsu-es-mojisu-counter.html","code":"21"},{"title":"自己PR 400字ワーク","desc":"6項目から下書きを作成","year":"29","topic":"ES","url":"29sotsu-jikopr-400ji-revision-work.html","code":"05"},{"title":"面接1分回答タイマー","desc":"回答を30〜120秒で練習","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-1min-timer.html","code":"25"},{"title":"企業選び比較ボード","desc":"仕事・成長・働き方などを比較","year":"29","topic":"企業研究","url":"29sotsu-kigyou-erabi-jiku-match-board.html","code":"10"},{"title":"SPI言語12問演習","desc":"語彙・読解を練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-12mon-practice.html","code":"30"},{"title":"インターン日程かぶり確認","desc":"授業・面接・説明会の重複を探す","year":"29","topic":"選考管理","url":"29sotsu-intern-schedule-conflict-checker.html","code":"13"},{"title":"ES締切逆算","desc":"締切から作業計画を組み立てる","year":"28","topic":"選考管理","url":"28sotsu-es-shimekiri-gyakusan.html","code":"22"},{"title":"OB・OG訪問質問プラン","desc":"30分の質問と時間配分を考える","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-30min-question-planner.html","code":"14"},{"title":"企業研究30分ワーク","desc":"仕事内容・応募条件を整理","year":"28","topic":"企業研究","url":"28sotsu-kigyo-kenkyu-30min.html","code":"20"},{"title":"選考進捗トラッカー","desc":"企業・締切・選考段階を管理","year":"all","topic":"選考管理","url":"#tracker","code":"38"},{"title":"インターン志望動機","desc":"200字・400字の志望理由を作成","year":"29","topic":"ES","url":"29sotsu-intern-shiboudouki-work.html","code":"07"},{"title":"モチベーショングラフ","desc":"過去の経験を曲線で可視化","year":"29","topic":"自己分析","url":"29sotsu-motivation-curve-work.html","code":"02"},{"title":"強み・弱み整理","desc":"経験から自己PRの根拠を整理","year":"29","topic":"自己分析","url":"29sotsu-tsuyomi-yowami-episode-work.html","code":"03"},{"title":"就活の軸5つ整理","desc":"大切にしたい価値観を言語化","year":"29","topic":"自己分析","url":"29sotsu-shukatsu-jiku-5values.html","code":"04"},{"title":"ガクチカ作成ワーク","desc":"経験を200字・400字にまとめる","year":"29","topic":"ES","url":"29sotsu-gakuchika-star-400.html","code":"06"},{"title":"ES提出前チェック","desc":"応募前に22項目を確認","year":"29","topic":"ES","url":"29sotsu-intern-es-submit-check.html","code":"08"},{"title":"企業研究15分シート","desc":"事業・強み・志望理由の材料を整理","year":"29","topic":"企業研究","url":"29sotsu-kigyou-kenkyu-15min.html","code":"09"},{"title":"業界比較シート","desc":"興味のある3業界を比べる","year":"29","topic":"企業研究","url":"29sotsu-gyoukai-hikaku-sheet.html","code":"11"},{"title":"インターン優先順位","desc":"参加候補を比較して優先順位を決める","year":"29","topic":"選考管理","url":"29sotsu-intern-priority-board.html","code":"12"},{"title":"OB・OG訪問の依頼文","desc":"メール・DMの下書きを作る","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-request-mail.html","code":"15"},{"title":"OB・OG訪問のお礼文","desc":"訪問後のお礼メールを作成","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-orei-mail.html","code":"16"},{"title":"OB・OG質問メーカー","desc":"聞きたい内容から質問を組み立てる","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-question-maker.html","code":"17"},{"title":"12週間ロードマップ","desc":"週ごとに就活準備を管理","year":"29","topic":"選考管理","url":"29sotsu-12weeks-roadmap.html","code":"18"},{"title":"4週間チェックリスト","desc":"最初の就活準備20項目をチェック","year":"29","topic":"選考管理","url":"29sotsu-4weeks-checklist.html","code":"19"},{"title":"提出前20項目チェック","desc":"誤字・添付・送信完了まで確認","year":"28","topic":"ES","url":"28sotsu-es-teishutsu-mae-checklist.html","code":"23"},{"title":"ガクチカ深掘り15問","desc":"経験ごとの面接質問を整理","year":"28","topic":"面接・OB訪問","url":"28sotsu-gakuchika-fukabori-shitsumon.html","code":"24"},{"title":"面接PREP・STAR整理","desc":"伝わる回答の構成をつくる","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-prep-star-work.html","code":"26"},{"title":"面接前日チェック","desc":"19項目で準備漏れを防ぐ","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-zenjitsu-check.html","code":"27"},{"title":"面接メール作成","desc":"日程変更・確定・辞退を作成","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-schedule-mail.html","code":"28"},{"title":"ES・面接の一貫性チェック","desc":"経験・数字・役割のずれを確認","year":"28","topic":"面接・OB訪問","url":"28sotsu-es-mensetsu-consistency.html","code":"29"},{"title":"SPI非言語12問演習","desc":"割合・確率・速さを練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-higengo-12mon-practice.html","code":"31"},{"title":"SPI成績ダッシュボード","desc":"得意・苦手分野を可視化","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-higengo-score-dashboard.html","code":"32"},{"title":"Webテスト復習ノート","desc":"間違いの原因と復習日を記録","year":"28","topic":"Webテスト","url":"28sotsu-webtest-machigai-note.html","code":"33"},{"title":"就活1週間プラン","desc":"7日間のタスクをつくる","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-1week-schedule.html","code":"34"},{"title":"今日の優先順位","desc":"ES・締切・Webテストから整理","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-yusenjuni-shindan.html","code":"35"},{"title":"秋冬インターン比較","desc":"応募先の条件・締切を比較","year":"28","topic":"企業研究","url":"28sotsu-akifuyu-intern-oubo-hikaku.html","code":"36"},{"title":"ES下書き・文字数管理","desc":"文章を作りながら保存する","year":"all","topic":"ES","url":"#es-counter","code":"37"},{"title":"就活カレンダー","desc":"応募締切と面接予定を確認","year":"all","topic":"選考管理","url":"#calendar","code":"39"},{"title":"全データバックアップ","desc":"端末内に保存した記録を書き出す","year":"all","topic":"選考管理","url":"#backup-section","code":"40"},{"title":"就活サービス比較","desc":"スカウト・選考情報・エージェントを比較","year":"all","topic":"企業研究","url":"shukatsu-service-compare-2026.html","code":"41"}];
+const tools=[{"title":"面接自己紹介30秒・60秒","desc":"自分の経験から話す原稿を作成","year":"28","topic":"面接・OB訪問","url":"#sc-selfintro","code":"39"},{"title":"自己分析10問","desc":"経験を整理し、強みの材料を見つける","year":"29","topic":"自己分析","url":"29sotsu-jikobunseki-10questions.html","code":"01"},{"title":"ES文字数カウンター","desc":"200〜500字の文字数をすぐ確認","year":"28","topic":"ES","url":"28sotsu-es-mojisu-counter.html","code":"21"},{"title":"自己PR 400字ワーク","desc":"6項目から下書きを作成","year":"29","topic":"ES","url":"29sotsu-jikopr-400ji-revision-work.html","code":"05"},{"title":"面接1分回答タイマー","desc":"回答を30〜120秒で練習","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-1min-timer.html","code":"25"},{"title":"企業選び比較ボード","desc":"仕事・成長・働き方などを比較","year":"29","topic":"企業研究","url":"29sotsu-kigyou-erabi-jiku-match-board.html","code":"10"},{"title":"SPI言語12問演習","desc":"語彙・読解を練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-12mon-practice.html","code":"30"},{"title":"インターン日程かぶり確認","desc":"授業・面接・説明会の重複を探す","year":"29","topic":"選考管理","url":"29sotsu-intern-schedule-conflict-checker.html","code":"13"},{"title":"ES締切逆算","desc":"締切から作業計画を組み立てる","year":"28","topic":"選考管理","url":"28sotsu-es-shimekiri-gyakusan.html","code":"22"},{"title":"OB・OG訪問質問プラン","desc":"30分の質問と時間配分を考える","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-30min-question-planner.html","code":"14"},{"title":"企業研究30分ワーク","desc":"仕事内容・応募条件を整理","year":"28","topic":"企業研究","url":"28sotsu-kigyo-kenkyu-30min.html","code":"20"},{"title":"選考進捗トラッカー","desc":"企業・締切・選考段階を管理","year":"all","topic":"選考管理","url":"#tracker","code":"38"},{"title":"インターン志望動機","desc":"200字・400字の志望理由を作成","year":"29","topic":"ES","url":"29sotsu-intern-shiboudouki-work.html","code":"07"},{"title":"モチベーショングラフ","desc":"過去の経験を曲線で可視化","year":"29","topic":"自己分析","url":"29sotsu-motivation-curve-work.html","code":"02"},{"title":"強み・弱み整理","desc":"経験から自己PRの根拠を整理","year":"29","topic":"自己分析","url":"29sotsu-tsuyomi-yowami-episode-work.html","code":"03"},{"title":"就活の軸5つ整理","desc":"大切にしたい価値観を言語化","year":"29","topic":"自己分析","url":"29sotsu-shukatsu-jiku-5values.html","code":"04"},{"title":"ガクチカ作成ワーク","desc":"経験を200字・400字にまとめる","year":"29","topic":"ES","url":"29sotsu-gakuchika-star-400.html","code":"06"},{"title":"ES提出前チェック","desc":"応募前に22項目を確認","year":"29","topic":"ES","url":"29sotsu-intern-es-submit-check.html","code":"08"},{"title":"企業研究15分シート","desc":"事業・強み・志望理由の材料を整理","year":"29","topic":"企業研究","url":"29sotsu-kigyou-kenkyu-15min.html","code":"09"},{"title":"業界比較シート","desc":"興味のある3業界を比べる","year":"29","topic":"企業研究","url":"29sotsu-gyoukai-hikaku-sheet.html","code":"11"},{"title":"インターン優先順位","desc":"参加候補を比較して優先順位を決める","year":"29","topic":"選考管理","url":"29sotsu-intern-priority-board.html","code":"12"},{"title":"OB・OG訪問の依頼文","desc":"メール・DMの下書きを作る","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-request-mail.html","code":"15"},{"title":"OB・OG訪問のお礼文","desc":"訪問後のお礼メールを作成","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-orei-mail.html","code":"16"},{"title":"OB・OG質問メーカー","desc":"聞きたい内容から質問を組み立てる","year":"29","topic":"面接・OB訪問","url":"29sotsu-obog-question-maker.html","code":"17"},{"title":"12週間ロードマップ","desc":"週ごとに就活準備を管理","year":"29","topic":"選考管理","url":"29sotsu-12weeks-roadmap.html","code":"18"},{"title":"4週間チェックリスト","desc":"最初の就活準備20項目をチェック","year":"29","topic":"選考管理","url":"29sotsu-4weeks-checklist.html","code":"19"},{"title":"提出前20項目チェック","desc":"誤字・添付・送信完了まで確認","year":"28","topic":"ES","url":"28sotsu-es-teishutsu-mae-checklist.html","code":"23"},{"title":"ガクチカ深掘り15問","desc":"経験ごとの面接質問を整理","year":"28","topic":"面接・OB訪問","url":"28sotsu-gakuchika-fukabori-shitsumon.html","code":"24"},{"title":"面接PREP・STAR整理","desc":"伝わる回答の構成をつくる","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-prep-star-work.html","code":"26"},{"title":"面接前日チェック","desc":"19項目で準備漏れを防ぐ","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-zenjitsu-check.html","code":"27"},{"title":"面接メール作成","desc":"日程変更・確定・辞退を作成","year":"28","topic":"面接・OB訪問","url":"28sotsu-mensetsu-schedule-mail.html","code":"28"},{"title":"ES・面接の一貫性チェック","desc":"経験・数字・役割のずれを確認","year":"28","topic":"面接・OB訪問","url":"28sotsu-es-mensetsu-consistency.html","code":"29"},{"title":"SPI非言語12問演習","desc":"割合・確率・速さを練習","year":"28","topic":"Webテスト","url":"28sotsu-spi-higengo-12mon-practice.html","code":"31"},{"title":"SPI成績ダッシュボード","desc":"得意・苦手分野を可視化","year":"28","topic":"Webテスト","url":"28sotsu-spi-gengo-higengo-score-dashboard.html","code":"32"},{"title":"Webテスト復習ノート","desc":"間違いの原因と復習日を記録","year":"28","topic":"Webテスト","url":"28sotsu-webtest-machigai-note.html","code":"33"},{"title":"就活1週間プラン","desc":"7日間のタスクをつくる","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-1week-schedule.html","code":"34"},{"title":"今日の優先順位","desc":"ES・締切・Webテストから整理","year":"28","topic":"選考管理","url":"28sotsu-shukatsu-yusenjuni-shindan.html","code":"35"},{"title":"秋冬インターン比較","desc":"応募先の条件・締切を比較","year":"28","topic":"企業研究","url":"28sotsu-akifuyu-intern-oubo-hikaku.html","code":"36"},{"title":"ES下書き・文字数管理","desc":"文章を作りながら保存する","year":"all","topic":"ES","url":"#es-counter","code":"37"},{"title":"就活カレンダー","desc":"応募締切と面接予定を確認","year":"all","topic":"選考管理","url":"#calendar","code":"39"},{"title":"全データバックアップ","desc":"端末内に保存した記録を書き出す","year":"all","topic":"選考管理","url":"#backup-section","code":"40"},{"title":"就活サービス比較","desc":"スカウト・選考情報・エージェントを比較","year":"all","topic":"企業研究","url":"shukatsu-service-compare-2026.html","code":"41"}];
 let year='all',topic='すべて',expanded=false;
 // Keep only the graduation-year filter between visits. Never store search text,
 // shared-link filters, ES drafts, or other personal inputs as part of this preference.
@@ -2164,4 +2747,710 @@ window.addEventListener('sc-tools-settings-restored',()=>{
 drawRecent();
 syncFavoritesButton();
 update();
-})();</script></body></html>
+})();</script><script id="sc-sameday-script">(()=>{
+'use strict';
+// Read-only calendar check. It never changes sc_jobs or existing localStorage keys.
+const panel=document.getElementById('sc-sameday-panel');
+const summary=document.getElementById('sc-sameday-summary');
+const result=document.getElementById('sc-sameday-result');
+if(!panel||!summary||!result)return;
+const pad=n=>String(n).padStart(2,'0');
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function validISO(value){
+ if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+ const y=Number(value.slice(0,4)),m=Number(value.slice(5,7)),d=Number(value.slice(8,10));
+ if(y<2000||m<1||m>12||d<1||d>31)return false;
+ const parsed=new Date(Date.UTC(y,m-1,d));
+ return parsed.getUTCFullYear()===y&&parsed.getUTCMonth()===m-1&&parsed.getUTCDate()===d;
+}
+function draw(){
+ let entries=[];
+ try{const data=JSON.parse(localStorage.getItem('sc_jobs')||'[]');if(Array.isArray(data))entries=data;}catch(e){}
+ const min=todayISO(),days=new Map();
+ for(const j of entries){
+  if(!j||typeof j!=='object'||j.stage==='内定'||j.stage==='終了')continue;
+  const name=String(j.name||'企業名未設定').trim().slice(0,80)||'企業名未設定';
+  for(const [key,label] of [['deadline','応募締切'],['nextDate','次回予定']]){
+   const date=j[key];if(!validISO(date)||date<min)continue;
+   if(!days.has(date))days.set(date,[]);
+   days.get(date).push({name,label});
+  }
+ }
+ const matches=[...days.entries()].filter(([,items])=>items.length>=2).sort(([a],[b])=>a.localeCompare(b));
+ summary.textContent='同日予定を確認（'+matches.length+'日）';
+ result.replaceChildren();
+ if(!matches.length){
+  const p=document.createElement('p');p.className='sc-sameday-empty';p.textContent='今後、同じ日付に2件以上の予定がある日はありません。';result.append(p);return;
+ }
+ const list=document.createElement('ol');list.className='sc-sameday-list';
+ for(const [date,items] of matches.slice(0,30)){
+  const li=document.createElement('li'),heading=document.createElement('p');
+  heading.className='sc-sameday-date';heading.textContent=date.replaceAll('-','/')+'（'+items.length+'件）';li.append(heading);
+  for(const item of items){
+   const p=document.createElement('p');p.className='sc-sameday-event';
+   p.textContent=item.label+'｜'+item.name;li.append(p);
+  }
+  list.append(li);
+ }
+ result.append(list);
+ if(matches.length>30){const p=document.createElement('p');p.className='sc-sameday-note';p.textContent='31日目以降は省略しています。';result.append(p);}
+}
+const jobCards=document.getElementById('jobs');
+if(jobCards){let queued=false;new MutationObserver(()=>{
+ if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;draw();});
+}).observe(jobCards,{childList:true,subtree:true});}
+window.addEventListener('storage',e=>{if(e.key==='sc_jobs')draw();});
+window.addEventListener('focus',draw);
+draw();
+})();</script><script id="sc-selfintro-script">(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const fields=['si-name','si-study','si-strength','si-action','si-result'];
+const output=$('si-output'),metrics=$('si-metrics'),feedback=$('si-feedback');
+if(!output||!metrics||!feedback)return;
+const get=id=>$(id).value.trim().replace(/\s+/g,' ');
+const clean=s=>s.replace(/[。！!？?\s]+$/g,'');
+const sentence=s=>s?clean(s)+'。':'';
+const count=s=>Array.from(s).length;
+function duration(){return Number(document.querySelector('input[name="si-duration"]:checked')?.value||30)}
+// This is a guideline, not a prediction of actual speech time. Nothing is stored or transmitted.
+const pacePanel=$('si-pace-panel'),paceLabel=$('si-pace-label'),paceFill=$('si-pace-fill'),paceAdvice=$('si-pace-advice');
+function renderPaceGuide(chars,target){
+ const ideal=target*5,margin=Math.round(ideal*0.1),lower=ideal-margin,upper=ideal+margin;
+ const state=!chars?'empty':chars<lower?'short':chars>upper?'long':'fit';
+ pacePanel.dataset.state=state;
+ paceLabel.textContent=`${chars} / 約${ideal}文字（${target}秒）`;
+ paceFill.style.width=Math.min(100,Math.round(chars/ideal*100))+'%';
+ paceAdvice.textContent=state==='empty'?'原稿を入力すると、目標時間に対する長さを診断します。'
+  :state==='short'?`目安より短めです。約${ideal-chars}文字を追加するか、音読して間の取り方を確認しましょう。`
+  :state==='long'?`目安より長めです。約${chars-ideal}文字を削るか、音読して時間を確かめましょう。`
+  :'目安の範囲内です。実際に音読して、30秒・60秒の目標に収まるか確認しましょう。';
+}
+// 2026-10-21 08:35: purely local, rule-based content completeness check.
+const structureList=$('si-structure-list'),structureCount=$('si-structure-count');
+const structureItems=[
+ ['si-name','所属・氏名'],['si-study','学び・専門'],
+ ['si-strength','自分の強み'],['si-action','経験・具体的な行動'],
+ ['si-result','成果・学び'],['si-output','原稿の作成']
+];
+function renderStructureCheck(){
+ const keys=duration()===60?structureItems:structureItems.filter(([id])=>id!=='si-result');
+ let ready=0;
+ structureList.replaceChildren();
+ for(const [id,label] of keys){
+  const done=Boolean($(id).value.trim());
+  if(done)ready++;
+  const li=document.createElement('li');li.dataset.ready=String(done);
+  li.textContent=label+(done?'：入力済み':'：未入力');
+  structureList.appendChild(li);
+ }
+ structureCount.textContent=ready+' / '+keys.length+'項目';
+}
+fields.forEach(id=>$(id).addEventListener('input',renderStructureCheck));
+function updateMetrics(){
+ const chars=count(output.value),seconds=Math.round(chars/300*60),target=duration();
+ metrics.textContent=`${chars}文字｜発話時間の目安：約${seconds}秒｜設定：${target}秒`;
+ metrics.dataset.state=chars>target*6?'over':'normal';
+ renderPaceGuide(chars,target);
+ renderStructureCheck();
+}
+function build(){
+ const name=get('si-name'),study=get('si-study'),strength=get('si-strength'),action=get('si-action'),result=get('si-result');
+ if(![name,study,strength,action,result].some(Boolean)){
+  feedback.textContent='少なくとも1項目を入力してください。';$('si-name').focus();return;
+ }
+ const lines=[];
+ if(name)lines.push(sentence(name));
+ if(study)lines.push(sentence(study));
+ if(strength)lines.push('私の強みは'+clean(strength)+'です。');
+ if(action)lines.push(sentence(action));
+ if(duration()===60 && result)lines.push(sentence(result));
+ lines.push('本日はどうぞよろしくお願いいたします。');
+ output.value=lines.join('');updateMetrics();
+ feedback.textContent='下書きを作成しました。内容と長さを確認し、必要に応じて編集してください。';
+}
+$('si-build').addEventListener('click',build);
+output.addEventListener('input',()=>{updateMetrics();feedback.textContent='';});
+document.querySelectorAll('input[name="si-duration"]').forEach(el=>el.addEventListener('change',()=>{updateMetrics();feedback.textContent='長さを変更しました。「下書きを作成」で構成を更新できます。';}));
+$('si-clear').addEventListener('click',()=>{if(!fields.some(id=>$(id).value.trim())&&!output.value.trim())return;
+ if(!confirm('自己紹介の入力内容と下書きを消去しますか？'))return;
+ fields.forEach(id=>$(id).value='');output.value='';updateMetrics();feedback.textContent='入力を消去しました。';});
+$('si-copy').addEventListener('click',async()=>{
+ const value=output.value.trim();if(!value){feedback.textContent='先に自己紹介文を作成してください。';return;}
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(value);}else{
+ output.focus();output.select();if(!document.execCommand('copy'))throw new Error('copy');}
+ feedback.textContent='文章をコピーしました。';}catch(e){feedback.textContent='コピーできませんでした。文章を選択して手動でコピーしてください。';}
+});
+$('si-txt').addEventListener('click',()=>{
+ const value=output.value.trim();if(!value){feedback.textContent='先に自己紹介文を作成してください。';return;}
+ const blob=new Blob(['\ufeff'+value+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
+ const a=document.createElement('a');a.href=url;a.download='shukatsu-selfintro-'+duration()+'sec.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+ feedback.textContent='TXTファイルを保存しました。端末のダウンロード先をご確認ください。';
+});
+// Optional local-only persistence; never writes while typing.
+const selfIntroKey='sc_selfintro_v1', saveStatus=$('si-save-status');
+function selfIntroSnapshot(){
+ return {version:1,duration:duration(),fields:Object.fromEntries(fields.map(id=>[id,$(id).value])),output:output.value};
+}
+function validateSelfIntro(v){
+ const limits={'si-name':100,'si-study':140,'si-strength':120,'si-action':360,'si-result':240};
+ return !!v&&typeof v==='object'&&!Array.isArray(v)&&v.version===1&&[30,60].includes(v.duration)&&typeof v.output==='string'&&v.output.length<=1800&&v.fields&&typeof v.fields==='object'&&!Array.isArray(v.fields)&&Object.keys(limits).every(id=>typeof v.fields[id]==='string'&&v.fields[id].length<=limits[id]);
+}
+function loadSelfIntro(){
+ try{
+  const raw=localStorage.getItem(selfIntroKey);
+  if(!raw){saveStatus.textContent='保存された自己紹介はありません。';return false;}
+  const v=JSON.parse(raw);if(!validateSelfIntro(v))throw new Error('invalid');
+  fields.forEach(id=>$(id).value=v.fields[id]);output.value=v.output;
+  const radio=document.querySelector('input[name="si-duration"][value="'+v.duration+'"]');if(radio)radio.checked=true;
+  updateMetrics();saveStatus.textContent='保存した材料・原稿・時間設定を読み込みました。';return true;
+ }catch(e){saveStatus.textContent='保存データを読み込めません。端末保存を削除するか、全データバックアップを確認してください。';return false;}
+}
+$('si-save').addEventListener('click',()=>{
+ if(!fields.some(id=>$(id).value.trim())&&!output.value.trim()){
+  saveStatus.textContent='材料か原稿を入力してから保存してください。';return;
+ }
+ try{localStorage.setItem(selfIntroKey,JSON.stringify(selfIntroSnapshot()));saveStatus.textContent='この端末に保存しました。共有端末では保存データの削除を忘れずに。';}
+ catch(e){saveStatus.textContent='端末に保存できませんでした。ブラウザの保存設定・空き容量をご確認ください。';}
+});
+$('si-load').addEventListener('click',()=>{
+ if((fields.some(id=>$(id).value.trim())||output.value.trim())&&!confirm('現在の自己紹介入力を保存済みの内容で置き換えますか？'))return;
+ loadSelfIntro();
+});
+$('si-delete').addEventListener('click',()=>{
+ try{if(!localStorage.getItem(selfIntroKey)){saveStatus.textContent='端末保存はありません。';return;}}
+ catch(e){saveStatus.textContent='保存状態を確認できません。';return;}
+ if(!confirm('端末に保存した自己紹介を削除しますか？（画面の入力内容は残ります）'))return;
+ try{localStorage.removeItem(selfIntroKey);saveStatus.textContent='端末保存を削除しました。画面の入力内容は残っています。';}
+ catch(e){saveStatus.textContent='端末保存を削除できませんでした。';}
+});
+window.addEventListener('sc-selfintro-restored',()=>{saveStatus.textContent='全データの復元が完了しました。「保存した内容を読み込む」で自己紹介を反映できます。';});
+
+
+// Practice stopwatch: monotonic clock; no microphone or persistent data.
+const practiceClock=$('si-practice-clock'),practiceResult=$('si-practice-result');
+const practiceStart=$('si-practice-start'),practicePause=$('si-practice-pause'),practiceStop=$('si-practice-stop'),practiceReset=$('si-practice-reset');
+let practiceStartedAt=0,practiceElapsed=0,practiceTarget=duration(),practiceTicker=null,practicePaused=false;
+const practiceFormat=ms=>{const tenths=Math.floor(Math.max(0,ms)/100);const minutes=Math.floor(tenths/600);const seconds=Math.floor((tenths%600)/10);return String(minutes).padStart(2,'0')+':'+String(seconds).padStart(2,'0')+'.'+(tenths%10)};
+const practiceGoal=$('si-goal-progress'),practiceGoalTrack=$('si-goal-track');
+const practiceGoalFill=$('si-goal-fill'),practiceGoalLabel=$('si-goal-label');
+function practiceRender(){
+ const elapsed=practiceElapsed+(practiceTicker!==null?Math.max(0,performance.now()-practiceStartedAt):0);
+ practiceClock.textContent=practiceFormat(elapsed);
+ const targetMs=practiceTarget*1000,ratio=Math.min(1,elapsed/targetMs);
+ const pct=Math.round(ratio*100);
+ practiceGoalFill.style.width=(ratio*100).toFixed(1)+'%';
+ practiceGoalTrack.setAttribute('aria-valuenow',String(pct));
+ practiceGoal.dataset.state=elapsed>targetMs?'over':(practicePaused?'paused':(practiceTicker!==null?'running':'ready'));
+ const remaining=Math.max(0,(targetMs-elapsed)/1000);
+ const over=Math.max(0,(elapsed-targetMs)/1000);
+ practiceGoalLabel.textContent=over>0
+  ?`目標${practiceTarget}秒を${over.toFixed(1)}秒超過`
+  :`${practicePaused?'一時停止中｜':''}目標${practiceTarget}秒まで残り${remaining.toFixed(1)}秒`;
+}
+// Session-only history: no localStorage, no recording and no network calls.
+const practiceHistory=[];
+const historyList=$('si-history-list'),historySummary=$('si-history-summary');
+const historyTxt=$('si-history-txt'),historyClear=$('si-history-clear');
+const historyInsights=$('si-history-insights'),historyBars=$('si-history-bars');
+const historyAverage=$('si-history-average'),historyHit=$('si-history-hit'),historyTrend=$('si-history-trend');
+function renderPracticeHistory(){
+ historyList.replaceChildren();
+ for(const item of practiceHistory){
+  const li=document.createElement('li');
+  const delta=(item.elapsedMs/1000-item.target);
+  li.textContent=`目標${item.target}秒｜実測${(item.elapsedMs/1000).toFixed(1)}秒｜${delta>=0?'+':''}${delta.toFixed(1)}秒`;
+  historyList.appendChild(li);
+ }
+ const best=practiceHistory.length?practiceHistory.reduce((a,b)=>Math.abs(a.elapsedMs/1000-a.target)<=Math.abs(b.elapsedMs/1000-b.target)?a:b):null;
+ historySummary.textContent=best?`直近${practiceHistory.length}回｜最も目標に近い記録：${best.target}秒目標との差 ${Math.abs(best.elapsedMs/1000-best.target).toFixed(1)}秒`:'まだ練習記録はありません。';
+ historyTxt.disabled=historyClear.disabled=!practiceHistory.length;
+ // All calculations are based on absolute difference, so 30s/60s practice can be compared fairly.
+ const count=practiceHistory.length;
+ historyInsights.hidden=historyBars.hidden=!count;
+ historyBars.replaceChildren();
+ if(count){
+  const diffs=practiceHistory.map(item=>Math.abs(item.elapsedMs/1000-item.target));
+  const mean=diffs.reduce((sum,value)=>sum+value,0)/count;
+  const hits=diffs.filter(value=>value<=3).length;
+  historyAverage.textContent=mean.toFixed(1)+'秒';
+  historyHit.textContent=hits+'/'+count+'回';
+  if(count<2){historyTrend.textContent='2回目から表示';}
+  else{
+   const change=diffs[count-1]-diffs[0];
+   historyTrend.textContent=Math.abs(change)<0.05?'変化なし':(change>0?Math.abs(change).toFixed(1)+'秒改善':Math.abs(change).toFixed(1)+'秒増加');
+  }
+  const scale=Math.max(10,...diffs);
+  diffs.forEach((value,index)=>{
+   const row=document.createElement('div');row.className='si-history-bar-row';
+   const label=document.createElement('span');label.textContent=index===0?'最新':(index+1)+'件目';
+   const track=document.createElement('div');track.className='si-history-bar-track';
+   const bar=document.createElement('span');bar.className='si-history-bar-fill';
+   bar.dataset.near=String(value<=3);
+   bar.style.width=Math.min(100,value/scale*100).toFixed(1)+'%';
+   track.appendChild(bar);
+   const output=document.createElement('output');output.textContent=value.toFixed(1)+'秒';
+   row.append(label,track,output);historyBars.appendChild(row);
+  });
+ }
+}
+function recordPracticeHistory(){
+ practiceHistory.unshift({target:practiceTarget,elapsedMs:practiceElapsed});
+ if(practiceHistory.length>5)practiceHistory.length=5;
+ renderPracticeHistory();
+}
+historyTxt.addEventListener('click',()=>{
+ if(!practiceHistory.length)return;
+ const lines=['就活コンパス｜自己紹介・音読練習履歴','このページでの直近'+practiceHistory.length+'回'];
+ practiceHistory.forEach((item,i)=>{
+  const d=item.elapsedMs/1000-item.target;
+  lines.push(`${i+1}回目：目標${item.target}秒／実測${(item.elapsedMs/1000).toFixed(1)}秒／差${d>=0?'+':''}${d.toFixed(1)}秒`);
+ });
+ const blob=new Blob(['\ufeff'+lines.join('\n')+'\n'],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='shukatsu-selfintro-practice-history.txt';document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),5000);
+});
+historyClear.addEventListener('click',()=>{
+ if(!practiceHistory.length)return;
+ if(!confirm('このページの音読練習履歴を消去しますか？（自己紹介の原稿や端末保存は残ります）'))return;
+ practiceHistory.length=0;renderPracticeHistory();
+});
+renderPracticeHistory();
+// Pause time is deliberately excluded from elapsed speaking time and the session-only history.
+function practiceFinish(){
+ if(practiceTicker===null&&!practicePaused)return;
+ if(practiceTicker!==null){
+  practiceElapsed+=Math.max(0,performance.now()-practiceStartedAt);
+  clearInterval(practiceTicker);practiceTicker=null;
+ }
+ practicePaused=false;practicePause.disabled=true;practicePause.textContent='一時停止';practicePause.setAttribute('aria-pressed','false');
+ practiceRender();practiceStart.disabled=false;practiceStop.disabled=true;
+ const difference=(practiceElapsed/1000-practiceTarget).toFixed(1),absolute=Math.abs(Number(difference)).toFixed(1);
+ practiceResult.dataset.state='done';
+ practiceResult.textContent=Math.abs(Number(difference))<=3
+  ?`目標${practiceTarget}秒との差は${absolute}秒。目標に近いペースです。`
+  :`目標${practiceTarget}秒より${Number(difference)>0?absolute+'秒長い':absolute+'秒短い'}です。原稿の長さや話す速さを調整しましょう。`;
+ recordPracticeHistory();
+}
+practiceStart.addEventListener('click',()=>{
+ if(practiceTicker!==null||practicePaused)return;
+ practiceElapsed=0;practiceTarget=duration();practiceStartedAt=performance.now();
+ practiceResult.dataset.state='running';practiceResult.textContent=`${practiceTarget}秒を目標に計測中。読み終わったら停止してください。`;
+ practiceStart.disabled=true;practicePause.disabled=false;practicePause.textContent='一時停止';practicePause.setAttribute('aria-pressed','false');
+ practiceStop.disabled=false;practiceRender();practiceTicker=setInterval(practiceRender,100);
+});
+practicePause.addEventListener('click',()=>{
+ if(practiceTicker!==null){
+  practiceElapsed+=Math.max(0,performance.now()-practiceStartedAt);
+  clearInterval(practiceTicker);practiceTicker=null;practicePaused=true;
+  practicePause.textContent='再開';practicePause.setAttribute('aria-pressed','true');
+  practiceResult.dataset.state='paused';practiceResult.textContent='一時停止中。準備ができたら「再開」を押してください。一時停止中の時間は計測しません。';
+ }else if(practicePaused){
+  practiceStartedAt=performance.now();practicePaused=false;practiceTicker=setInterval(practiceRender,100);
+  practicePause.textContent='一時停止';practicePause.setAttribute('aria-pressed','false');
+  practiceResult.dataset.state='running';practiceResult.textContent=`${practiceTarget}秒を目標に計測中。読み終わったら停止してください。`;
+ }
+ practiceRender();
+});
+practiceStop.addEventListener('click',practiceFinish);
+practiceReset.addEventListener('click',()=>{
+ if(practiceTicker!==null){clearInterval(practiceTicker);practiceTicker=null;}
+ practiceElapsed=0;practicePaused=false;practiceTarget=duration();practiceStart.disabled=false;practiceStop.disabled=true;
+ practicePause.disabled=true;practicePause.textContent='一時停止';practicePause.setAttribute('aria-pressed','false');
+ practiceRender();practiceResult.dataset.state='ready';
+ practiceResult.textContent=`目標${practiceTarget}秒。原稿を作成したら声に出して練習しましょう。`;
+});
+document.querySelectorAll('input[name="si-duration"]').forEach(el=>el.addEventListener('change',()=>{
+ if(practiceTicker===null&&practiceElapsed===0){practiceTarget=duration();practiceResult.textContent=`目標${practiceTarget}秒。原稿を作成したら声に出して練習しましょう。`;practiceRender();}
+}));
+
+updateMetrics();
+practiceRender();
+})();</script>
+<script id="sc-selfintro-followup-script">(()=>{
+'use strict';
+const root=document.getElementById('si-followup');if(!root)return;
+const $=id=>document.getElementById(id);
+const list=$('si-fu-list'),progress=$('si-fu-progress'),feedback=$('si-fu-feedback');
+const inputIds=['si-name','si-study','si-strength','si-action','si-result'];
+const short=id=>{const v=($(id)?.value||'').trim().replace(/\s+/g,' ');return Array.from(v).slice(0,28).join('')+(Array.from(v).length>28?'…':'');};
+const prompts=()=>[
+  `学んでいる「${short('si-study')||'分野'}」に興味を持った理由は何ですか？`,
+  `強み「${short('si-strength')||'あなたの強み'}」を発揮した具体的な場面を教えてください。`,
+  `「${short('si-action')||'その経験'}」で最も難しかった課題と、自分が取った行動は何ですか？`,
+  '周囲と意見が食い違ったとき、どのように合意形成しましたか？',
+  `「${short('si-result')||'成果・学び'}」は、どのように確かめましたか？数字や周囲の反応も説明できますか？`,
+  'その経験で得た学びを、入社後の仕事でどのように生かしたいですか？'
+];
+const questions=[];
+for(let i=0;i<6;i++){
+ const li=document.createElement('li');li.className='si-fu-item';
+ const label=document.createElement('label');label.className='si-fu-question';label.htmlFor=`si-fu-note-${i}`;
+ const area=document.createElement('textarea');area.id=`si-fu-note-${i}`;area.maxLength=1500;area.rows=3;
+ area.placeholder='自分の言葉で答えの要点をメモ（最大1500文字）';
+ area.addEventListener('input',()=>{progress.textContent=`回答メモ ${questions.filter(q=>q.area.value.trim()).length} / 6件`;});
+ li.append(label,area);list.append(li);questions.push({label,area});
+}
+function updatePrompts(){const values=prompts();questions.forEach((q,i)=>{q.label.textContent=`Q${i+1}｜${values[i]}`;});}
+inputIds.forEach(id=>$(id)?.addEventListener('input',updatePrompts));
+updatePrompts();
+// Explicit-only local save. Keep draft on screen independent from the saved copy.
+const followupKey='sc_selfintro_followup_v1';
+const savedSnapshot=()=>({version:1,notes:questions.map(q=>q.area.value)});
+const validSnapshot=d=>!!d&&typeof d==='object'&&!Array.isArray(d)&&d.version===1&&Array.isArray(d.notes)&&d.notes.length===6&&d.notes.every(v=>typeof v==='string'&&v.length<=1500);
+const updateProgress=()=>{progress.textContent=`回答メモ ${questions.filter(q=>q.area.value.trim()).length} / 6件`;};
+$('si-fu-save').addEventListener('click',()=>{
+ if(!questions.some(q=>q.area.value.trim())){feedback.textContent='回答メモを入力してから端末保存してください。';return;}
+ try{localStorage.setItem(followupKey,JSON.stringify(savedSnapshot()));feedback.textContent='6問の回答メモをこの端末に保存しました。自動保存ではありません。';}
+ catch(e){feedback.textContent='端末に保存できませんでした。ブラウザの保存設定・容量をご確認ください。';}
+});
+$('si-fu-load').addEventListener('click',()=>{
+ try{
+  const raw=localStorage.getItem(followupKey);if(!raw){feedback.textContent='端末に保存した回答メモはありません。';return;}
+  const d=JSON.parse(raw);if(!validSnapshot(d))throw new Error('invalid');
+  if(questions.some(q=>q.area.value.trim())&&!window.confirm('現在の画面の回答メモを端末保存の内容で置き換えますか？'))return;
+  questions.forEach((q,i)=>{q.area.value=d.notes[i]});updateProgress();feedback.textContent='端末保存した6問の回答メモを読み込みました。';
+ }catch(e){feedback.textContent='保存データを読み込めませんでした。形式をご確認ください。';}
+});
+$('si-fu-delete').addEventListener('click',()=>{
+ try{
+  if(!localStorage.getItem(followupKey)){feedback.textContent='削除する端末保存データはありません。';return;}
+  if(!window.confirm('端末に保存した深掘り回答メモを削除しますか？画面のメモと自己紹介は残ります。'))return;
+  localStorage.removeItem(followupKey);feedback.textContent='端末保存した深掘り回答メモを削除しました。画面のメモは残っています。';
+ }catch(e){feedback.textContent='端末保存を削除できませんでした。';}
+});
+window.addEventListener('sc-selfintro-followup-restored',()=>{feedback.textContent='全データの復元が完了しました。「保存したメモを読み込む」で反映できます。';});
+$('si-fu-export').addEventListener('click',()=>{
+ const lines=['就活コンパス｜28卒 面接自己紹介の深掘り質問6問','※自分で入力した回答メモです。面接評価を保証するものではありません。',''];
+ questions.forEach((q,i)=>{lines.push(q.label.textContent, q.area.value.trim()||'（回答メモなし）','');});
+ const blob=new Blob(['\ufeff'+lines.join('\n')],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='shukatsu-selfintro-followup-6questions.txt';
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+ feedback.textContent='質問と回答メモをTXTファイルに保存しました。ファイルの共有先に注意してください。';
+});
+$('si-fu-clear').addEventListener('click',()=>{
+ if(!questions.some(q=>q.area.value.trim())){feedback.textContent='消去する回答メモはありません。';return;}
+ if(!window.confirm('深掘り6問の回答メモをすべて消去しますか？自己紹介原稿と端末保存は変更しません。'))return;
+ questions.forEach(q=>{q.area.value='';});progress.textContent='回答メモ 0 / 6件';
+ feedback.textContent='深掘り質問の回答メモだけを消去しました。自己紹介原稿は保持されています。';
+});
+})();</script>
+
+
+<script id="sc-selfintro-followup-practice-script">(()=>{
+'use strict';
+const root=document.getElementById('si-fu-practice');if(!root)return;
+const get=id=>document.getElementById(id);
+const start=get('si-fu-practice-start'),reveal=get('si-fu-practice-reveal'),next=get('si-fu-practice-next');
+const stage=get('si-fu-practice-stage'),counter=get('si-fu-practice-counter'),question=get('si-fu-practice-question');
+const answer=get('si-fu-practice-answer'),answerText=get('si-fu-practice-answer-text'),status=get('si-fu-practice-status');
+let order=[],position=0;
+const promptAt=i=>get(`si-fu-note-${i}`)?.closest('li')?.querySelector('.si-fu-question')?.textContent||`質問${i+1}`;
+function render(){
+ const i=order[position];if(i===undefined)return;
+ counter.textContent=`第${position+1}問 / 全6問`;
+ question.textContent=promptAt(i);
+ answer.hidden=true;answerText.textContent='';
+ stage.hidden=false;reveal.disabled=false;next.disabled=false;
+ next.textContent=position===5?'練習を終了':'次の質問へ';
+ status.textContent='回答を声に出してから「回答メモを確認」を押してください。';
+}
+start.addEventListener('click',()=>{
+ order=[0,1,2,3,4,5];
+ for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+ position=0;start.textContent='最初からやり直す';render();
+});
+reveal.addEventListener('click',()=>{
+ if(!order.length)return;
+ const memo=get(`si-fu-note-${order[position]}`)?.value.trim();
+ answerText.textContent=memo||'この質問の回答メモはまだ入力されていません。';
+ answer.hidden=false;status.textContent='回答を確認しました。次の質問へ進めます。';
+});
+next.addEventListener('click',()=>{
+ if(!order.length)return;
+ if(position<5){position++;render();return;}
+ order=[];position=0;stage.hidden=true;reveal.disabled=true;next.disabled=true;
+ start.textContent='もう一度ランダム出題';status.textContent='6問の練習が完了しました。回答メモは変更していません。';
+});
+})();</script>
+
+<script id="sc-selfintro-followup-timer-script">(()=>{
+'use strict';
+const get=id=>document.getElementById(id);
+const root=get('si-fu-practice'),panel=get('si-fu-timebox'),summary=get('si-fu-time-summary');
+if(!root||!panel||!summary)return;
+const practiceStart=get('si-fu-practice-start'),practiceNext=get('si-fu-practice-next'),practiceReveal=get('si-fu-practice-reveal');
+const stage=get('si-fu-practice-stage'),answer=get('si-fu-practice-answer'),goal=get('si-fu-time-goal'),display=get('si-fu-time-display'),fill=get('si-fu-time-fill');
+const start=get('si-fu-time-start'),pause=get('si-fu-time-pause'),reset=get('si-fu-time-reset'),status=get('si-fu-time-status');
+const summaryText=get('si-fu-time-summary-text'),summaryList=get('si-fu-time-summary-list');
+let active=false,paused=false,finished=false,elapsedMs=0,startedAt=0,intervalId=null,step=0,records=[],ratings=[],questions=[];
+const ratingBox=get('si-fu-rating'),ratingSummary=get('si-fu-rating-summary');
+const ratingInputs=Array.from(ratingBox?.querySelectorAll('[data-si-fu-rating]')||[]);
+function captureRating(){if(!stage.hidden&&ratingBox&&!ratingBox.hidden){ratings[step]=ratingInputs.map(el=>el.checked);}}
+function resetRating(){ratingInputs.forEach(el=>el.checked=false);if(ratingBox)ratingBox.hidden=false;}
+ratingInputs.forEach(el=>el.addEventListener('change',captureRating));
+const now=()=>performance.now();
+const currentMs=()=>elapsedMs+(active&&!paused?Math.max(0,now()-startedAt):0);
+const format=ms=>{const tenths=Math.floor(Math.max(0,ms)/100);return String(Math.floor(tenths/600)).padStart(2,'0')+':'+String(Math.floor(tenths/10)%60).padStart(2,'0')+'.'+(tenths%10);};
+function tick(){
+ const ms=currentMs(),target=Number(goal.value)*1000,over=ms>target;
+ display.textContent=format(ms);display.classList.toggle('is-over',over);
+ fill.style.width=Math.min(100,ms/target*100)+'%';fill.classList.toggle('is-over',over);
+}
+function clearTicker(){if(intervalId!==null){clearInterval(intervalId);intervalId=null;}}
+function resetCurrent(){
+ clearTicker();active=false;paused=false;finished=false;elapsedMs=0;startedAt=0;
+ if(answer)answer.hidden=true;
+ start.textContent='計測開始';start.disabled=false;pause.disabled=true;
+ status.textContent='準備ができたら「計測開始」。回答後に「回答メモを確認」を押すと時間を記録します。';
+ tick();
+}
+function finalize(){
+ if(!active||finished)return;
+ elapsedMs=currentMs();active=false;paused=false;finished=true;clearTicker();tick();
+ const target=Number(goal.value),seconds=elapsedMs/1000;
+ records[step]={question:get('si-fu-practice-question').textContent||`第${step+1}問`,seconds,target};
+ start.disabled=true;pause.disabled=true;
+ status.textContent=`第${step+1}問：${seconds.toFixed(1)}秒（目標${target}秒、差${(seconds-target)>0?'+':''}${(seconds-target).toFixed(1)}秒）を記録しました。`;
+}
+function showSummary(){
+ captureRating();if(ratingBox)ratingBox.hidden=true;
+ panel.hidden=true;summary.hidden=false;summaryList.replaceChildren();
+ const graded=ratings.filter(Boolean),score=graded.reduce((n,values)=>n+values.filter(Boolean).length,0);
+ if(ratingSummary)ratingSummary.textContent=`自己チェック：${graded.length}/6問・合計${score}/${graded.length*3}項目（任意の自己評価）`;
+ const valid=records.filter(Boolean),hit=valid.filter(r=>Math.abs(r.seconds-r.target)<=5).length;
+ if(!valid.length){summaryText.textContent='今回は時間を計測した質問がありません。次回は各問の「計測開始」から練習できます。';renderReview();return;}
+ const avg=valid.reduce((sum,r)=>sum+Math.abs(r.seconds-r.target),0)/valid.length;
+ summaryText.textContent=`計測 ${valid.length} / 6問｜目標±5秒以内 ${hit}問｜平均時間差 ${avg.toFixed(1)}秒。回答内容も合わせて振り返りましょう。`;
+ Array.from({length:6},(_,i)=>{const r=records[i],grade=ratings[i];if(!r&&!grade)return;
+  const li=document.createElement('li'),rating=grade?` / 自己チェック ${grade.filter(Boolean).length}/3項目`:' / 自己チェック未記入';
+  li.textContent=`第${i+1}問：${r?r.seconds.toFixed(1)+'秒 / 目標'+r.target+'秒':'時間未計測'}${r?'（差'+(r.seconds-r.target>0?'+':'')+(r.seconds-r.target).toFixed(1)+'秒）':''}${rating}`;
+  summaryList.appendChild(li);
+ });
+ renderReview();
+}
+// 2026-10-21 15:30 | 模擬面接結果から次回の重点復習プランを作る（端末内処理）
+const reviewBox=get('si-fu-review'),reviewList=get('si-fu-review-list'),reviewStatus=get('si-fu-review-status'),reviewExport=get('si-fu-review-export');
+// 2026-10-21 16:35 | 重点質問だけを再練習する独立したカードUI
+const drillStart=get('si-fu-review-drill-start'),drillStage=get('si-fu-review-drill-stage'),drillCounter=get('si-fu-review-drill-counter'),drillQuestion=get('si-fu-review-drill-question'),drillHints=get('si-fu-review-drill-hints'),drillHintsText=get('si-fu-review-drill-hints-text'),drillReveal=get('si-fu-review-drill-reveal'),drillNext=get('si-fu-review-drill-next'),drillStop=get('si-fu-review-drill-stop'),drillStatus=get('si-fu-review-drill-status');
+let reviewPlan=[],drillQueue=[],drillStep=0;
+// 2026-10-21 17:30: 重点復習用の独立した計測・初回比較。自動保存・外部送信なし。
+const drillGoal=get('si-fu-review-drill-goal'),drillClock=get('si-fu-review-drill-clock'),drillTimeStart=get('si-fu-review-drill-time-start'),drillTimePause=get('si-fu-review-drill-time-pause'),drillTimeFinish=get('si-fu-review-drill-time-finish'),drillTimeStatus=get('si-fu-review-drill-time-status');
+let drillTimerId=null,drillTimeElapsed=0,drillTimeStarted=0,drillTimeActive=false,drillTimePaused=false,drillTimeFinished=false,drillResults={};
+// 2026-10-21 18:35 | 同じ目標時間でのみ改善量を計算。未計測は欠損として扱う。
+const drillProgressList=get('si-fu-drill-progress-list'),drillProgressNote=get('si-fu-drill-progress-note'),drillCsvButton=get('si-fu-review-export-csv');
+function drillProgressMetrics(item){
+ const first=records[item.i]||null,again=drillResults[item.i]||null;
+ const sameGoal=Boolean(first&&again&&first.target===again.target);
+ const gain=sameGoal?Math.abs(first.seconds-first.target)-Math.abs(again.seconds-again.target):null;
+ return {first,again,sameGoal,gain};
+}
+function renderDrillProgress(){
+ if(!drillProgressList||!drillProgressNote)return;
+ drillProgressList.replaceChildren();
+ const measured=reviewPlan.filter(item=>drillResults[item.i]);
+ if(!measured.length){drillProgressNote.textContent='復習の回答時間を記録すると初回と比較できます。未計測の質問は比較対象に含めません。';return;}
+ const comparable=measured.filter(item=>drillProgressMetrics(item).sameGoal);
+ const improved=comparable.filter(item=>drillProgressMetrics(item).gain>0.05).length;
+ drillProgressNote.textContent=`復習の記録 ${measured.length}/${reviewPlan.length}問｜同じ目標時間で比較可能 ${comparable.length}問｜目標との差が縮まった ${improved}問。自己評価ではなく回答時間の参考指標です。`;
+ measured.forEach(item=>{
+  const {first,again,sameGoal,gain}=drillProgressMetrics(item);
+  const li=document.createElement('li');
+  const diff=sameGoal?(Math.abs(gain)<0.05?'目標との差はほぼ同じ':gain>0?`目標との差が${gain.toFixed(1)}秒縮小`:`目標との差が${Math.abs(gain).toFixed(1)}秒拡大`):first?'目標秒数が異なるため改善判定なし':'初回未計測のため比較なし';
+  li.textContent=`第${item.i+1}問｜初回 ${first?first.seconds.toFixed(1)+'秒（目標'+first.target+'秒）':'未計測'} → 復習 ${again.seconds.toFixed(1)}秒（目標${again.target}秒）｜${diff}`;
+  drillProgressList.appendChild(li);
+ });
+}
+function exportDrillCsv(){
+ if(!reviewPlan.length||reviewBox.hidden)return;
+ const safe=v=>{let value=String(v??'');if(/^[\s]*[=+@\-\t\r]/.test(value))value="'"+value;return '"'+value.replace(/"/g,'""')+'"';};
+ const header=['優先順位','質問番号','質問文','復習状況','初回目標秒','初回実測秒','復習目標秒','復習実測秒','初回の目標との差秒','復習の目標との差秒','改善秒（同一目標のみ）','比較判定','改善ポイント'];
+ const lines=[header.map(safe).join(',')];
+ reviewPlan.forEach((item,index)=>{
+  const {first,again,sameGoal,gain}=drillProgressMetrics(item);
+  const checked=Array.from(reviewList.querySelectorAll('input[data-review-question-index]')).some(el=>Number(el.dataset.reviewQuestionIndex)===item.i&&el.checked);
+  const verdict=!again?'復習未計測':!first?'初回未計測':!sameGoal?'目標時間が異なる':Math.abs(gain)<0.05?'ほぼ同じ':gain>0?'目標との差が縮小':'目標との差が拡大';
+  const row=[index+1,item.i+1,item.question,checked?'復習済み':'未復習',first?.target??'',first?first.seconds.toFixed(1):'',again?.target??'',again?again.seconds.toFixed(1):'',first?Math.abs(first.seconds-first.target).toFixed(1):'',again?Math.abs(again.seconds-again.target).toFixed(1):'',sameGoal?gain.toFixed(1):'',verdict,item.notes.join('／')];
+  lines.push(row.map(safe).join(','));
+ });
+ const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='28sotsu_mensetsu_review_comparison.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+drillCsvButton?.addEventListener('click',exportDrillCsv);
+function drillClearTicker(){if(drillTimerId!==null){clearInterval(drillTimerId);drillTimerId=null;}}
+function drillCurrentMs(){return drillTimeElapsed+(drillTimeActive&&!drillTimePaused?Math.max(0,performance.now()-drillTimeStarted):0);}
+function drillRenderClock(){
+ const ms=drillCurrentMs(),tenths=Math.floor(ms/100);
+ drillClock.textContent=String(Math.floor(tenths/600)).padStart(2,'0')+':'+String(Math.floor(tenths/10)%60).padStart(2,'0')+'.'+String(tenths%10);
+ drillClock.classList.toggle('is-over',ms>Number(drillGoal.value)*1000);
+}
+function drillResetClock(){
+ drillClearTicker();drillTimeElapsed=0;drillTimeStarted=0;drillTimeActive=false;drillTimePaused=false;drillTimeFinished=false;
+ drillTimeStart.textContent='計測開始';drillTimeStart.disabled=false;drillTimePause.textContent='一時停止';drillTimePause.disabled=true;drillTimeFinish.disabled=true;
+ drillTimeStatus.textContent='計測は任意です。回答後に時間を記録すると初回との差を確認できます。計測中に次へ進んだ場合は、その時点の時間を記録します。';drillRenderClock();
+}
+function drillFinalizeClock(){
+ if(!drillTimeActive||drillTimeFinished)return;
+ drillTimeElapsed=drillCurrentMs();drillTimeActive=false;drillTimePaused=false;drillTimeFinished=true;drillClearTicker();drillRenderClock();
+ const item=drillQueue[drillStep];if(!item)return;
+ const seconds=drillTimeElapsed/1000,target=Number(drillGoal.value),initial=records[item.i]?.seconds;
+ drillResults[item.i]={seconds,target,initial:Number.isFinite(initial)?initial:null};
+ drillTimeStart.disabled=true;drillTimePause.disabled=true;drillTimeFinish.disabled=true;
+ const compare=Number.isFinite(initial)?`初回${initial.toFixed(1)}秒から${seconds-initial>=0?'+':''}${(seconds-initial).toFixed(1)}秒変化。`:'初回は未計測のため比較なし。';
+ drillTimeStatus.textContent=`復習${seconds.toFixed(1)}秒 / 目標${target}秒（差${seconds-target>=0?'+':''}${(seconds-target).toFixed(1)}秒）。${compare}`;
+ renderDrillProgress();
+}
+drillTimeStart?.addEventListener('click',()=>{
+ if(drillStage.hidden||drillTimeFinished||drillTimeActive&&!drillTimePaused)return;
+ if(!drillTimeActive){drillTimeElapsed=0;drillTimeActive=true;}
+ drillTimePaused=false;drillTimeStarted=performance.now();drillTimeStart.disabled=true;drillTimePause.disabled=false;drillTimeFinish.disabled=false;
+ drillTimeStatus.textContent='回答を計測中です。終わったら「時間を記録」を押してください。';
+ drillClearTicker();drillTimerId=setInterval(drillRenderClock,100);drillRenderClock();
+});
+drillTimePause?.addEventListener('click',()=>{
+ if(!drillTimeActive||drillTimePaused||drillTimeFinished)return;
+ drillTimeElapsed=drillCurrentMs();drillTimePaused=true;drillClearTicker();drillRenderClock();
+ drillTimeStart.disabled=false;drillTimeStart.textContent='再開';drillTimePause.disabled=true;
+ drillTimeStatus.textContent='一時停止中。停止中の時間は計測しません。';
+});
+drillTimeFinish?.addEventListener('click',drillFinalizeClock);
+drillGoal?.addEventListener('change',()=>{if(drillStage.hidden)return;const item=drillQueue[drillStep];if(item)delete drillResults[item.i];drillResetClock();renderDrillProgress();});
+function stopDrill(message){
+ drillClearTicker();drillTimeActive=false;drillTimePaused=false;
+ drillQueue=[];drillStep=0;
+ if(drillStage)drillStage.hidden=true;
+ if(drillStart)drillStart.disabled=!reviewPlan.length;
+ if(drillStatus&&message)drillStatus.textContent=message;
+}
+function updateDrillProgress(){
+ const boxes=Array.from(reviewList?.querySelectorAll('input[data-review-question-index]')||[]);
+ const done=boxes.filter(box=>box.checked).length;
+ if(drillStatus)drillStatus.textContent=`重点復習のチェック：${done} / ${boxes.length}問。チェックはこの画面でのみ保持されます。`;
+}
+function renderDrillCard(){
+ const item=drillQueue[drillStep];if(!item)return;
+ drillCounter.textContent=`重点復習 ${drillStep+1} / ${drillQueue.length}問`;
+ drillQuestion.textContent=item.question;
+ drillHints.hidden=true;drillHintsText.textContent='';drillReveal.disabled=false;drillResetClock();
+ drillNext.textContent=drillStep===drillQueue.length-1?'練習済みにして終了':'練習済みにして次へ';
+ drillStatus.textContent='まず回答メモを見ずに声に出して答え、必要なら改善ポイントを確認してください。';
+}
+drillStart?.addEventListener('click',()=>{
+ if(!reviewPlan.length||reviewBox.hidden)return;
+ drillQueue=reviewPlan.map(item=>({i:item.i,question:item.question,notes:item.notes.slice()}));
+ drillResults={};drillStep=0;drillStart.disabled=true;drillStage.hidden=false;renderDrillCard();renderDrillProgress();
+});
+drillReveal?.addEventListener('click',()=>{
+ const item=drillQueue[drillStep];if(!item)return;
+ drillHintsText.textContent=item.notes.join('／')||'自分の言葉で根拠を添えて答える';
+ drillHints.hidden=false;drillReveal.disabled=true;
+});
+drillNext?.addEventListener('click',()=>{
+ const item=drillQueue[drillStep];if(!item)return;
+ if(drillTimeActive&&!drillTimeFinished)drillFinalizeClock();
+ const box=Array.from(reviewList.querySelectorAll('input[data-review-question-index]')).find(el=>Number(el.dataset.reviewQuestionIndex)===item.i);
+ if(box)box.checked=true;
+ if(drillStep+1<drillQueue.length){drillStep++;renderDrillCard();return;}
+ stopDrill();updateDrillProgress();drillStatus.textContent='重点質問の再練習が完了しました。復習チェックを更新しました。';
+});
+drillStop?.addEventListener('click',()=>{stopDrill('再練習を中断しました。チェック済みの質問はそのまま残ります。');});
+reviewList?.addEventListener('change',event=>{if(event.target.matches('input[data-review-question-index]')&&!drillQueue.length)updateDrillProgress();});
+function renderReview(){
+ if(!reviewBox||!reviewList||!reviewStatus||!reviewExport)return;
+ reviewList.replaceChildren();reviewPlan=[];drillResults={};reviewBox.hidden=false;stopDrill('復習プランができると、重点質問だけを練習できます。');if(drillCsvButton)drillCsvButton.disabled=true;renderDrillProgress();
+ const suggestions=[];
+ for(let i=0;i<6;i++){
+  const r=records[i],grade=ratings[i],checked=Array.isArray(grade)?grade.filter(Boolean).length:0;
+  const notes=[];let priority=0;
+  if(r&&Math.abs(r.seconds-r.target)>5){
+   priority+=4+Math.min(2,Math.abs(r.seconds-r.target)/30);
+   notes.push(r.seconds>r.target?'目標より長め：結論と根拠を先に伝え、説明を絞る':'目標より短め：具体的な行動・数字・学びを補う');
+  }
+  if(grade&&checked>0&&checked<3){
+   priority+=3-checked;
+   if(!grade[0])notes.push('結論を最初に置き、質問に直接答える');
+   if(!grade[1])notes.push('場面・行動・成果などの具体例を加える');
+   if(!grade[2])notes.push('要点を整理し、短い文章で話す');
+  }
+  if(!r){priority+=1;notes.push('回答時間を計測して長さを確認する');}
+  if(!grade||checked===0){priority+=0.5;notes.push('自己チェックを入力して振り返る（未入力・未達成は判別不可）');}
+  if(priority>0)suggestions.push({i,priority,question:r?.question||questions[i]||`第${i+1}問`,notes});
+ }
+ suggestions.sort((a,b)=>b.priority-a.priority||a.i-b.i);
+ reviewPlan=suggestions.slice(0,3);
+ if(!reviewPlan.length){reviewStatus.textContent='6問とも時間目標と自己チェックの条件を満たしました。次回は別の例や言い回しで練習してみましょう。';reviewExport.disabled=true;if(drillStart)drillStart.disabled=true;return;}
+ reviewStatus.textContent=`重点復習 ${reviewPlan.length}問。復習済みのチェックは、この画面での進捗確認用です。`;
+ reviewPlan.forEach((item,k)=>{
+  const li=document.createElement('li'),strong=document.createElement('strong'),desc=document.createElement('span'),label=document.createElement('label'),box=document.createElement('input'),caption=document.createElement('span');
+  strong.textContent=`優先${k+1}｜第${item.i+1}問：${item.question}`;
+  desc.textContent='次の練習：'+item.notes.join('／');
+  box.type='checkbox';box.dataset.reviewQuestionIndex=String(item.i);box.setAttribute('aria-label',`第${item.i+1}問を復習済みにする`);
+  caption.textContent='復習済み';label.append(box,caption);li.append(strong,desc,label);reviewList.appendChild(li);
+ });
+ reviewExport.disabled=false;if(drillStart)drillStart.disabled=false;if(drillCsvButton)drillCsvButton.disabled=false;renderDrillProgress();
+}
+reviewExport?.addEventListener('click',()=>{
+ if(!reviewPlan.length||reviewBox.hidden)return;
+ const lines=['就活コンパス｜28卒 模擬面接・次回の重点復習','作成日時：'+new Date().toLocaleString('ja-JP'),'※自己チェックは任意です。未入力・未達成の判別や採用評価はできません。',''];
+ reviewPlan.forEach((item,i)=>{const checked=Array.from(reviewList.querySelectorAll('input[data-review-question-index]')).some(el=>Number(el.dataset.reviewQuestionIndex)===item.i&&el.checked);lines.push(`優先${i+1}｜第${item.i+1}問：${item.question}｜${checked?'復習済み':'未復習'}`);item.notes.forEach(note=>lines.push('・'+note));const time=drillResults[item.i];if(time){lines.push(`・復習の計測：${time.seconds.toFixed(1)}秒 / 目標${time.target}秒 / 差${(time.seconds-time.target).toFixed(1)}秒`);lines.push('・初回との比較：'+(time.initial===null?'初回未計測':(time.seconds-time.initial).toFixed(1)+'秒変化'));}else lines.push('・復習の計測：未記録');lines.push('');});
+ const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='28sotsu_mensetsu_review_plan.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+
+// 2026-10-21 13:33 | 6問の模擬面接結果を端末へ書き出す（外部通信なし）
+function exportResults(formatType){
+ if(summary.hidden)return;
+ const measured=records.filter(Boolean),hit=measured.filter(r=>Math.abs(r.seconds-r.target)<=5).length;
+ const avg=measured.length?measured.reduce((sum,r)=>sum+Math.abs(r.seconds-r.target),0)/measured.length:null;
+ const timestamp=new Date(),stamp=[timestamp.getFullYear(),String(timestamp.getMonth()+1).padStart(2,'0'),String(timestamp.getDate()).padStart(2,'0')].join('')+'_'+String(timestamp.getHours()).padStart(2,'0')+String(timestamp.getMinutes()).padStart(2,'0');
+ const items=Array.from({length:6},(_,i)=>({n:i+1,record:records[i]||null}));
+ let content,mime;
+ if(formatType==='csv'){
+  const safe=v=>{let value=String(v??'');if(/^[\s]*[=+@\-\t\r]/.test(value))value="'"+value;return '"'+value.replace(/"/g,'""')+'"';};
+  const lines=[['質問番号','質問文','目標秒','実測秒','差分秒','±5秒以内','直接回答','具体例','簡潔さ'].map(safe).join(',')];
+  items.forEach(({n,record:r})=>{const v=ratings[n-1];lines.push([n,r?.question||questions[n-1]||'質問未取得',r?.target??'',r?r.seconds.toFixed(1):'',r?(r.seconds-r.target).toFixed(1):'',r?(Math.abs(r.seconds-r.target)<=5?'達成':'未達成'):'未計測',...Array.from({length:3},(_,i)=>v?(v[i]?'はい':'いいえ'):'未記入')].map(safe).join(','));});
+  const graded=ratings.filter(Boolean),score=graded.reduce((n,v)=>n+v.filter(Boolean).length,0);
+  lines.push(['集計','計測数',measured.length,'達成数',hit,'平均絶対誤差秒',avg===null?'':avg.toFixed(1),'自己評価実施数',graded.length,'チェック達成数 '+score].map(safe).join(','));
+  content='\ufeff'+lines.join('\r\n');mime='text/csv;charset=utf-8';
+ }else{
+  const lines=['就活コンパス｜28卒 模擬面接6問の練習結果','作成日時：'+timestamp.toLocaleString('ja-JP'),'計測：'+measured.length+'/6問｜±5秒以内：'+hit+'問｜平均時間差：'+(avg===null?'未計測':avg.toFixed(1)+'秒'),'※質問文・計測結果には個人情報が含まれる場合があります。',''];
+  const graded=ratings.filter(Boolean),score=graded.reduce((n,v)=>n+v.filter(Boolean).length,0);
+  lines.push('自己チェック：'+graded.length+'/6問、達成'+score+'/'+graded.length*3+'項目（自己評価）','');
+  items.forEach(({n,record:r})=>{const v=ratings[n-1];lines.push('第'+n+'問｜'+(r?.question||questions[n-1]||'質問未取得'));lines.push(r?'目標 '+r.target+'秒 / 実測 '+r.seconds.toFixed(1)+'秒 / 差 '+(r.seconds-r.target>0?'+':'')+(r.seconds-r.target).toFixed(1)+'秒 / '+(Math.abs(r.seconds-r.target)<=5?'達成':'未達成'):'時間の記録なし');lines.push('自己チェック：'+(v?['質問に直接答えた','具体例・根拠','簡潔さ'].map((label,i)=>label+' '+(v[i]?'○':'－')).join(' / '):'未記入'));lines.push('');});
+  content=lines.join('\n');mime='text/plain;charset=utf-8';
+ }
+ const blob=new Blob([content],{type:mime}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='28sotsu_mensetsu_6questions_'+stamp+'.'+formatType;
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+get('si-fu-time-export-txt')?.addEventListener('click',()=>exportResults('txt'));
+get('si-fu-time-export-csv')?.addEventListener('click',()=>exportResults('csv'));
+start.addEventListener('click',()=>{
+ if(finished||active&&!paused)return;
+ if(!active){elapsedMs=0;active=true;}paused=false;startedAt=now();
+ start.textContent='計測中';start.disabled=true;pause.disabled=false;
+ status.textContent='回答時間を計測しています。話し終わったら「回答メモを確認」を押してください。';
+ clearTicker();intervalId=setInterval(tick,100);tick();
+});
+pause.addEventListener('click',()=>{
+ if(!active||paused||finished)return;
+ elapsedMs=currentMs();paused=true;clearTicker();tick();
+ start.disabled=false;start.textContent='再開';pause.disabled=true;
+ status.textContent='一時停止中。停止中の時間は計測されません。';
+});
+reset.addEventListener('click',()=>{if(panel.hidden)return;records[step]=undefined;resetCurrent();});
+goal.addEventListener('change',()=>{if(panel.hidden)return;records[step]=undefined;resetCurrent();});
+practiceStart.addEventListener('click',()=>{
+ if(stage.hidden)return;
+ records=[];ratings=[];drillResults={};questions=[get('si-fu-practice-question')?.textContent||''];step=0;summary.hidden=true;if(reviewBox){reviewBox.hidden=true;reviewPlan=[];stopDrill('新しい練習を開始しました。');}panel.hidden=false;resetRating();resetCurrent();
+});
+practiceReveal.addEventListener('click',()=>{if(!panel.hidden){captureRating();finalize();}});
+practiceNext.addEventListener('click',()=>{
+ if(panel.hidden)return;
+ captureRating();finalize();
+ if(stage.hidden){showSummary();return;}
+ step=Math.min(step+1,5);questions[step]=get('si-fu-practice-question')?.textContent||'';resetRating();resetCurrent();
+});
+})();</script>
+</body></html>
