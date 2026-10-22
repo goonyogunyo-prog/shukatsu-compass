@@ -762,6 +762,368 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 #si-fu-time-summary .si-fu-time-export-note{font-size:12px;color:#4c6561;margin:8px 0 0}
 @media(max-width:480px){#si-fu-timebox{padding:10px}#si-fu-timebox .si-fu-time-readout{font-size:24px}#si-fu-timebox .si-fu-time-top{align-items:flex-start}}
 </style>
+
+<style id="sc29is-starter-style">
+/* 2026-10-21 19:27 | 29卒：業界研究3分スターター。既存機能・保存領域には触れない */
+#sc29is-starter{max-width:1140px;margin:24px auto 28px;padding:0 18px;box-sizing:border-box;scroll-margin-top:80px}
+#sc29is-starter *{box-sizing:border-box}
+#sc29is-starter .sc29is-shell{border:1px solid #c4dce9;background:linear-gradient(145deg,#f0f8ff 0%,#f6fbfc 54%,#f0faf5 100%);border-radius:20px;padding:clamp(18px,3.5vw,30px);box-shadow:0 8px 28px rgba(22,76,106,.07)}
+#sc29is-starter .sc29is-kicker{display:inline-block;font-weight:900;color:#126c81;font-size:12px;letter-spacing:.09em;margin-bottom:7px}
+#sc29is-starter h2{font-size:clamp(22px,4vw,29px);line-height:1.4;margin:0 0 9px;color:#123b57}
+#sc29is-starter .sc29is-lead{font-size:14px;line-height:1.85;color:#365e73;margin:0 0 18px}
+#sc29is-starter fieldset{border:0;padding:0;margin:0;min-width:0}
+#sc29is-starter legend{font-size:15px;font-weight:800;color:#173e55;margin-bottom:11px;padding:0}
+#sc29is-starter .sc29is-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#sc29is-starter .sc29is-choice{display:flex;gap:10px;align-items:center;padding:13px 12px;background:#fff;border:1px solid #bcd5e3;border-radius:11px;min-height:64px;cursor:pointer;font-size:14px;font-weight:750;line-height:1.5;color:#173d53;transition:background .15s,border-color .15s}
+#sc29is-starter .sc29is-choice:has(input:checked){background:#dff3ff;border-color:#2084b6;box-shadow:inset 0 0 0 1px #2084b6}
+#sc29is-starter .sc29is-choice:focus-within{outline:3px solid #85bfea;outline-offset:2px}
+#sc29is-starter input[type=checkbox]{width:19px;height:19px;accent-color:#176d9c;flex:none;margin:0}
+#sc29is-starter .sc29is-count{font-size:12px;color:#4d6777;margin:12px 0 15px}
+#sc29is-starter .sc29is-actions{display:flex;gap:10px;flex-wrap:wrap}
+#sc29is-starter button,#sc29is-starter .sc29is-link{border-radius:10px;padding:12px 16px;font-weight:800;font-size:14px;line-height:1.4;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:45px}
+#sc29is-starter .sc29is-primary{border:1px solid #17638c;background:#17638c;color:#fff}
+#sc29is-starter .sc29is-secondary{border:1px solid #b4cddd;background:#fff;color:#18536f}
+#sc29is-starter button:disabled{opacity:.5;cursor:not-allowed}
+#sc29is-starter .sc29is-status{font-size:13px;color:#30576b;min-height:21px;margin:12px 0 0}
+#sc29is-starter .sc29is-results{background:#fff;border:1px solid #c1d9e8;border-radius:14px;padding:16px;margin-top:15px}
+#sc29is-starter .sc29is-results[hidden]{display:none}
+#sc29is-starter .sc29is-results h3{font-size:18px;color:#173e58;margin:0 0 8px}
+#sc29is-starter .sc29is-results p{font-size:13px;line-height:1.75;color:#4c6778;margin:0 0 11px}
+#sc29is-starter .sc29is-results ol{list-style:none;padding:0;margin:0 0 13px;display:grid;gap:9px}
+#sc29is-starter .sc29is-results li{background:#f5faff;border:1px solid #deedf6;border-radius:9px;padding:11px 12px;overflow-wrap:anywhere}
+#sc29is-starter .sc29is-results li strong{font-size:15px;color:#194c6a;display:block;margin-bottom:3px}
+#sc29is-starter .sc29is-results li span{font-size:12px;color:#4d6574;line-height:1.6;display:block}
+#sc29is-starter .sc29is-results .sc29is-link{background:#116d78;color:#fff;border:1px solid #116d78}
+#sc29is-starter .sc29is-privacy{font-size:12px;color:#526b78;margin:15px 0 0;line-height:1.7}
+/* 2026-10-21 20:26 | 29卒業界研究の確認項目・メモ・CSV保存 */
+#sc29is-starter .sc29is-research-progress{background:#edf7f3;border:1px solid #b9ded2;color:#205d4d;border-radius:9px;padding:9px 12px;font-size:13px;font-weight:800;margin:4px 0 13px}
+#sc29is-starter .sc29is-research-detail{margin-top:9px;border-top:1px solid #d7e5ed;padding-top:9px}
+#sc29is-starter .sc29is-research-detail summary{cursor:pointer;font-size:13px;font-weight:800;color:#0b6480;min-height:28px}
+#sc29is-starter .sc29is-research-detail .sc29is-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:9px 0}
+#sc29is-starter .sc29is-research-detail .sc29is-checks label{display:flex;align-items:center;gap:7px;padding:8px;background:white;border:1px solid #d8e8ef;border-radius:7px;font-size:12px;line-height:1.5;color:#254d63}
+#sc29is-starter .sc29is-research-detail .sc29is-memo-label{display:block;font-size:12px;font-weight:750;color:#254d63;margin-top:8px}
+#sc29is-starter .sc29is-research-detail textarea{display:block;width:100%;min-height:70px;padding:9px;border:1px solid #bcd5e3;border-radius:8px;margin-top:5px;font:inherit;font-size:13px;color:#173d53;resize:vertical;background:#fff}
+#sc29is-starter .sc29is-research-detail textarea:focus-visible{outline:3px solid #85bfea;outline-offset:2px}
+@media(max-width:520px){#sc29is-starter .sc29is-research-detail .sc29is-checks{grid-template-columns:1fr}}
+
+@media(max-width:780px){#sc29is-starter .sc29is-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){#sc29is-starter{padding:0 12px}#sc29is-starter .sc29is-shell{padding:17px 14px}#sc29is-starter .sc29is-choices{grid-template-columns:1fr}#sc29is-starter .sc29is-choice{min-height:51px}#sc29is-starter .sc29is-actions button,#sc29is-starter .sc29is-actions a{flex:1 1 100%}#sc29is-starter .sc29is-results .sc29is-actions>*{flex:1 1 100%}}
+</style>
+
+<style id="sc29is-next-actions-style">
+/* 2026-10-21 22:31 | 29卒業界研究：未確認の調査タスクを自動生成 */
+#sc29is-starter .sc29is-next{margin:14px 0;padding:16px;border:1px solid #b8d9e4;border-radius:13px;background:#f4fbff}
+#sc29is-starter .sc29is-next h4{font-size:16px;color:#163f58;margin:0 0 7px;line-height:1.5}
+#sc29is-starter .sc29is-next .sc29is-next-lead{margin:0 0 11px;color:#456779;font-size:12px;line-height:1.7}
+#sc29is-starter .sc29is-next-list{padding:0;margin:0 0 12px;list-style:none;display:grid;gap:9px}
+#sc29is-starter .sc29is-next-list li{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;background:#fff;border:1px solid #d5e8f1;border-radius:10px;padding:11px 12px}
+#sc29is-starter .sc29is-next-task{min-width:0;flex:1 1 auto;line-height:1.6;color:#23485d;font-size:13px;overflow-wrap:anywhere}
+#sc29is-starter .sc29is-next-task strong{display:block;color:#174760;font-size:13px;margin:0 0 3px}
+#sc29is-starter .sc29is-next-list button{flex:0 0 auto;border:1px solid #277b9e;background:#f2fbff;color:#195976;min-height:38px;padding:8px 11px;font-size:12px}
+#sc29is-starter .sc29is-next button:focus-visible{outline:3px solid #85bfea;outline-offset:2px}
+#sc29is-starter .sc29is-next .sc29is-next-actions{margin-top:9px}
+#sc29is-starter .sc29is-next-done{background:#e7f7ef;border:1px solid #b4dfc8;color:#226045;border-radius:9px;padding:12px;font-size:13px;line-height:1.7}
+@media(max-width:520px){#sc29is-starter .sc29is-next-list li{display:block}#sc29is-starter .sc29is-next-list button{width:100%;margin-top:9px}}
+</style>
+
+<style id="sc29is-print-report-style">
+/* 2026-10-21 23:26 | 29卒業界研究・A4印刷/PDF保存。既存の保存領域は変更しない */
+#sc29is-print-report{display:none}
+@media print{
+ @page{size:A4;margin:12mm}
+ html,body{background:#fff!important;color:#172c3b!important;margin:0!important;padding:0!important}
+ body>*:not(#sc29is-print-report){display:none!important}
+ #sc29is-print-report{display:block!important;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif!important;font-size:10pt!important;line-height:1.6!important;max-width:none!important;margin:0!important;padding:0!important;color:#182d3b!important;background:#fff!important}
+ #sc29is-print-report *{box-sizing:border-box!important;color:inherit!important;text-shadow:none!important}
+ #sc29is-print-report h1{font-size:19pt!important;line-height:1.3!important;margin:0 0 3mm!important;color:#173f59!important}
+ #sc29is-print-report h2{font-size:13pt!important;margin:4mm 0 2mm!important;color:#173f59!important}
+ #sc29is-print-report .sc29is-print-meta{color:#4c6472!important;font-size:9pt!important;margin:0 0 5mm!important}
+ #sc29is-print-report .sc29is-print-card{border:1px solid #aebfca!important;border-radius:3mm!important;padding:2.5mm!important;margin:0 0 2mm!important;break-inside:avoid;page-break-inside:avoid}
+ #sc29is-print-report .sc29is-print-card h3{font-size:11.5pt!important;margin:0 0 2mm!important;color:#173f59!important}
+ #sc29is-print-report .sc29is-print-card p{margin:1mm 0!important;white-space:pre-wrap!important;overflow-wrap:anywhere!important}
+ #sc29is-print-report ul{margin:1mm 0!important;padding-left:6mm!important}
+ #sc29is-print-report li{margin:0 0 1mm!important}
+ #sc29is-print-report .sc29is-print-note{border-top:1px solid #c8d5dd!important;padding-top:3mm!important;font-size:8.5pt!important;color:#4a5d69!important}
+}
+</style>
+
+<style id="sc29is-compare-style">
+/* 2026-10-22 00:30 | 29卒 業界横断比較ビュー。既存の保存・広告・認証には非干渉。 */
+#sc29is-starter .sc29is-compare{margin:16px 0;padding:16px;border:1px solid #c9dfdf;background:#fff;border-radius:14px}
+#sc29is-starter .sc29is-compare h4{margin:0 0 8px;font-size:1.06rem;color:#153d4c}
+#sc29is-starter .sc29is-compare-intro{font-size:.88rem;line-height:1.7;color:#435e69;margin:0 0 12px}
+#sc29is-starter .sc29is-compare-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+#sc29is-starter .sc29is-compare-toolbar label{display:inline-flex;align-items:center;gap:6px;font-size:.88rem}
+#sc29is-starter .sc29is-compare-scroll{overflow-x:auto;max-width:100%;border:1px solid #d7e4e8;border-radius:10px;-webkit-overflow-scrolling:touch}
+#sc29is-starter .sc29is-compare-table{width:100%;min-width:660px;border-collapse:collapse;font-size:.84rem;line-height:1.55}
+#sc29is-starter .sc29is-compare-table th,#sc29is-starter .sc29is-compare-table td{padding:10px 9px;border-bottom:1px solid #e1e9ed;text-align:center;vertical-align:middle}
+#sc29is-starter .sc29is-compare-table thead th{background:#edf7f8;color:#184657;white-space:nowrap}
+#sc29is-starter .sc29is-compare-table tbody tr:last-child td{border-bottom:0}
+#sc29is-starter .sc29is-compare-table th:first-child,#sc29is-starter .sc29is-compare-table td:first-child{text-align:left;min-width:115px}
+#sc29is-starter .sc29is-compare-ok{font-weight:700;color:#167252}
+#sc29is-starter .sc29is-compare-no{color:#65727c}
+#sc29is-starter .sc29is-compare-open{border:1px solid #bfd8e2;border-radius:8px;padding:6px 9px;background:#f1f8fc;color:#18506b;cursor:pointer;font:inherit;white-space:nowrap}
+#sc29is-starter .sc29is-compare-open:focus-visible{outline:3px solid #1973b4;outline-offset:2px}
+#sc29is-starter .sc29is-compare-empty{margin:12px 0;color:#435e69}
+#sc29is-starter .sc29is-compare-foot{font-size:.78rem;color:#526774;margin:10px 0 0}
+@media(max-width:480px){#sc29is-starter .sc29is-compare{padding:12px}#sc29is-starter .sc29is-compare-toolbar{align-items:flex-start;flex-direction:column}}
+</style>
+
+<style id="sc29reason-style">
+/* 2026-10-22 01:35 | 独立スコープ：既存のUIやlocalStorageに非干渉 */
+#sc29reason{max-width:1120px;margin:24px auto 34px;padding:clamp(17px,3vw,32px);background:linear-gradient(135deg,#f2f9ff 0%,#fff 62%);border:1px solid #cddfeb;border-radius:22px;box-shadow:0 12px 36px rgba(20,43,81,.055);color:#172b46}
+#sc29reason .sc29reason-badge{display:inline-block;border-radius:30px;padding:5px 12px;background:#e0f0ff;color:#194f87;font-size:.81rem;font-weight:800;letter-spacing:.02em}
+#sc29reason h2{font-size:clamp(1.28rem,2.4vw,1.8rem);margin:12px 0 10px;line-height:1.5;color:#17365b}
+#sc29reason h3{font-size:1.05rem;margin:0 0 12px;color:#17365b}
+#sc29reason .sc29reason-head>p{line-height:1.85;color:#43566e;margin:0 0 19px}
+#sc29reason .sc29reason-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+#sc29reason .sc29reason-form,#sc29reason .sc29reason-output{background:#fff;border:1px solid #dce8f3;border-radius:16px;padding:clamp(14px,2vw,21px);min-width:0}
+#sc29reason label:not(.sc29reason-visually-hidden){display:block;font-weight:750;font-size:.91rem;margin:0 0 7px;color:#263d59}
+#sc29reason input,#sc29reason textarea{width:100%;min-width:0;border:1px solid #aebfd0;border-radius:10px;background:#fff;padding:11px 12px;line-height:1.65;color:#162d49;font-size:16px;margin-bottom:15px;resize:vertical}
+#sc29reason input:focus-visible,#sc29reason textarea:focus-visible,#sc29reason button:focus-visible,#sc29reason a:focus-visible{outline:3px solid #4f9ed8;outline-offset:2px}
+#sc29reason #sc29reason-draft{min-height:275px;margin-bottom:2px}
+#sc29reason .sc29reason-hint{font-size:.8rem;color:#607185;line-height:1.75;margin:0 0 13px}
+#sc29reason .sc29reason-buttons{display:flex;flex-wrap:wrap;gap:9px;margin:9px 0 12px}
+#sc29reason button{cursor:pointer;border-radius:10px;padding:10px 15px;min-height:44px;font-weight:800;border:1px solid #b4cadd;line-height:1.4}
+#sc29reason .sc29reason-main{background:#175a98;border-color:#175a98;color:#fff}
+#sc29reason .sc29reason-alt{background:#f1f7fc;color:#17486f}
+#sc29reason .sc29reason-count{text-align:right;color:#4c647d;font-size:.83rem;margin:0 0 8px}
+#sc29reason .sc29reason-status{font-size:.88rem;min-height:1.7em;color:#23516c;line-height:1.65;margin:7px 0 12px}
+#sc29reason .sc29reason-link{display:inline-block;color:#155e9c;font-weight:800;line-height:1.7;text-underline-offset:3px;margin:0 0 11px}
+#sc29reason .sc29reason-visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:720px){#sc29reason{margin:16px 12px 28px;padding:16px;border-radius:16px}#sc29reason .sc29reason-grid{grid-template-columns:minmax(0,1fr);gap:12px}#sc29reason .sc29reason-buttons button{flex:1 1 140px}}
+
+/* 2026-10-22 02:35 | 4段階入力ガイド。sc29reason 内のみ適用 */
+#sc29reason .sc29reason-guide{background:#f3f8fd;border:1px solid #d4e4f2;border-radius:14px;padding:15px;margin-bottom:19px}
+#sc29reason .sc29reason-guide-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;font-size:.88rem;color:#24435f}
+#sc29reason .sc29reason-guide-head span{font-weight:800;color:#135b93}
+#sc29reason .sc29reason-guide progress{display:block;width:100%;height:10px;accent-color:#1d7ca9;margin:10px 0 13px}
+#sc29reason .sc29reason-guide-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;list-style:none;margin:0 0 11px;padding:0}
+#sc29reason .sc29reason-guide-steps li{font-size:.8rem;line-height:1.5;color:#4e6378;border:1px solid #dce6f0;background:#fff;border-radius:8px;padding:7px 9px;min-width:0}
+#sc29reason .sc29reason-guide-steps li::before{content:'○';margin-right:6px;color:#657e96}
+#sc29reason .sc29reason-guide-steps li.is-done{color:#176046;border-color:#9fd2bd;background:#f0fbf5;font-weight:700}
+#sc29reason .sc29reason-guide-steps li.is-done::before{content:'✓';color:#13825c}
+#sc29reason #sc29reason-guide-hint{font-size:.86rem;line-height:1.65;margin:5px 0 10px;color:#264c70}
+#sc29reason #sc29reason-guide-next{font-size:.85rem;padding:9px 12px;min-height:44px}
+#sc29reason .sc29reason-guide-note{font-size:.75rem;line-height:1.65;margin:11px 0 0;color:#617184}
+@media(max-width:390px){#sc29reason .sc29reason-guide-steps{grid-template-columns:1fr}}
+</style>
+
+<style id="sc29reason-length-style">
+/* 2026-10-22 03:35 | 29卒 志望理由メモの200字/400字目安。既存保存・文章生成には非干渉 */
+#sc29reason .sc29reason-length{border:1px solid #d7e5f0;background:#f8fbfe;border-radius:13px;padding:14px;margin:13px 0 15px}
+#sc29reason .sc29reason-length h4{font-size:.98rem;color:#183d60;margin:0 0 7px;line-height:1.5}
+#sc29reason .sc29reason-length-choices{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}
+#sc29reason .sc29reason-length-choices button{min-width:95px;background:#fff;color:#24567e}
+#sc29reason .sc29reason-length-choices button[aria-pressed="true"]{background:#195d93;color:#fff;border-color:#195d93}
+#sc29reason .sc29reason-length progress{width:100%;height:12px;accent-color:#1c719e;display:block;margin:9px 0}
+#sc29reason .sc29reason-length-feedback{margin:8px 0 4px;line-height:1.7;font-size:.9rem;color:#17466c;font-weight:700;overflow-wrap:anywhere}
+#sc29reason .sc29reason-length-tip{margin:6px 0 0;line-height:1.7;font-size:.83rem;color:#4d637a;overflow-wrap:anywhere}
+#sc29reason .sc29reason-length-note{font-size:.76rem;color:#526c83;line-height:1.6;margin:9px 0 0}
+</style>
+
+<style id="sc29reason-review-style">
+/* 2026-10-22 04:35 | 29卒・志望理由材料メモの推敲セルフチェック */
+#sc29reason .sc29reason-review{margin:18px 0;padding:17px;border:1px solid #d8e5ef;border-radius:15px;background:#fff;box-sizing:border-box}
+#sc29reason .sc29reason-review h4{font-size:17px;line-height:1.45;margin:0 0 7px;color:#173b61}
+#sc29reason .sc29reason-review-intro{font-size:13px;line-height:1.7;color:#4e6681;margin:0 0 12px}
+#sc29reason .sc29reason-review-progress{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:8px;font-weight:700;color:#1b4b70}
+#sc29reason .sc29reason-review progress{width:100%;height:12px;accent-color:#1976ac;margin-bottom:11px}
+#sc29reason .sc29reason-review-list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+#sc29reason .sc29reason-review-list li{margin:0;padding:0}
+#sc29reason .sc29reason-review-list label{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border:1px solid #dce7f0;border-radius:10px;background:#f8fbff;cursor:pointer;font-size:14px;line-height:1.65;font-weight:500;color:#234362}
+#sc29reason .sc29reason-review-list input{flex:0 0 auto;width:18px;height:18px;margin:3px 0 0;accent-color:#1976ac}
+#sc29reason .sc29reason-review-list label:has(input:checked){background:#eef8f3;border-color:#a6d6be}
+#sc29reason .sc29reason-review-list input:focus-visible{outline:3px solid #f2a52c;outline-offset:3px}
+#sc29reason .sc29reason-review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+#sc29reason .sc29reason-review-actions button{padding:9px 11px;border-radius:9px;border:1px solid #9db9cf;background:#f5f9fc;color:#1b4569;cursor:pointer;font-size:13px;font-weight:700}
+#sc29reason .sc29reason-review-actions button:focus-visible{outline:3px solid #f2a52c;outline-offset:2px}
+#sc29reason .sc29reason-review-status{margin:10px 0 0;font-size:13px;line-height:1.7;color:#2d5977;min-height:1.5em}
+#sc29reason .sc29reason-review-note{font-size:12px;line-height:1.6;color:#5b6e83;margin:9px 0 0}
+@media(max-width:480px){#sc29reason .sc29reason-review{padding:12px}#sc29reason .sc29reason-review-actions button{width:100%}}
+</style>
+
+<style id="sc29reason-readability-style">
+/* 2026-10-22 05:35 | 29卒・志望理由メモの読みやすさ確認（ローカル処理） */
+#sc29reason .sc29reason-readability{border:1px solid #cbdff0;border-radius:15px;background:#f6faff;padding:17px;margin:16px 0}
+#sc29reason .sc29reason-readability h4{margin:0 0 7px;font-size:1.05rem;color:#183d60}
+#sc29reason .sc29reason-readability p{line-height:1.7;margin:6px 0 12px;color:#435d75;font-size:.85rem}
+#sc29reason .sc29reason-readability-summary{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+#sc29reason .sc29reason-readability-summary span{display:inline-block;background:#fff;border:1px solid #d9e5f0;border-radius:8px;padding:7px 10px;font-weight:700;font-size:.84rem;color:#1b496c}
+#sc29reason .sc29reason-readability-list{padding-left:1.4em;margin:12px 0;line-height:1.8;color:#243c56;font-size:.86rem}
+#sc29reason .sc29reason-readability-list li{padding:3px 0;overflow-wrap:anywhere}
+#sc29reason .sc29reason-readability-actions{display:flex;flex-wrap:wrap;gap:8px}
+#sc29reason .sc29reason-readability-actions button{min-height:44px}
+#sc29reason .sc29reason-readability-status{font-size:.8rem;min-height:1.4em;color:#22567b;margin-top:10px}
+@media(max-width:390px){#sc29reason .sc29reason-readability{padding:13px}}
+</style>
+
+
+<style id="sc29reason-interview-style">
+/* 2026-10-22 07:35 | 29卒：業界志望理由の面接深掘り6問。外部通信・自動保存なし */
+#sc29reason .sc29reason-interview{margin:17px 0;padding:18px;border:1px solid #d8d0ec;background:#fbf9ff;border-radius:15px;box-sizing:border-box}
+#sc29reason .sc29reason-interview h4{margin:0 0 9px;font-size:18px;color:#392c66}
+#sc29reason .sc29reason-interview p{font-size:13px;line-height:1.75;color:#4b4564}
+#sc29reason .sc29reason-interview-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#sc29reason .sc29reason-interview-actions button{background:#fff;border:1px solid #8d80b6;color:#392c66;border-radius:9px;padding:10px 13px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;min-height:42px}
+#sc29reason .sc29reason-interview-actions button:first-child{background:#483c78;color:#fff}
+#sc29reason .sc29reason-interview-actions button:focus-visible{outline:3px solid #8267cc;outline-offset:2px}
+#sc29reason .sc29reason-interview-list{list-style:none;padding:0;margin:12px 0;display:grid;gap:12px}
+#sc29reason .sc29reason-interview-list li{background:#fff;border:1px solid #e2dcf0;border-radius:10px;padding:13px;min-width:0}
+#sc29reason .sc29reason-interview-list strong{display:block;font-size:14px;color:#302452;line-height:1.7;overflow-wrap:anywhere}
+#sc29reason .sc29reason-interview-list label{display:block;margin:8px 0 5px;font-size:12px;font-weight:700;color:#4b4564}
+#sc29reason .sc29reason-interview-list textarea{display:block;box-sizing:border-box;width:100%;min-height:78px;resize:vertical;border:1px solid #bcb3d4;border-radius:8px;padding:10px;font:inherit;font-size:14px;color:#242038;background:#fff}
+#sc29reason .sc29reason-interview-list textarea:focus-visible{outline:3px solid #8267cc;outline-offset:1px}
+#sc29reason .sc29reason-interview-status{font-weight:700;color:#392c66;min-height:1.6em}
+/* 2026-10-22 09:35 | 29卒：回答時間の目安・未回答ジャンプ */
+#sc29reason .sc29reason-interview-duration{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:10px 0 14px;font-size:13px;color:#392c66}
+#sc29reason .sc29reason-interview-duration label{font-weight:700}
+#sc29reason .sc29reason-interview-duration select{border:1px solid #8d80b6;border-radius:8px;background:#fff;padding:8px 12px;font:inherit;min-height:42px}
+#sc29reason .sc29reason-interview-duration span{flex-basis:100%;font-size:12px;color:#554d70}
+#sc29reason .sc29reason-interview-note-feedback{font-size:12px;margin:7px 0 0;color:#4a4269;line-height:1.5}
+#sc29reason .sc29reason-interview-duration select:focus-visible{outline:3px solid #8267cc;outline-offset:2px}
+@media(max-width:560px){#sc29reason .sc29reason-interview{padding:13px}#sc29reason .sc29reason-interview-actions button{flex:1 1 100%}}
+</style>
+<style id="sc29reason-session-style">
+/* 2026-10-22 06:35 | 29卒志望理由ワーク：明示操作によるJSON保存・復元 */
+#sc29reason .sc29reason-session{margin:16px 0;padding:16px;border:1px solid #c8dfd1;background:#f5fcf8;border-radius:15px;box-sizing:border-box}
+#sc29reason .sc29reason-session h4{margin:0 0 8px;color:#1d513a;font-size:1.05rem}
+#sc29reason .sc29reason-session p{font-size:.84rem;line-height:1.7;margin:8px 0;color:#315d49}
+#sc29reason .sc29reason-session-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#sc29reason .sc29reason-session-actions button{min-height:44px;border:1px solid #27815a;background:#216c4b;color:#fff;border-radius:9px;padding:9px 16px;font-weight:700;cursor:pointer}
+#sc29reason .sc29reason-session-actions input[type=file]{font-size:.83rem;max-width:100%;min-width:0;color:#1e4936}
+#sc29reason .sc29reason-session-actions button:focus-visible,#sc29reason .sc29reason-session-actions input:focus-visible{outline:3px solid #f2a52c;outline-offset:3px}
+#sc29reason .sc29reason-session-status{min-height:1.5em;color:#1a593d;font-weight:600;overflow-wrap:anywhere}
+@media(max-width:480px){#sc29reason .sc29reason-session{padding:12px}#sc29reason .sc29reason-session-actions{display:grid;grid-template-columns:minmax(0,1fr)}#sc29reason .sc29reason-session-actions button{width:100%}}
+</style>
+<style id="sc29-oral-timer-style">
+/* 2026-10-22 10:35 | 29卒 面接の音読実測タイマー。既存の回答メモ・保存形式を変更しない */
+#sc29reason .sc29-oral-timer{margin:16px 0;padding:16px;border:1px solid #bcb0dc;border-radius:13px;background:#fff;min-width:0;box-sizing:border-box}
+#sc29reason .sc29-oral-timer h5{margin:0 0 8px;color:#302452;font-size:16px}
+/* 2026-10-22 11:30 | 回答時間のふりかえり：画面内の一時記録のみ */
+#sc29reason .sc29-oral-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+#sc29reason .sc29-oral-summary>div{border:1px solid #ded6ee;border-radius:9px;padding:10px 8px;background:#f9f7ff;min-width:0}
+#sc29reason .sc29-oral-summary dt{font-size:11px;font-weight:700;color:#4b4268;line-height:1.45}
+#sc29reason .sc29-oral-summary dd{margin:5px 0 0;font-size:17px;font-weight:900;color:#34255d;overflow-wrap:anywhere}
+#sc29reason .sc29-oral-next{padding:9px 11px;border-radius:8px;background:#f4f0fc;overflow-wrap:anywhere}
+@media(max-width:480px){#sc29reason .sc29-oral-history-head button{flex:1 1 100%;width:100%;word-break:keep-all}}
+@media(max-width:480px){#sc29reason .sc29-oral-summary{grid-template-columns:1fr}#sc29reason .sc29-oral-summary>div{display:flex;align-items:center;justify-content:space-between;gap:8px}}
+
+#sc29reason .sc29-oral-timer p{line-height:1.7;font-size:13px;margin:7px 0;color:#4b4564}
+#sc29reason .sc29-oral-timer-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0}
+#sc29reason .sc29-oral-timer-controls label{font-weight:700;font-size:13px}
+#sc29reason .sc29-oral-timer-controls select{font:inherit;min-height:44px;min-width:0;max-width:100%;padding:9px;border:1px solid #9484bc;border-radius:8px;background:#fff;flex:1 1 170px}
+#sc29reason .sc29-oral-target{font-size:12px;color:#514179;font-weight:700;white-space:nowrap}
+#sc29reason .sc29-oral-clock{font-variant-numeric:tabular-nums;text-align:center;font-weight:900;letter-spacing:.02em;color:#302452;font-size:clamp(34px,7vw,58px);background:#f4f0fc;border-radius:12px;padding:12px;line-height:1.25}
+#sc29reason .sc29-oral-clock small{font-size:16px}
+#sc29reason .sc29-oral-state{font-weight:700;min-height:1.6em;text-align:center}
+#sc29reason .sc29-oral-buttons{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#sc29reason .sc29-oral-buttons button,#sc29reason .sc29-oral-history-head button{font:inherit;font-size:13px;font-weight:700;min-height:42px;border:1px solid #8475ad;background:#fff;color:#392c66;padding:9px 12px;border-radius:9px;cursor:pointer}
+#sc29reason .sc29-oral-buttons #sc29-oral-start,#sc29reason .sc29-oral-buttons #sc29-oral-finish{background:#483c78;color:#fff}
+#sc29reason .sc29-oral-buttons button:disabled,#sc29reason .sc29-oral-history-head button:disabled{opacity:.45;cursor:not-allowed}
+#sc29reason .sc29-oral-timer button:focus-visible,#sc29reason .sc29-oral-timer select:focus-visible{outline:3px solid #8267cc;outline-offset:2px}
+#sc29reason .sc29-oral-history{margin-top:15px;border-top:1px solid #e4dcef;padding-top:12px}
+#sc29reason .sc29-oral-history-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:#392c66}
+#sc29reason .sc29-oral-history-head strong{margin-right:auto}
+#sc29reason .sc29-oral-history ol{margin:9px 0 0;padding-left:22px;font-size:13px;color:#33274d;line-height:1.7;overflow-wrap:anywhere}
+#sc29reason .sc29-oral-history li{margin:6px 0}
+#sc29reason .sc29-oral-timer .sc29-oral-note{font-size:12px;color:#5b536e}
+@media(max-width:420px){#sc29reason .sc29-oral-timer{padding:12px}#sc29reason .sc29-oral-buttons button{flex:1 1 44%}#sc29reason .sc29-oral-history-head button{flex:1 1 43%}}
+</style>
+
+<style id="sc29-oral-question-progress-20261022">
+/* 12:35: Question-level practice overview; no persistent data changes. */
+#sc29reason .sc29-oral-question-progress{margin:14px 0 10px;padding:13px;border:1px solid #d7d2e9;border-radius:12px;background:#fff;min-width:0}
+#sc29reason .sc29-oral-question-progress h6{margin:0 0 5px;font-size:15px;color:#35245d}
+#sc29reason .sc29-oral-question-progress p{margin:0 0 10px;font-size:12px;color:#5d5870;line-height:1.6}
+#sc29reason .sc29-oral-question-progress ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#sc29reason .sc29-oral-question-progress li{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 10px;border:1px solid #e2deec;border-radius:9px;min-width:0;background:#fbfaff}
+#sc29reason .sc29-oral-question-progress li span{font-size:12px;line-height:1.55;color:#4c4366;min-width:0;overflow-wrap:anywhere}
+#sc29reason .sc29-oral-question-progress li strong{display:block;color:#2e2350;font-size:13px}
+#sc29reason .sc29-oral-question-progress button{flex:0 0 auto;font:inherit;font-size:12px;font-weight:800;border:1px solid #c7b7e5;border-radius:8px;background:#efe9fc;color:#39236b;padding:8px 10px;cursor:pointer;min-height:36px}
+#sc29reason .sc29-oral-question-progress button:focus-visible{outline:3px solid #5c3aa2;outline-offset:2px}
+#sc29reason .sc29-oral-question-progress button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:600px){#sc29reason .sc29-oral-question-progress ol{grid-template-columns:1fr}}
+</style>
+
+<style id="sc29-oral-backup-20261022">
+/* 13:30 | 手動JSON保存・復元。小画面ではボタンを折り返す。 */
+#sc29reason #sc29-oral-json,#sc29reason #sc29-oral-import{min-height:44px}
+#sc29reason #sc29-oral-backup-status{padding:9px 11px;margin:9px 0;background:#f4f0fc;border-radius:8px;overflow-wrap:anywhere}
+@media(max-width:480px){#sc29reason .sc29-oral-history-head button{flex:1 1 100%;width:100%}}
+</style>
+
+<style id="sc29-oral-weekplan-20261022">
+/* 2026-10-22 14:33 | 29卒 面接練習7日間プラン */
+#sc29reason .sc29-oral-weekplan{margin:18px 0 4px;padding:16px;border:1px solid #d9dff3;border-radius:14px;background:#f8faff}
+#sc29reason .sc29-oral-weekplan h6{font-size:1rem;margin:0 0 8px;color:#202d5a}
+#sc29reason .sc29-oral-weekplan p{font-size:.9rem;line-height:1.65;margin:6px 0 12px}
+#sc29reason .sc29-oral-weekplan-actions{display:flex;flex-wrap:wrap;gap:8px}
+#sc29reason .sc29-oral-weekplan-actions button{padding:10px 12px;min-height:44px;border:1px solid #354b9b;border-radius:9px;background:#fff;color:#243776;font-weight:700;cursor:pointer}
+#sc29reason .sc29-oral-weekplan-actions button:first-child{background:#2e438c;color:#fff}
+#sc29reason .sc29-oral-weekplan-actions button:disabled{opacity:.55;cursor:not-allowed}
+#sc29reason .sc29-oral-weekplan ol{padding-left:23px;margin:10px 0;display:grid;gap:7px}
+#sc29reason .sc29-oral-weekplan li{padding:5px 3px;line-height:1.6;overflow-wrap:anywhere}
+#sc29reason .sc29-oral-weekplan li strong{margin-right:7px}
+#sc29reason .sc29-oral-weekplan .sc29-oral-weekplan-note{font-size:.8rem;color:#475574;margin-bottom:0}
+@media(max-width:480px){#sc29reason .sc29-oral-weekplan{padding:12px}#sc29reason .sc29-oral-weekplan-actions button{flex:1 1 100%}}
+</style>
+
+
+<style id="sc29-weekplan-interviewdate-20261022-1930">
+/* 19:30 | 本番日から7日分を逆算。既存の計画・履歴・保存データは変更しない。 */
+#sc29reason .sc29-plan-interview-date{margin:10px 0 14px;padding:13px;border:1px solid #cbd8ed;border-radius:11px;background:#fff}
+#sc29reason .sc29-plan-interview-date label{display:block;font-weight:750;color:#263a69;margin-bottom:7px}
+#sc29reason .sc29-plan-interview-date-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+#sc29reason .sc29-plan-interview-date input{min-width:0;max-width:220px;min-height:44px;border:1px solid #a9b9d3;border-radius:8px;padding:9px;color:#1c2d4b;background:#fff}
+#sc29reason .sc29-plan-interview-date button{min-height:44px;padding:9px 13px;border:1px solid #29488d;border-radius:8px;background:#eaf1ff;color:#233c78;font-weight:750;cursor:pointer}
+#sc29reason .sc29-plan-interview-date p{font-size:.83rem;margin:7px 0 0;line-height:1.6;color:#405274;overflow-wrap:anywhere}
+@media(max-width:480px){#sc29reason .sc29-plan-interview-date-controls>*{flex:1 1 100%;width:100%;max-width:none}}
+</style>
+<style id="sc29-weekplan-date-20261022-1830">
+/* 18:30 | 練習開始日を選択。既存の計画・完了チェックを自動変更しない。 */
+#sc29reason .sc29-plan-date-control{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;padding:12px;margin:10px 0 12px;border:1px solid #d2daf2;border-radius:10px;background:#fff}
+#sc29reason .sc29-plan-date-control label{font-weight:800;font-size:.9rem;color:#243776}
+#sc29reason .sc29-plan-date-control input{min-height:44px;min-width:0;max-width:100%;padding:9px;border:1px solid #7185bd;border-radius:8px;background:#fff;font:inherit;color:#243776}
+#sc29reason .sc29-plan-date-control span{flex-basis:100%;font-size:.8rem;color:#455474;line-height:1.6}
+#sc29reason .sc29-plan-date-control input:focus-visible{outline:3px solid #4e69bb;outline-offset:2px}
+@media(max-width:480px){#sc29reason .sc29-plan-date-control{align-items:stretch}#sc29reason .sc29-plan-date-control label,#sc29reason .sc29-plan-date-control input{width:100%}}
+</style>
+<style id="sc29-weekplan-next-20261022-1733">
+/* 17:33 | 7日間の面接練習: 次に取り組む1問を明示。保存データに影響しない。 */
+#sc29reason .sc29-plan-next{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:12px 0;padding:13px 14px;border:1px solid #adc8ed;border-radius:12px;background:#edf5ff}
+#sc29reason .sc29-plan-next strong{display:block;color:#18396d;font-size:.96rem}
+#sc29reason .sc29-plan-next p{margin:3px 0 0;color:#314766;font-size:.83rem;line-height:1.6}
+#sc29reason .sc29-plan-next button{min-height:44px;border:0;border-radius:9px;padding:10px 16px;background:#274b91;color:#fff;font-weight:750;cursor:pointer}
+#sc29reason .sc29-plan-next button:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:480px){#sc29reason .sc29-plan-next{padding:12px}#sc29reason .sc29-plan-next button{width:100%}}
+</style>
+<style id="sc29-weekplan-backup-20261022">
+/* 2026-10-22 16:33 | 進捗保存のスマホ操作性 */
+#sc29reason #sc29-oral-plan-import-file[hidden]{display:none}
+@media(max-width:480px){
+ #sc29reason .sc29-oral-weekplan{margin-left:-12px;margin-right:-12px;padding:12px 10px}
+ #sc29reason #sc29-oral-plan-list{padding-left:18px}
+ #sc29reason #sc29-oral-plan-list li{padding:8px}
+ #sc29reason .sc29-plan-practice{width:100%}
+}
+</style>
+<style id="sc29-oral-plan-progress-20261022">
+/* 2026-10-22 15:32 | 面接練習計画の実施チェックと練習への移動 */
+#sc29reason .sc29-plan-progress{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 7px;color:#26395b;font-size:.88rem;font-weight:750}
+#sc29reason .sc29-plan-progress progress{width:min(260px,100%);height:13px;accent-color:#207967}
+#sc29reason #sc29-oral-plan-list li{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #dce4ef;border-radius:10px;padding:10px 12px;background:#fff}
+#sc29reason #sc29-oral-plan-list li.sc29-plan-done{background:#eff9f5;border-color:#a5d4c2}
+#sc29reason .sc29-plan-check{display:flex;align-items:center;gap:9px;flex:1 1 230px;min-width:0;cursor:pointer}
+#sc29reason .sc29-plan-check input{width:19px;height:19px;min-height:19px;flex:none;accent-color:#16846e}
+#sc29reason .sc29-plan-check span{line-height:1.5;overflow-wrap:anywhere}
+#sc29reason .sc29-plan-check strong{margin-right:5px}
+#sc29reason .sc29-plan-practice{width:auto;min-height:40px;padding:7px 13px;border:1px solid #c0d2e3;border-radius:9px;background:#fff;color:#205177;font-size:.85rem;font-weight:750;cursor:pointer}
+#sc29reason .sc29-plan-practice:hover{background:#edf6ff}
+#sc29reason .sc29-plan-practice:focus-visible,#sc29reason .sc29-plan-check input:focus-visible{outline:3px solid #0d7d9b;outline-offset:3px}
+#sc29reason #sc29-oral-plan-clear{background:#fff;color:#73403d;border-color:#dbb8b6}
+@media(max-width:480px){#sc29reason #sc29-oral-plan-list li{padding:10px}#sc29reason .sc29-plan-practice{flex:1 1 100%}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -807,6 +1169,293 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 
 
 
+
+
+<section id="sc29is-starter" aria-labelledby="sc29is-title">
+  <div class="sc29is-shell">
+    <span class="sc29is-kicker">29卒｜登録不要・無料</span>
+    <h2 id="sc29is-title">業界研究、最初の3分で何をする？</h2>
+    <p class="sc29is-lead">興味のあるテーマを最大3つ選ぶと、<strong>最初に調べる業界の候補</strong>を3〜5つ表示。志望業界を今決める必要はありません。候補を出したら、仕事内容・働き方・待遇・自分の興味の4項目で比較してみよう。</p>
+    <fieldset>
+      <legend>興味があることを選択（最大3つ）</legend>
+      <div class="sc29is-choices">
+        <label class="sc29is-choice"><input type="checkbox" value="people">人の課題を解決したい</label>
+        <label class="sc29is-choice"><input type="checkbox" value="tech">ITや仕組みに関わりたい</label>
+        <label class="sc29is-choice"><input type="checkbox" value="make">ものづくりが好き</label>
+        <label class="sc29is-choice"><input type="checkbox" value="money">お金・経済に興味がある</label>
+        <label class="sc29is-choice"><input type="checkbox" value="town">街や暮らしを支えたい</label>
+        <label class="sc29is-choice"><input type="checkbox" value="ideas">情報・企画を考えたい</label>
+      </div>
+    </fieldset>
+    <p id="sc29is-count" class="sc29is-count">0 / 3 選択中</p>
+    <div class="sc29is-actions">
+      <button type="button" id="sc29is-show" class="sc29is-primary">業界の候補を表示する</button>
+      <button type="button" id="sc29is-reset" class="sc29is-secondary">選択をリセット</button>
+    </div>
+    <p id="sc29is-status" class="sc29is-status" role="status" aria-live="polite">興味が1つでもあれば始められます。</p>
+    <div id="sc29is-results" class="sc29is-results" hidden aria-labelledby="sc29is-results-title">
+      <h3 id="sc29is-results-title">まず調べてみる業界候補</h3>
+      <p>これは適性判定やおすすめ順位ではなく、興味から広げる<strong>調査の入口</strong>です。実際の仕事内容や待遇は企業ごとに確認してください。</p>
+      <ol id="sc29is-list"></ol>
+      <p id="sc29is-research-progress" class="sc29is-research-progress" role="status" aria-live="polite">調査の進捗：0 / 0項目</p>
+      
+<div class="sc29is-actions" id="sc29is-compare-actions">
+  <button type="button" class="sc29is-secondary" id="sc29is-compare-toggle" aria-expanded="false" aria-controls="sc29is-compare-panel">業界の横断比較表を表示</button>
+</div>
+<section class="sc29is-compare" id="sc29is-compare-panel" aria-labelledby="sc29is-compare-title" hidden>
+  <h4 id="sc29is-compare-title">業界を横並びで比較</h4>
+  <p class="sc29is-compare-intro">各業界で確認した4項目を一覧化します。✓は「自分で確認済み」にした項目で、業界の評価・優劣ではありません。</p>
+  <div class="sc29is-compare-toolbar"><label><input type="checkbox" id="sc29is-compare-incomplete">未完了の業界だけ表示</label><span id="sc29is-compare-summary" role="status" aria-live="polite"></span></div>
+  <div class="sc29is-compare-scroll" role="region" tabindex="0" aria-label="業界別の確認状況比較表（横にスクロールできます）">
+    <table class="sc29is-compare-table"><thead><tr><th scope="col">業界</th><th scope="col">仕事内容</th><th scope="col">働き方</th><th scope="col">給与・待遇</th><th scope="col">興味</th><th scope="col">進捗</th><th scope="col">メモ</th><th scope="col">編集</th></tr></thead><tbody id="sc29is-compare-body"></tbody></table>
+  </div>
+  <p id="sc29is-compare-empty" class="sc29is-compare-empty" hidden>全業界の4項目が確認済みです。絞り込みを解除すると一覧を見られます。</p>
+  <p class="sc29is-compare-foot">スマートフォンでは表を左右にスクロールできます。「開く」でその業界のチェックとメモへ移動します。メモの本文は比較表には表示しません。</p>
+</section>
+<div id="sc29is-next" class="sc29is-next" aria-labelledby="sc29is-next-title">
+        <h4 id="sc29is-next-title">次に調べること｜最大3タスク</h4>
+        <p class="sc29is-next-lead">まだ確認していない項目から、次の行動を自動整理。企業ごとの募集要項・公式採用ページを確認して記録しましょう。おすすめ順位や適性判定ではありません。</p>
+        <ol id="sc29is-next-list" class="sc29is-next-list" aria-live="polite"></ol>
+        <div class="sc29is-actions sc29is-next-actions"><button type="button" id="sc29is-next-export" class="sc29is-secondary">次の調査タスクをTXT保存</button></div>
+      </div>
+
+      <div class="sc29is-actions">
+        <button type="button" id="sc29is-save" class="sc29is-secondary">候補をTXT保存</button>
+        <button type="button" id="sc29is-csv" class="sc29is-secondary">調査メモをCSV保存</button>
+        <button type="button" id="sc29is-print" class="sc29is-secondary" aria-describedby="sc29is-print-help">調査結果をA4印刷・PDF保存</button>
+        <a class="sc29is-link" href="29sotsu-gyoukai-hikaku-sheet.html">29卒・業界比較シートへ →</a>
+      </div>
+    </div>
+      <p id="sc29is-print-help" class="sc29is-privacy">印刷画面には現在の業界候補・確認状況・メモが含まれます。ブラウザの「PDFに保存」も利用できます。共有時は個人情報に注意してください。</p>
+    <div class="sc29is-actions" aria-label="業界研究の作業再開" style="margin-top:14px">
+      <button type="button" id="sc29is-json-save" class="sc29is-secondary" disabled>続きから再開用JSONを保存</button>
+      <button type="button" id="sc29is-json-load" class="sc29is-secondary">保存したJSONから再開</button>
+      <input type="file" id="sc29is-json-file" accept=".json,application/json" hidden aria-label="業界研究のJSONファイルを選択">
+    </div>
+    <p class="sc29is-privacy">※選択内容・確認チェック・調査メモはこの画面だけで処理し、自動保存・外部送信しません。ページを閉じる前に「続きから再開用JSONを保存」すると、別の日にチェックとメモを復元できます。CSVは一覧確認用、JSONは作業再開用です。選択変更・再生成では画面のメモが消えます。JSON復元は現在の画面内容を置き換えます。結果は職業適性や内定可能性を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- 2026-10-22 01:35 | 29卒：業界研究から志望理由の材料を整理する無料ワーク -->
+<section id="sc29reason" aria-labelledby="sc29reason-title" class="sc29reason-wrap">
+  <div class="sc29reason-head"><span class="sc29reason-badge">29卒｜業界研究の次の一歩</span><h2 id="sc29reason-title">業界への興味を、志望理由の材料にする</h2>
+  <p>「気になる業界はあるけれど、なぜ興味があるのか説明できない」人向けの3ステップ。<strong>入力した内容だけ</strong>を組み合わせて、あとで編集できる下書きを作れます。</p></div>
+  <div class="sc29reason-grid">
+    <div class="sc29reason-form">
+      <!-- 2026-10-22 02:35 | 29卒・志望理由の材料入力を迷わず進める4段階ガイド -->
+      <div class="sc29reason-guide" aria-labelledby="sc29reason-guide-title">
+        <div class="sc29reason-guide-head"><strong id="sc29reason-guide-title">入力ガイド｜4つの材料を整理</strong><span id="sc29reason-guide-count">0 / 4項目</span></div>
+        <progress id="sc29reason-guide-progress" value="0" max="4" aria-label="入力した材料の数"></progress>
+        <ol id="sc29reason-guide-steps" class="sc29reason-guide-steps">
+          <li data-for="sc29reason-industry">気になる業界</li><li data-for="sc29reason-origin">自分の経験・きっかけ</li>
+          <li data-for="sc29reason-evidence">調べた事実</li><li data-for="sc29reason-next">次に知りたいこと</li>
+        </ol>
+        <p id="sc29reason-guide-hint" aria-live="polite">まず気になる業界を書いてみましょう。</p>
+        <button type="button" id="sc29reason-guide-next" class="sc29reason-alt">次の未入力項目へ移動</button>
+        <p class="sc29reason-guide-note">これは入力の進捗であり、内容の正確さや選考評価を判定するものではありません。業界の情報は企業公式サイト等で確認してください。</p>
+      </div>
+      <!-- /2026-10-22 02:35 sc29reason-guide -->
+      <label for="sc29reason-industry">① 気になる業界（自由入力可）</label>
+      <input id="sc29reason-industry" list="sc29reason-industries" maxlength="70" placeholder="例：IT・通信" autocomplete="off">
+      <datalist id="sc29reason-industries"></datalist>
+      <label for="sc29reason-origin">② 興味を持ったきっかけ・自分の経験</label>
+      <textarea id="sc29reason-origin" rows="3" maxlength="350" placeholder="例：学園祭で企画運営の仕組みを改善した経験から、仕組みで課題を解決する仕事に興味を持った"></textarea>
+      <label for="sc29reason-evidence">③ 調べて分かったこと（事実と出典を確認）</label>
+      <textarea id="sc29reason-evidence" rows="3" maxlength="350" placeholder="例：企業の採用ページで、顧客の業務改善を支える仕事内容を確認した"></textarea>
+      <label for="sc29reason-next">これから詳しく知りたいこと</label>
+      <textarea id="sc29reason-next" rows="2" maxlength="250" placeholder="例：職種ごとの仕事の違いと、若手社員が関わるプロジェクト"></textarea>
+      <p class="sc29reason-hint">調査した情報は企業公式の採用ページ等で確認してください。ここで作る文章は業界への関心を整理するメモであり、特定企業への志望動機の完成版ではありません。</p>
+      <div class="sc29reason-buttons"><button type="button" id="sc29reason-make" class="sc29reason-main">材料を文章にまとめる</button><button type="button" id="sc29reason-clear" class="sc29reason-alt">入力をクリア</button></div>
+    </div>
+    <div class="sc29reason-output">
+      <h3>編集できる下書き</h3>
+      <label class="sc29reason-visually-hidden" for="sc29reason-draft">業界への興味を整理した文章</label>
+      <textarea id="sc29reason-draft" rows="11" maxlength="2500" placeholder="左側の材料を入力して「材料を文章にまとめる」を押してください。文章は自由に編集できます。"></textarea>
+      <p id="sc29reason-counter" class="sc29reason-count" aria-live="polite">0文字</p>
+<!-- 2026-10-22 03:35 | 29卒 志望理由メモの文字数目安 -->
+<div class="sc29reason-length" id="sc29reason-length" aria-labelledby="sc29reason-length-title">
+  <h4 id="sc29reason-length-title">下書きの文字数を確認する</h4>
+  <div class="sc29reason-length-choices" role="group" aria-label="文字数の目標">
+    <button type="button" id="sc29reason-length-200" aria-pressed="true">200字目安</button>
+    <button type="button" id="sc29reason-length-400" aria-pressed="false">400字目安</button>
+  </div>
+  <progress id="sc29reason-length-progress" value="0" max="200" aria-label="目標文字数への進捗"></progress>
+  <p class="sc29reason-length-feedback" id="sc29reason-length-feedback" role="status" aria-live="polite">下書きを入力すると目標文字数との差が表示されます。</p>
+  <p class="sc29reason-length-tip" id="sc29reason-length-tip">まずは経験と業界への関心を、事実に沿って整理しましょう。</p>
+  <p class="sc29reason-length-note">文字数は改行も1文字として数えます。これは下書きの目安です。実際の応募フォームの上限・数え方を優先してください。文章は自動で変更・送信・保存されません。</p>
+</div>
+<!-- /2026-10-22 03:35 sc29reason-length -->
+
+<!-- 2026-10-22 04:35 | 29卒・志望理由メモ推敲セルフチェック -->
+<div class="sc29reason-review" id="sc29reason-review" aria-labelledby="sc29reason-review-title">
+  <h4 id="sc29reason-review-title">提出前に見直す｜6項目セルフチェック</h4>
+  <p class="sc29reason-review-intro">書いた文章を読み直し、確認できた項目だけチェックしてください。自動採点ではありません。</p>
+  <div class="sc29reason-review-progress"><span>確認した項目</span><output id="sc29reason-review-count" for="sc29reason-review-list">0 / 6項目</output></div>
+  <progress id="sc29reason-review-meter" value="0" max="6" aria-label="見直し済み項目数"></progress>
+  <ul class="sc29reason-review-list" id="sc29reason-review-list">
+    <li><label><input type="checkbox" data-review="experience">自分の経験で「何をしたか」が具体的に書けている</label></li>
+    <li><label><input type="checkbox" data-review="connection">その経験と業界への興味がつながっている</label></li>
+    <li><label><input type="checkbox" data-review="source">業界の仕事内容などの事実を公式情報で確認した</label></li>
+    <li><label><input type="checkbox" data-review="specificity">どの業界にも当てはまる抽象表現だけになっていない</label></li>
+    <li><label><input type="checkbox" data-review="next">今後知りたいこと・次に調べることが明確である</label></li>
+    <li><label><input type="checkbox" data-review="final">誤字・文字数・応募先の設問条件を確認した</label></li>
+  </ul>
+  <div class="sc29reason-review-actions">
+    <button type="button" id="sc29reason-review-next">次の未確認項目へ</button>
+    <button type="button" id="sc29reason-review-save">チェック結果をTXT保存</button>
+    <button type="button" id="sc29reason-review-reset">チェックをリセット</button>
+  </div>
+  <p id="sc29reason-review-status" class="sc29reason-review-status" role="status" aria-live="polite">確認できた項目を選ぶと進捗が表示されます。</p>
+  <p class="sc29reason-review-note">チェックは自動保存されません。TXTには項目の確認状況と下書きの文字数だけを保存し、下書き本文は含めません。公式情報との照合は利用者自身で行ってください。</p>
+</div>
+<!-- /2026-10-22 04:35 sc29reason-review -->
+<!-- 2026-10-22 05:35 | 29卒・志望理由メモの読みやすさチェック -->
+<div class="sc29reason-readability" id="sc29reason-readability" aria-labelledby="sc29reason-readability-title">
+  <h4 id="sc29reason-readability-title">下書きの読みやすさを確認</h4>
+  <p>文章を変えずに、長い文・抽象表現・改行の有無を確認します。<strong>自動採点や合否予測ではありません。</strong>文章はこの画面内だけで処理し、送信・保存しません。</p>
+  <div class="sc29reason-readability-summary" id="sc29reason-readability-summary" aria-live="polite"><span>下書き未入力</span></div>
+  <ul class="sc29reason-readability-list" id="sc29reason-readability-list"><li>下書きを入力すると確認ポイントが表示されます。</li></ul>
+  <div class="sc29reason-readability-actions">
+    <button type="button" id="sc29reason-readability-check">いまの文章を再確認</button>
+    <button type="button" id="sc29reason-readability-copy">確認ポイントをコピー</button>
+  </div>
+  <p class="sc29reason-readability-status" id="sc29reason-readability-status" role="status" aria-live="polite"></p>
+</div>
+<!-- /2026-10-22 05:35 sc29reason-readability -->
+
+<!-- 2026-10-22 06:35 | 29卒 志望理由ワークの作業データを保存・復元 -->
+<div class="sc29reason-session" id="sc29reason-session" aria-labelledby="sc29reason-session-title">
+  <h4 id="sc29reason-session-title">作業を保存して、別の日に再開</h4>
+  <p>業界名・経験・調べた事実・下書き・200/400字目標・6項目チェックに加え、<strong>面接の深掘り6問の回答メモも1つのJSONファイル</strong>にまとめて保存・復元できます。旧形式（前回のJSON）も読み込めます。</p>
+  <div class="sc29reason-session-actions">
+    <button type="button" id="sc29reason-session-save">作業データをJSON保存</button>
+    <label for="sc29reason-session-file">保存ファイルを選んで復元</label>
+    <input type="file" id="sc29reason-session-file" accept=".json,application/json" aria-label="志望理由ワークのJSONファイルを選ぶ">
+  </div>
+  <p class="sc29reason-session-status" id="sc29reason-session-status" role="status" aria-live="polite">保存・復元は手動です。入力内容は自動保存されません。</p>
+  <p>※ JSONにはESの下書き本文や経験が含まれます。共有・保管先に注意してください。読み込みはブラウザ内で行い、当サイト独自のサーバーには送信しません。<strong>復元時はこのワーク内の入力を置き換えます</strong>が、選考管理・他のES・広告・既存の端末保存には触れません。</p>
+</div>
+<!-- /2026-10-22 06:35 sc29reason-session -->
+<!-- 2026-10-22 07:35 | 29卒 志望理由から面接深掘り6問 -->
+<div class="sc29reason-interview" id="sc29reason-interview" aria-labelledby="sc29reason-interview-title">
+  <h4 id="sc29reason-interview-title">面接で聞かれそうな深掘り質問を6問練習</h4>
+  <p>業界名を入力すると、面接練習用の質問を6問表示します。自分の経験・公式情報をもとに回答を考えましょう。<strong>質問は想定例であり、実際の出題や合否を予測するものではありません。</strong></p>
+  <div class="sc29reason-interview-actions">
+    <button type="button" id="sc29reason-interview-generate">6問を作る・更新する</button>
+    <button type="button" id="sc29reason-interview-export">質問と回答メモをTXT保存</button>
+    <button type="button" id="sc29reason-interview-clear">回答メモを消去</button>
+    <button type="button" id="sc29reason-interview-next">次の未入力の質問へ</button>
+  </div>
+  <div class="sc29reason-interview-duration">
+    <label for="sc29reason-interview-target">回答時間の目標</label>
+    <select id="sc29reason-interview-target" aria-describedby="sc29reason-interview-speed"><option value="30">30秒</option><option value="60" selected>60秒</option><option value="90">90秒</option></select>
+    <span id="sc29reason-interview-speed">1分300文字で概算。箇条書きのメモは発話時間と一致しません。</span>
+  </div>
+  <!-- 2026-10-22 10:35 | 29卒：面接の音読実測タイマー -->
+  <section class="sc29-oral-timer" id="sc29-oral-timer" aria-labelledby="sc29-oral-timer-title">
+    <h5 id="sc29-oral-timer-title">声に出して回答時間を測る</h5>
+    <p>6問のうち1問を選び、話し始めたら「開始」。一時停止・再開ができ、終了すると<strong>実測時間と30/60/90秒の目標との差</strong>を確認できます。自動停止しないので、話し終わったら「終了して記録」を押してください。</p>
+    <div class="sc29-oral-timer-controls">
+      <label for="sc29-oral-question">練習する質問</label>
+      <select id="sc29-oral-question" aria-label="音読する面接質問"><option value="">先に6問を作ってください</option></select>
+      <span id="sc29-oral-target" class="sc29-oral-target">目標：60秒</span>
+    </div>
+    <div class="sc29-oral-clock" id="sc29-oral-clock" role="timer" aria-live="off">0.0 <small>秒</small></div>
+    <p class="sc29-oral-state" id="sc29-oral-state" role="status" aria-live="polite">質問を作成・選択すると測定できます。</p>
+    <div class="sc29-oral-buttons">
+      <button type="button" id="sc29-oral-start" disabled>開始</button>
+      <button type="button" id="sc29-oral-pause" disabled>一時停止</button>
+      <button type="button" id="sc29-oral-resume" disabled>再開</button>
+      <button type="button" id="sc29-oral-finish" disabled>終了して記録</button>
+      <button type="button" id="sc29-oral-reset" disabled>計測をリセット</button>
+    </div>
+    <div class="sc29-oral-history">
+      <div class="sc29-oral-history-head"><strong>この画面での練習記録 <span id="sc29-oral-count">0</span>件</strong><button type="button" id="sc29-oral-export" disabled>結果をTXT保存</button><button type="button" id="sc29-oral-csv" disabled>結果をCSV保存</button><button type="button" id="sc29-oral-json" disabled>履歴をJSON保存</button><button type="button" id="sc29-oral-import">履歴をJSON復元</button><button type="button" id="sc29-oral-clear" disabled>履歴を消去</button></div>
+      <input type="file" id="sc29-oral-import-file" accept=".json,application/json" aria-label="音読練習履歴のJSONファイルを選択" hidden>
+      <p class="sc29-oral-note" id="sc29-oral-backup-status" role="status" aria-live="polite">履歴は自動保存されません。JSON保存後、同じ6問を作成してから復元できます。質問文・回答メモはJSONに含めません。</p>
+      <ol id="sc29-oral-list" aria-label="面接回答の実測時間履歴"></ol>
+      <!-- 2026-10-22 11:30 | 音読練習の振り返り -->
+      <dl class="sc29-oral-summary" id="sc29-oral-summary" aria-label="音読練習の集計">
+        <div><dt>平均の目標との差（絶対値）</dt><dd id="sc29-oral-avg">—</dd></div>
+        <div><dt>目標±5秒以内</dt><dd id="sc29-oral-within">—</dd></div>
+        <div><dt>練習した質問</dt><dd id="sc29-oral-covered">—</dd></div>
+      </dl>
+      <p id="sc29-oral-next" class="sc29-oral-next" role="status" aria-live="polite">記録すると、次に復習する質問の目安を表示します。</p>
+      <!-- 2026-10-22 12:35 | 6問別の音読練習状況とワンタップ復習 -->
+      <section class="sc29-oral-question-progress" aria-labelledby="sc29-oral-progress-title">
+        <h6 id="sc29-oral-progress-title">6問別の練習状況</h6>
+        <p>質問ごとの練習回数と最新の時間差を確認。「練習する」でその質問を選べます。集計はこの画面の履歴のみです。</p>
+        <ol id="sc29-oral-progress-list" aria-label="6問の練習状況"></ol>
+      </section>
+      <!-- /2026-10-22 12:35 -->
+      <!-- 2026-10-22 14:33 | 29卒 7日間面接練習プラン -->
+      <section class="sc29-oral-weekplan" id="sc29-oral-weekplan" aria-labelledby="sc29-oral-weekplan-title">
+        <h6 id="sc29-oral-weekplan-title">次の7日間の面接練習プラン</h6>
+        <p>未練習の質問を優先し、練習済みは最新の目標時間との差が大きい順に配置します。1日1問・約10分。進捗を守るため、作成後は計画を固定します。</p>
+        <!-- 2026-10-22 18:30 | 面接予定に合わせて開始日を選択 -->
+        <div class="sc29-plan-date-control">
+          <label for="sc29-oral-plan-start-date">練習を始める日</label>
+          <input type="date" id="sc29-oral-plan-start-date" aria-describedby="sc29-oral-plan-start-help">
+          <span id="sc29-oral-plan-start-help">今日〜1年後から選択できます。開始日を変えたら「7日間の計画を作る」で反映。作成済みの計画は勝手に変わりません。</span>
+        </div>
+        <!-- /2026-10-22 18:30 -->
+        <!-- 2026-10-22 19:30 | 面接本番日から練習開始日を逆算 -->
+        <div class="sc29-plan-interview-date">
+          <label for="sc29-oral-interview-date">面接本番日から逆算する（任意）</label>
+          <div class="sc29-plan-interview-date-controls">
+            <input id="sc29-oral-interview-date" type="date" aria-describedby="sc29-oral-interview-date-help">
+            <button id="sc29-oral-interview-backcalc" type="button">面接前7日間に設定</button>
+          </div>
+          <p id="sc29-oral-interview-date-help">面接の7日前〜前日を1日1問の練習日に設定します。7日未満の場合は開始日を直接選んでください。計画・完了チェックは「7日間の計画を作る」まで変更されません。</p>
+          <p id="sc29-oral-interview-date-result" role="status" aria-live="polite">面接日を選ぶと、練習開始日を計算できます。</p>
+        </div>
+        <!-- /2026-10-22 19:30 -->
+        <div class="sc29-oral-weekplan-actions">
+          <button type="button" id="sc29-oral-plan-build" disabled>7日間の計画を作る</button>
+          <button type="button" id="sc29-oral-plan-txt" disabled>計画をTXT保存</button>
+          <button type="button" id="sc29-oral-plan-ics" disabled>カレンダー用ICS保存</button>
+          <button type="button" id="sc29-oral-plan-clear" disabled>完了チェックをリセット</button>
+          <button type="button" id="sc29-oral-plan-json" disabled>計画・進捗をJSON保存</button>
+          <button type="button" id="sc29-oral-plan-import" disabled>保存した計画を復元</button>
+          <input id="sc29-oral-plan-import-file" type="file" accept=".json,application/json" hidden>
+        </div>
+        <div class="sc29-plan-progress" aria-label="練習プランの完了状況"><label for="sc29-oral-plan-meter">完了 <span id="sc29-oral-plan-count">0 / 7日</span></label><progress id="sc29-oral-plan-meter" value="0" max="7">0 / 7日</progress></div>
+
+        <!-- 2026-10-22 17:33 | 期限超過を含む次の練習1問を案内 -->
+        <div class="sc29-plan-next" id="sc29-oral-plan-next" aria-label="次に取り組む面接練習">
+          <div><strong id="sc29-oral-plan-next-title">次の練習を確認</strong>
+          <p id="sc29-oral-plan-next-desc">7日間の計画を作成すると、未完了の次の1問を表示します。</p></div>
+          <button type="button" id="sc29-oral-plan-next-start" disabled>この質問を練習する</button>
+        </div>
+        <!-- /2026-10-22 17:33 -->
+        <p id="sc29-oral-plan-status" role="status" aria-live="polite">先に面接の深掘り6問を作成してください。</p>
+        <ol id="sc29-oral-plan-list" aria-label="7日間の面接練習計画"></ol>
+        <p class="sc29-oral-weekplan-note">「練習する」で質問を選び、練習後にチェックを付けられます。完了チェックは自動保存されません。「計画・進捗をJSON保存」で日付・質問番号・完了状況を保存し、後日同じ6問を作成してから復元できます。回答文・企業名・氏名はJSONに含めません。計画は作成後に固定され、開始日や練習履歴を反映して作り直す場合は「7日間の計画を作る」で再作成してください。TXTにはチェック状況を含みます。計画は目安で、募集日程・面接予定とは連動しません。ICSは終日予定として端末に保存するだけで、カレンダーへの登録は手動です。予定には質問番号のみを含み、回答文・氏名・志望先は含めません。通知は付けません。</p>
+      </section>
+      <!-- /2026-10-22 14:33 -->
+    </div>
+    <p class="sc29-oral-note">集計は直近12件のみを対象とし、平均は目標との差の絶対値です。復習候補は質問ごとの最新記録を比較します。採用評価や話し方の良し悪しは判定しません。</p>
+    <p class="sc29-oral-note">測定は端末の時計を使った目安です。履歴は<strong>このページを開いている間だけ</strong>保持され、回答メモや個人情報は履歴に含めません。上の手動JSON保存・復元のみ対応し、サイト全体のJSONバックアップには含まれません。画面を離れた場合は自動で一時停止します。</p>
+  </section>
+  <!-- /2026-10-22 10:35 sc29-oral-timer -->
+  <p class="sc29reason-interview-status" id="sc29reason-interview-status" role="status" aria-live="polite">質問を作ると、回答メモを記入できます。</p>
+  <ol class="sc29reason-interview-list" id="sc29reason-interview-list" aria-label="面接練習の質問一覧"></ol>
+  <p>入力・回答メモはこの画面内だけで処理します。<strong>自動保存・外部送信はありません。</strong>回答メモは上の「作業データをJSON保存」で他の入力とまとめて保存・復元できます。TXT保存も可能です。ページを閉じる前に手動保存し、個人情報の保管・共有に注意してください。</p>
+</div>
+<!-- /2026-10-22 07:35 sc29reason-interview -->
+
+
+
+
+
+      <div class="sc29reason-buttons"><button type="button" id="sc29reason-copy" class="sc29reason-alt">文章をコピー</button><button type="button" id="sc29reason-download" class="sc29reason-alt">TXT保存</button></div>
+      <p id="sc29reason-status" class="sc29reason-status" role="status" aria-live="polite">経験と調べた事実を分けて書くと、志望理由の根拠を整理しやすくなります。</p>
+      <a class="sc29reason-link" href="29sotsu-intern-shiboudouki-work.html">29卒・インターン志望動機200字／400字ワークへ →</a>
+      <p class="sc29reason-hint">入力内容はこの画面内で処理し、自動保存・外部送信はしません。ページを閉じる前に必要ならTXT保存してください。コピーした内容の共有先にもご注意ください。</p>
+    </div>
+  </div>
+</section>
+<!-- /2026-10-22 01:35 sc29reason -->
 
 <div class="workspace-divider"><span>YOUR WORKSPACE</span><span>ここから先は、入力して使う就活管理ツール</span></div>
 <div class="sc-h-workspace" id="workspace-intro"><div><span class="sc-h-section-tag">MY WORKSPACE</span><h2>管理も、このページで。</h2><p>ESの下書き、締切、面接予定。ブラウザに記録して、いつでも続きから。</p></div><div class="sc-h-work-links"><a href="#es-counter">ES下書き <span aria-hidden="true">↗</span></a><a href="#tracker">選考管理 <span aria-hidden="true">↗</span></a><a href="#calendar">カレンダー <span aria-hidden="true">↗</span></a></div></div><section id="dashboard"><h2>📊 就活ダッシュボード</h2><p class="muted">選考トラッカーの登録内容から自動集計します。</p><div class="grid4"><div class="metric"><b id="mTotal">0</b><span>登録企業</span></div><div class="metric"><b id="mSoon">0</b><span>7日以内の締切</span></div><div class="metric"><b id="mInterview">0</b><span>面接中</span></div><div class="metric"><b id="mOffer">0</b><span>内定</span></div></div><div class="notice muted" id="nextDeadline">次の締切はまだ登録されていません。</div><div class="sc-upcoming" id="sc-upcoming-agenda" aria-labelledby="sc-upcoming-title"><div class="sc-upcoming-head"><strong id="sc-upcoming-title">直近14日間の締切・選考予定</strong><a href="#tracker">選考管理で確認 →</a></div><details id="sc-same-day-load" class="sc-same-day-load" hidden><summary id="sc-same-day-title">同じ日に予定が集中しています</summary><div class="sc-same-day-body"><p>同じ日付の締切・次回予定をまとめました。各日の「準備チェック表TXT」で確認項目を保存し、「この日の予定をICS保存」でカレンダーへまとめて取り込めます。時刻が未登録のため終日予定として出力します。取り込みは手動で、自動同期されません。選考メモ・選考段階は含めません。</p><ul id="sc-same-day-list" aria-label="同じ日に集中する予定"></ul><p id="sc-same-day-more" class="sc-same-day-more" hidden></p><p id="sc-same-day-download-status" class="sc-same-day-download-status" role="status" aria-live="polite" aria-atomic="true"></p><a href="#tracker">選考管理で日程を確認 →</a></div></details><div class="sc-upcoming-controls" role="group" aria-label="予定の表示条件"><label for="sc-upcoming-range">期間 <select id="sc-upcoming-range" aria-label="今日から何日先までの予定を表示するか"><option value="7">7日間</option><option value="14" selected>14日間</option><option value="30">30日間</option><option value="60">60日間</option></select></label><label for="sc-upcoming-urgency">優先度 <select id="sc-upcoming-urgency" aria-label="予定までの残り日数で絞り込み"><option value="all">すべて</option><option value="today">今日</option><option value="tomorrow">明日</option><option value="three">3日以内</option><option value="seven">7日以内</option><option value="overdue">期限超過</option></select></label><span id="sc-upcoming-count" class="sc-upcoming-count" aria-live="polite"></span><details id="sc-upcoming-advanced" class="sc-upcoming-advanced"><summary id="sc-upcoming-advanced-summary">詳細条件を表示 <span id="sc-upcoming-active-badge" class="sc-upcoming-active-badge" hidden></span></summary><div class="sc-upcoming-advanced-inner"><label for="sc-upcoming-kind">予定の種類 <select id="sc-upcoming-kind"><option value="all">すべて</option><option value="締切">応募締切のみ</option><option value="次回予定">次回予定のみ</option></select></label><label for="sc-upcoming-sort">並び順 <select id="sc-upcoming-sort" aria-label="予定一覧の並び順"><option value="date-asc">日付が早い順</option><option value="date-desc">日付が遅い順</option><option value="name-asc">企業名順</option></select></label><label class="sc-upcoming-check"><input id="sc-upcoming-hide-overdue" type="checkbox"/>期限超過を隠す</label><label class="sc-upcoming-search" for="sc-upcoming-company-query">企業名 <input id="sc-upcoming-company-query" type="search" placeholder="企業名で検索" aria-label="予定を企業名で検索" autocomplete="off" maxlength="120"/><button type="button" id="sc-upcoming-clear-query" aria-label="企業名検索をクリア" hidden>クリア</button></label><button type="button" id="sc-upcoming-reset" class="sc-upcoming-reset" aria-label="予定一覧のすべての絞り込みを初期状態に戻す">条件をリセット</button></div></details></div><div id="sc-upcoming-kind-tabs" class="sc-upcoming-kind-tabs" role="group" aria-label="予定の種類をすぐに切り替える"><span class="sc-kind-heading">予定の種類を切り替え</span><button type="button" data-kind="all" aria-pressed="true">すべて <span class="sc-kind-count">0</span></button><button type="button" data-kind="締切" aria-pressed="false">応募締切 <span class="sc-kind-count">0</span></button><button type="button" data-kind="次回予定" aria-pressed="false">次回予定 <span class="sc-kind-count">0</span></button></div><details id="sc-prep-actions" class="sc-prep-actions"><summary>締切・次回予定の準備アクション <span id="sc-prep-count" class="sc-prep-count" aria-live="polite">確認中</span></summary><ul id="sc-prep-list" class="sc-prep-list" aria-label="直近3日以内と期限超過の予定に応じた確認事項"></ul><p id="sc-prep-more" class="sc-prep-more" hidden></p><button id="sc-prep-download" type="button" class="sc-prep-download" hidden aria-label="直近の準備アクション全件をテキストファイルに保存">準備アクションをTXT保存（全件）</button><button id="sc-prep-copy" type="button" class="sc-prep-download sc-prep-copy" hidden aria-label="直近の準備アクション全件をクリップボードにコピー">準備アクションをコピー（全件）</button><span id="sc-prep-export-status" class="sc-prep-export-status" role="status" aria-live="polite" aria-atomic="true"></span><p id="sc-prep-empty" class="sc-prep-empty" hidden>直近3日以内の締切・予定はありません。<a href="#tracker">選考管理に企業を登録する</a></p><p class="sc-prep-more">端末内の選考管理から表示する確認用の提案です。提出状況や募集継続は自動判定しません。</p></details><div id="sc-upcoming-focus" class="sc-upcoming-focus" role="status" aria-live="polite" aria-atomic="true" hidden></div><details id="sc-upcoming-week" class="sc-upcoming-week"><summary>直近7日を日別に確認 <span id="sc-upcoming-week-status" class="sc-upcoming-week-status" aria-live="polite"></span></summary><div id="sc-upcoming-week-grid" class="sc-upcoming-week-grid" role="group" aria-label="直近7日間の予定を日付別に絞り込む"></div><div class="sc-upcoming-week-foot"><span>日付を押すと一覧・CSV・カレンダー保存もその日だけに絞り込みます。件数は企業名・予定種類の条件に連動します。</span><button id="sc-upcoming-week-clear" type="button" class="sc-upcoming-week-clear" hidden>日付の絞り込みを解除</button></div></details><ul class="sc-upcoming-list" id="sc-upcoming-list" aria-live="polite"></ul><p class="sc-upcoming-empty" id="sc-upcoming-empty">予定はまだありません。選考管理で締切や次回予定を登録できます。</p><div id="sc-upcoming-empty-actions" class="sc-upcoming-empty-actions" hidden><button type="button" id="sc-upcoming-empty-reset" hidden>条件を解除して表示</button><button type="button" id="sc-upcoming-empty-expand" hidden>60日間に広げて探す</button><a id="sc-upcoming-empty-tracker" href="#tracker" hidden>選考管理で予定を登録 →</a></div><p class="sc-upcoming-more" id="sc-upcoming-more" hidden></p><div class="sc-upcoming-actions"><button type="button" id="sc-upcoming-show-more" aria-controls="sc-upcoming-list" hidden>さらに5件表示</button><button type="button" id="sc-upcoming-collapse" aria-controls="sc-upcoming-list" hidden>最初の5件に戻す</button></div><details id="sc-upcoming-export-menu" class="sc-upcoming-export-menu"><summary id="sc-upcoming-export-summary">予定を保存・共有 <span id="sc-upcoming-export-count" aria-live="polite">対象0件</span></summary><div class="sc-upcoming-actions sc-upcoming-export-buttons"><button type="button" id="sc-upcoming-export-csv" aria-label="表示条件に一致する予定をすべてCSVで保存" hidden>絞り込み結果をCSV保存</button><button type="button" id="sc-upcoming-export-ics" aria-label="表示条件に一致する予定をまとめてカレンダーファイルで保存" hidden>絞り込み結果をカレンダー保存</button><button type="button" id="sc-upcoming-copy-text" aria-label="表示条件に一致するすべての予定をテキストでコピー" hidden>絞り込み結果をコピー</button><button type="button" id="sc-upcoming-print" aria-label="表示条件に一致するすべての予定を印刷用一覧にして印刷" hidden>予定一覧を印刷</button></div></details><span id="sc-upcoming-copy-status" class="sc-upcoming-copy-status" role="status" aria-live="polite" aria-atomic="true"></span><span id="sc-upcoming-print-status" role="status" aria-live="polite" aria-atomic="true"></span><details id="sc-upcoming-help" class="sc-upcoming-help"><summary>使い方・個人情報の注意</summary><p class="sc-upcoming-privacy">「予定の種類を切り替え」から応募締切・次回予定をワンタップで切り替えられます。件数は期間・優先度・検索条件などに連動します。「直近7日を日別に確認」から日付ごとの予定件数を見て、1日分だけに絞り込めます。「詳細条件を表示」から予定の種類・並び順・企業名検索などを設定できます。閉じても設定は維持され、適用中の項目数を表示します。「並び順」は日付の昇順・降順・企業名順を切り替え、CSV・カレンダー保存・コピーにも反映されます。「優先度」は今日・明日・3日以内・7日以内・期限超過の予定を絞り込めます。「条件をリセット」は表示条件だけを戻し、企業データを変更しません。「予定を保存」は選んだ1件のみを.icsで端末に保存します。「Googleで追加」は別タブでGoogleカレンダーの登録確認画面を開きます。企業名・予定日がGoogleに送信されます。日時は登録時点では終日の仮予定です。時間・通知はGoogle側で確認してから保存してください。自動同期ではありません。「絞り込み結果をCSV保存」「絞り込み結果をカレンダー保存」は、選択した表示期間・種類・企業名検索などの条件に合う全予定（5件表示の範囲外も含む）をまとめて出力します。選考メモは含めません。「絞り込み結果をコピー」は条件に合う全予定の日付・種類・企業名・残り日数をクリップボードへコピーします（メモ・選考段階は含みません）。「予定一覧を印刷」は絞り込み・並び順を反映した全予定をA4向けの印刷画面にまとめます。印刷用一覧にも選考メモ・選考段階は含めません。企業名と日付が含まれるため、ファイルやコピーした内容の共有に注意してください。カレンダーへの取り込みは手動で、元データを編集しても自動同期されません。</p></details></div></section>
@@ -3453,4 +4102,1149 @@ practiceNext.addEventListener('click',()=>{
  step=Math.min(step+1,5);questions[step]=get('si-fu-practice-question')?.textContent||'';resetRating();resetCurrent();
 });
 })();</script>
+
+<script id="sc29is-starter-script">
+/* 2026-10-21 19:27 | 29卒・業界研究スターター（独立処理、保存なし） */
+(()=>{'use strict';
+const root=document.getElementById('sc29is-starter');if(!root)return;
+const $=id=>root.querySelector('#'+id);
+const inputs=Array.from(root.querySelectorAll('.sc29is-choice input[type="checkbox"]'));
+const count=$('sc29is-count'),status=$('sc29is-status'),results=$('sc29is-results'),list=$('sc29is-list');
+const progress=$('sc29is-research-progress');
+const researchChecks=['仕事内容','働き方','給与・待遇','自分の興味'];
+function updateResearchProgress(){
+ const all=Array.from(list.querySelectorAll('input[data-sc29is-check]'));
+ const done=all.filter(i=>i.checked).length;
+ progress.textContent='調査の進捗：'+done+' / '+all.length+'項目（チェックは任意）';
+}
+list.addEventListener('change',e=>{if(e.target.matches('input[data-sc29is-check]'))updateResearchProgress();});
+const labels={people:'人の課題を解決したい',tech:'ITや仕組みに関わりたい',make:'ものづくりが好き',money:'お金・経済に興味がある',town:'街や暮らしを支えたい',ideas:'情報・企画を考えたい'};
+const mapping={
+ people:['人材・サービス','IT・通信','コンサルティング'],
+ tech:['IT・通信','メーカー','情報サービス'],
+ make:['メーカー','専門商社','物流・運輸'],
+ money:['金融','保険','コンサルティング'],
+ town:['インフラ','不動産・建設','物流・運輸'],
+ ideas:['広告・メディア','商社','IT・通信']
+};
+const info={
+ '人材・サービス':'顧客の困りごとをどのように解決するか',
+ 'IT・通信':'技術・サービスで誰の課題を解決するか',
+ 'コンサルティング':'どんな顧客に何を提案し、実行を支援するか',
+ 'メーカー':'どんな製品を、誰に、どのように届けるか',
+ '情報サービス':'情報を使ってどんな価値を提供するか',
+ '専門商社':'何を仕入れ、誰に販売し、どんな機能を担うか',
+ '物流・運輸':'物や人の移動をどう支えているか',
+ '金融':'お金の流れを通じてどんな事業や生活を支えるか',
+ '保険':'どんなリスクに備え、顧客を支えるか',
+ 'インフラ':'電気・通信・交通などの基盤をどう維持するか',
+ '不動産・建設':'街や建物にどんな価値を生み出すか',
+ '広告・メディア':'情報を誰にどう届け、行動につなげるか',
+ '商社':'商品・サービス・事業をどのようにつなぐか'
+};
+let latest=[];
+function selected(){return inputs.filter(i=>i.checked).map(i=>i.value)}
+function resetOutput(message){latest=[];results.hidden=true;list.replaceChildren();progress.textContent='調査の進捗：0 / 0項目';if(message)status.textContent=message}
+inputs.forEach(input=>input.addEventListener('change',()=>{
+ let picked=selected();if(picked.length>3){input.checked=false;picked=selected();status.textContent='興味は最大3つまで選べます。';}
+ else{status.textContent=picked.length?'候補を表示すると、調べる業界が見つかります。':'興味が1つでもあれば始められます。'}
+ count.textContent=picked.length+' / 3 選択中';resetOutput();
+}));
+$('sc29is-show').addEventListener('click',()=>{
+ const picked=selected();if(!picked.length){resetOutput('まず興味を1つ以上選んでください。');inputs[0].focus();return;}
+ const scored=new Map();picked.forEach(key=>mapping[key].forEach((industry,pos)=>{
+  const row=scored.get(industry)||{name:industry,score:0,reasons:[]};row.score+=3-pos;row.reasons.push(labels[key]);scored.set(industry,row);
+ }));
+ const n=picked.length===1?3:5;
+ latest=Array.from(scored.values()).sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name,'ja')).slice(0,n);
+ list.replaceChildren();latest.forEach(row=>{
+  const li=document.createElement('li'),strong=document.createElement('strong'),desc=document.createElement('span');
+  strong.textContent=row.name;desc.textContent='関連する興味：'+row.reasons.join('・')+'／調べる視点：'+info[row.name];
+  li.append(strong,desc);
+  const details=document.createElement('details');details.className='sc29is-research-detail';
+  const summary=document.createElement('summary');summary.textContent='4項目を調べてチェック・メモを残す';details.appendChild(summary);
+  const checkWrap=document.createElement('div');checkWrap.className='sc29is-checks';
+  researchChecks.forEach((title,k)=>{
+   const label=document.createElement('label'),check=document.createElement('input');
+   check.type='checkbox';check.dataset.sc29isCheck=title;check.setAttribute('aria-label',row.name+'：'+title+'を確認済みにする');
+   label.append(check,document.createTextNode(title+'を確認した'));checkWrap.appendChild(label);
+  });
+  const memoLabel=document.createElement('label');memoLabel.className='sc29is-memo-label';
+  memoLabel.textContent='調査メモ（任意・企業ごとに公式採用情報を確認）';
+  const memo=document.createElement('textarea');memo.rows=3;memo.maxLength=1000;
+  memo.placeholder='例：主な仕事内容、働き方の特徴、調べたい企業など';
+  memo.setAttribute('aria-label',row.name+'の調査メモ');
+  memoLabel.appendChild(memo);details.append(checkWrap,memoLabel);li.appendChild(details);
+  list.appendChild(li);
+ });
+ updateResearchProgress();
+ results.hidden=false;status.textContent=latest.length+'業界を表示しました。比較シートで仕事内容・働き方・待遇を確認してみましょう。';
+ $('sc29is-results-title').focus?.();
+});
+$('sc29is-reset').addEventListener('click',()=>{inputs.forEach(i=>i.checked=false);count.textContent='0 / 3 選択中';resetOutput('選択をリセットしました。');});
+$('sc29is-save').addEventListener('click',()=>{
+ if(!latest.length)return;
+ const lines=['就活コンパス｜29卒 業界研究の候補','※適性判定ではなく、調べ始める業界の例です。',''];
+ latest.forEach((row,i)=>{lines.push((i+1)+'. '+row.name,'  興味：'+row.reasons.join('・'),'  調べる視点：'+info[row.name],'');});
+ lines.push('比較する4項目：仕事内容／働き方／給与・待遇／自分の興味','業界比較シート： https://goonyogunyo-prog.github.io/shukatsu-compass/29sotsu-gyoukai-hikaku-sheet.html');
+ const blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='29卒_業界研究の候補.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+ status.textContent='候補をTXTファイルに保存しました。';
+});
+$('sc29is-csv').addEventListener('click',()=>{
+ if(!latest.length)return;
+ const header=['業界','関連する興味','仕事内容','働き方','給与・待遇','自分の興味','調査メモ','調べる視点'];
+ const rows=latest.map((row,i)=>{
+  const li=list.children[i],checked=Array.from(li.querySelectorAll('input[data-sc29is-check]'));
+  const memo=li.querySelector('textarea')?.value||'';
+  return [row.name,row.reasons.join('・'),...checked.map(c=>c.checked?'確認済':'未確認'),memo,info[row.name]];
+ });
+ // CSVインジェクション対策：表計算ソフトが数式として解釈しうる値を文字列に固定する。
+ function cell(value){
+  let s=String(value??'').replace(/\u0000/g,'');
+  if(/^[\s\uFEFF]*[=+@-]/.test(s)||/^[\t\r\n]/.test(s))s="'"+s;
+  return '"'+s.replace(/"/g,'""')+'"';
+ }
+ const csv='\uFEFF'+[header,...rows].map(row=>row.map(cell).join(',')).join('\r\n');
+ const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='29卒_業界研究チェックとメモ.csv';
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+ status.textContent=latest.length+'業界の調査チェック・メモをCSV保存しました。';
+});
+})();
+</script>
+
+<script id="sc29is-json-backup-script">
+/* 2026-10-21 21:28 | 29卒業界研究：明示的JSON保存・復元（既存保存領域・広告・認証には触れない） */
+(()=>{'use strict';
+const root=document.getElementById('sc29is-starter');if(!root)return;
+const $=id=>document.getElementById(id);
+const save=$('sc29is-json-save'),load=$('sc29is-json-load'),file=$('sc29is-json-file');
+const list=$('sc29is-list'),results=$('sc29is-results'),status=$('sc29is-status');
+const allowed=new Set(['people','tech','make','money','town','ideas']);
+const selected=()=>Array.from(root.querySelectorAll('.sc29is-choice input:checked')).map(el=>el.value);
+const rows=()=>Array.from(list.children).map(li=>({
+ industry:li.querySelector('strong')?.textContent||'',
+ checks:Array.from(li.querySelectorAll('input[data-sc29is-check]')).map(el=>el.checked),
+ memo:li.querySelector('textarea')?.value||''
+}));
+function sync(){save.disabled=results.hidden||!rows().length;}
+root.querySelectorAll('.sc29is-choice input').forEach(el=>el.addEventListener('change',sync));
+$('sc29is-reset').addEventListener('click',sync);
+$('sc29is-show').addEventListener('click',sync);
+function download(data){
+ const url=URL.createObjectURL(new Blob(['\ufeff'+JSON.stringify(data,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='29卒_業界研究_作業再開.json';document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),5000);
+}
+save.addEventListener('click',()=>{
+ if(results.hidden||!rows().length)return;
+ download({app:'shukatsu-compass-29-industry-starter',version:1,selected:selected(),rows:rows()});
+ status.textContent='チェックとメモをJSON保存しました。再開するときは「保存したJSONから再開」を選んでください。';
+});
+load.addEventListener('click',()=>file.click());
+function validate(d){
+ if(!d||typeof d!=='object'||Array.isArray(d)||d.app!=='shukatsu-compass-29-industry-starter'||d.version!==1)return false;
+ if(!Array.isArray(d.selected)||d.selected.length<1||d.selected.length>3||new Set(d.selected).size!==d.selected.length||!d.selected.every(k=>allowed.has(k)))return false;
+ if(!Array.isArray(d.rows)||d.rows.length<3||d.rows.length>5)return false;
+ if(new Set(d.rows.map(r=>r.industry)).size!==d.rows.length)return false;
+ return d.rows.every(r=>r&&typeof r==='object'&&!Array.isArray(r)&&typeof r.industry==='string'&&r.industry.length>0&&r.industry.length<=60&&Array.isArray(r.checks)&&r.checks.length===4&&r.checks.every(v=>typeof v==='boolean')&&typeof r.memo==='string'&&r.memo.length<=1000);
+}
+file.addEventListener('change',async()=>{
+ const f=file.files?.[0];if(!f)return;
+ try{
+  if(f.size>100000)throw Error('ファイルが大きすぎます（100KB以下のJSONを選択してください）。');
+  const d=JSON.parse((await f.text()).replace(/^\uFEFF/,''));
+  if(!validate(d))throw Error('形式が異なるか、保存内容が壊れています。');
+  const hasCurrent=!results.hidden&&rows().some(r=>r.memo.trim()||r.checks.some(Boolean));
+  if(hasCurrent&&!window.confirm('現在の業界研究のチェック・メモを、JSONの内容で置き換えますか？'))return;
+  root.querySelectorAll('.sc29is-choice input').forEach(el=>{el.checked=d.selected.includes(el.value);});
+  $('sc29is-count').textContent=d.selected.length+' / 3 選択中';
+  $('sc29is-show').click();
+  const saved=new Map(d.rows.map(r=>[r.industry,r]));
+  let restored=0;
+  Array.from(list.children).forEach(li=>{
+   const r=saved.get(li.querySelector('strong')?.textContent||'');if(!r)return;
+   li.querySelectorAll('input[data-sc29is-check]').forEach((el,i)=>{el.checked=r.checks[i];});
+   const memo=li.querySelector('textarea');if(memo)memo.value=r.memo;
+   restored++;
+  });
+  // The starter's progress is computed on the existing change listener.
+  const first=list.querySelector('input[data-sc29is-check]');if(first)first.dispatchEvent(new Event('change',{bubbles:true}));
+  status.textContent=restored===d.rows.length
+   ?'JSONから'+restored+'業界のチェックとメモを復元しました。'
+   :'JSONを読み込みました。業界候補が変更されているため、'+restored+'業界のみ復元しました。';
+  sync();
+ }catch(err){status.textContent='復元できませんでした：'+(err?.message||'JSONファイルを確認してください。');}
+ finally{file.value='';}
+});
+sync();
+})();
+</script>
+
+<script id="sc29is-next-actions-script">
+/* 2026-10-21 22:31 | 未確認項目から次の3タスクを提案（既存のJSON/CSV/localStorageに非干渉） */
+(()=>{'use strict';
+const root=document.getElementById('sc29is-starter');if(!root)return;
+const list=document.getElementById('sc29is-list');
+const results=document.getElementById('sc29is-results');
+const next=document.getElementById('sc29is-next-list');
+const exportButton=document.getElementById('sc29is-next-export');
+const guide={
+ '仕事内容':'公式採用サイトで事業・職種・主な業務を調べる',
+ '働き方':'募集要項で勤務地・転勤・勤務形態を調べる',
+ '給与・待遇':'募集要項で初任給・諸手当・休日を調べる',
+ '自分の興味':'仕事内容を見て、惹かれた理由をメモに1文書く'
+};
+let tasks=[];
+function collect(){
+ if(results.hidden)return [];
+ const out=[];
+ Array.from(list.children).forEach((li,index)=>{
+  const industry=li.querySelector('strong')?.textContent?.trim()||'';
+  const checks=Array.from(li.querySelectorAll('input[data-sc29is-check]'));
+  const first=checks.findIndex(el=>!el.checked);
+  if(first<0||!industry)return;
+  const field=checks[first].dataset.sc29isCheck;
+  out.push({index,industry,field,action:guide[field]||'公式情報で確認する'});
+ });
+ return out.slice(0,3);
+}
+function render(){
+ tasks=collect();next.replaceChildren();
+ if(results.hidden){exportButton.disabled=true;return;}
+ if(!tasks.length){
+  const li=document.createElement('li');li.className='sc29is-next-done';
+  li.textContent='表示中の業界は4項目の確認が完了しました。調査メモを見直し、業界比較シートで比較しましょう。';
+  next.appendChild(li);exportButton.disabled=false;return;
+ }
+ tasks.forEach(task=>{
+  const li=document.createElement('li'),body=document.createElement('div');body.className='sc29is-next-task';
+  const strong=document.createElement('strong');strong.textContent=task.industry+'｜'+task.field;
+  const description=document.createElement('span');description.textContent=task.action;
+  body.append(strong,description);
+  const button=document.createElement('button');button.type='button';button.textContent='確認欄へ';
+  button.dataset.sc29isNextIndex=String(task.index);
+  li.append(body,button);next.appendChild(li);
+ });
+ exportButton.disabled=false;
+}
+// 既存の候補生成・JSON復元後にも再計算する。データ保存の形式は変えない。
+document.getElementById('sc29is-show').addEventListener('click',render);
+document.getElementById('sc29is-reset').addEventListener('click',render);
+list.addEventListener('change',e=>{if(e.target.matches('input[data-sc29is-check]'))render();});
+next.addEventListener('click',e=>{
+ const button=e.target.closest('button[data-sc29is-next-index]');if(!button)return;
+ const li=list.children[Number(button.dataset.sc29isNextIndex)];if(!li)return;
+ const details=li.querySelector('details');if(details)details.open=true;
+ const checkbox=Array.from(li.querySelectorAll('input[data-sc29is-check]')).find(el=>!el.checked);
+ if(checkbox){checkbox.scrollIntoView({behavior:'auto',block:'center'});checkbox.focus({preventScroll:true});}
+});
+exportButton.addEventListener('click',()=>{
+ if(results.hidden)return;
+ const lines=['就活コンパス｜29卒 次の業界研究タスク','※公式採用サイト・募集要項で確認するためのチェック案です。',''];
+ if(tasks.length)tasks.forEach((task,i)=>lines.push((i+1)+'. '+task.industry+'｜'+task.field,'   '+task.action,''));
+ else lines.push('表示中の業界は4項目の確認が完了しました。','業界比較シートで各業界の特徴を比較しましょう。','');
+ lines.push('調査の参考：https://goonyogunyo-prog.github.io/shukatsu-compass/29sotsu-gyoukai-hikaku-sheet.html');
+ const url=URL.createObjectURL(new Blob(['\ufeff'+lines.join('\n')],{type:'text/plain;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='29卒_次の業界研究タスク.txt';document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),5000);
+});
+render();
+})();
+</script>
+
+<script id="sc29is-print-report-script">
+/* 2026-10-21 23:26 | 印刷/PDF用のレポートを画面の入力値から安全に生成。保存キー・外部通信なし。 */
+(()=>{'use strict';
+const root=document.getElementById('sc29is-starter');if(!root)return;
+const btn=document.getElementById('sc29is-print');
+const list=document.getElementById('sc29is-list');
+const results=document.getElementById('sc29is-results');
+const status=document.getElementById('sc29is-status');
+if(!btn||!list||!results)return;
+const $=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+const checkNames=['仕事内容','働き方','給与・待遇','自分の興味'];
+function build(){
+ const report=$('section','');report.id='sc29is-print-report';report.setAttribute('aria-label','29卒 業界研究 印刷用レポート');
+ report.appendChild($('h1','','29卒｜業界研究レポート'));
+ const date=new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date());
+ report.appendChild($('p','sc29is-print-meta','就活コンパス｜作成：'+date+'｜画面の現在の入力内容を印刷'));
+ const interests=Array.from(root.querySelectorAll('.sc29is-choice input:checked')).map(x=>x.closest('label')?.textContent?.trim()||x.value);
+ report.appendChild($('p','','選んだ興味：'+(interests.join('／')||'未選択')));
+ const items=Array.from(list.children);let completed=0;
+ const checksPerCard=items.map(li=>Array.from(li.querySelectorAll('input[data-sc29is-check]')).map(e=>Boolean(e.checked)));
+ checksPerCard.forEach(a=>a.forEach(v=>{if(v)completed++;}));
+ report.appendChild($('p','','確認状況：'+completed+' / '+(items.length*4)+' 項目'));
+ report.appendChild($('h2','','業界別の確認・メモ'));
+ items.forEach((li,i)=>{
+  const card=$('article','sc29is-print-card');
+  const name=li.querySelector('strong')?.textContent?.trim()||'業界 '+(i+1);
+  card.appendChild($('h3','',(i+1)+'. '+name));
+  const ul=$('ul','');
+  checkNames.forEach((name,j)=>ul.appendChild($('li','',(checksPerCard[i][j]?'☑':'□')+' '+name)));
+  card.appendChild(ul);
+  const memo=li.querySelector('textarea')?.value?.trim()||'';
+  card.appendChild($('p','','調査メモ：'+(memo||'（未記入）')));
+  report.appendChild(card);
+ });
+ const tasks=Array.from(document.querySelectorAll('#sc29is-next-list .sc29is-next-task')).map(e=>e.textContent.trim()).filter(Boolean);
+ report.appendChild($('h2','','次に調べること'));
+ if(tasks.length){const ul=$('ul','');tasks.forEach(t=>ul.appendChild($('li','',t)));report.appendChild(ul);}
+ else report.appendChild($('p','','表示中の業界は確認完了。次は企業ごとの公式情報を比較しましょう。'));
+ report.appendChild($('p','sc29is-print-note','※これは興味から調査を始めるためのメモであり、適性診断・企業評価ではありません。採用条件や待遇は必ず各社の公式情報で確認してください。印刷物・PDFの共有にご注意ください。\n就活コンパス：goonyogunyo-prog.github.io/shukatsu-compass/'));
+ return report;
+}
+let active=null;
+function cleanup(){if(active){active.remove();active=null;}}
+window.addEventListener('afterprint',cleanup);
+btn.addEventListener('click',()=>{
+ if(results.hidden||!list.children.length){status.textContent='先に業界候補を表示してください。';return;}
+ cleanup();active=build();document.body.appendChild(active);
+ status.textContent='印刷画面を開きます。PDF保存する場合は印刷先で「PDFに保存」を選択してください。';
+ try{window.print();}catch(e){status.textContent='印刷画面を開けませんでした。ブラウザの印刷設定を確認してください。';cleanup();}
+});
+})();
+</script>
+
+<script id="sc29is-compare-script">
+/* 2026-10-22 00:30 | 業界横断比較表。既存ツールの状態を読み取り、保存領域に触れない。 */
+(()=>{'use strict';
+const root=document.getElementById('sc29is-starter');if(!root)return;
+const get=id=>document.getElementById(id);
+const list=get('sc29is-list'),results=get('sc29is-results'),toggle=get('sc29is-compare-toggle');
+const panel=get('sc29is-compare-panel'),body=get('sc29is-compare-body'),filter=get('sc29is-compare-incomplete');
+const summary=get('sc29is-compare-summary'),empty=get('sc29is-compare-empty');
+if(!list||!results||!toggle||!panel||!body||!filter)return;
+const make=(tag,content,cls)=>{const el=document.createElement(tag);if(content!==undefined)el.textContent=content;if(cls)el.className=cls;return el;};
+function refresh(){
+ if(results.hidden||!list.children.length){panel.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.textContent='業界の横断比較表を表示';body.replaceChildren();return;}
+ if(panel.hidden)return;
+ const rows=Array.from(list.children);let shown=0,done=0;body.replaceChildren();
+ rows.forEach((li,index)=>{
+  const checks=Array.from(li.querySelectorAll('input[data-sc29is-check]'));
+  if(checks.length!==4)return;
+  const checked=checks.filter(c=>c.checked).length;done+=checked;
+  if(filter.checked&&checked===4)return;
+  shown++;
+  const tr=make('tr');const name=li.querySelector('strong')?.textContent?.trim()||'名称未設定';
+  const first=make('td',name);tr.appendChild(first);
+  checks.forEach(c=>{const td=make('td',c.checked?'✓':'—',c.checked?'sc29is-compare-ok':'sc29is-compare-no');td.setAttribute('aria-label',c.dataset.sc29isCheck+(c.checked?'確認済み':'未確認'));tr.appendChild(td);});
+  tr.appendChild(make('td',checked+' / 4'));
+  tr.appendChild(make('td',li.querySelector('textarea')?.value?.trim()?'記入あり':'未記入'));
+  const action=make('td'),button=make('button','開く','sc29is-compare-open');button.type='button';
+  button.setAttribute('aria-label',name+'のチェックとメモを開く');
+  button.addEventListener('click',()=>{const details=li.querySelector('details');if(details)details.open=true;li.scrollIntoView({behavior:'smooth',block:'center'});const focusTarget=li.querySelector('textarea');if(focusTarget)focusTarget.focus({preventScroll:true});});
+  action.appendChild(button);tr.appendChild(action);body.appendChild(tr);
+ });
+ summary.textContent=rows.length+'業界・'+done+' / '+(rows.length*4)+'項目確認済み'+(filter.checked?'（表示'+shown+'業界）':'');
+ empty.hidden=shown!==0;
+}
+toggle.addEventListener('click',()=>{
+ if(results.hidden||!list.children.length)return;
+ panel.hidden=!panel.hidden;
+ toggle.setAttribute('aria-expanded',String(!panel.hidden));
+ toggle.textContent=panel.hidden?'業界の横断比較表を表示':'業界の横断比較表を閉じる';
+ if(!panel.hidden)refresh();
+});
+filter.addEventListener('change',refresh);
+list.addEventListener('change',refresh);
+list.addEventListener('input',e=>{if(e.target.matches('textarea'))refresh();});
+new MutationObserver(refresh).observe(list,{childList:true});
+get('sc29is-show')?.addEventListener('click',()=>queueMicrotask(refresh));
+get('sc29is-reset')?.addEventListener('click',()=>queueMicrotask(refresh));
+})();
+</script>
+
+<script id="sc29reason-script">
+/* 2026-10-22 01:35 | 29卒・業界研究の志望理由材料ワーク。端末保存・通信なし。 */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason');if(!root)return;
+ const get=id=>root.querySelector('#'+id);
+ const industry=get('sc29reason-industry'),origin=get('sc29reason-origin'),evidence=get('sc29reason-evidence'),next=get('sc29reason-next'),draft=get('sc29reason-draft'),status=get('sc29reason-status'),count=get('sc29reason-counter');
+ const fields=[industry,origin,evidence,next];
+ function updateCount(){count.textContent=Array.from(draft.value).length+'文字';}
+ function syncIndustries(){
+  const list=document.getElementById('sc29is-list'),data=get('sc29reason-industries');if(!list||!data)return;
+  const names=Array.from(list.children).map(li=>li.querySelector('strong')?.textContent?.trim()).filter(Boolean);
+  const current=Array.from(data.children).map(opt=>opt.value);
+  if(names.length===current.length&&names.every((n,i)=>n===current[i]))return;
+  data.replaceChildren(...names.map(n=>{const o=document.createElement('option');o.value=n;return o;}));
+ }
+ const list=document.getElementById('sc29is-list');if(list){new MutationObserver(syncIndustries).observe(list,{childList:true});syncIndustries();}
+ get('sc29reason-make').addEventListener('click',()=>{
+  const values=fields.map(f=>f.value.trim());
+  if(!values[0]&&!values[1]&&!values[2]&&!values[3]){status.textContent='まず業界名か興味を持ったきっかけを入力してください。';industry.focus();return;}
+  const lines=[];
+  if(values[0])lines.push('私は'+values[0]+'業界に関心を持っている。');
+  if(values[1])lines.push('興味を持ったきっかけは、'+values[1].replace(/[。\s]+$/,'')+'。');
+  if(values[2])lines.push('業界研究で確認した内容は、'+values[2].replace(/[。\s]+$/,'')+'。');
+  if(values[3])lines.push('今後さらに知りたいことは、'+values[3].replace(/[。\s]+$/,'')+'。');
+  if(!lines.length)return;
+  if(draft.value.trim()&&!confirm('現在の下書きを置き換えます。必要なら先にTXT保存してください。続けますか？'))return;
+  draft.value=lines.join('\n');draft.dispatchEvent(new Event('input',{bubbles:true}));updateCount();
+  status.textContent='入力した材料を下書きにまとめました。文末や事実関係を確認して自由に編集してください。';
+  draft.focus();
+ });
+ draft.addEventListener('input',updateCount);
+ get('sc29reason-clear').addEventListener('click',()=>{
+  if([...fields,draft].some(f=>f.value.trim())&&!confirm('入力内容と下書きをすべてクリアしますか？'))return;
+  [...fields,draft].forEach(f=>{f.value='';f.dispatchEvent(new Event('input',{bubbles:true}));});updateCount();status.textContent='入力をクリアしました。';industry.focus();
+ });
+ get('sc29reason-copy').addEventListener('click',async()=>{
+  if(!draft.value.trim()){status.textContent='コピーする文章がありません。';return;}
+  try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(draft.value);}else{
+    draft.focus();draft.select();if(!document.execCommand('copy'))throw Error('copy not supported');draft.setSelectionRange(draft.value.length,draft.value.length);
+   }status.textContent='文章をコピーしました。';}
+  catch(e){status.textContent='自動コピーできませんでした。下書き欄を選択して手動でコピーしてください。';}
+ });
+ get('sc29reason-download').addEventListener('click',()=>{
+  if(!draft.value.trim()){status.textContent='保存する文章がありません。';return;}
+  const blob=new Blob(['﻿'+'就活コンパス｜29卒 業界への興味の整理メモ\n※業界・企業の事実情報は公式サイトで確認してください。\n\n'+draft.value],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='29卒_業界への興味の整理メモ.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+  status.textContent='下書きをTXT保存しました。';
+ });
+ updateCount();
+})();
+</script>
+
+<script id="sc29reason-guide-script">
+/* 2026-10-22 02:35 | 既存の下書き・保存機能に触れず、入力状況だけを表示する */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason');if(!root)return;
+ const ids=['sc29reason-industry','sc29reason-origin','sc29reason-evidence','sc29reason-next'];
+ const fields=ids.map(id=>document.getElementById(id));
+ const progress=document.getElementById('sc29reason-guide-progress');
+ const count=document.getElementById('sc29reason-guide-count');
+ const hint=document.getElementById('sc29reason-guide-hint');
+ const next=document.getElementById('sc29reason-guide-next');
+ const steps=[...document.querySelectorAll('#sc29reason-guide-steps li')];
+ if(fields.some(f=>!f)||!progress||!count||!hint||!next||steps.length!==4)return;
+ const messages=['まず気になる業界を書いてみましょう。','その業界に関心を持った経験を具体的に書きましょう。','採用ページなどで確認した仕事内容や事実を書きましょう。','次に調べたい仕事や職種を整理しましょう。'];
+ function update(){
+  const values=fields.map(f=>f.value.trim());
+  const filled=values.filter(Boolean).length;
+  progress.value=filled;count.textContent=filled+' / 4項目';
+  steps.forEach((el,i)=>el.classList.toggle('is-done',Boolean(values[i])));
+  const missing=values.findIndex(v=>!v);
+  hint.textContent=missing<0?'4項目が埋まりました。内容を見直して「材料を文章にまとめる」を押しましょう。':messages[missing];
+  next.textContent=missing<0?'文章作成ボタンへ移動':'次の未入力項目へ移動';
+ }
+ fields.forEach(f=>f.addEventListener('input',update));
+ next.addEventListener('click',()=>{
+  const first=fields.find(f=>!f.value.trim());
+  (first||document.getElementById('sc29reason-make'))?.focus();
+ });
+ document.getElementById('sc29reason-clear')?.addEventListener('click',()=>queueMicrotask(update));
+ update();
+})();
+</script>
+
+<script id="sc29reason-length-script">
+/* 2026-10-22 03:35 | 既存の下書き欄を読むだけの文字数目安 */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason');if(!root)return;
+ const draft=root.querySelector('#sc29reason-draft');
+ const progress=root.querySelector('#sc29reason-length-progress');
+ const feedback=root.querySelector('#sc29reason-length-feedback');
+ const tip=root.querySelector('#sc29reason-length-tip');
+ const b200=root.querySelector('#sc29reason-length-200');
+ const b400=root.querySelector('#sc29reason-length-400');
+ if(!draft||!progress||!feedback||!tip||!b200||!b400)return;
+ let goal=200;
+ function refresh(){
+  const n=Array.from(draft.value).length;
+  progress.max=goal;progress.value=Math.min(n,goal);
+  if(!n){feedback.textContent='下書きを入力すると目標文字数との差が表示されます。';tip.textContent='まずは経験と業界への関心を、事実に沿って整理しましょう。';return;}
+  if(n<goal){feedback.textContent=n+' / '+goal+'文字｜目安まであと'+(goal-n)+'文字';
+   tip.textContent=n<goal*.65?'経験・行動・業界研究で確認した事実を、具体的に書き足してみましょう。':'不足している根拠や、これから知りたい点を補う余地があります。';
+  }else if(n===goal){feedback.textContent=n+' / '+goal+'文字｜目安の文字数に到達';tip.textContent='数字だけでなく、経験と事実のつながりや表現を見直しましょう。';
+  }else{feedback.textContent=n+' / '+goal+'文字｜目安より'+(n-goal)+'文字多い';tip.textContent='同じ内容の繰り返しを整理し、伝えたい根拠を絞りましょう。';}
+ }
+ function setGoal(n){goal=n;b200.setAttribute('aria-pressed',String(n===200));b400.setAttribute('aria-pressed',String(n===400));refresh();}
+ b200.addEventListener('click',()=>setGoal(200));b400.addEventListener('click',()=>setGoal(400));
+ draft.addEventListener('input',refresh);
+ root.querySelector('#sc29reason-make')?.addEventListener('click',()=>queueMicrotask(refresh));
+ root.querySelector('#sc29reason-clear')?.addEventListener('click',()=>queueMicrotask(refresh));
+ refresh();
+})();
+</script>
+
+<script id="sc29reason-review-script">
+/* 2026-10-22 04:35 | 6項目の任意セルフチェック。既存保存領域には触れない */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason-review');if(!root)return;
+ const items=[...root.querySelectorAll('input[type="checkbox"][data-review]')];
+ const meter=root.querySelector('#sc29reason-review-meter');
+ const count=root.querySelector('#sc29reason-review-count');
+ const status=root.querySelector('#sc29reason-review-status');
+ const draft=document.getElementById('sc29reason-draft');
+ if(items.length!==6||!meter||!count||!status||!draft)return;
+ const labels=items.map(input=>input.closest('label').textContent.trim());
+ function update(){
+  const done=items.filter(x=>x.checked).length;meter.value=done;count.textContent=done+' / '+items.length+'項目';
+  status.textContent=done===items.length?'6項目すべて確認済みです。実際の応募先の条件も最終確認しましょう。':
+   done===0?'確認できた項目を選ぶと進捗が表示されます。':'残り'+(items.length-done)+'項目。未確認の内容を見直しましょう。';
+ }
+ items.forEach(input=>input.addEventListener('change',update));
+ root.querySelector('#sc29reason-review-next').addEventListener('click',()=>{
+  const next=items.find(x=>!x.checked);if(next){next.focus();next.scrollIntoView({behavior:'smooth',block:'nearest'});}else status.textContent='すべて確認済みです。';
+ });
+ root.querySelector('#sc29reason-review-reset').addEventListener('click',()=>{
+  if(items.every(x=>!x.checked))return;
+  if(!window.confirm('6項目のチェックをリセットしますか？（下書き本文は消えません）'))return;
+  items.forEach(x=>x.checked=false);update();
+ });
+ document.getElementById('sc29reason-clear')?.addEventListener('click',()=>{
+  /* 入力クリアは確認ダイアログでキャンセルされ得るため、チェックは勝手に消さない */
+ });
+ root.querySelector('#sc29reason-review-save').addEventListener('click',()=>{
+  const lines=['就活コンパス｜29卒 志望理由メモ・推敲セルフチェック',
+   '保存日時：'+new Date().toLocaleString('ja-JP'),
+   '下書き文字数：'+Array.from(draft.value).length+'文字','',
+   ...labels.map((label,i)=>(items[i].checked?'[確認済] ':'[未確認] ')+label),
+   '', '※このチェックは自己確認用です。内容の正確性・選考評価を保証しません。'];
+  const blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='29卒_志望理由メモ_推敲チェック.txt';
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+  status.textContent='チェック結果をTXT保存しました。下書き本文は含まれません。';
+ });
+ update();
+})();
+</script>
+
+<script id="sc29reason-readability-script">
+/* 2026-10-22 05:35 | 判定条件を明示した端末内セルフチェック。既存機能と保存領域は変更しない */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason-readability');
+ const draft=document.getElementById('sc29reason-draft');
+ if(!root||!draft)return;
+ const summary=root.querySelector('#sc29reason-readability-summary');
+ const list=root.querySelector('#sc29reason-readability-list');
+ const status=root.querySelector('#sc29reason-readability-status');
+ const vague=['様々な','さまざまな','多くの','魅力を感じ','貢献したい','成長したい','学びたい'];
+ let latest=[];
+ function update(){
+  const value=draft.value.trim(); summary.replaceChildren();list.replaceChildren();status.textContent='';
+  const make=(tag,value,parent)=>{const el=document.createElement(tag);el.textContent=value;parent.appendChild(el);return el;};
+  if(!value){make('span','下書き未入力',summary);make('li','下書きを入力すると確認ポイントが表示されます。',list);latest=[];return;}
+  const chars=Array.from(value).length;
+  const sentences=value.split(/[。！？!?\n]+/).map(s=>s.trim()).filter(Boolean);
+  const max=sentences.length?Math.max(...sentences.map(s=>Array.from(s).length)):0;
+  make('span',chars+'文字',summary);make('span',sentences.length+'文',summary);make('span','最長の文 '+max+'文字',summary);
+  const issues=[];
+  if(max>110)issues.push('1文が110文字を超えています（最長'+max+'文字）。「結論／根拠／学び」などに分けられないか確認しましょう。');
+  if(sentences.length>1&&value.indexOf('\n')<0&&chars>250)issues.push('250文字を超える文章に改行がありません。提出フォームの仕様に合わせ、段落を分けると読みやすくなる場合があります。');
+  const matches=vague.filter(x=>value.includes(x));
+  if(matches.length)issues.push('抽象的になりやすい表現：'+matches.join('、')+'。どんな行動・事実・理由か具体化できるか確認しましょう。');
+  if(/[ \u3000]{2,}/.test(value))issues.push('連続する空白があります。意図しない空白か確認しましょう。');
+  if(!/[。！？!?]/.test(value)&&chars>80)issues.push('80文字を超える文章に句点がありません。文の区切りを確認しましょう。');
+  latest=issues.length?issues:['上記の機械的な確認条件では目立つ指摘はありません。経験・業界の事実・応募先の設問条件は自分で確認してください。'];
+  latest.forEach(x=>make('li',x,list));
+ }
+ let timer;
+ draft.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(update,180)});
+ root.querySelector('#sc29reason-readability-check').addEventListener('click',()=>{clearTimeout(timer);update();status.textContent='現在の下書きを確認しました。'});
+ root.querySelector('#sc29reason-readability-copy').addEventListener('click',async()=>{
+  clearTimeout(timer);update();if(!draft.value.trim()){status.textContent='コピーする確認ポイントがありません。';return;}
+  const text=['29卒｜志望理由メモの読みやすさ確認',...latest.map((x,i)=>(i+1)+'. '+x)].join('\n');
+  try{if(!navigator.clipboard?.writeText)throw Error('unsupported');await navigator.clipboard.writeText(text);status.textContent='確認ポイントをコピーしました（下書き本文は含みません）。';}
+  catch{status.textContent='コピーできませんでした。ブラウザの権限をご確認ください。';}
+ });
+ update();
+})();
+</script>
+
+<script id="sc29reason-session-script">
+/* 2026-10-22 08:30 | v2: 面接メモも手動JSON保存・復元。v1互換。localStorage不使用。 */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason');if(!root)return;
+ const get=id=>document.getElementById('sc29reason-'+id);
+ const ids=['industry','origin','evidence','next','draft'];
+ const fields=ids.map(get),file=get('session-file'),save=get('session-save'),status=get('session-status');
+ const checks=[...root.querySelectorAll('input[type="checkbox"][data-review]')];
+ const limits=[70,350,350,250,2500];
+ const interviewList=get('interview-list');
+ if(fields.some(x=>!x)||!file||!save||!status||checks.length!==6||!interviewList)return;
+ const reviewKeys=checks.map(x=>x.dataset.review);
+ const getNotes=()=>[...interviewList.querySelectorAll('textarea')];
+ const hasWork=()=>fields.some(x=>x.value.trim())||checks.some(x=>x.checked)||getNotes().some(x=>x.value.trim());
+ const notify=(message)=>{status.textContent=message;};
+ const interviewState=()=>({generated:getNotes().length===6,notes:getNotes().length===6?getNotes().map(x=>x.value):Array(6).fill('')});
+ save.addEventListener('click',()=>{
+  if(!hasWork()){notify('保存する作業データがありません。まず入力してください。');return;}
+  const data={format:'shukatsu-compass-sc29reason',version:2,exportedAt:new Date().toISOString(),
+   fields:Object.fromEntries(ids.map((id,i)=>[id,fields[i].value])),
+   goal:get('length-400')?.getAttribute('aria-pressed')==='true'?400:200,
+   review:Object.fromEntries(checks.map(x=>[x.dataset.review,x.checked])),
+   interview:interviewState()};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='29卒_志望理由と面接メモ_作業データ.json';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  notify('志望理由と面接メモをJSON保存しました。ファイルの保管先に注意してください。');
+ });
+ file.addEventListener('change',async()=>{
+  const selected=file.files?.[0];if(!selected)return;
+  try{
+   if(selected.size>65536)throw Error('ファイルが大きすぎます（64KBまで）。');
+   const raw=(await selected.text()).replace(/^\uFEFF/,'');
+   const obj=JSON.parse(raw);
+   if(!obj||obj.format!=='shukatsu-compass-sc29reason'||![1,2].includes(obj.version)||!obj.fields||typeof obj.fields!=='object'||!obj.review||typeof obj.review!=='object'||![200,400].includes(obj.goal))throw Error('このワーク用の保存データではありません。');
+   if(!ids.every((id,i)=>typeof obj.fields[id]==='string'&&Array.from(obj.fields[id]).length<=limits[i]))throw Error('入力項目の形式または文字数が正しくありません。');
+   if(!reviewKeys.every(key=>typeof obj.review[key]==='boolean'))throw Error('チェック項目の形式が正しくありません。');
+   if(obj.version===2){
+    const item=obj.interview;
+    if(!item||typeof item!=='object'||typeof item.generated!=='boolean'||!Array.isArray(item.notes)||item.notes.length!==6||!item.notes.every(x=>typeof x==='string'&&Array.from(x).length<=600)||(!item.generated&&item.notes.some(x=>x!=='')))throw Error('面接メモの形式または文字数が正しくありません。');
+   }
+   const msg=obj.version===2?'現在の入力・下書き・チェック・面接メモを置き換えます。続けますか？':'旧形式の作業データを復元します。現在の面接メモは維持されます。続けますか？';
+   if(hasWork()&&!window.confirm(msg)){notify('復元をキャンセルしました。現在の入力は保持しています。');return;}
+   ids.forEach((id,i)=>{fields[i].value=obj.fields[id];fields[i].dispatchEvent(new Event('input',{bubbles:true}));});
+   checks.forEach(x=>{x.checked=obj.review[x.dataset.review];x.dispatchEvent(new Event('change',{bubbles:true}));});
+   get(obj.goal===400?'length-400':'length-200')?.click();
+   if(obj.version===2){
+    get('interview')?.dispatchEvent(new CustomEvent('sc29reason:restore-interview',{detail:obj.interview}));
+    notify('志望理由と面接メモを復元しました。入力・チェック・回答を確認してください。');
+   }else{
+    notify('旧形式の作業データを復元しました。既存の面接メモは変更していません。業界名を変えた場合は質問文も確認してください。');
+   }
+  }catch(err){notify('復元できません：'+(err instanceof SyntaxError?'JSONの形式が正しくありません。':err.message));}
+  finally{file.value='';}
+ });
+})();
+</script>
+
+<script id="sc29reason-interview-script">
+/* 2026-10-22 07:35 | 質問は固定テンプレート。回答はDOMのみ・localStorage不使用。 */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason-interview');
+ const industry=document.getElementById('sc29reason-industry');
+ if(!root||!industry)return;
+ const list=root.querySelector('#sc29reason-interview-list');
+ const status=root.querySelector('#sc29reason-interview-status');
+ const make=root.querySelector('#sc29reason-interview-generate');
+ const save=root.querySelector('#sc29reason-interview-export');
+ const clear=root.querySelector('#sc29reason-interview-clear');
+ const next=root.querySelector('#sc29reason-interview-next');
+ const target=root.querySelector('#sc29reason-interview-target');
+ const questions=(name)=>[
+  `なぜ${name}に関心を持ったのですか？興味を持ったきっかけを具体的に説明してください。`,
+  'その経験で、あなた自身が考えて行動したことは何ですか？',
+  'その経験から得た学びは何ですか？仕事でどう活かしたいですか？',
+  `調べた${name}の仕事内容について、どの公式情報を根拠にしていますか？`,
+  `ほかの業界と比較して、${name}に惹かれる理由は何ですか？`,
+  '今後さらに知りたいことは何ですか？それをどうやって確かめますか？'
+ ];
+ let current=[];
+ const notes=()=>[...list.querySelectorAll('textarea')];
+ function progress(){
+  if(!current.length)return;
+  const goal=Number(target.value)||60;
+  const goalChars=goal*5; // 1分約300文字という仮定（参考値）
+  const areas=notes();
+  areas.forEach((area)=>{
+   const count=Array.from(area.value.trim()).length;
+   const seconds=Math.round(count/5);
+   const diff=goalChars-count;
+   const guidance=count===0?'未入力':diff>0?`目標まで約${diff}文字`:diff<0?`目標を約${-diff}文字超過`:'目標文字数と一致';
+   const feedback=area.parentElement.querySelector('.sc29reason-interview-note-feedback');
+   if(feedback)feedback.textContent=`${count}文字 / 原稿として読むと約${seconds}秒 / ${goal}秒目標：${guidance}`;
+  });
+  const count=areas.filter(x=>x.value.trim()).length;
+  status.textContent=`回答メモ ${count} / 6件。${goal}秒目標の目安を表示中（実際の時間は音読で確認）。`;
+ }
+ function generate(skipConfirm=false){
+  if(!skipConfirm&&notes().some(x=>x.value.trim())&&!window.confirm('質問を更新すると、現在の回答メモは消去されます。続けますか？'))return;
+  const name=industry.value.trim().replace(/\s+/g,' ').slice(0,70)||'この業界';
+  current=questions(name);list.replaceChildren();
+  current.forEach((q,i)=>{
+   const li=document.createElement('li');
+   const title=document.createElement('strong');title.textContent=`Q${i+1}. ${q}`;
+   const label=document.createElement('label');const id=`sc29reason-interview-note-${i+1}`;
+   label.htmlFor=id;label.textContent=`Q${i+1}の回答メモ（任意・600文字以内）`;
+   const area=document.createElement('textarea');area.id=id;area.maxLength=600;area.rows=3;
+   area.placeholder='経験・行動・根拠を、自分の言葉でメモする';
+   area.addEventListener('input',progress);
+   const feedback=document.createElement('p');feedback.className='sc29reason-interview-note-feedback';
+   li.append(title,label,area,feedback);list.appendChild(li);
+  });progress();
+ }
+ make.addEventListener('click',()=>generate(false));
+ target.addEventListener('change',progress);
+ next.addEventListener('click',()=>{
+  if(!current.length){status.textContent='先に「6問を作る・更新する」を押してください。';return;}
+  const area=notes().find(x=>!x.value.trim());
+  if(!area){status.textContent='6問すべてに回答メモが入力されています。';return;}
+  area.scrollIntoView({behavior:'smooth',block:'center'});area.focus({preventScroll:true});
+  status.textContent=`${area.id.replace('sc29reason-interview-note-','Q')}の入力欄へ移動しました。`;
+ });
+ root.addEventListener('sc29reason:restore-interview',(event)=>{
+  const state=event.detail;if(!state||!Array.isArray(state.notes)||state.notes.length!==6)return;
+  if(!state.generated){current=[];list.replaceChildren();status.textContent='面接の質問・メモは未作成です。';return;}
+  generate(true);
+  notes().forEach((area,i)=>{area.value=state.notes[i];});progress();
+ });
+ clear.addEventListener('click',()=>{
+  if(!current.length){status.textContent='消去する回答メモはありません。';return;}
+  if(notes().some(x=>x.value.trim())&&!window.confirm('6問の回答メモを消去しますか？'))return;
+  notes().forEach(x=>{x.value='';});progress();
+ });
+ save.addEventListener('click',()=>{
+  if(!current.length){status.textContent='先に「6問を作る・更新する」を押してください。';return;}
+  const lines=['29卒｜業界志望理由の面接深掘り練習','業界：'+(industry.value.trim()||'未入力'),'※想定質問。出題・選考評価を予測しません。',''];
+  current.forEach((q,i)=>lines.push(`Q${i+1}. ${q}`,'回答メモ：'+(notes()[i].value.trim()||'（未入力）'),''));
+  const blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='29卒_面接深掘り6問_回答メモ.txt';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  status.textContent='質問と回答メモをTXT保存しました。ファイルの保管先に注意してください。';
+ });
+})();
+</script>
+<script id="sc29-oral-timer-script">
+/* 2026-10-22 10:35 | 29卒 面接音読の実測。DOMのみ、保存キー変更なし。 */
+(()=>{'use strict';
+ const root=document.getElementById('sc29-oral-timer');
+ const source=document.getElementById('sc29reason-interview-list');
+ const target=document.getElementById('sc29reason-interview-target');
+ if(!root||!source||!target)return;
+ const el=(id)=>document.getElementById('sc29-oral-'+id);
+ const select=el('question'),clock=el('clock'),state=el('state'),goalLabel=el('target');
+ const start=el('start'),pause=el('pause'),resume=el('resume'),finish=el('finish'),reset=el('reset');
+ const count=el('count'),historyList=el('list'),exportButton=el('export'),csvButton=el('csv'),jsonButton=el('json'),importButton=el('import'),importFile=el('import-file'),backupStatus=el('backup-status'),clear=el('clear');
+ const avgEl=el('avg'),withinEl=el('within'),coveredEl=el('covered'),nextEl=el('next');
+ const progressList=el('progress-list');
+ let mode='idle',elapsed=0,segmentStart=0,interval=null,goal=60,questionIndex=-1,questionText='';
+ let history=[],questionSignature='';
+ let weeklyPlan=[],weeklyPlanActive=false;
+ const completedPlanDays=new Set();
+ const currentMs=()=>elapsed+(mode==='running'?Math.max(0,performance.now()-segmentStart):0);
+ const fmt=(ms)=>(Math.max(0,ms)/1000).toFixed(1);
+ const selected=()=>Number(select.value);
+ const hasQuestion=()=>select.value!==''&&source.querySelectorAll('li').length===6;
+ function controls(){
+  const ready=hasQuestion();
+  start.disabled=!ready||mode==='running'||mode==='paused';
+  pause.disabled=mode!=='running';resume.disabled=mode!=='paused';
+  finish.disabled=mode!=='running'&&mode!=='paused';
+  reset.disabled=mode==='idle'&&elapsed===0;
+  select.disabled=mode==='running'||mode==='paused';
+  exportButton.disabled=history.length===0;csvButton.disabled=history.length===0;jsonButton.disabled=history.length===0;importButton.disabled=mode!=='idle';clear.disabled=history.length===0;
+  count.textContent=String(history.length);
+  goalLabel.textContent='目標：'+(mode==='running'||mode==='paused'?goal:Number(target.value)||60)+'秒';
+  if(progressList)progressList.querySelectorAll('button').forEach(b=>{b.disabled=mode!=='idle';});
+  if(typeof planBuild!=='undefined'&&planBuild)planBuild.disabled=!ready||mode!=='idle';
+  if(typeof nextStart!=='undefined'&&nextStart)nextStart.disabled=mode!=='idle'||!ready||nextQuestionIndex===null;
+ }
+ function render(){
+  const ms=currentMs();clock.innerHTML='';clock.append(document.createTextNode(fmt(ms)+' '));
+  const unit=document.createElement('small');unit.textContent='秒';clock.append(unit);
+  if(mode==='running')state.textContent=ms>=goal*1000?'目標時間に到達しました。話し終わったら「終了して記録」を押してください。':'計測中です。話し終わったら「終了して記録」を押してください。';
+ }
+ function stopInterval(){if(interval!==null){clearInterval(interval);interval=null;}}
+ function freeze(){if(mode==='running'){elapsed=currentMs();mode='paused';stopInterval();}}
+ function resetClock(message){stopInterval();mode='idle';elapsed=0;segmentStart=0;questionIndex=-1;questionText='';render();state.textContent=message||'準備完了。「開始」で音読時間を測定します。';controls();}
+ function drawQuestionProgress(){
+  if(!progressList)return;
+  progressList.replaceChildren();
+  const titles=[...source.querySelectorAll('li > strong')];
+  if(titles.length!==6){
+   const li=document.createElement('li');li.textContent='先に面接の深掘り6問を作成してください。';progressList.append(li);return;
+  }
+  const latest=new Map(),attempts=new Map();
+  history.forEach(h=>{if(!latest.has(h.index))latest.set(h.index,h);attempts.set(h.index,(attempts.get(h.index)||0)+1);});
+  titles.forEach((_,i)=>{
+   const li=document.createElement('li'),label=document.createElement('span'),title=document.createElement('strong'),button=document.createElement('button');
+   title.textContent='Q'+(i+1);
+   const h=latest.get(i);
+   const detail=document.createElement('span');
+   if(!h)detail.textContent='未練習';
+   else{
+    const delta=h.actual-h.goal;
+    detail.textContent=`${attempts.get(i)}回｜最新 ${h.actual.toFixed(1)}秒 / 目標 ${h.goal}秒（差 ${delta>0?'+':''}${delta.toFixed(1)}秒）`;
+   }
+   label.append(title,detail);
+   button.type='button';button.dataset.sc29OralQuestion=String(i);button.textContent='練習する';button.setAttribute('aria-label','Q'+(i+1)+'を選んで音読練習');
+   li.append(label,button);progressList.append(li);
+  });
+ }
+ // 2026-10-22 14:33 | 7日間の復習計画。保存データ・他ツールには触れない。
+ const planBuild=el('plan-build'),planTxt=el('plan-txt'),planIcs=el('plan-ics'),planStatus=el('plan-status'),planList=el('plan-list');
+ const planClear=el('plan-clear'),planCount=el('plan-count'),planMeter=el('plan-meter');
+ const planJson=el('plan-json'),planImport=el('plan-import'),planImportFile=el('plan-import-file');
+ const planStart=el('plan-start-date');
+ // 2026-10-22 17:33 | 次の未完了1問。端末保存・外部通信はしない。
+ const nextTitle=el('plan-next-title'),nextDesc=el('plan-next-desc'),nextStart=el('plan-next-start');
+ let nextQuestionIndex=null;
+ function updateNextPractice(){
+  nextQuestionIndex=null;nextStart.disabled=true;
+  if(!weeklyPlanActive||weeklyPlan.length!==7){
+   nextTitle.textContent='次の練習を確認';
+   nextDesc.textContent='7日間の計画を作成すると、未完了の次の1問を表示します。';
+   return;
+  }
+  const undone=weeklyPlan.filter(p=>!completedPlanDays.has(planKey(p)));
+  if(!undone.length){
+   nextTitle.textContent='7日間の練習がすべて完了しました';
+   nextDesc.textContent='お疲れさまでした。必要なら練習履歴を見直し、次の計画を作成できます。';
+   return;
+  }
+  const today=localDay(new Date());
+  const overdue=undone.filter(p=>localDay(p.date)<today);
+  const due=undone.filter(p=>localDay(p.date)===today);
+  const item=overdue[0]||due[0]||undone[0];
+  const when=overdue.length?'予定日を過ぎた未完了 '+overdue.length+'件':due.length?'今日の練習':'次の予定';
+  nextQuestionIndex=item.index;
+  nextTitle.textContent=when+'｜Q'+(item.index+1);
+  nextDesc.textContent=displayDay(item.date)+'・約10分。'+(overdue.length?'過去の予定を優先して表示しています。':'未完了の中から日付が近い質問を表示しています。')+'通知や自動予定変更は行いません。';
+  nextStart.disabled=mode!=='idle'||!hasQuestion();
+ }
+ nextStart.addEventListener('click',()=>{
+  if(mode!=='idle'||!hasQuestion()||nextQuestionIndex===null)return;
+  select.value=String(nextQuestionIndex);
+  state.textContent='Q'+(nextQuestionIndex+1)+'を選択しました。「開始」で音読時間を測定できます。';
+  root.scrollIntoView({behavior:'smooth',block:'start'});start.focus({preventScroll:true});
+ });
+ // /2026-10-22 17:33
+
+ const localDay=(d)=>`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+ const displayDay=(d)=>`${d.getMonth()+1}/${d.getDate()}（${'日月火水木金土'[d.getDay()]}）`;
+ // 2026-10-22 18:30 | 日付はローカル日付で扱い、UTC変換による日付ずれを防ぐ。
+ const dateIso=(d)=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+ const todayDate=()=>{const now=new Date();return new Date(now.getFullYear(),now.getMonth(),now.getDate());};
+ const maxStartDate=()=>{const d=todayDate();return new Date(d.getFullYear()+1,d.getMonth(),d.getDate());};
+ const readPlanStart=()=>{
+  const match=/^(\d{4})-(\d{2})-(\d{2})$/.exec(planStart.value);
+  if(!match)return null;
+  const [year,month,day]=match.slice(1).map(Number);
+  const d=new Date(year,month-1,day);
+  if(d.getFullYear()!==year||d.getMonth()!==month-1||d.getDate()!==day)return null;
+  if(d<todayDate()||d>maxStartDate())return null;
+  return d;
+ };
+ planStart.min=dateIso(todayDate());planStart.max=dateIso(maxStartDate());planStart.value=dateIso(todayDate());
+ const dateOffset=(n)=>{const start=readPlanStart()||todayDate();return new Date(start.getFullYear(),start.getMonth(),start.getDate()+n);};
+ const planKey=(item)=>localDay(item.date)+'-Q'+item.index;
+ function refreshPlanProgress(){
+  const keys=new Set(weeklyPlan.map(planKey));
+  for(const key of completedPlanDays)if(!keys.has(key))completedPlanDays.delete(key);
+  const done=weeklyPlan.filter(p=>completedPlanDays.has(planKey(p))).length;
+  planCount.textContent=done+' / '+(weeklyPlan.length||7)+'日';planMeter.value=done;
+  planClear.disabled=done===0;
+  planJson.disabled=weeklyPlan.length!==7;
+  updateNextPractice();
+ }
+ function refreshWeeklyPlan(){
+  const ready=hasQuestion();planBuild.disabled=!ready||mode!=='idle';planImport.disabled=!ready||mode!=='idle';
+  if(!ready){weeklyPlan=[];weeklyPlanActive=false;completedPlanDays.clear();planList.replaceChildren();planTxt.disabled=true;planIcs.disabled=true;refreshPlanProgress();planStatus.textContent='先に面接の深掘り6問を作成してください。';return;}
+  if(!weeklyPlanActive){planList.replaceChildren();planTxt.disabled=true;planIcs.disabled=true;refreshPlanProgress();planStatus.textContent='質問がそろいました。7日間の練習計画を作成できます。';return;}
+  // 作成済みの7日間計画は日付・質問番号を固定し、完了チェックを保護する。
+  // 新しい履歴を反映したい場合は「計画を作る」で明示的に再作成する。
+  if(weeklyPlan.length!==7){
+   const latest=new Map();history.forEach(h=>{if(!latest.has(h.index))latest.set(h.index,h);});
+   const priority=[0,1,2,3,4,5].sort((a,b)=>{
+    const ha=latest.get(a),hb=latest.get(b);
+    if(!ha&&!hb)return a-b;if(!ha)return -1;if(!hb)return 1;
+    return Math.abs(hb.actual-hb.goal)-Math.abs(ha.actual-ha.goal)||a-b;
+   });
+   weeklyPlan=Array.from({length:7},(_,i)=>{
+    const index=priority[i%priority.length],last=latest.get(index);
+    const reason=!last?'未練習':Math.abs(last.actual-last.goal)<=5?'定着のための再練習':`最新の目標との差${Math.abs(last.actual-last.goal).toFixed(1)}秒`;
+    return {date:dateOffset(i),index,reason};
+   });
+  }
+  planList.replaceChildren();
+  weeklyPlan.forEach(item=>{
+   const li=document.createElement('li'),label=document.createElement('label'),check=document.createElement('input'),body=document.createElement('span'),strong=document.createElement('strong'),practice=document.createElement('button');
+   const key=planKey(item);check.type='checkbox';check.dataset.planKey=key;check.checked=completedPlanDays.has(key);
+   check.setAttribute('aria-label',displayDay(item.date)+' Q'+(item.index+1)+'の練習を完了');
+   strong.textContent=displayDay(item.date)+'｜Q'+(item.index+1);body.append(strong,document.createTextNode(item.reason+'・約10分'));
+   label.className='sc29-plan-check';label.append(check,body);
+   practice.type='button';practice.className='sc29-plan-practice';practice.dataset.planQuestion=String(item.index);practice.textContent='練習する';practice.setAttribute('aria-label','Q'+(item.index+1)+'の音読練習へ移動');
+   li.classList.toggle('sc29-plan-done',check.checked);li.append(label,practice);planList.append(li);
+  });
+  refreshPlanProgress();
+  planTxt.disabled=false;planIcs.disabled=false;
+  planStatus.textContent=`${displayDay(weeklyPlan[0].date)}から7日間の計画です。優先順位を更新するには「7日間の計画を作る」で再作成してください。`;
+ }
+ function saveWeeklyPlan(name,content,mime){
+  const url=URL.createObjectURL(new Blob([content],{type:mime})),a=document.createElement('a');
+  a.href=url;a.download=name;document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+ }
+ planBuild.addEventListener('click',()=>{
+  if(!hasQuestion()||mode!=='idle')return;
+  if(!readPlanStart()){
+   planStatus.textContent='開始日は今日から1年以内の実在する日付を選んでください。現在の計画は変更していません。';
+   planStart.focus();return;
+  }
+  if(completedPlanDays.size&&!window.confirm('完了チェックが付いた計画を再作成しますか？ 今の進捗を残すには先にJSON保存してください。'))return;
+  weeklyPlan=[];completedPlanDays.clear();weeklyPlanActive=true;refreshWeeklyPlan();
+ });
+ // チェックは明示操作のみ。質問・日付が変わった項目の完了扱いは引き継がない。
+ planList.addEventListener('change',(event)=>{
+  const box=event.target.closest('input[data-plan-key]');if(!box)return;
+  const key=box.dataset.planKey;if(!weeklyPlan.some(p=>planKey(p)===key))return;
+  if(box.checked)completedPlanDays.add(key);else completedPlanDays.delete(key);
+  box.closest('li')?.classList.toggle('sc29-plan-done',box.checked);
+  refreshPlanProgress();
+  planStatus.textContent=`完了状況を更新しました（${planCount.textContent}）。後日続ける場合はJSON保存してください。`;
+ });
+ planList.addEventListener('click',(event)=>{
+  const button=event.target.closest('button[data-plan-question]');if(!button||mode!=='idle'||!hasQuestion())return;
+  const i=Number(button.dataset.planQuestion);if(!Number.isInteger(i)||i<0||i>5)return;
+  select.value=String(i);state.textContent='Q'+(i+1)+'を選択しました。「開始」で音読時間を測定できます。';
+  root.scrollIntoView({behavior:'smooth',block:'start'});start.focus({preventScroll:true});
+ });
+ planClear.addEventListener('click',()=>{
+  if(!completedPlanDays.size||!window.confirm('7日間の練習プランの完了チェックをすべて解除しますか？（音読履歴は残ります）'))return;
+  completedPlanDays.clear();refreshWeeklyPlan();planStatus.textContent='完了チェックをリセットしました。音読履歴はそのままです。';
+ });
+ planTxt.addEventListener('click',()=>{
+  if(!weeklyPlan.length)return;
+  const lines=['29卒｜面接の7日間練習プラン','1日1問・約10分。質問番号のみ。面接日程との自動連動はありません。',''];
+  weeklyPlan.forEach((p,i)=>lines.push(`${i+1}日目 ${displayDay(p.date)} Q${p.index+1}｜${p.reason}｜約10分｜${completedPlanDays.has(planKey(p))?'完了':'未完了'}`));
+  saveWeeklyPlan('29卒_面接7日間練習プラン.txt','\uFEFF'+lines.join('\n'),'text/plain;charset=utf-8');
+  planStatus.textContent='練習プランをTXT保存しました。';
+ });
+ const foldIcsLine=(line)=>{
+  const encoder=new TextEncoder();let out='',part='',bytes=0;
+  for(const ch of line){const n=encoder.encode(ch).length,limit=out?74:75;
+   if(part&&bytes+n>limit){out+=part+'\r\n ';part=ch;bytes=n;}
+   else{part+=ch;bytes+=n;}
+  }
+  return out+part;
+ };
+ planIcs.addEventListener('click',()=>{
+  if(!weeklyPlan.length)return;
+  const now=new Date(),stamp=now.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//Interview Practice//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  weeklyPlan.forEach((p,i)=>{
+   const next=new Date(p.date.getFullYear(),p.date.getMonth(),p.date.getDate()+1);
+   lines.push('BEGIN:VEVENT',`UID:sc29-oral-${now.getTime()}-${i}@shukatsu-compass`,`DTSTAMP:${stamp}`,
+    `DTSTART;VALUE=DATE:${localDay(p.date)}`,`DTEND;VALUE=DATE:${localDay(next)}`,
+    `SUMMARY:就活コンパス 面接練習 Q${p.index+1} (10分)`,
+    'DESCRIPTION:面接の深掘り質問を音読する。質問番号のみ記載。予定は手動で取り込んでください。',
+    'END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  saveWeeklyPlan('29卒_面接7日間練習プラン.ics',lines.map(foldIcsLine).join('\r\n')+'\r\n','text/calendar;charset=utf-8');
+  planStatus.textContent='ICSを保存しました。カレンダーアプリで内容を確認してから取り込んでください。';
+ });
+ // /2026-10-22 14:33
+ function drawHistory(){
+  historyList.replaceChildren();
+  history.forEach((h)=>{const li=document.createElement('li');const delta=h.actual-h.goal;
+   li.textContent=`Q${h.index+1}｜実測${h.actual.toFixed(1)}秒 / 目標${h.goal}秒（${Math.abs(delta)<.05?'目標と一致':delta>0?'目標より'+delta.toFixed(1)+'秒長い':'目標より'+Math.abs(delta).toFixed(1)+'秒短い'}）`;
+   historyList.append(li);
+  });
+  if(!history.length){avgEl.textContent='—';withinEl.textContent='—';coveredEl.textContent='—';nextEl.textContent='記録すると、次に復習する質問の目安を表示します。';}
+  else{
+   const avg=history.reduce((sum,h)=>sum+Math.abs(h.actual-h.goal),0)/history.length;
+   const within=history.filter(h=>Math.abs(h.actual-h.goal)<=5).length;
+   const covered=new Set(history.map(h=>h.index)).size;
+   avgEl.textContent=avg.toFixed(1)+'秒';
+   withinEl.textContent=within+' / '+history.length+'回（'+Math.round(within/history.length*100)+'%）';
+   coveredEl.textContent=covered+' / 6問';
+   // 同じ質問は最新記録を採用し、差が最大の質問を次の練習候補にする。
+   const latest=new Map();history.forEach(h=>{if(!latest.has(h.index))latest.set(h.index,h);});
+   const worst=[...latest.values()].sort((a,b)=>Math.abs(b.actual-b.goal)-Math.abs(a.actual-a.goal))[0];
+   const gap=Math.abs(worst.actual-worst.goal);
+   nextEl.textContent=gap<=5?'練習済みの質問は最新記録で目標±5秒以内です。まだ練習していない質問にも挑戦しましょう。':`次の練習候補：Q${worst.index+1}（最新の目標との差${gap.toFixed(1)}秒）。声に出して調整してみましょう。`;
+  }
+  drawQuestionProgress();
+  refreshWeeklyPlan();
+  controls();
+ }
+ function syncQuestions(){
+  const titles=[...source.querySelectorAll('li > strong')].map(x=>x.textContent.trim());
+  const signature=JSON.stringify(titles);
+  // 質問が変わった場合、古い質問に紐付いた練習計画を引き継がない。
+  if(questionSignature&&questionSignature!==signature){weeklyPlan=[];weeklyPlanActive=false;completedPlanDays.clear();}
+  // 再生成時に同じ質問文でも進行中の計測を安全にリセットする。
+  questionSignature=signature;
+  resetClock(titles.length===6?'質問を選んで「開始」を押してください。':'先に「6問を作る・更新する」を押してください。');
+  select.replaceChildren();
+  if(titles.length!==6){const opt=document.createElement('option');opt.value='';opt.textContent='先に6問を作ってください';select.append(opt);}
+  else titles.forEach((t,i)=>{const opt=document.createElement('option');opt.value=String(i);opt.textContent=t.slice(0,58)+(t.length>58?'…':'');select.append(opt);});
+  // 既存の質問を更新・JSON復元した場合、旧質問の実測結果を誤って紐付けない。
+  if(history.length){history=[];drawHistory();}
+  drawQuestionProgress();
+  refreshWeeklyPlan();
+  controls();
+ }
+ progressList.addEventListener('click',(event)=>{
+  const button=event.target.closest('button[data-sc29-oral-question]');
+  if(!button||!hasQuestion()||mode!=='idle')return;
+  const i=Number(button.dataset.sc29OralQuestion);
+  if(!Number.isInteger(i)||i<0||i>5)return;
+  select.value=String(i);
+  state.textContent='Q'+(i+1)+'を選択しました。「開始」で音読時間を測定できます。';
+  root.scrollIntoView({behavior:'smooth',block:'start'});
+  start.focus({preventScroll:true});
+ });
+ start.addEventListener('click',()=>{
+  if(!hasQuestion())return;
+  const titles=[...source.querySelectorAll('li > strong')];
+  questionIndex=selected();questionText=titles[questionIndex]?.textContent||'';
+  if(!questionText)return;
+  elapsed=0;goal=Number(target.value)||60;segmentStart=performance.now();mode='running';
+  stopInterval();interval=setInterval(render,100);render();controls();
+ });
+ pause.addEventListener('click',()=>{if(mode!=='running')return;freeze();render();state.textContent='一時停止中。続ける場合は「再開」を押してください。';controls();});
+ resume.addEventListener('click',()=>{if(mode!=='paused')return;segmentStart=performance.now();mode='running';interval=setInterval(render,100);render();controls();});
+ finish.addEventListener('click',()=>{
+  if(mode!=='running'&&mode!=='paused')return;
+  freeze();const actual=Math.round(elapsed/100)/10;
+  history.unshift({index:questionIndex,goal,actual});history=history.slice(0,12);
+  drawHistory();resetClock(`Q${questionIndex+1}の実測は${actual.toFixed(1)}秒（目標${goal}秒）。履歴に記録しました。`);
+ });
+ reset.addEventListener('click',()=>resetClock('計測をリセットしました。回答メモ・履歴は残っています。'));
+ select.addEventListener('change',()=>{if(mode==='idle')state.textContent='質問を選択しました。「開始」で計測します。';});
+ target.addEventListener('change',controls);
+ clear.addEventListener('click',()=>{if(!history.length)return;if(!window.confirm('この画面の音読練習履歴を消去しますか？（回答メモは消えません）'))return;history=[];drawHistory();state.textContent='音読練習履歴を消去しました。';});
+ exportButton.addEventListener('click',()=>{
+  if(!history.length)return;
+  const lines=['29卒｜面接回答の音読実測時間','※回答メモ・個人情報は含みません。実測は端末の時計による目安です。',''];
+  history.slice().reverse().forEach((h,i)=>lines.push(`${i+1}. Q${h.index+1}｜${h.actual.toFixed(1)}秒｜目標${h.goal}秒｜差${(h.actual-h.goal).toFixed(1)}秒`,''));
+  const blob=new Blob(['\uFEFF'+lines.join('\n')],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='29卒_面接音読実測履歴.txt';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);state.textContent='音読時間の履歴をTXT保存しました。';
+ });
+ // CSVは数値のみを書き出し、面接回答・氏名・自由入力は含めない。
+ csvButton.addEventListener('click',()=>{
+  if(!history.length)return;
+  const rows=[['試行','質問番号','実測秒','目標秒','差秒','目標±5秒以内']];
+  history.slice().reverse().forEach((h,i)=>rows.push([i+1,h.index+1,h.actual.toFixed(1),h.goal,(h.actual-h.goal).toFixed(1),Math.abs(h.actual-h.goal)<=5?'はい':'いいえ']));
+  const csv='\uFEFF'+rows.map(r=>r.join(',')).join('\r\n');
+  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download='29卒_面接音読実測履歴.csv';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);state.textContent='音読時間の履歴をCSV保存しました。';
+ });
+ // 2026-10-22 13:30 | 音読練習履歴の手動JSONバックアップ。既存localStorageに触れない。
+ const questionKey=()=>{
+  const titles=[...source.querySelectorAll('li > strong')].map(x=>x.textContent.trim());
+  if(titles.length!==6)return '';
+  // FNV-1a: accidental question mismatch detection only, not a security hash.
+  let hash=2166136261;
+  for(const ch of JSON.stringify(titles)){hash^=ch.charCodeAt(0);hash=Math.imul(hash,16777619);}
+  return (hash>>>0).toString(16).padStart(8,'0');
+ };
+ // 2026-10-22 16:33 | 面接7日間プランの手動JSONバックアップと厳格な復元。
+ // localStorage・回答本文・企業名は扱わない。計画日付と完了状況だけを持ち運ぶ。
+ planJson.addEventListener('click',()=>{
+  if(!hasQuestion()||weeklyPlan.length!==7||!questionKey())return;
+  const data={format:'sc29-oral-weekplan-v1',questionKey:questionKey(),
+   days:weeklyPlan.map(p=>({date:localDay(p.date),index:p.index,reason:p.reason,done:completedPlanDays.has(planKey(p))})),
+   exportedAt:new Date().toISOString()};
+  saveWeeklyPlan('29卒_面接7日間プラン_進捗復元用.json',JSON.stringify(data,null,2),'application/json;charset=utf-8');
+  planStatus.textContent='7日間の計画と完了チェックをJSON保存しました。回答メモ・企業名は含めていません。';
+ });
+ planImport.addEventListener('click',()=>{
+  if(!hasQuestion()||mode!=='idle'){planStatus.textContent='先に面接の深掘り6問を作成し、計測を終了してから復元してください。';return;}
+  planImportFile.click();
+ });
+ const parsePlanDay=(day)=>{
+  if(typeof day!=='string'||!/^[0-9]{8}$/.test(day))return null;
+  const y=Number(day.slice(0,4)),m=Number(day.slice(4,6)),d=Number(day.slice(6,8));
+  const date=new Date(y,m-1,d);
+  return date.getFullYear()===y&&date.getMonth()===m-1&&date.getDate()===d?date:null;
+ };
+ planImportFile.addEventListener('change',async()=>{
+  const file=planImportFile.files&&planImportFile.files[0];planImportFile.value='';if(!file)return;
+  if(!hasQuestion()||mode!=='idle'){planStatus.textContent='質問の準備または計測状態が変わりました。復元を中止しました。';return;}
+  if(file.size>32768){planStatus.textContent='32KBを超えるファイルは読み込めません。現在の計画は保持しています。';return;}
+  try{
+   const data=JSON.parse(await file.text());
+   const days=data&&data.days;
+   const valid=data&&data.format==='sc29-oral-weekplan-v1'&&typeof data.questionKey==='string'&&/^[0-9a-f]{8}$/.test(data.questionKey)&&Array.isArray(days)&&days.length===7&&days.every(p=>p&&parsePlanDay(p.date)&&Number.isInteger(p.index)&&p.index>=0&&p.index<6&&typeof p.reason==='string'&&p.reason.length<=100&&typeof p.done==='boolean');
+   if(!valid){planStatus.textContent='対応していないJSON形式または不正な記録です。現在の計画は変更していません。';return;}
+   const dates=days.map(p=>parsePlanDay(p.date));
+   if(!dates.every((d,i)=>i===0||d.getTime()-dates[i-1].getTime()>=23*3600000&&d.getTime()-dates[i-1].getTime()<=25*3600000)){
+    planStatus.textContent='7日間の日付が連続していないため復元を中止しました。';return;
+   }
+   if(data.questionKey!==questionKey()){planStatus.textContent='保存時と6問の内容が異なります。保存時の志望理由を復元してから再試行してください。';return;}
+   if(weeklyPlanActive&&!window.confirm('現在の7日間計画と完了チェックを保存ファイルの内容に置き換えますか？')){
+    planStatus.textContent='復元をキャンセルしました。現在の計画は保持しています。';return;
+   }
+   weeklyPlan=days.map((p,i)=>({date:dates[i],index:p.index,reason:p.reason}));
+   completedPlanDays.clear();days.forEach((p,i)=>{if(p.done)completedPlanDays.add(planKey(weeklyPlan[i]));});
+   weeklyPlanActive=true;refreshWeeklyPlan();
+   // 復元した日付を開始日欄にも表示。過去の日付の計画も復元できるが、新規作成時は今日以降を選ぶ。
+   planStart.value=dateIso(dates[0]);
+   planStatus.textContent=`7日間の計画を復元しました（完了 ${planCount.textContent}）。音読履歴や回答メモは変更していません。`;
+  }catch(e){planStatus.textContent='JSONを読み込めませんでした。現在の計画は変更していません。';}
+ });
+ // /2026-10-22 16:33
+ function downloadJson(data){
+  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download='29卒_面接音読履歴_復元用.json';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+ }
+ jsonButton.addEventListener('click',()=>{
+  if(!history.length||!questionKey())return;
+  downloadJson({format:'sc29-oral-history-v1',questionKey:questionKey(),records:history.map(h=>({index:h.index,goal:h.goal,actual:h.actual})),exportedAt:new Date().toISOString()});
+  backupStatus.textContent='音読履歴をJSON保存しました。復元する際は同じ6問を作成してください。';
+ });
+ importButton.addEventListener('click',()=>{
+  if(mode!=='idle')return;
+  if(!questionKey()){backupStatus.textContent='先に面接の深掘り6問を作成してから復元してください。';return;}
+  importFile.click();
+ });
+ importFile.addEventListener('change',async()=>{
+  const file=importFile.files&&importFile.files[0];importFile.value='';if(!file)return;
+  if(mode!=='idle'){backupStatus.textContent='計測中は復元できません。計測を終了またはリセットしてください。';return;}
+  if(file.size>65536){backupStatus.textContent='ファイルが大きすぎます（上限64KB）。現在の履歴は変更していません。';return;}
+  try{
+   const raw=await file.text();const data=JSON.parse(raw);
+   const valid=data&&data.format==='sc29-oral-history-v1'&&typeof data.questionKey==='string'&&/^[0-9a-f]{8}$/.test(data.questionKey)&&Array.isArray(data.records)&&data.records.length>=1&&data.records.length<=12&&data.records.every(h=>h&&Number.isInteger(h.index)&&h.index>=0&&h.index<6&&[30,60,90].includes(h.goal)&&typeof h.actual==='number'&&Number.isFinite(h.actual)&&h.actual>=0&&h.actual<=3600);
+   if(!valid){backupStatus.textContent='対応していないJSON形式または不正な記録です。現在の履歴は変更していません。';return;}
+   if(data.questionKey!==questionKey()){backupStatus.textContent='保存時と6問の内容が違うため復元を中止しました。保存時の志望理由データを先に復元してください。';return;}
+   if(history.length&&!window.confirm('現在の音読履歴'+history.length+'件を、JSONの'+data.records.length+'件で置き換えますか？（回答メモは変更しません）')){backupStatus.textContent='復元をキャンセルしました。現在の履歴を保持しています。';return;}
+   history=data.records.map(h=>({index:h.index,goal:h.goal,actual:Math.round(h.actual*10)/10}));
+   drawHistory();backupStatus.textContent='音読履歴'+history.length+'件を復元しました。回答メモや他の就活データは変更していません。';
+  }catch(e){backupStatus.textContent='JSONを読み込めませんでした。現在の履歴は変更していません。';}
+ });
+ // /2026-10-22 13:30
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&mode==='running'){freeze();render();state.textContent='画面を離れたため自動で一時停止しました。';controls();}});
+ window.addEventListener('pagehide',()=>{if(mode==='running'){freeze();controls();}});
+ new MutationObserver(syncQuestions).observe(source,{childList:true,subtree:true,characterData:true});
+ syncQuestions();render();controls();
+})();
+</script>
+
+<script id="sc29-weekplan-interviewdate-script-20261022-1930">
+/* 面接本番日から7日前をローカル日付で計算。既存計画はユーザーの明示操作まで維持。 */
+(()=>{'use strict';
+ const root=document.getElementById('sc29reason');
+ const interview=document.getElementById('sc29-oral-interview-date');
+ const button=document.getElementById('sc29-oral-interview-backcalc');
+ const result=document.getElementById('sc29-oral-interview-date-result');
+ const start=document.getElementById('sc29-oral-plan-start-date');
+ if(!root||!interview||!button||!result||!start)return;
+ const today=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate());};
+ const addDays=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+ const iso=(d)=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+ const parse=(s)=>{
+  const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s);if(!m)return null;
+  const y=Number(m[1]),mo=Number(m[2]),day=Number(m[3]),d=new Date(y,mo-1,day);
+  return d.getFullYear()===y&&d.getMonth()===mo-1&&d.getDate()===day?d:null;
+ };
+ const resetRange=()=>{
+  const min=addDays(today(),7),maxStart=new Date(today().getFullYear()+1,today().getMonth(),today().getDate());
+  interview.min=iso(min);interview.max=iso(addDays(maxStart,7));
+ };
+ resetRange();
+ button.addEventListener('click',()=>{
+  resetRange();const d=parse(interview.value);
+  if(!d){result.textContent='面接日を正しく選んでください。練習開始日は変更していません。';interview.focus();return;}
+  const candidate=addDays(d,-7),first=today(),max=new Date(first.getFullYear()+1,first.getMonth(),first.getDate());
+  if(candidate<first){result.textContent='面接まで7日未満です。7日間を確保できないため、練習開始日を直接選んでください。';return;}
+  if(candidate>max){result.textContent='面接日が遠すぎます。練習開始日は今日から1年以内を選んでください。';return;}
+  start.value=iso(candidate);
+  const last=addDays(d,-1);
+  result.textContent=`練習開始日を${candidate.getMonth()+1}/${candidate.getDate()}に設定しました。面接前日（${last.getMonth()+1}/${last.getDate()}）までの7日間です。「7日間の計画を作る」を押すと反映されます。現在の計画はそのままです。`;
+ });
+})();
+</script>
 </body></html>
