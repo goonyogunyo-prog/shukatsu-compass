@@ -1124,6 +1124,65 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 #sc29reason #sc29-oral-plan-clear{background:#fff;color:#73403d;border-color:#dbb8b6}
 @media(max-width:480px){#sc29reason #sc29-oral-plan-list li{padding:10px}#sc29reason .sc29-plan-practice{flex:1 1 100%}}
 </style>
+
+<style id="sc29-weekplan-device-save-20261022-2033">
+/* 20:33 | 29卒7日間プラン: 明示的同意による端末自動保存 */
+#sc29reason .sc29-plan-device-save{margin:12px 0;padding:14px;border:1px solid #b8cbe2;border-radius:12px;background:#f3f8ff}
+#sc29reason .sc29-plan-device-save label{display:flex;align-items:flex-start;gap:9px;font-weight:750;line-height:1.5;color:#1b345e}
+#sc29reason .sc29-plan-device-save input[type=checkbox]{width:19px;height:19px;flex:0 0 19px;margin:3px 0 0;accent-color:#286ca2}
+#sc29reason .sc29-plan-device-buttons{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+#sc29reason .sc29-plan-device-buttons button{min-height:44px;padding:10px 12px;border:1px solid #516b95;border-radius:9px;background:#fff;color:#203b66;font:inherit;font-weight:700;cursor:pointer}
+#sc29reason .sc29-plan-device-buttons button:focus-visible,#sc29reason .sc29-plan-device-save input:focus-visible{outline:3px solid #2a6fbc;outline-offset:2px}
+#sc29reason .sc29-plan-device-save p{font-size:.82rem;margin:8px 0 0;color:#3d506d;line-height:1.65;overflow-wrap:anywhere}
+@media(max-width:480px){#sc29reason .sc29-plan-device-buttons button{flex:1 1 100%}}
+</style>
+
+<style id="sc29-weekplan-print-style-20261022-2130">
+/* 21:30: A4練習チェックシートはブラウザの印刷画面から出力。 */
+#sc29reason .sc29-weekplan-print-note{font-size:.83rem;line-height:1.6;color:#4d5e72;margin:8px 0 12px}
+#sc29-weekplan-print-root{display:none}
+@media print {
+  @page {size:A4;margin:15mm}
+  body.sc29-print-weekplan{background:#fff!important;color:#111!important;margin:0!important}
+  body.sc29-print-weekplan > :not(#sc29-weekplan-print-root){display:none!important}
+  body.sc29-print-weekplan > #sc29-weekplan-print-root{display:block!important;position:static!important;background:#fff!important;color:#111!important;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif!important;font-size:11pt!important;line-height:1.5!important}
+  #sc29-weekplan-print-root h1{font-size:19pt!important;margin:0 0 4mm!important}
+  #sc29-weekplan-print-root p{margin:2mm 0 5mm!important}
+  #sc29-weekplan-print-root table{width:100%!important;border-collapse:collapse!important;table-layout:fixed!important}
+  #sc29-weekplan-print-root th,#sc29-weekplan-print-root td{border:1px solid #777!important;padding:3mm!important;text-align:left!important;word-break:break-word!important}
+  #sc29-weekplan-print-root th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #sc29-weekplan-print-root tr{break-inside:avoid!important}
+  #sc29-weekplan-print-root .sc29-print-check{font-size:14pt!important;text-align:center!important}
+  #sc29-weekplan-print-root .sc29-print-checklist{margin-top:9mm!important;border-top:1px solid #aaa!important;padding-top:5mm!important}
+  #sc29-weekplan-print-root .sc29-print-checklist li{margin-bottom:3mm!important}
+  #sc29-weekplan-print-root .sc29-print-footer{font-size:9pt!important;color:#444!important;margin-top:7mm!important}
+}
+</style>
+
+<style id="sc29-cram-style-20261022-2230">
+/* 29卒: 直前1〜6日の面接準備。既存7日プランと保存領域を分離。 */
+#sc29reason .sc29-cram-plan{margin:16px 0;padding:18px;border:1px solid #bfd3ee;border-radius:14px;background:#f4f8ff;color:#182e4e;overflow-wrap:anywhere}
+#sc29reason .sc29-cram-plan[hidden]{display:none!important}
+#sc29reason .sc29-cram-plan h6{margin:0 0 9px;font-size:1.05rem;line-height:1.5;color:#163a6c}
+#sc29reason .sc29-cram-plan p{line-height:1.7;margin:7px 0 13px;font-size:.89rem}
+#sc29reason .sc29-cram-days{margin:0 0 14px;padding:0;list-style:none;display:grid;gap:10px}
+#sc29reason .sc29-cram-days>li{margin:0;padding:13px 14px;background:white;border:1px solid #d8e3f4;border-radius:10px}
+#sc29reason .sc29-cram-days strong{display:block;margin-bottom:7px;font-size:.96rem}
+#sc29reason .sc29-cram-days ul{padding-left:1.25em;margin:0;line-height:1.65;font-size:.88rem}
+#sc29reason .sc29-cram-days ul li{margin:4px 0}
+#sc29reason #sc29-cram-export{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #1d5398;border-radius:9px;background:#205bb1;color:#fff;cursor:pointer;font-weight:650;max-width:100%;white-space:normal;text-align:center}
+#sc29reason #sc29-cram-export:focus-visible{outline:3px solid #f2ad4d;outline-offset:2px}
+#sc29reason .sc29-cram-notice{color:#53647a;font-size:.79rem!important;margin-bottom:0!important}
+@media(max-width:480px){#sc29reason .sc29-cram-plan{padding:13px;margin-left:-42px;margin-right:-42px}#sc29reason #sc29-cram-export{width:100%}}
+</style>
+
+<style id="sc29-cram-ics-style-20261022-2330">
+/* 29卒の直前プランを端末のカレンダーに取り込むための補助操作 */
+#sc29reason #sc29-cram-ics-export{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;margin:8px 0 0 8px;border:1px solid #1d5398;border-radius:9px;background:#fff;color:#184a90;cursor:pointer;font-weight:650;max-width:100%;white-space:normal;text-align:center}
+#sc29reason #sc29-cram-ics-export:focus-visible{outline:3px solid #f2ad4d;outline-offset:2px}
+#sc29reason #sc29-cram-ics-export:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:480px){#sc29reason #sc29-cram-ics-export{width:100%;margin:8px 0 0}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -1137,7 +1196,7 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
 <h1 id="sc-h-title">就活を、<br class="sc-h-mobile-break"/><em>もっとシンプルに。</em></h1>
 <p class="sc-h-lead">自己分析も、ESも、企業研究も。<br class="sc-h-br"/>いま必要な作業を選んで、すぐに始めよう。</p>
 <div class="sc-h-hero-cta"><a class="sc-h-action-main" href="#discover">無料ツールを探す <span aria-hidden="true">↗</span></a><a class="sc-h-action-secondary" href="#workspace-intro">選考管理を開く <span aria-hidden="true">→</span></a></div>
-<div class="sc-h-facts"><span>登録不要</span><span>基本機能は無料</span><span>入力データは端末内に保存</span></div>
+<div class="sc-h-facts"><span>登録不要</span><span>基本機能は無料</span><span>入力は原則ブラウザ内で処理</span></div>
 </div>
 <div aria-label="できることの概要" class="sc-h-hero-aside"><span class="sc-h-aside-label">YOUR WORKSPACE</span>
 <div class="sc-h-aside-line"><span class="sc-h-aside-num">01</span><strong>考える</strong><span>自己分析・企業研究</span></div>
@@ -1404,10 +1463,22 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
           <label for="sc29-oral-interview-date">面接本番日から逆算する（任意）</label>
           <div class="sc29-plan-interview-date-controls">
             <input id="sc29-oral-interview-date" type="date" aria-describedby="sc29-oral-interview-date-help">
-            <button id="sc29-oral-interview-backcalc" type="button">面接前7日間に設定</button>
+            <button id="sc29-oral-interview-backcalc" type="button">面接日から準備プランを作る</button>
           </div>
-          <p id="sc29-oral-interview-date-help">面接の7日前〜前日を1日1問の練習日に設定します。7日未満の場合は開始日を直接選んでください。計画・完了チェックは「7日間の計画を作る」まで変更されません。</p>
+          <p id="sc29-oral-interview-date-help">面接の7日前〜前日を1日1問の練習日に設定します。面接まで1〜6日の場合は、今日から取り組める直前準備プランを表示します（7日間の計画と完了チェックは変更しません）。7日以上ある場合は練習開始日を設定できます。</p>
           <p id="sc29-oral-interview-date-result" role="status" aria-live="polite">面接日を選ぶと、練習開始日を計算できます。</p>
+          <!-- 2026-10-22 22:30 | 7日未満の面接にも対応する直前準備ガイド。7日計画とは独立 -->
+          <section id="sc29-cram-plan" class="sc29-cram-plan" aria-labelledby="sc29-cram-title" hidden>
+            <h6 id="sc29-cram-title">面接直前の集中準備プラン</h6>
+            <p id="sc29-cram-summary" role="status" aria-live="polite"></p>
+            <ol id="sc29-cram-days" class="sc29-cram-days"></ol>
+            <button id="sc29-cram-export" type="button" disabled>直前準備プランをTXT保存</button>
+            <button id="sc29-cram-ics-export" type="button" disabled aria-describedby="sc29-cram-ics-note">直前準備をカレンダー用ICS保存</button>
+            <p id="sc29-cram-ics-note" class="sc29-cram-notice">ICSは終日予定として保存されます。カレンダーへの取り込みは手動で、通知・自動同期はありません。氏名・企業名・回答メモは含めません。</p>
+            <p id="sc29-cram-ics-status" class="sc29-cram-notice" role="status" aria-live="polite"></p>
+            <p class="sc29-cram-notice">内容は準備の目安です。面接日時・募集要項・会場等は企業の正式案内で確認してください。日程・項目は端末に自動保存されません。</p>
+          </section>
+          <!-- /2026-10-22 22:30 -->
         </div>
         <!-- /2026-10-22 19:30 -->
         <div class="sc29-oral-weekplan-actions">
@@ -1415,10 +1486,24 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
           <button type="button" id="sc29-oral-plan-txt" disabled>計画をTXT保存</button>
           <button type="button" id="sc29-oral-plan-ics" disabled>カレンダー用ICS保存</button>
           <button type="button" id="sc29-oral-plan-clear" disabled>完了チェックをリセット</button>
+          <button type="button" id="sc29-oral-plan-print" disabled>A4印刷・PDF保存</button>
           <button type="button" id="sc29-oral-plan-json" disabled>計画・進捗をJSON保存</button>
           <button type="button" id="sc29-oral-plan-import" disabled>保存した計画を復元</button>
           <input id="sc29-oral-plan-import-file" type="file" accept=".json,application/json" hidden>
         </div>
+
+        <!-- 2026-10-22 20:33 | 端末保存は任意。既存のES・選考管理の保存領域と独立 -->
+        <p class="sc29-weekplan-print-note" id="sc29-oral-plan-print-note">印刷・PDF保存では日付・質問番号・完了チェックだけを出力します。回答メモ・企業名・氏名は含みません。PDF保存はブラウザの印刷画面から選択してください。</p>
+        <div class="sc29-plan-device-save" aria-label="面接練習プランの端末保存">
+          <label for="sc29-oral-plan-device-optin"><input type="checkbox" id="sc29-oral-plan-device-optin">この端末に7日間の計画・完了チェックを自動保存する（任意）</label>
+          <div class="sc29-plan-device-buttons">
+            <button type="button" id="sc29-oral-plan-device-restore">端末保存から復元</button>
+            <button type="button" id="sc29-oral-plan-device-delete">端末保存を削除</button>
+          </div>
+          <p id="sc29-oral-plan-device-status" role="status" aria-live="polite">初期状態は自動保存オフ。オンにすると計画作成・完了チェック変更時にこのブラウザへ保存します。</p>
+          <p>保存対象は日付・質問番号・完了状況・質問一致確認用の短い照合値のみ。回答本文・氏名・企業名は保存しません。復元時は先に同じ6問を作成してください。共有端末ではオンにせず、必要に応じて「端末保存を削除」を押してください。別端末へ移す場合はJSON保存をご利用ください。</p>
+        </div>
+        <!-- /2026-10-22 20:33 -->
         <div class="sc29-plan-progress" aria-label="練習プランの完了状況"><label for="sc29-oral-plan-meter">完了 <span id="sc29-oral-plan-count">0 / 7日</span></label><progress id="sc29-oral-plan-meter" value="0" max="7">0 / 7日</progress></div>
 
         <!-- 2026-10-22 17:33 | 期限超過を含む次の練習1問を案内 -->
@@ -1430,7 +1515,7 @@ main#main-content{max-width:1160px!important;margin:0 auto!important;padding:24p
         <!-- /2026-10-22 17:33 -->
         <p id="sc29-oral-plan-status" role="status" aria-live="polite">先に面接の深掘り6問を作成してください。</p>
         <ol id="sc29-oral-plan-list" aria-label="7日間の面接練習計画"></ol>
-        <p class="sc29-oral-weekplan-note">「練習する」で質問を選び、練習後にチェックを付けられます。完了チェックは自動保存されません。「計画・進捗をJSON保存」で日付・質問番号・完了状況を保存し、後日同じ6問を作成してから復元できます。回答文・企業名・氏名はJSONに含めません。計画は作成後に固定され、開始日や練習履歴を反映して作り直す場合は「7日間の計画を作る」で再作成してください。TXTにはチェック状況を含みます。計画は目安で、募集日程・面接予定とは連動しません。ICSは終日予定として端末に保存するだけで、カレンダーへの登録は手動です。予定には質問番号のみを含み、回答文・氏名・志望先は含めません。通知は付けません。</p>
+        <p class="sc29-oral-weekplan-note">「練習する」で質問を選び、練習後にチェックを付けられます。完了チェックは初期状態では自動保存されません。上の端末保存をオンにすると計画・進捗が同じブラウザに保存されます。手動の「計画・進捗をJSON保存」でも保存でき、後日同じ6問を作成してから復元できます。回答文・企業名・氏名はJSONに含めません。計画は作成後に固定され、開始日や練習履歴を反映して作り直す場合は「7日間の計画を作る」で再作成してください。TXTにはチェック状況を含みます。計画は目安で、募集日程・面接予定とは連動しません。ICSは終日予定として端末に保存するだけで、カレンダーへの登録は手動です。予定には質問番号のみを含み、回答文・氏名・志望先は含めません。通知は付けません。</p>
       </section>
       <!-- /2026-10-22 14:33 -->
     </div>
@@ -4979,7 +5064,7 @@ get('sc29is-reset')?.addEventListener('click',()=>queueMicrotask(refresh));
    planStart.focus();return;
   }
   if(completedPlanDays.size&&!window.confirm('完了チェックが付いた計画を再作成しますか？ 今の進捗を残すには先にJSON保存してください。'))return;
-  weeklyPlan=[];completedPlanDays.clear();weeklyPlanActive=true;refreshWeeklyPlan();
+  weeklyPlan=[];completedPlanDays.clear();weeklyPlanActive=true;refreshWeeklyPlan();planDeviceSave();
  });
  // チェックは明示操作のみ。質問・日付が変わった項目の完了扱いは引き継がない。
  planList.addEventListener('change',(event)=>{
@@ -4988,7 +5073,8 @@ get('sc29is-reset')?.addEventListener('click',()=>queueMicrotask(refresh));
   if(box.checked)completedPlanDays.add(key);else completedPlanDays.delete(key);
   box.closest('li')?.classList.toggle('sc29-plan-done',box.checked);
   refreshPlanProgress();
-  planStatus.textContent=`完了状況を更新しました（${planCount.textContent}）。後日続ける場合はJSON保存してください。`;
+  const savedToDevice=planDeviceSave();
+  planStatus.textContent=`完了状況を更新しました（${planCount.textContent}）。${savedToDevice?"端末へ保存しました。":"後日続ける場合はJSON保存してください。"}`;
  });
  planList.addEventListener('click',(event)=>{
   const button=event.target.closest('button[data-plan-question]');if(!button||mode!=='idle'||!hasQuestion())return;
@@ -4998,7 +5084,7 @@ get('sc29is-reset')?.addEventListener('click',()=>queueMicrotask(refresh));
  });
  planClear.addEventListener('click',()=>{
   if(!completedPlanDays.size||!window.confirm('7日間の練習プランの完了チェックをすべて解除しますか？（音読履歴は残ります）'))return;
-  completedPlanDays.clear();refreshWeeklyPlan();planStatus.textContent='完了チェックをリセットしました。音読履歴はそのままです。';
+  completedPlanDays.clear();refreshWeeklyPlan();planDeviceSave();planStatus.textContent='完了チェックをリセットしました。音読履歴はそのままです。';
  });
  planTxt.addEventListener('click',()=>{
   if(!weeklyPlan.length)return;
@@ -5171,11 +5257,55 @@ get('sc29is-reset')?.addEventListener('click',()=>queueMicrotask(refresh));
    completedPlanDays.clear();days.forEach((p,i)=>{if(p.done)completedPlanDays.add(planKey(weeklyPlan[i]));});
    weeklyPlanActive=true;refreshWeeklyPlan();
    // 復元した日付を開始日欄にも表示。過去の日付の計画も復元できるが、新規作成時は今日以降を選ぶ。
-   planStart.value=dateIso(dates[0]);
+   planStart.value=dateIso(dates[0]);planDeviceSave();
    planStatus.textContent=`7日間の計画を復元しました（完了 ${planCount.textContent}）。音読履歴や回答メモは変更していません。`;
   }catch(e){planStatus.textContent='JSONを読み込めませんでした。現在の計画は変更していません。';}
  });
  // /2026-10-22 16:33
+ // 2026-10-22 20:33 | 任意の端末自動保存。別キーだけ使用し、他のlocalStorageを触らない。
+ const planDeviceKey='sc29_oral_weekplan_device_v1';
+ const planDeviceOptin=el('plan-device-optin'),planDeviceRestore=el('plan-device-restore'),planDeviceDelete=el('plan-device-delete'),planDeviceStatus=el('plan-device-status');
+ const planDeviceRead=()=>{try{return localStorage.getItem(planDeviceKey);}catch(e){return null;}};
+ function planDeviceSave(){
+  if(!planDeviceOptin.checked||!weeklyPlanActive||weeklyPlan.length!==7||!questionKey())return false;
+  const data={format:'sc29-oral-weekplan-v1',questionKey:questionKey(),
+   days:weeklyPlan.map(p=>({date:localDay(p.date),index:p.index,reason:p.reason,done:completedPlanDays.has(planKey(p))})),
+   savedAt:new Date().toISOString()};
+  try{localStorage.setItem(planDeviceKey,JSON.stringify(data));planDeviceStatus.textContent='計画と完了チェックをこの端末に保存しました。回答本文は含みません。';return true;}
+  catch(e){planDeviceStatus.textContent='端末への保存に失敗しました。ブラウザの保存設定を確認し、必要ならJSON保存を使ってください。';return false;}
+ }
+ planDeviceOptin.addEventListener('change',()=>{
+  if(planDeviceOptin.checked){
+   if(!planDeviceSave())planDeviceStatus.textContent='自動保存をオンにしました。7日間の計画を作ると保存を開始します。';
+  }else{planDeviceStatus.textContent='自動保存をオフにしました。既存の端末保存は残っています。削除する場合は「端末保存を削除」を押してください。';}
+ });
+ planDeviceDelete.addEventListener('click',()=>{
+  if(!planDeviceRead()){planDeviceStatus.textContent='削除する端末保存はありません。現在画面の計画は変更しません。';return;}
+  if(!window.confirm('この端末に保存した29卒の7日間練習プランだけを削除しますか？ 画面の計画と他の就活データは残ります。'))return;
+  try{localStorage.removeItem(planDeviceKey);planDeviceOptin.checked=false;planDeviceStatus.textContent='端末保存を削除しました。画面の計画・音読履歴・他の就活データはそのままです。';}
+  catch(e){planDeviceStatus.textContent='端末保存を削除できませんでした。ブラウザの保存設定を確認してください。';}
+ });
+ planDeviceRestore.addEventListener('click',()=>{
+  if(!hasQuestion()||mode!=='idle'||!questionKey()){planDeviceStatus.textContent='先に同じ面接深掘り6問を作成し、計測を終了してから復元してください。';return;}
+  const raw=planDeviceRead();if(!raw){planDeviceStatus.textContent='このブラウザに保存された計画はありません。';return;}
+  if(raw.length>32768){planDeviceStatus.textContent='保存データが大きすぎるため復元しません。画面の計画は保持しています。';return;}
+  try{
+   const data=JSON.parse(raw),days=data&&data.days;
+   const valid=data&&data.format==='sc29-oral-weekplan-v1'&&typeof data.questionKey==='string'&&/^[0-9a-f]{8}$/.test(data.questionKey)&&Array.isArray(days)&&days.length===7&&days.every(p=>p&&parsePlanDay(p.date)&&Number.isInteger(p.index)&&p.index>=0&&p.index<6&&typeof p.reason==='string'&&p.reason.length<=100&&typeof p.done==='boolean');
+   if(!valid){planDeviceStatus.textContent='端末保存の形式が正しくないため復元を中止しました。現在の計画は保持しています。';return;}
+   const dates=days.map(p=>parsePlanDay(p.date));
+   if(!dates.every((d,i)=>i===0||(d.getTime()-dates[i-1].getTime()>=23*3600000&&d.getTime()-dates[i-1].getTime()<=25*3600000))){planDeviceStatus.textContent='保存された日付が連続していません。復元を中止しました。';return;}
+   if(data.questionKey!==questionKey()){planDeviceStatus.textContent='保存時と6問の内容が異なります。同じ6問を作成してから復元してください。';return;}
+   if(weeklyPlanActive&&!window.confirm('現在の7日間の計画・完了チェックを端末保存の内容で置き換えますか？')){planDeviceStatus.textContent='復元をキャンセルしました。現在の計画は保持しています。';return;}
+   weeklyPlan=days.map((p,i)=>({date:dates[i],index:p.index,reason:p.reason}));
+   completedPlanDays.clear();days.forEach((p,i)=>{if(p.done)completedPlanDays.add(planKey(weeklyPlan[i]));});
+   weeklyPlanActive=true;refreshWeeklyPlan();planStart.value=dateIso(dates[0]);
+   planDeviceStatus.textContent='端末保存から7日間の計画と完了チェックを復元しました。自動保存はチェックを入れた場合のみ有効です。';
+   planStatus.textContent='端末保存を復元しました（完了 '+planCount.textContent+'）。回答メモ・音読履歴は変更していません。';
+  }catch(e){planDeviceStatus.textContent='端末保存を読み込めませんでした。画面の計画は保持しています。';}
+ });
+ if(planDeviceRead())planDeviceStatus.textContent='この端末に保存済みの計画があります。同じ6問を作成して「端末保存から復元」を押してください。自動保存はオフです。';
+ // /2026-10-22 20:33
  function downloadJson(data){
   const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
   const a=document.createElement('a');a.href=url;a.download='29卒_面接音読履歴_復元用.json';document.body.append(a);a.click();a.remove();
@@ -5244,6 +5374,184 @@ get('sc29is-reset')?.addEventListener('click',()=>queueMicrotask(refresh));
   start.value=iso(candidate);
   const last=addDays(d,-1);
   result.textContent=`練習開始日を${candidate.getMonth()+1}/${candidate.getDate()}に設定しました。面接前日（${last.getMonth()+1}/${last.getDate()}）までの7日間です。「7日間の計画を作る」を押すと反映されます。現在の計画はそのままです。`;
+ });
+})();
+</script>
+
+<script id="sc29-weekplan-print-20261022-2130">
+/* 29卒面接7日間プラン: A4チェックシート。回答メモや個人情報を出力しない。 */
+(()=>{'use strict';
+ const btn=document.getElementById('sc29-oral-plan-print');
+ const list=document.getElementById('sc29-oral-plan-list');
+ const status=document.getElementById('sc29-oral-plan-status');
+ if(!btn||!list||!status)return;
+ const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const getRows=()=>[...list.querySelectorAll('li')].map((li,i)=>{
+  const text=li.querySelector('strong')?.textContent?.trim()||'';
+  const match=text.match(/^(.*?)\s*[｜|]\s*Q([1-6])$/);
+  const check=li.querySelector('input[type="checkbox"][data-plan-key]');
+  if(!match||!check)return null;
+  return {day:i+1,date:match[1],question:Number(match[2]),done:check.checked};
+ });
+ const refresh=()=>{btn.disabled=getRows().length!==7||getRows().some(x=>!x)};
+ const observer=new MutationObserver(refresh);observer.observe(list,{childList:true,subtree:true,attributes:true,attributeFilter:['checked']});
+ list.addEventListener('change',refresh);refresh();
+ btn.addEventListener('click',()=>{
+  const rows=getRows();if(rows.length!==7||rows.some(x=>!x)){status.textContent='先に7日間の計画を作成してください。';return;}
+  document.getElementById('sc29-weekplan-print-root')?.remove();
+  const root=document.createElement('div');root.id='sc29-weekplan-print-root';root.setAttribute('aria-label','29卒面接7日間の練習計画 印刷用');
+  const done=rows.filter(x=>x.done).length;
+  const body=rows.map(r=>`<tr><td>${r.day}日目</td><td>${escapeHtml(r.date)}</td><td>Q${r.question}</td><td class="sc29-print-check">${r.done?'☑ 完了':'□ 未完了'}</td></tr>`).join('');
+  root.innerHTML=`<h1>29卒｜面接7日間の練習チェックシート</h1><p>1日1問・約10分。進捗 ${done} / 7日</p><table><thead><tr><th>日程</th><th>練習日</th><th>質問</th><th>確認</th></tr></thead><tbody>${body}</tbody></table><section class="sc29-print-checklist"><h2>面接前の最終確認</h2><ol><li>□ 面接日時・場所・接続方法を公式案内で確認</li><li>□ 自己紹介・ガクチカ・志望理由を声に出して練習</li><li>□ 応募先の事業内容・募集要項を公式情報で再確認</li><li>□ 逆質問を2〜3個準備</li><li>□ 当日の持ち物・通信環境・移動時間を確認</li></ol></section><p class="sc29-print-footer">就活コンパス｜質問本文・回答メモ・企業名・氏名は印刷しません。計画は練習の目安であり、面接予定との自動同期ではありません。</p>`;
+  document.body.append(root);document.body.classList.add('sc29-print-weekplan');
+  let cleaned=false;
+  const cleanup=()=>{if(cleaned)return;cleaned=true;document.body.classList.remove('sc29-print-weekplan');root.remove();window.removeEventListener('afterprint',cleanup)};
+  window.addEventListener('afterprint',cleanup);
+  try{window.print();status.textContent='印刷画面を開きました。PDFで保存する場合は印刷先で「PDFに保存」を選択してください。';}
+  catch(e){status.textContent='印刷画面を開けませんでした。ブラウザの印刷機能を確認してください。';cleanup();}
+  setTimeout(cleanup,120000);
+ });
+})();
+</script>
+
+<script id="sc29-cram-script-20261022-2230">
+/* 7日未満の面接までの直前準備プラン。既存の7日計画・端末保存・回答本文は変更しない。 */
+(()=>{'use strict';
+ const input=document.getElementById('sc29-oral-interview-date');
+ const action=document.getElementById('sc29-oral-interview-backcalc');
+ const result=document.getElementById('sc29-oral-interview-date-result');
+ const panel=document.getElementById('sc29-cram-plan');
+ const summary=document.getElementById('sc29-cram-summary');
+ const list=document.getElementById('sc29-cram-days');
+ const exportBtn=document.getElementById('sc29-cram-export');
+ if(!input||!action||!result||!panel||!summary||!list||!exportBtn)return;
+ const tasks=[
+  '自己紹介30〜60秒とガクチカ1分を声に出して練習する',
+  '志望動機を「なぜ業界・なぜ企業・なぜ職種」で整理する',
+  '企業公式の採用ページで仕事内容・募集要項を確認する',
+  '深掘り6問のうち答えにくい2問を練習する',
+  '逆質問を2〜3個準備し、質問する目的も考える',
+  '面接日時・会場/URL・持ち物・通信環境・移動時間を最終確認する'
+ ];
+ const startOfDay=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate());
+ const addDays=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+ const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+ const parse=s=>{
+  const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s);if(!m)return null;
+  const y=Number(m[1]),mo=Number(m[2]),day=Number(m[3]);
+  const d=new Date(y,mo-1,day);
+  return d.getFullYear()===y&&d.getMonth()===mo-1&&d.getDate()===day?d:null;
+ };
+ const daysBetween=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/86400000);
+ let current=[];
+ const clear=()=>{current=[];panel.hidden=true;list.replaceChildren();summary.textContent='';exportBtn.disabled=true;};
+ input.addEventListener('change',clear);
+ action.addEventListener('click',()=>{
+  clear();
+  const today=startOfDay(new Date());
+  // The legacy seven-day handler resets min to +7 days on click; short-notice dates must remain selectable.
+  input.min=iso(addDays(today,1));
+  const interview=parse(input.value);
+  if(!interview)return;
+  const remaining=daysBetween(today,interview);
+  if(remaining<=0){result.textContent='面接日が今日以前です。明日以降の日付を選んでください。';return;}
+  if(remaining>=7)return; // Existing seven-day handler owns this path.
+  const priorities=remaining===1?[tasks[0],tasks[1],tasks[2],tasks[5]]:tasks;
+  let pos=0;
+  for(let i=0;i<remaining;i++){
+   const count=Math.ceil((priorities.length-pos)/(remaining-i));
+   const entries=priorities.slice(pos,pos+count);pos+=count;
+   current.push({date:iso(addDays(today,i)),entries});
+  }
+  summary.textContent=`面接まであと${remaining}日。今日から面接前日まで、${remaining}日間の準備案を作成しました。7日間の練習計画・完了チェックは変更していません。`;
+  result.textContent=`面接まで${remaining}日なので、7日間の計画は作らず直前準備プランを表示しました。`;
+  for(const day of current){
+   const li=document.createElement('li');
+   const head=document.createElement('strong');head.textContent=`${day.date} の準備`;
+   const ul=document.createElement('ul');
+   for(const item of day.entries){const row=document.createElement('li');row.textContent=item;ul.append(row);}
+   li.append(head,ul);list.append(li);
+  }
+  panel.hidden=false;exportBtn.disabled=false;
+ });
+ exportBtn.addEventListener('click',()=>{
+  if(!current.length)return;
+  const body=['29卒｜面接直前の集中準備プラン','企業からの正式案内を必ず確認してください。',''];
+  for(const day of current){body.push(day.date);day.entries.forEach((task,i)=>body.push(`  ${i+1}. ${task}`));body.push('');}
+  body.push('就活コンパス｜回答本文・氏名・企業名は含みません。');
+  const blob=new Blob(['\ufeff'+body.join('\r\n')],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;
+  a.download='29sotsu_mensetsu_chokuzen_plan.txt';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+ });
+ // The initial date control must allow a next-day interview, even before any button click.
+ input.min=iso(addDays(startOfDay(new Date()),1));
+})();
+</script>
+
+<script id="sc29-cram-ics-20261022-2330">
+/* 29卒面接直前1〜6日: 既存DOMから終日ICSを生成。7日プランと保存領域には触れない。 */
+(()=>{'use strict';
+ const panel=document.getElementById('sc29-cram-plan');
+ const list=document.getElementById('sc29-cram-days');
+ const btn=document.getElementById('sc29-cram-ics-export');
+ const status=document.getElementById('sc29-cram-ics-status');
+ if(!panel||!list||!btn||!status)return;
+ const dateRx=/^(\d{4})-(\d{2})-(\d{2})$/;
+ const parse=s=>{
+  const m=dateRx.exec(s);if(!m)return null;
+  const y=Number(m[1]),mo=Number(m[2]),day=Number(m[3]);
+  const d=new Date(y,mo-1,day);
+  return d.getFullYear()===y&&d.getMonth()===mo-1&&d.getDate()===day?d:null;
+ };
+ const dateStr=d=>`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+ const addDay=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+1);
+ const escapeText=s=>String(s).replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');
+ const getDays=()=>{
+  if(panel.hidden)return [];
+  const lis=[...list.children].filter(el=>el.tagName==='LI');
+  if(lis.length<1||lis.length>6)return [];
+  const days=[];
+  for(const li of lis){
+   const head=li.querySelector('strong')?.textContent?.trim()||'';
+   const m=/^(\d{4}-\d{2}-\d{2}) の準備$/.exec(head);
+   const date=m&&parse(m[1]);
+   const tasks=[...li.querySelectorAll('ul > li')].map(el=>el.textContent.trim()).filter(Boolean);
+   if(!date||tasks.length<1||tasks.length>6||tasks.some(x=>x.length>250))return [];
+   days.push({date,tasks});
+  }
+  for(let i=1;i<days.length;i++)if(dateStr(days[i].date)!==dateStr(addDay(days[i-1].date)))return [];
+  return days;
+ };
+ const refresh=()=>{btn.disabled=getDays().length===0;};
+ new MutationObserver(refresh).observe(panel,{attributes:true,attributeFilter:['hidden']});
+ new MutationObserver(refresh).observe(list,{childList:true,subtree:true,characterData:true});
+ refresh();
+ const encoder=new TextEncoder();
+ const fold=line=>{
+  let out='',part='',size=0;
+  for(const ch of line){
+   const bytes=encoder.encode(ch).length;
+   if(size+bytes>74){out+=part+'\r\n ';part='';size=1;}
+   part+=ch;size+=bytes;
+  }
+  return out+part;
+ };
+ btn.addEventListener('click',()=>{
+  const days=getDays();
+  if(!days.length){status.textContent='先に面接日を指定し、直前準備プランを作成してください。';refresh();return;}
+  const now=new Date();
+  const stamp=`${now.getUTCFullYear()}${String(now.getUTCMonth()+1).padStart(2,'0')}${String(now.getUTCDate()).padStart(2,'0')}T${String(now.getUTCHours()).padStart(2,'0')}${String(now.getUTCMinutes()).padStart(2,'0')}${String(now.getUTCSeconds()).padStart(2,'0')}Z`;
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shukatsu Compass//29sotsu Cram Plan//JA','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  days.forEach((day,i)=>{
+   lines.push('BEGIN:VEVENT',`UID:sc29-cram-${dateStr(day.date)}-${i+1}@shukatsu-compass.local`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${dateStr(day.date)}`,`DTEND;VALUE=DATE:${dateStr(addDay(day.date))}`,`SUMMARY:${escapeText(`29卒 面接直前の準備（${i+1}日目）`)}`,`DESCRIPTION:${escapeText(day.tasks.join('\n')+'\n正式な面接日程・会場等は応募先の案内を確認してください。')}`,'TRANSP:TRANSPARENT','END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  const content=lines.map(fold).join('\r\n')+'\r\n';
+  const url=URL.createObjectURL(new Blob([content],{type:'text/calendar;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download='29sotsu_mensetsu_chokuzen_plan.ics';document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  status.textContent=`${days.length}日分の終日予定をICSで保存しました。端末のカレンダーに手動で取り込んでください。`;
  });
 })();
 </script>
